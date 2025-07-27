@@ -1,3 +1,7 @@
 a.out
 *.sh
 *cbp
+bin/
+obj/
+*.layout
+*.depend
