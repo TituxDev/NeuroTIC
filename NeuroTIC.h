@@ -16,6 +16,28 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+/* FREE CONTROL */
+void **net_neurons= NULL;
+int net_neurons_count= 0;
+void net_neurons_free( void ){
+	while( net_neurons_count ) free( net_neurons[--net_neurons_count] );
+	free( net_neurons );
+}
+void net_neurons_add( void *neurons ){
+	static char called= 1;
+	void **temp= realloc( net_neurons , ++net_neurons_count * sizeof( void * ) );
+	if( !temp ){
+        printf( "Failed to allocate memory for free tracking.\n" );
+        fprintf( stderr , "Failed to allocate memory for free tracking.\n" );
+        exit( EXIT_FAILURE );
+	}
+	net_neurons= temp;
+	net_neurons[net_neurons_count - 1]= neurons;
+	if( called ){
+		atexit( net_neurons_free );
+		called= 0;
+	}
+}
 /* DEFININITIONS */
 struct neuron{
     int inputs;
@@ -35,10 +57,26 @@ struct net{
     float ***B;
     float **OUT;
 };
+struct net define_net( int inputs, int layers, int *neurons_by_layer ){
+	struct net N={
+		.inputs= inputs,
+		.layers= layers,
+		.IN= NULL,
+		.N= NULL,
+		.B= NULL,
+		.OUT= NULL
+	};
+	if( !( N.neurons= malloc( N.layers * sizeof( int ) ) ) ){
+		printf( "Failed to allocate memory for neurons in define_net.\n" );
+		fprintf( stderr , "Failed to allocate memory for neurons in define_net.\n" );
+		exit( EXIT_FAILURE );
+	}
+	net_neurons_add( N.neurons );
+	memcpy( N.neurons , neurons_by_layer , layers * sizeof( int ) );
+	return N;
+}
 /* BUILD */
-struct net *build_net( struct net *Net , int *neurons ){
-    Net->neurons= malloc( Net->inputs * sizeof( float ) );
-    memcpy( Net->neurons , neurons , Net->layers * sizeof( int ) );
+struct net *build_net( struct net *Net ){
     Net->N= malloc( Net->layers * sizeof( struct neuron * ) );
     for( int i= 0 ; i < Net->layers ; i++ ) Net->N[i]=malloc( Net->neurons[i] * sizeof( struct neuron ) );
     Net->IN= malloc( Net->inputs * sizeof( float * ) );
