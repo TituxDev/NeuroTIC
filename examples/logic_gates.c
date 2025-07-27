@@ -1,3 +1,9 @@
+/*
+ * Example usage of NeuroTIC - A neural network library by Oscar Sotomayor.
+ * This example is provided under the terms of the Mozilla Public License v. 2.0.
+ * See: https://mozilla.org/MPL/2.0/
+ */
+
 /* This file is a simple example of how to use NeuroTIC.h V1.
    It shows how to train a neural network on logic functions.
    To change the logic function, select the corresponding macro
