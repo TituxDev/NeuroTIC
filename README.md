@@ -65,7 +65,7 @@ A brief and possibly dramatic history of the madness behind the code.
 - ⚖️ Everything is just weights, biases, and error calculations... to automate the adjustments.
 - ❌ Why can’t XOR be solved!?
 - 🧮 Oh, I need more neurons.
-- 🏋️ How do you train a full network?
+- 🏋️ How to train a full network?
 - 🛠️ I need tools to build and train networks.
 - 🚀 This is starting to feel like a real system! Let's go deeper.
 - 🧱 First, neurons must be treated as objects — let’s encapsulate their properties in a structure.
