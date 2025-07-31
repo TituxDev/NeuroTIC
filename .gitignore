@@ -1,8 +1,16 @@
-a.out
-*.sh
-*cbp
-bin/
-obj/
-*.layout
-*.depend
-*.o
+# Ignore build directories
+**/*.o
+**/*.out
+**/*.exe
+**/*.a
+**/*.so
+**/*.dll
+
+# Ignore Visual Studio Code settings
+**/.vscode/
+
+# Ignore directories
+workspace/*
+!workspace/.gitkeep
+test/*
+!test/.gitkeep

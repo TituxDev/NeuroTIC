@@ -16,6 +16,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <stdio.h>
+#include <errno.h>
+#include <limits.h>s
 /* FREE CONTROL */
 void **net_neurons= NULL;
 int net_neurons_count= 0;
@@ -24,6 +27,11 @@ void net_neurons_free( void ){
 	free( net_neurons );
 }
 void net_neurons_add( void *neurons ){
+    if( !neurons ){
+    		printf( "Failed to allocate memory for neurons in define_net.\n" );
+		fprintf( stderr , "Failed to allocate memory for neurons in define_net.\n" );
+		exit( EXIT_FAILURE );
+	}
 	static char called= 1;
 	void **temp= realloc( net_neurons , ++net_neurons_count * sizeof( void * ) );
 	if( !temp ){
@@ -66,12 +74,7 @@ struct net define_net( int inputs, int layers, int *neurons_by_layer ){
 		.B= NULL,
 		.OUT= NULL
 	};
-	if( !( N.neurons= malloc( N.layers * sizeof( int ) ) ) ){
-		printf( "Failed to allocate memory for neurons in define_net.\n" );
-		fprintf( stderr , "Failed to allocate memory for neurons in define_net.\n" );
-		exit( EXIT_FAILURE );
-	}
-	net_neurons_add( N.neurons );
+	net_neurons_add( N.neurons= malloc( N.layers * sizeof( int ) ) );
 	memcpy( N.neurons , neurons_by_layer , layers * sizeof( int ) );
 	return N;
 }

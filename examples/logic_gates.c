@@ -36,7 +36,9 @@ int max_attempts       = 10000;
 
 // === LIBRAIES ===
 #include <stdio.h>
-#include "../NeuroTIC.h"
+#include <stdlib.h>
+#include "NTIC_neurotic.h"
+
 // === START ===
 int main(){
 // === NETWORK DEFINITION ===
