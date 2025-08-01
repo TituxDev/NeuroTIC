@@ -2,10 +2,10 @@
 
 REPO_NAME = NeuroTIC
 REPO_URL = https://github.com/TituxDev/$(REPO_NAME).git
+LOCATION="$$PWD"
 
 install:
-	@ABORT=false; \
-	printf "NeuroTIC DOWNLOAD PROCESS STARTED...\n"; \
+	@printf "NeuroTIC DOWNLOAD PROCESS STARTED...\n"; \
 	printf "Checking if Git is installed: "; \
 	if command -v git > /dev/null; then \
 		printf "\033[032mGit found.\033[0m\n"; \
@@ -21,8 +21,8 @@ install:
 			printf "\033[031mGit is required to clone the repository. Exiting...\033[0m\n"; \
 			exit 1; \
 		fi \
-	fi; \
-	printf "Checking if GCC is installed: "; \
+	fi
+	@printf "Checking if GCC is installed: "; \
 	if command -v gcc > /dev/null; then \
 		printf "\033[032mGCC found.\033[0m\n"; \
 	else \
@@ -37,9 +37,10 @@ install:
 			printf "\033[031mGCC is required to compile the project. Exiting...\033[0m\n"; \
 			exit 1; \
 		fi \
-	fi; \
-	LOCATION="$$PWD"; \
+	fi
+	@LOCATION="$$PWD"; \
 	printf "Current location: \033[32m$$LOCATION\033[0m\n"; \
+	ABORT=false; \
 	while true; do \
 		printf "Do you want to change the location? (y/n): "; \
 		read OPT; \
@@ -57,27 +58,34 @@ install:
 				printf "\033[31mAborting installation.\033[0m\n"; \
 				exit 1; \
 			fi; \
-			ABORT=true; \
 		fi; \
-		if [ -d ".git" ]; then \
-			printf "\033[31mThere is an existing git repository in this location.\033[0m\n"; \
-			OPT="y"; \
-			continue; \
-		fi; \
+		ABORT=true; \
+		CHECK_PATH="$$LOCATION"; \
+		while [ "$$CHECK_PATH" != "/" ]; do \
+			if [ -d "$$CHECK_PATH/.git" ]; then \
+				printf "\033[31mInvalid location: '$$LOCATION' is inside an existing Git repository.\033[0m\n"; \
+				OPT="y"; \
+				continue 2; \
+			fi; \
+			CHECK_PATH=$$(dirname "$$CHECK_PATH"); \
+		done; \
 		if [ -d $(REPO_NAME) ]; then \
 			printf "\033[31mThere is an existing $(REPO_NAME) \033[0m\n"; \
 			printf "Do you want to remove it? (y/n): "; \
 			read OPT; \
-			if [ "$$OPT" = "y" ] || [ "$$OPT" = "Y" ]; then \
-				rm -rf $(REPO_NAME); \
-			else \
+			if [ "$$OPT" != "y" ] && [ "$$OPT" != "Y" ]; then \
 				OPT="y"; \
 				continue; \
 			fi; \
+			rm -rf $(REPO_NAME); \
 		fi; \
 		break; \
 	done; \
 	printf "Cloning the repository from $(REPO_URL)...\n"; \
 	git clone $(REPO_URL); \
+	if [ $$? -ne 0 ]; then \
+		printf "\033[031mFailed to clone the repository.\033[0m\n"; \
+		exit 1; \
+	fi; \
 	printf "\033[032mRepository cloned successfully.\033[0m\n"
 	@exit 0
