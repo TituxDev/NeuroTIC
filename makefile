@@ -2,7 +2,6 @@
 
 REPO_NAME = NeuroTIC
 REPO_URL = https://github.com/TituxDev/$(REPO_NAME).git
-LOCATION="$$PWD"
 
 install:
 	@printf "NeuroTIC DOWNLOAD PROCESS STARTED...\n"; \
@@ -38,8 +37,10 @@ install:
 			exit 1; \
 		fi \
 	fi
-	@LOCATION="$$PWD"; \
+	@ORIGINAL_LOCATION=$$PWD; \
+	LOCATION="$$PWD"; \
 	printf "Current location: \033[32m$$LOCATION\033[0m\n"; \
+	NEW_LOCATION=""; \
 	ABORT=false; \
 	while true; do \
 		printf "Do you want to change the location? (y/n): "; \
@@ -47,6 +48,11 @@ install:
 		if [ "$$OPT" = "y" ] || [ "$$OPT" = "Y" ]; then \
 			printf "Enter the new location: "; \
 			read LOCATION; \
+			TEMP_LOCATION=$$LOCATION; \
+			while [ ! -d "$$TEMP_LOCATION" ]; do \
+				NEW_LOCATION="$$TEMP_LOCATION"; \
+				TEMP_LOCATION=$$(dirname "$$TEMP_LOCATION"); \
+			done; \
 			if [ ! -d "$$LOCATION" ]; then \
 				mkdir -p "$$LOCATION"; \
 			fi; \
@@ -55,6 +61,12 @@ install:
 			printf "Location changed to \033[32m$$LOCATION\033[0m\n"; \
 		else \
 			if [ $$ABORT = true ]; then \
+				cd "$$ORIGINAL_LOCATION"; \
+				echo "Final NEW_LOCATION: '$$NEW_LOCATION'"; \
+				if [ -n "$$NEW_LOCATION" ] && [ -d "$$NEW_LOCATION" ]; then \
+					printf "\033[31mRemoving temporary directory: $$NEW_LOCATION\033[0m\n"; \
+					rm -rf "$$NEW_LOCATION"; \
+				fi; \
 				printf "\033[31mAborting installation.\033[0m\n"; \
 				exit 1; \
 			fi; \
@@ -88,4 +100,3 @@ install:
 		exit 1; \
 	fi; \
 	printf "\033[032mRepository cloned successfully.\033[0m\n"
-	@exit 0
