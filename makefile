@@ -62,14 +62,13 @@ install:
 		else \
 			if [ $$ABORT = true ]; then \
 				cd "$$ORIGINAL_LOCATION"; \
-				echo "Final NEW_LOCATION: '$$NEW_LOCATION'"; \
 				if [ -n "$$NEW_LOCATION" ] && [ -d "$$NEW_LOCATION" ]; then \
 					printf "\033[31mRemoving temporary directory: $$NEW_LOCATION\033[0m\n"; \
 					rm -rf "$$NEW_LOCATION"; \
 				fi; \
 				printf "\033[31mAborting installation.\033[0m\n"; \
 				exit 1; \
-			fi; \
+			fi \
 		fi; \
 		ABORT=true; \
 		CHECK_PATH="$$LOCATION"; \
