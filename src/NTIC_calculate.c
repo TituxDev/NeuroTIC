@@ -18,10 +18,10 @@
  * of neuron evaluations.
  */
 
-#include "calculate.h"
+#include "NTIC_calculate.h"
 
-#include "neuroticore.h"
-#include "activation.h"
+#include "NTIC_neuroticore.h"
+#include "NTIC_activation.h"
 
 /**
  * @fn weighing

@@ -18,10 +18,10 @@
  * It is part of the larger NeuroTIC project, which provides a framework for building and training neural networks.
  */
 
-#include "initialize.h"
+#include "NTIC_initialize.h"
 
-#include "neuroticore.h"
-#include "activation.h"
+#include "NTIC_neuroticore.h"
+#include "NTIC_activation.h"
 #include <stdlib.h>
 #include <time.h>
 

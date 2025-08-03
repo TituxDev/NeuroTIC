@@ -16,9 +16,9 @@
  * configurations in the future.
  */
 
-#include "creation.h"
+#include "NTIC_creation.h"
 
-#include "neuroticore.h"
+#include "NTIC_neuroticore.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>

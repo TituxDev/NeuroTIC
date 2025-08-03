@@ -17,11 +17,11 @@
  * or advanced training techniques such as momentum or regularization.
  */
 
- #include "train.h"
+ #include "NTIC_train.h"
 
-#include "neuroticore.h"
-#include "activation.h"
-#include "calculate.h"
+#include "NTIC_neuroticore.h"
+#include "NTIC_activation.h"
+#include "NTIC_calculate.h"
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>

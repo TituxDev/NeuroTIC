@@ -18,7 +18,7 @@
  * The implementation is designed to be modular, allowing for easy extension with additional activation functions in the future.
  */
 
-#include "activation.h"
+#include "NTIC_activation.h"
 
 #include <math.h>
 
