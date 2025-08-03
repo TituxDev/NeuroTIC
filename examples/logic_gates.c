@@ -42,10 +42,10 @@ int max_attempts       = 10000;
 // === START ===
 int main(){
 // === NETWORK DEFINITION ===
-    struct net Net= define_net( 2 , 2 , ( int []){ 2 ,  1 } );
+    struct net Net= define_net( 2 , 2 , ( int [] ){ 2 ,  1 } );
     build_net( &Net );
-// === INITIALIZATION ===
     for( int i= 0 ; i < Net.layers ; i++ ) for( int j= 0 ; j < Net.neurons[i] ; j++ ) Net.N[i][j].FUNC= SIGMOID;
+// === INITIALIZATION ===
     rand_net( &Net );
 // === DATA SET DEFINITION ===
     int samples= 4;
@@ -67,14 +67,6 @@ int main(){
     }
     printf( "\n" );
 // === FREE MEMORY ===
-    for( int i= 0 ; i < Net.layers ; i++ ){
-        for( int j= 0 ; j < Net.neurons[i] ; j++ ) free( Net.N[i][j].W );
-        free( Net.N[i][0].IN );
-        free( Net.N[i] );
-    }
-    free( Net.N );
-    free( Net.OUT );
-    free( Net.B );
     for( int i= 0 ; i < samples ; i ++ ){
         free( table[i] );
         free( results[i] );
