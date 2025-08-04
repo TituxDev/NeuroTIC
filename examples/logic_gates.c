@@ -29,7 +29,7 @@ int max_attempts       = 10000;
 #define NOR           (!(OR))
 #define CONJUNCION_A  (!AND)
 #define CONJUNCION_B  (table[i][0] && !table[i][1])
-#define IMPLICATION_A (!(table[i][0] || table[i][1]))
+#define IMPLICATION_A (!table[i][0] || table[i][1])
 #define IMPLICATION_B (table[i][0] || !table[i][1])
 #define XOR           (table[i][0] != table[i][1])
 #define XNOR          (table[i][0] == table[i][1])
@@ -37,7 +37,7 @@ int max_attempts       = 10000;
 // === LIBRAIES ===
 #include <stdio.h>
 #include <stdlib.h>
-#include "NTIC_neurotic.h"
+#include "../variants/NTIC_basic.h"
 
 // === START ===
 int main(){
