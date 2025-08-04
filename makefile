@@ -1,7 +1,10 @@
-.PHONY: install
+.PHONY: create install
 
 REPO_NAME = NeuroTIC
 REPO_URL = https://github.com/TituxDev/$(REPO_NAME).git
+
+create:
+	@bash scripts/new.sh
 
 install:
 	@printf "NeuroTIC DOWNLOAD PROCESS STARTED...\n"; \
