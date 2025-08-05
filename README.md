@@ -14,7 +14,9 @@ If you're curious about the journey behind this system, visit [NeuroTIClab](http
 
 ---
 
-- 🧠 **Core neuron design:** At the heart of NeuroTIC is the `neuron` struct, holding everything you need to connect neurons and select activation functions from a handy list.
+## ✨ Features
+
+- 🧠 **Core neuron design:** At the heart of NeuroTIC is the neuron struct, which packs all the essentials to connect neurons and pick activation functions from a handy list. This flexible design means you can build pretty much any network topology you want, even if the ready-made tools don’t cover it yet.
 - 🔧 **All-in-one toolkit:** Comes with everything you need to build, train, and run feedforward neural networks — no surprises.
 - ⚙️ **Change on the fly:** You can tweak and reshape your networks while they’re running.
 - 🧹 **Memory made easy:** NeuroTIC tracks memory for you, cleaning up automatically when you're done. You can also integrate this system into your custom setups — or roll your own if you prefer.
