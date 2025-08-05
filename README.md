@@ -42,7 +42,7 @@ Adjust training parameters or change logic targets directly in the source file. 
 
 ## 🧾 License
 
-This project uses the [Mozilla Public License 2.0](./LICENSE.md).
+This project uses the [Mozilla Public License 2.0](./LICENSE).
 In short:
 
 - 🆓 You can use it freely (even in closed-source software)
