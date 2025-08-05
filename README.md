@@ -21,7 +21,23 @@ If you're curious about the journey behind this system, visit [NeuroTIClab](http
 
 ---
 
-## 📁 Examples
+## 🚀 Quick Start
+
+### Clone the repository and install dependencies
+
+(You can also just download the Makefile and use that)
+
+``` bash
+make install
+```
+
+This will:
+
+1. Check your environment
+2. Clone the NeuroTIC repository
+3. Set up required directories
+
+### 📁 Examples
 
 To compile and run an example (e.g., `logic_gates.c`):
 
