@@ -2,7 +2,7 @@
 # This script creates a new project in the workspace directory.
 echo ""
 
-if [ -n "$(find workspace -type f ! -name .gitkeep)" ] || [ -n "$(find workspace -type d -empty)"]; then
+if [ -n "$(find workspace -type f ! -name .gitkeep)" ] || [ -n "$(find workspace -type d -empty)" ]; then
     echo -e "\033[31mError: The workspace directory is not empty."
     read -p "Do you want to remove all files in the workspace directory? (y/n): " OPT
     if [[ "$OPT" == "y" || "$OPT" == "Y" ]]; then
@@ -17,8 +17,8 @@ fi
 
 while true; do
     read -p "Enter the new project name: " PROJECT_NAME
-    [[ ! "$PROJECT_NAME" =~ ^[a-zA-Z0-9_]+$ ]] && echo -e "\033[31mProject name can only contain letters, numbers, and underscores.\033[0m" && continue
     [[ -z "$PROJECT_NAME" ]] && echo -e "\033[31mProject name cannot be empty.\033[0m" && continue
+    [[ ! "$PROJECT_NAME" =~ ^[a-zA-Z0-9_]+$ ]] && echo -e "\033[31mProject name can only contain letters, numbers, and underscores.\033[0m" && continue
     break
 done
 read -r -p "Author name (default: $(whoami)): " AUTHOR
@@ -28,6 +28,7 @@ echo -e "Available header packs:\033[34m"
 ls variants | grep NTIC_.*\.h | sed 's/NTIC_//; s/\.h//'
 echo -e -n "\033[0m"
 read -p "Enter the header pack to use: " HEADER
+HEADER=$(echo "$HEADER" | xargs)
 
 touch workspace/$PROJECT_NAME.h
 {
@@ -38,7 +39,13 @@ echo " * Date: $(date +'%Y-%m-%d')"
 echo " */"
 } > workspace/$PROJECT_NAME.h
 
-[ -n "$HEADER" ] && cp variants/NTIC_$HEADER.h workspace/
+while true; do
+    [ -z "$HEADER" ] && break
+    [ -f "variants/NTIC_$HEADER.h" ] && cp variants/NTIC_$HEADER.h workspace/ && break
+    echo -e "\033[31mHeader pack not found. Please choose a valid header pack.\033[0m"
+    read -p "Enter the header pack to use: " HEADER
+    HEADER=$(echo "$HEADER" | xargs)
+done
 
 touch workspace/$PROJECT_NAME.c
 {
