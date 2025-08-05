@@ -7,20 +7,17 @@ Think of it as soldering logic gates... but with pointers.
 
 ## 🧠 What is NeuroTIC?
 
-NeuroTIC is a lightweight, modular neural network system built entirely in ANSI C, without dependencies.  
+NeuroTIC is a lightweight, modular neural network system built entirely in ANSI C — no external libraries, no hidden magic.  
 It was born from the desire to understand how AI works from the ground up, and evolved into a tool for learning, hacking, and creating neural networks manually and dynamically.
 
 If you're curious about the journey behind this system, visit [NeuroTIClab](https://neuroticlab.com) — a companion site (in Spanish) documenting the project’s development.
 
 ---
 
-## ✨ Features
-
-- 🧠 Single-header neural network system
-- 🔌 Manual topology design (your neurons, your wiring)
-- 🛠️ Fully dynamic: build any feedforward structure
-- 📉 Backpropagation training built-in
-- 🧽 DIY memory management (you bring the `free()`)
+- 🧠 **Core neuron design:** At the heart of NeuroTIC is the `neuron` struct, holding everything you need to connect neurons and select activation functions from a handy list.
+- 🔧 **All-in-one toolkit:** Comes with everything you need to build, train, and run feedforward neural networks — no surprises.
+- ⚙️ **Change on the fly:** You can tweak and reshape your networks while they’re running.
+- 🧹 **Memory made easy:** NeuroTIC tracks memory for you, cleaning up automatically when you're done. You can also integrate this system into your custom setups — or roll your own if you prefer.
 
 ---
 
@@ -29,12 +26,15 @@ If you're curious about the journey behind this system, visit [NeuroTIClab](http
 To compile and run an example (e.g., `logic_gates.c`):
 
 ```bash
-gcc examples/logic_gates.c -lm && ./a.out
+cd examples
+bash ./test.sh logic_gates
 ```
 
-Adjust training parameters or change logic targets directly in the source file. More examples are available in the examples/ directory.
+It will automatically compile and run the selected example using the helper build system.
 
 ## 📚 Documentation
+
+Explore the internals and history of NeuroTIC through these documents:
 
 - [Project Philosophy](./docs/PHILOSOPHY.md) – Principles behind NeuroTIC.
 - [Development Log](./docs/DEVLOGS.md) – The journey from XOR to full networks.
@@ -49,6 +49,11 @@ In short:
 - 🪪 Keep modifications to this code open if redistributed
 - 🧾 Don’t remove the author’s name
 - 🤝 If you're making profit, consider contacting the author — fair is fair
+
+### 🛠️ About the helper scripts
+
+*All `.sh` and `Makefile` scripts in this repository are provided as helper tools.*  
+*They're not part of the NeuroTIC core library and are completely free to reuse or adapt — no license required, just give credit if you feel like it.*
 
 ## 👤 Author
 
