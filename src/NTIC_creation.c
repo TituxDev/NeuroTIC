@@ -80,24 +80,24 @@ struct net define_net( int inputs, int layers, int *neurons_by_layer ){
  */
 struct net *build_net( struct net *Net ){
     memtrack( Net->N= malloc( Net->layers * sizeof( struct neuron * ) ) );
-    for( int i= 0 ; i < Net->layers ; i++ ) memtrack( Net->N[i]=malloc( Net->neurons[i] * sizeof( struct neuron ) ) );
+    for( unsigned int i= 0 ; i < Net->layers ; i++ ) memtrack( Net->N[i]=malloc( Net->neurons[i] * sizeof( struct neuron ) ) );
     memtrack( Net->IN= malloc( Net->inputs * sizeof( float * ) ) );
-    for( int i= 0 ; i < Net->neurons[0] ; i++ ){
+    for( unsigned int i= 0 ; i < Net->neurons[0] ; i++ ){
         Net->N[0][i].inputs= Net->inputs;
         Net->N[0][i].IN= Net->IN;
         memtrack( Net->N[0][i].W= malloc( Net->inputs * sizeof( float ) ) );
     }
     memtrack( Net->B= malloc( ( Net->layers - 1 ) * sizeof( float ** ) ) );
-    for( int i= 0 ; i < Net->layers - 1 ; i++ ){
+    for( unsigned int i= 0 ; i < Net->layers - 1 ; i++ ){
         memtrack( Net->B[i]= malloc( Net->neurons[i] * sizeof( float * ) ) );
-        for( int j= 0 ; j < Net->neurons[i] ; j++ ) Net->B[i][j]= &Net->N[i][j].OUT;
+        for( unsigned int j= 0 ; j < Net->neurons[i] ; j++ ) Net->B[i][j]= &Net->N[i][j].OUT;
     }
-    for( int i= 1 ; i < Net->layers ; i++ ) for( int j= 0 ; j < Net->neurons[i] ; j++ ){
+    for( unsigned int i= 1 ; i < Net->layers ; i++ ) for( unsigned int j= 0 ; j < Net->neurons[i] ; j++ ){
         Net->N[i][j].inputs= Net->neurons[i - 1];
         Net->N[i][j].IN= Net->B[i - 1];
         memtrack( Net->N[i][j].W= malloc( Net->neurons[i - 1] * sizeof( float ) ) );
     }
     memtrack( Net->OUT= malloc( Net->neurons[Net->layers -1] * sizeof( float * ) ) );
-    for( int i= 0 ; i < Net->neurons[Net->layers - 1] ; i++ ) Net->OUT[i]= &Net->N[Net->layers - 1][i].OUT;
+    for( unsigned int i= 0 ; i < Net->neurons[Net->layers - 1] ; i++ ) Net->OUT[i]= &Net->N[Net->layers - 1][i].OUT;
     return Net;
 }

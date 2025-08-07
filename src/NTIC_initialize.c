@@ -32,7 +32,7 @@
  */
 void rand_net( struct net *Net ){
     srand( time( NULL ) );
-    for( int i= 0, j, k ; i < Net->layers ; i++ ) for( j= 0 ; j < Net->neurons[i] ; j++ ){
+    for( unsigned int i= 0, j, k ; i < Net->layers ; i++ ) for( j= 0 ; j < Net->neurons[i] ; j++ ){
         for( k= 0 ; k < Net->N[i][j].inputs ; k++ ) Net->N[i][j].W[k]= ( ( float )rand() / RAND_MAX ) * ( rand_range[Net->N[i][j].FUNC][1] - rand_range[Net->N[i][j].FUNC][0] ) + rand_range[Net->N[i][j].FUNC][0];
         Net->N[i][j].B= ( ( float )rand() / RAND_MAX ) * ( rand_range[Net->N[i][j].FUNC][1] - rand_range[Net->N[i][j].FUNC][0] ) + rand_range[Net->N[i][j].FUNC][0];
     }

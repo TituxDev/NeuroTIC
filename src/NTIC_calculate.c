@@ -40,7 +40,7 @@
  */
 float weighing( struct neuron N ){
     float w= N.B;
-    for( int i= 0; i < N.inputs ; i++ ) w+= *N.IN[i] * N.W[i];
+    for( unsigned int i= 0; i < N.inputs ; i++ ) w+= *N.IN[i] * N.W[i];
     return w;
 }
 
@@ -72,6 +72,6 @@ float evaluate( struct neuron *N ){
  * The final outputs of the network can be accessed through the OUT field of the net structure.
  */
 float *run_net( struct net *Net ){
-    for( int i= 0, j ; i < Net->layers ; i++ ) for( j= 0 ; j < Net->neurons[i] ; j++ ) evaluate( &Net->N[i][j] );
+    for( unsigned int i= 0, j ; i < Net->layers ; i++ ) for( j= 0 ; j < Net->neurons[i] ; j++ ) evaluate( &Net->N[i][j] );
     return *Net->OUT;
 }

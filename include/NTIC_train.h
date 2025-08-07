@@ -35,6 +35,6 @@
  * It processes each input sample, calculates the output, computes the error, and updates the weights accordingly.
  * The function continues until either the total error is below the specified tolerance or the maximum number of attempts is reached.
  */
-int train( struct net *Net , float **inputs , float **results , int samples , float learning_rate , float tolerance , int max_attempts );
+int train( struct net *Net , float **inputs , float **results , unsigned int samples , float learning_rate , float tolerance , unsigned int max_attempts );
 
 #endif // NTIC_TRAIN_H
