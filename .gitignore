@@ -11,6 +11,8 @@
 
 # Ignore directories content
 workspace/*
+!workspace/**/
 !workspace/**/.gitkeep
+
 test/*
 !test/.gitkeep
