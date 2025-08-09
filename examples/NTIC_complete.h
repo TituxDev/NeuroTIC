@@ -1,0 +1,7 @@
+#include "NTIC_neuroticore.h"
+#include "NTIC_activation.h"
+#include "NTIC_creation.h"
+#include "NTIC_initialize.h"
+#include "NTIC_calculate.h"
+#include "NTIC_train.h"
+#include "NTIC_memory.h"
