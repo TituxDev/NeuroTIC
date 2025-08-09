@@ -1,10 +1,35 @@
-.PHONY: create install
+.PHONY: create compile install
 
 REPO_NAME = NeuroTIC
 REPO_URL = https://github.com/TituxDev/$(REPO_NAME).git
 
 create:
 	@bash scripts/new.sh
+
+
+compile:
+	@if [ -z "$(PROJECT_LOCATION)" ]; then \
+		read -p "Enter project location (e.g., workspace, examples): " ploc; \
+		export PROJECT_LOCATION=$$ploc; \
+	else \
+		export PROJECT_LOCATION=$(PROJECT_LOCATION); \
+	fi; \
+	if [ -z "$(PROJECT_NAME)" ]; then \
+		read -p "Enter project name (filename without extension): " pname; \
+		export PROJECT_NAME=$$pname; \
+	else \
+		export PROJECT_NAME=$(PROJECT_NAME); \
+	fi; \
+	if [ -z "$(PLATAFORM)" ]; then \
+		read -p "Enter platform (e.g., CPU): " plat; \
+		export PLATFORM=$$plat; \
+	else \
+		export PLATAFORM=$(PLATAFORM); \
+	fi; \
+	echo "Compiling project in location: $$PROJECT_LOCATION"; \
+	echo "Project name: $$PROJECT_NAME"; \
+	echo "Platform: $$PLATAFORM"; \
+	./scripts/compile.sh "$$PROJECT_LOCATION" "$$PROJECT_NAME" "$$PLATAFORM"
 
 install:
 	@printf "NeuroTIC DOWNLOAD PROCESS STARTED...\n"; \
