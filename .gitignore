@@ -9,8 +9,8 @@
 # Ignore Visual Studio Code settings
 **/.vscode/
 
-# Ignore directories
+# Ignore directories content
 workspace/*
-!workspace/.gitkeep
+!workspace/**/.gitkeep
 test/*
 !test/.gitkeep
