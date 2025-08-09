@@ -22,13 +22,13 @@ compile:
 	fi; \
 	if [ -z "$(PLATAFORM)" ]; then \
 		read -p "Enter platform (e.g., CPU): " plat; \
-		export PLATFORM=$$plat; \
+		export PLATAFORM=$$plat; \
 	else \
 		export PLATAFORM=$(PLATAFORM); \
 	fi; \
 	echo "Compiling project in location: $$PROJECT_LOCATION"; \
 	echo "Project name: $$PROJECT_NAME"; \
-	echo "Platform: $$PLATAFORM"; \
+	echo "Plataform: $$PLATAFORM"; \
 	./scripts/compile.sh "$$PROJECT_LOCATION" "$$PROJECT_NAME" "$$PLATAFORM"
 
 install:
