@@ -2,7 +2,7 @@
 # Script to compile the NeuroTIC library and user project
 
 CC=gcc
-CFLAGS="-Iinclude -Wall -Wextra -pedantic -std=c11"
+CFLAGS="-Iinclude -Wall -Wextra -Wno-missing-field-initializers -pedantic -std=c11"
 PROJECT_LOCATION="$1"
 PROJECT_NAME="$2"
 PLATAFORM="$3"
