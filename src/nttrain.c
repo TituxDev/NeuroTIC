@@ -31,7 +31,7 @@
 void newtraindata( traindata_t *train_data , net_t *net ){
     memtrack( train_data->in=calloc( train_data->samples , sizeof( float * ) ) );
     memtrack( train_data->results=calloc( train_data->samples , sizeof( float * ) ) );
-    for( unsigned int i= 0, last_ly= net->layers - 1 ; i < train_data->samples ; i++ ){
+    for( uint16_t i= 0, last_ly= net->layers - 1 ; i < train_data->samples ; i++ ){
         memtrack( train_data->in[i]= calloc( net->inputs , sizeof( float ) ) );
         memtrack( train_data->results[i]= calloc( net->neurons[last_ly] , sizeof( float ) ) );
     }
@@ -57,40 +57,45 @@ void newtraindata( traindata_t *train_data , net_t *net ){
  * @return The number of attempts performed during training.
  */
 int backpropagation( net_t *net , traindata_t *train_data ){
-    unsigned int attempt= 0, max_mem= 0, inputs_size= net->inputs * sizeof( float ), prev_layer= net->layers - 1, next_layer, penu_layer= prev_layer - 1;
-    for( unsigned int i= 0 ; i < net->layers ; i++ ) max_mem= fmax( max_mem , net->neurons[i] );
+    uint64_t attempt= train_data->max_attempts;
+    const uint16_t prev_layer= net->layers - 1;
+    const int32_t penu_layer= ( int32_t )prev_layer - 1;
+    uint16_t next_layer;
+    size_t max_mem= 0;
+    for( uint16_t i= 0 ; i < net->layers ; i++ ) if( ( size_t )net->neurons[i] > max_mem ) max_mem= ( size_t )net->neurons[i];
     max_mem*= sizeof( float );
-    float err_total, *delta= malloc( max_mem ), *delta_h= malloc( max_mem ), *in= malloc( inputs_size );
-    for( unsigned int i= 0 ; i < net->inputs ; i++ ) net->in[i]= &in[i];
+    const size_t inputs_size= ( size_t )net->inputs * sizeof( float );
+    float err_total, *restrict delta= malloc( max_mem ), *restrict delta_h= malloc( max_mem ), *restrict in= malloc( inputs_size );
+    for( uint32_t i= 0 ; i < net->inputs ; i++ ) net->in[i]= &in[i];
     do{
         err_total= 0;
-        for( unsigned int i= 0, j, k, l ; i < train_data->samples ; i++ ){
+        for( uint64_t i= 0 ; i < train_data->samples ; i++ ){
             memcpy( in , train_data->in[i] , inputs_size );
             feedforward( net );
-            for( j= 0 ; j < net->neurons[prev_layer] ; j++ ){
-                err_total+= fabs( delta[j]= train_data->results[i][j] - *net->out[j] );
+            for( uint16_t j= 0 ; j < net->neurons[prev_layer] ; j++ ){
+                err_total+= fabsf( delta[j]= train_data->results[i][j] - *net->out[j] );
                 delta[j]*= ntact_activation[net->nn[prev_layer][j].fn][1]( weighing( &net->nn[prev_layer][j]));
             }
             if( err_total < train_data->tolerance ) continue;
-            for( int j= ( int )penu_layer ; j >= 0 ; j-- ){
+            for( int32_t j= penu_layer ; j >= 0 ; j-- ){
                 next_layer= j + 1;
                 memset( delta_h , 0 , max_mem );
-                for( k= 0 ; k < net->neurons[next_layer] ; k++ ) for( l= 0 ; l < net->nn[next_layer][k].inputs ; l++ ) delta_h[l]+= delta[k] * net->nn[next_layer][k].w[l];
-                for( k= 0 ; k < net->neurons[j] ; k++ ) delta_h[k]*= ntact_activation[net->nn[j][k].fn][1]( weighing( &net->nn[j][k] ) );
-                for( k= 0 ; k < net->neurons[next_layer] ; k++ ){
-                    for( l= 0 ; l < net->nn[next_layer][k].inputs ; l++ ) net->nn[next_layer][k].w[l]+= delta[k] * train_data->learning_rate * *net->nn[next_layer][k].in[l];
+                for( uint16_t k= 0 ; k < net->neurons[next_layer] ; k++ ) for( uint32_t l= 0 ; l < net->nn[next_layer][k].inputs ; l++ ) delta_h[l]+= delta[k] * net->nn[next_layer][k].w[l];
+                for( uint16_t k= 0 ; k < net->neurons[j] ; k++ ) delta_h[k]*= ntact_activation[net->nn[j][k].fn][1]( weighing( &net->nn[j][k] ) );
+                for( uint16_t k= 0 ; k < net->neurons[next_layer] ; k++ ){
+                    for( uint32_t l= 0 ; l < net->nn[next_layer][k].inputs ; l++ ) net->nn[next_layer][k].w[l]+= delta[k] * train_data->learning_rate * *net->nn[next_layer][k].in[l];
                     net->nn[next_layer][k].b+= delta[k] * train_data->learning_rate;
                 }
                 memcpy( delta , delta_h , max_mem );
             }
-            for( j= 0 ; j < net->neurons[0] ; j++ ){
-                for( k= 0 ; k < net->nn[0][j].inputs ; k++ ) net->nn[0][j].w[k]+= delta[j] * train_data->learning_rate * *net->nn[0][j].in[k];
+            for( uint16_t j= 0 ; j < net->neurons[0] ; j++ ){
+                for( uint32_t k= 0 ; k < net->nn[0][j].inputs ; k++ ) net->nn[0][j].w[k]+= delta[j] * train_data->learning_rate * *net->nn[0][j].in[k];
                 net->nn[0][j].b+= delta[j] * train_data->learning_rate;
             }
         }
-    } while( ++attempt < train_data->max_attempts && err_total > train_data->tolerance );
+    } while( --attempt && err_total > train_data->tolerance );
     free( delta );
     free( delta_h );
     free( in );
-    return attempt;
+    return train_data->max_attempts - attempt;
 }

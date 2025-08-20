@@ -4,19 +4,18 @@
  * Author: Oscar Sotomayor
  * License: Mozilla Public License Version 2.0 (MPL-2.0)
  *
- * This file contains implementations of functions to initialize and build
- * neural networks in the `net_t` structure. It handles dynamic memory allocation
- * for neurons, layers, connections, and internal buffers using the memory tracking
- * module to ensure automatic resource management.
+ * This module implements the initialization and construction of neural networks
+ * within the `net_t` structure. It dynamically allocates memory for neurons,
+ * layers, connections, and intermediate buffers, registering all allocations
+ * with the memory tracking system for automatic cleanup at program termination.
  *
- * The main functions allow:
- *  - Initializing the network structure with the number of layers and neurons per layer.
- *  - Fully building the network by allocating neurons, connections, and setting up pointers
- *    for data flow.
+ * Provided functions:
+ *  - `newnet()`  : Initializes a network structure with a given neuron layout.
+ *  - `buildnet()`: Fully builds the network by creating connections, buffers,
+ *                  and setting up neuron input pointers.
  */
 
 #include "ntbuilder.h"
-
 #include "ntmemory.h"
 
 #include <stdlib.h>
@@ -24,68 +23,86 @@
 #include <stdio.h>
 
 /**
- * @brief Initializes the `net_t` structure with neurons per layer count.
+ * @brief Initializes a `net_t` structure with the specified neuron distribution.
  *
- * Allocates memory for the array holding the number of neurons in each layer,
- * and copies the data from the user-provided array.
+ * This function:
+ *  - Allocates and stores the number of neurons for each layer.
+ *  - Allocates the neuron matrix (`nn`) for each layer.
+ *  - Leaves all connection and buffer pointers (`in`, `bff`, `out`) uninitialized.
  *
- * Internal pointers (`in`, `nn`, `bff`, `out`) are set to NULL,
- * leaving full construction to the `buildnet` function.
+ * Memory allocated is automatically registered for later release by `memfree()`.
  *
- * @param net Pointer to a pre-declared `net_t` structure.
- * @param neurons_per_layer Pointer to an array with neuron counts per layer.
- * 
- * @return Returns the pointer to the initialized `net_t` structure.
+ * @param net Pointer to an already allocated `net_t` structure with `layers` set.
+ * @param neurons_per_layer Pointer to an array containing neuron counts per layer.
+ *
+ * @return Pointer to the initialized `net_t` structure.
  */
-struct ntnet *newnet( net_t *net , unsigned int *neurons_per_layer ){
-    net->in = NULL;
-    net->nn = NULL;
-    net->bff = NULL;
-    net->out = NULL;
-    memtrack( net->neurons= malloc( net->layers * sizeof( int ) ) );
-    memcpy( net->neurons , neurons_per_layer , net->layers * sizeof( int ) );
+struct ntnet *newnet( net_t *net , uint16_t *neurons_per_layer ){
+    net->in= NULL;
+    net->nn= NULL;
+    net->bff= NULL;
+    net->out= NULL;
+    memtrack( net->neurons= malloc( net->layers * sizeof( uint16_t ) ) );
+    memcpy( net->neurons , neurons_per_layer, net->layers * sizeof( uint16_t ) );
+    memtrack( net->nn= malloc( net->layers * sizeof( neuron_t * ) ) );
+    for( uint16_t i = 0 ; i < net->layers ; i++ ) memtrack( net->nn[i]= malloc( net->neurons[i] * sizeof( neuron_t ) ) );
     return net;
 }
 
 /**
- * @brief Builds the neural network in memory by allocating and connecting neurons, layers, and buffers.
+ * @brief Fully constructs a neural network in memory.
  *
- * This function performs the following tasks:
- *  - Allocates memory for the neuron matrix (`nn`), with layers and neurons per layer.
- *  - Allocates memory for the input pointers array (`in`).
- *  - Initializes neurons in the first layer, assigning inputs and weights.
- *  - Allocates intermediate buffers (`bff`) to connect consecutive layers.
- *  - Sets inputs, weights, and connections for hidden and output layer neurons.
- *  - Allocates and assigns the final output pointers array (`out`).
+ * Performs allocation and wiring of all network components:
+ *  - Allocates input pointer array (`in`).
+ *  - Allocates buffer pointer arrays (`bff`) between layers based on `bff_wiring`.
+ *  - Allocates output pointer array (`out`).
+ *  - Assigns input pointers and weights for neurons in the first layer.
+ *  - Connects buffer arrays and assigns neuron input sources according to `bff_wiring`.
  *
- * All allocated blocks are registered in the memory tracking module
- * for automatic freeing.
+ * This function relies on a valid `bff_wiring` configuration in the `net_t`
+ * structure to determine how intermediate buffers and connections are set up.
  *
- * @param net Pointer to a previously initialized `net_t` structure (usually via `newnet`).
+ * All allocations are tracked via `memtrack()` for automatic cleanup.
  *
- * @return Returns the pointer to the fully built `net_t` structure.
+ * @param net Pointer to a previously initialized `net_t` structure.
+ *
+ * @return Pointer to the fully built `net_t` structure.
  */
 struct ntnet *buildnet( net_t *net ){
-    memtrack( net->nn= malloc( net->layers * sizeof( neuron_t * ) ) );
-    for( unsigned int i= 0 ; i < net->layers ; i++ ) memtrack( net->nn[i]= malloc( net->neurons[i] * sizeof( neuron_t ) ) );
-    memtrack(net->in = malloc(net->inputs * sizeof(float *)));
-    for( unsigned int i= 0 ; i < net->neurons[0] ; i++ ){
+    memtrack( net->in = malloc( net->inputs * sizeof( float * ) ) );
+    memtrack( net->bff= malloc( ( net->layers - 1 ) * sizeof( float *** ) ) );
+    for( uint16_t i= 0, f= net->layers - 1 ; i < f ; i++ ){
+        memtrack( net->bff[i]= malloc( net->bff_wiring[i].arrays * sizeof( float ** ) ) );
+        for( uint16_t j= 0 ; j < net->bff_wiring[i].arrays ; j++)
+            if( net->bff_wiring[i].array_type[j] == 'M' ) memtrack( net->bff[i][j]= malloc( net->bff_wiring[i].size[j] * sizeof( float * ) ) );
+            else net->bff[i][j]= NULL;
+    }
+    memtrack( net->out= malloc( net->neurons[net->layers - 1] * sizeof( float * ) ) );
+    for( uint16_t i= 0 ; i < net->neurons[0] ; i++ ){
         net->nn[0][i].inputs= net->inputs;
         net->nn[0][i].in= net->in;
         memtrack( net->nn[0][i].w= malloc( net->inputs * sizeof( float ) ) );
     }
-    memtrack( net->bff= malloc( ( net->layers - 1 ) * sizeof( float ** ) ) );
-    for(unsigned int i = 0, j, f=net->layers - 1 ; i < f ; i++ ){
-        memtrack( net->bff[i]= malloc( net->neurons[i] * sizeof( float * ) ) );
-        for ( j= 0 ; j < net->neurons[i] ; j++ ) net->bff[i][j]= &net->nn[i][j].out;
-    }
-    for( unsigned int i= 1, j, bff_ly ; i < net->layers ; i++ ) for( j= 0, bff_ly= i - 1 ; j < net->neurons[i] ; j++ ){
-        net->nn[i][j].inputs= net->neurons[bff_ly];
-        net->nn[i][j].in= net->bff[bff_ly];
-        memtrack( net->nn[i][j].w= malloc( net->neurons[bff_ly] * sizeof( float ) ) );
-    }
-    unsigned int last_ly= net->layers - 1;
-    memtrack( net->out= malloc( net->neurons[last_ly] * sizeof( float * ) ) );
-    for( unsigned int i= 0 ; i < net->neurons[last_ly] ; i++ ) net->out[i]= &net->nn[last_ly][i].out;
+    for( uint16_t i= 0, f= net->layers - 1 ; i < f ; i++ ) for( uint16_t j= 0 ; j < net->bff_wiring[i].arrays ; j++ )
+        if( net->bff[i][j] )
+            for( uint32_t k= 0 ; k < net->bff_wiring[i].size[j] ; k++ )
+                net->bff[i][j][k]=
+                    net->bff_wiring[i].src_type[j][k] == 'N' ?
+                        &net->nn[net->bff_wiring[i].src_layer[j][k]][net->bff_wiring[i].src_index[j][k]].out :
+                    net->bff_wiring[i].src_type[j][k] == 'I' ?
+                        net->in[net->bff_wiring[i].src_index[j][k]] :
+                    net->bff_wiring[i].src_type[j][k] == 'O' ?
+                        net->out[net->bff_wiring[i].src_index[j][k]]
+                    : NULL;
+        else 
+            net->bff[i][j]=
+                net->bff_wiring[i].array_type[j] == 'N' ?
+                    net->bff[net->bff_wiring[i].src_layer[j][0]][net->bff_wiring[i].src_index[j][0]] :
+                net->bff_wiring[i].array_type[j] == 'I' ?
+                    net->in :
+                net->bff_wiring[i].array_type[j] == 'O' ?
+                    net->out
+                : NULL;
+    for( uint16_t i= 1 ; i < net->layers ; i++ ) for( uint16_t j= 0 ; j < net->neurons[i] ; j++ ) net->nn[i][j].in= net->bff[i][net->nn[i][j].bff_idx];
     return net;
 }

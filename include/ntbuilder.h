@@ -9,11 +9,12 @@
  * distributions.
  *
  * Functions:
- *  - newnet: Initialize the network structure.
- *  - buildnet: Allocate and connect network neurons and buffers.
- * 
- * NOTE: Functions integrate memtrack system from ntmemory, no manual free memory
- * needed, check ntmemory header for more deatils.
+ *  - newnet   : Initialize the network structure with layer neuron counts.
+ *  - buildnet : Allocate and connect neurons, buffers, and outputs.
+ *
+ * Memory management:
+ *  - All allocations are tracked by the `memtrack()` system.
+ *  - No manual `free()` calls are required; use `memfree()` if needed.
  */
 
 #ifndef NTBUILDER_H
@@ -24,25 +25,32 @@
 /**
  * @brief Initialize a network structure with neuron counts per layer.
  *
- * Allocates and copies neuron counts into the `net_t` structure.
- * Internal pointers (`in`, `nn`, `bff`, `out`) are initialized to NULL.
+ * Allocates and stores the number of neurons for each layer in `net_t`.
+ * Internal pointers (`in`, `nn`, `bff`, `out`) are initialized to NULL,
+ * leaving full construction to `buildnet`.
  *
  * @param net Pointer to a pre-allocated `net_t`.
- * @param neurons_per_layer Array with neuron counts per layer.
+ * @param neurons_per_layer Array containing neuron counts per layer.
  *
  * @return Pointer to the initialized `net_t`.
  */
-struct ntnet *newnet(net_t *net, unsigned int *neurons_per_layer);
+struct ntnet *newnet (net_t *net , uint16_t *neurons_per_layer );
 
 /**
- * @brief Build the neural network by allocating neurons, inputs,
- * buffers, and outputs; and connecting layers accordingly.
+ * @brief Build the neural network by allocating neurons, inputs, buffers, and outputs.
+ *
+ * Connects neurons across layers according to `bff_wiring`:
+ *  - Allocates `nn` arrays if not already allocated.
+ *  - Allocates `in` array for network inputs.
+ *  - Allocates intermediate buffers (`bff`) between layers.
+ *  - Allocates `out` array for network outputs.
+ *  - Sets neuron input pointers to proper buffers or external inputs.
  *
  * @param net Pointer to an initialized `net_t`.
  *
  * @return Pointer to the fully built `net_t`.
  */
-struct ntnet *buildnet(net_t *net);
+struct ntnet *buildnet( net_t *net );
 
 #endif // NTBUILDER_H
 
@@ -51,8 +59,8 @@ struct ntnet *buildnet(net_t *net);
 1. INITIALIZING A NETWORK (newnet)
 ================================================================================
 
-The `newnet` function prepares the network structure for building by setting up
-the number of neurons per layer and initializing internal pointers to NULL.
+Prepares the network structure for building by setting up neuron counts
+and initializing internal pointers.
 
 Example:
 
@@ -65,23 +73,21 @@ Example:
 2. BUILDING THE NETWORK (buildnet)
 ================================================================================
 
-The `buildnet` function allocates all internal structures: neuron arrays, input
-pointers, intermediate buffers, and output pointers. It sets up the connections
-between layers, allowing the network to be used immediately.
+Allocates all internal structures: neuron arrays, input pointers,
+intermediate buffers, and output pointers. Sets up connections between layers.
 
 Example:
 
     buildnet(&net);
 
-    // Now net.nn, net.in, net.bff, and net.out are allocated and connected.
+    // Now net.nn, net.in, net.bff, and net.out are fully allocated and connected.
 
 ================================================================================
 3. NOTES
 ================================================================================
 
-- Both functions require the caller to manage the `net_t` structure lifetime.
-- Memory allocation is tracked and can be freed via the memory manager (ntmemory.h).
-- Designed for feedforward layered networks but can be extended in future.
-
+- Caller must manage the `net_t` structure lifetime.
+- Memory allocation is tracked by `memtrack()`.
+- Designed for feedforward layered networks; can be extended for other topologies.
 */
 

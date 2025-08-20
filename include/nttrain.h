@@ -28,10 +28,10 @@
  * - `results`: Array of pointers to expected output vectors.
  */
 typedef struct nttraindata {
-    unsigned int samples;
+    uint64_t samples;
     float learning_rate;
     float tolerance;
-    unsigned int max_attempts;
+    uint64_t max_attempts;
     float **in;
     float **results;
 } traindata_t;

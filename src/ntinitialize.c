@@ -32,7 +32,7 @@
  */
 void randnet( net_t *net ){
     srand( time( NULL ) );
-    for( unsigned int i= 0, j, k ; i < net->layers ; i++ ) for( j= 0 ; j < net->neurons[i] ; j++ ){
+    for( uint16_t i= 0, j, k ; i < net->layers ; i++ ) for( j= 0 ; j < net->neurons[i] ; j++ ){
         for( k= 0 ; k < net->nn[i][j].inputs ; k++ ) net->nn[i][j].w[k]= ( ( float )rand( ) / RAND_MAX ) * ( ntact_rand_range[net->nn[i][j].fn][1] - ntact_rand_range[net->nn[i][j].fn][0] ) + ntact_rand_range[net->nn[i][j].fn][0];
         net->nn[i][j].b = 0.0f;
     }
