@@ -2,7 +2,7 @@
 # Script to compile the NeuroTIC library and user project
 
 CC=gcc
-CFLAGS="-Iinclude -Wall -Wextra -Wno-missing-field-initializers -pedantic -std=c11"
+CFLAGS="-Iinclude -Wall -Wextra -Wno-missing-field-initializers -pedantic -std=c11 -O3 -march=native -fno-exceptions -fstrict-aliasing"
 PROJECT_LOCATION="$1"
 PROJECT_NAME="$2"
 PLATAFORM="$3"
@@ -37,7 +37,7 @@ declare -a USR_INCLUDES
 INCLUDES=$(grep -oP '#include\s*"\K[^"]+' "$PROJECT_LOCATION/$PROJECT_NAME.c")
 
 for HEADER in $INCLUDES; do
-    if [[ $HEADER == NTIC_* ]]; then
+    if [[ $HEADER == nt* ]]; then
         NTIC_INCLUDES+=("$HEADER")
     else
         USR_INCLUDES+=("$HEADER")

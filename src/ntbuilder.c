@@ -37,7 +37,9 @@
  *
  * @return Pointer to the initialized `net_t` structure.
  */
-struct ntnet *newnet( net_t *net , uint16_t *neurons_per_layer ){
+struct ntnet *newnet( net_t *net , uint16_t *neurons_per_layer , size_t layers_size ){
+    if( !net && !neurons_per_layer && net->layers < 1 && layers_size != net->layers ) return NULL;
+    for( uint16_t i = 0 ; i < net->layers ; i++ ) if( neurons_per_layer[i] < 1 ) return NULL;
     net->in= NULL;
     net->nn= NULL;
     net->bff= NULL;
@@ -68,41 +70,74 @@ struct ntnet *newnet( net_t *net , uint16_t *neurons_per_layer ){
  *
  * @return Pointer to the fully built `net_t` structure.
  */
-struct ntnet *buildnet( net_t *net ){
-    memtrack( net->in = malloc( net->inputs * sizeof( float * ) ) );
-    memtrack( net->bff= malloc( ( net->layers - 1 ) * sizeof( float *** ) ) );
-    for( uint16_t i= 0, f= net->layers - 1 ; i < f ; i++ ){
-        memtrack( net->bff[i]= malloc( net->bff_wiring[i].arrays * sizeof( float ** ) ) );
-        for( uint16_t j= 0 ; j < net->bff_wiring[i].arrays ; j++)
-            if( net->bff_wiring[i].array_type[j] == 'M' ) memtrack( net->bff[i][j]= malloc( net->bff_wiring[i].size[j] * sizeof( float * ) ) );
-            else net->bff[i][j]= NULL;
+struct ntnet *buildnet(net_t *net){
+    // Reservar memoria para entradas y salida
+    memtrack(net->in  = malloc(net->inputs * sizeof(float *)));
+    memtrack(net->out = malloc(net->neurons[net->layers - 1] * sizeof(float *)));
+
+    // Inicializar BFF si hay más de una capa
+    if(net->layers > 1){
+        memtrack(net->bff = malloc((net->layers - 1) * sizeof(float ***)));
+        for(uint16_t i = 0; i < net->layers - 1; i++){
+            memtrack(net->bff[i] = malloc(net->bff_wiring[i].arrays * sizeof(float **)));
+            for(uint16_t j = 0; j < net->bff_wiring[i].arrays; j++){
+                switch(net->bff_wiring[i].array_type[j]){
+                    case 'M':
+                        memtrack(net->bff[i][j] = malloc(net->bff_wiring[i].size[j] * sizeof(float *)));
+                        for(uint32_t k = 0; k < net->bff_wiring[i].size[j]; k++){
+                            switch(net->bff_wiring[i].src_type[j][k]){
+                                case 'N':
+                                    net->bff[i][j][k] = &net->nn[net->bff_wiring[i].src_layer[j][k]][net->bff_wiring[i].src_index[j][k]].out;
+                                    break;
+                                case 'I':
+                                    net->bff[i][j][k] = net->in[net->bff_wiring[i].src_index[j][k]];
+                                    break;
+                                case 'O':
+                                    net->bff[i][j][k] = net->out[net->bff_wiring[i].src_index[j][k]];
+                                    break;
+                                default:
+                                    net->bff[i][j][k] = NULL;
+                                    break;
+                            }
+                        }
+                        break;
+                    case 'N':
+                        net->bff[i][j] = net->bff[net->bff_wiring[i].src_layer[j][0]][net->bff_wiring[i].src_index[j][0]];
+                        break;
+                    case 'I':
+                        net->bff[i][j] = net->in;
+                        break;
+                    case 'O':
+                        net->bff[i][j] = net->out;
+                        break;
+                    default:
+                        net->bff[i][j] = NULL;
+                        break;
+                }
+            }
+        }
     }
-    memtrack( net->out= malloc( net->neurons[net->layers - 1] * sizeof( float * ) ) );
-    for( uint16_t i= 0 ; i < net->neurons[0] ; i++ ){
-        net->nn[0][i].inputs= net->inputs;
-        net->nn[0][i].in= net->in;
-        memtrack( net->nn[0][i].w= malloc( net->inputs * sizeof( float ) ) );
+
+    // Inicializar primera capa
+    for(uint16_t i = 0; i < net->neurons[0]; i++){
+        net->nn[0][i].inputs = net->inputs;
+        net->nn[0][i].in     = net->in;
+        memtrack(net->nn[0][i].w = malloc(net->inputs * sizeof(float)));
     }
-    for( uint16_t i= 0, f= net->layers - 1 ; i < f ; i++ ) for( uint16_t j= 0 ; j < net->bff_wiring[i].arrays ; j++ )
-        if( net->bff[i][j] )
-            for( uint32_t k= 0 ; k < net->bff_wiring[i].size[j] ; k++ )
-                net->bff[i][j][k]=
-                    net->bff_wiring[i].src_type[j][k] == 'N' ?
-                        &net->nn[net->bff_wiring[i].src_layer[j][k]][net->bff_wiring[i].src_index[j][k]].out :
-                    net->bff_wiring[i].src_type[j][k] == 'I' ?
-                        net->in[net->bff_wiring[i].src_index[j][k]] :
-                    net->bff_wiring[i].src_type[j][k] == 'O' ?
-                        net->out[net->bff_wiring[i].src_index[j][k]]
-                    : NULL;
-        else 
-            net->bff[i][j]=
-                net->bff_wiring[i].array_type[j] == 'N' ?
-                    net->bff[net->bff_wiring[i].src_layer[j][0]][net->bff_wiring[i].src_index[j][0]] :
-                net->bff_wiring[i].array_type[j] == 'I' ?
-                    net->in :
-                net->bff_wiring[i].array_type[j] == 'O' ?
-                    net->out
-                : NULL;
-    for( uint16_t i= 1 ; i < net->layers ; i++ ) for( uint16_t j= 0 ; j < net->neurons[i] ; j++ ) net->nn[i][j].in= net->bff[i][net->nn[i][j].bff_idx];
+
+    // Inicializar capas siguientes
+    for(uint16_t i = 1; i < net->layers; i++){
+        for(uint16_t j = 0; j < net->neurons[i]; j++){
+            net->nn[i][j].in     = net->bff[i - 1][net->nn[i][j].bff_idx];
+            net->nn[i][j].inputs = net->neurons[i - 1];
+            memtrack(net->nn[i][j].w = malloc(net->nn[i][j].inputs * sizeof(float)));
+        }
+    }
+
+    // Conectar salida
+    for(uint16_t i = 0; i < net->neurons[net->layers - 1]; i++)
+        net->out[i] = &net->nn[net->layers - 1][i].out;
+
     return net;
 }
+

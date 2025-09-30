@@ -20,49 +20,54 @@
 // CONTROL PANEL
 #define FUNCTION XOR  // Logic function to train
 
-#define AND           (data.IN[i][0] && data.IN[i][1])
+#define AND           (data.in[i][0] && data.in[i][1])
 #define NAND          (!(AND))
-#define OR            (data.IN[i][0] || data.IN[i][1])
+#define OR            (data.in[i][0] || data.in[i][1])
 #define NOR           (!(OR))
 #define CONJUNCION_A  (!AND)
-#define CONJUNCION_B  (data.IN[i][0] && !data.IN[i][1])
+#define CONJUNCION_B  (data.in[i][0] && !data.in[i][1])
 #define IMPLICATION_A (!OR)
-#define IMPLICATION_B (data.IN[i][0] || !data.IN[i][1])
-#define XOR           (data.IN[i][0] != data.IN[i][1])
-#define XNOR          (data.IN[i][0] == data.IN[i][1])
+#define IMPLICATION_B (data.in[i][0] || !data.in[i][1])
+#define XOR           (data.in[i][0] != data.in[i][1])
+#define XNOR          (data.in[i][0] == data.in[i][1])
 
 // === LIBRAIES ===
 #include <stdio.h>
 #include <stdlib.h>
-#include "NTIC_complete.h"
+#include "ntcore.h"
+#include "ntactivation.h"
+#include "ntbuilder.h"
+#include "ntinitialize.h"
+#include "ntcalculate.h"
+#include "nttrain.h"
+#include "ntmemory.h"
+#include "ntfeedforward.h"
 
 // === START ===
 int main(){
 // === NETWORK DEFINITION ===
-    struct net Net= define_net( 2 , 2 , ( int [] ){ 2 ,  1 } );
-    build_net( &Net );
-    for( unsigned int i= 0 ; i < Net.layers ; i++ ) for( unsigned int j= 0 ; j < Net.neurons[i] ; j++ ) Net.N[i][j].FUNC= SIGMOID;
-// === INITIALIZATION ===
-    rand_net( &Net );
+    net_t Net= { 2 , 2 };
+    randnet( buildnet( newfeedforward( NEWNET( Net , ((uint16_t []){ 2 , 1 }) ) ) ) );
+    for( unsigned int i= 0 ; i < Net.layers ; i++ ) for( unsigned int j= 0 ; j < Net.neurons[i] ; j++ ) Net.nn[i][j].fn= NTACT_SIGMOID;
 // === DATA SET DEFINITION ===
-    struct train_data data={
+    traindata_t data={
         .samples=4,
         .learning_rate=0.1,
         .tolerance=0.0,
         .max_attempts=10000
     };
-    traininit( &data , Net );
-    for( unsigned int i= 0, j ; i < data.samples ; i++ ){
-        for( unsigned int j= 0 ; j < Net.inputs ; j++ ) data.IN[i][j]= ( i >> j ) & 1;
+    newtraindata( &data , &Net );
+    for( unsigned int i= 0 ; i < data.samples ; i++ ){
+        for( unsigned int j= 0 ; j < Net.inputs ; j++ ) data.in[i][j]= ( i >> j ) & 1;
         for( unsigned int j= 0 ; j < Net.neurons[Net.layers - 1] ; j++ ) data.results[i][j]= FUNCTION;
     }
 // === TRAINING ===
-    printf( "\nAttempts: %i\n" , train( &Net , data ) );
+    printf( "\nAttempts: %i\n" , backpropagation( &Net , &data ) );
 // === RESULTS ===
     printf( "\n| A | B | O |\n" );
     for( unsigned int i= 0 ; i < data.samples ; i++ ){
-        for( unsigned int j= 0 ; j < Net.inputs ; j++ ) Net.IN[j]= &data.IN[i][j];
-        printf( "| %.0f | %.0f | %.0f |\n" , data.IN[i][0] , data.IN[i][1] , run_net( &Net )[0] );
+        for( unsigned int j= 0 ; j < Net.inputs ; j++ ) Net.in[j]= &data.in[i][j];
+        printf( "| %.0f | %.0f | %.0f |\n" , data.in[i][0] , data.in[i][1] , feedforward( &Net )[0] );
     }
     printf( "\n" );
 // === END ===

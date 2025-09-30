@@ -52,6 +52,8 @@
  * After execution, `net.bff_wiring` contains wiring for a standard feedforward network.
  */
 struct ntnet *newfeedforward( net_t *net ){
+    if( !net ) return NULL;
+    if( !net->neurons ) return NULL;
     uint16_t L= net->layers - 1;
     memtrack( net->bff_wiring= malloc (L * sizeof( bffwiring_t ) ) );
     for( uint16_t i= 0 ; i < L ; i++ ){

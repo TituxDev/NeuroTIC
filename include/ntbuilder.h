@@ -20,8 +20,10 @@
 #ifndef NTBUILDER_H
 #define NTBUILDER_H
 
+#include <stddef.h>
 #include "ntcore.h"
 
+#define NEWNET( network, neurons) newnet( &network, neurons, sizeof( neurons )/sizeof( uint16_t ) )
 /**
  * @brief Initialize a network structure with neuron counts per layer.
  *
@@ -34,7 +36,7 @@
  *
  * @return Pointer to the initialized `net_t`.
  */
-struct ntnet *newnet (net_t *net , uint16_t *neurons_per_layer );
+struct ntnet *newnet (net_t *net , uint16_t *neurons_per_layer , size_t layers_size );
 
 /**
  * @brief Build the neural network by allocating neurons, inputs, buffers, and outputs.
