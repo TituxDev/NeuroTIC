@@ -2,16 +2,23 @@
 
 The journey from a single XOR problem to a fully hackable neural network toolkit.
 
-1. AI can't be an infinite number of nested ifs. How does it really work?
-2. Boolean perceptron looks easy to be coded.
-3. Everything is just weights, biases, and error calculations... to automate the adjustments.
-4. ❌ Why can’t XOR be solved!?
-5. 🧮 Oh, I need more neurons.
-6. 🏋️ How to train a full network?
-7. 🛠️ I need tools to build and train networks.
-8. 🚀 This is starting to feel like a real system! Let's go deeper.
-9. 🧱 First, neurons must be treated as objects — let’s encapsulate their properties in a structure.
-10. 🔌 What if their connections emulate electrical wiring, using inputs as pointers and outputs as variables?
-11. 🗂️ If I want to create flexible functions to control the network... I need structure. Time to build a network struct with a dynamic neuron matrix, topology info, and external connections.
-12. 🕸️ With pointers and dynamic memory — any topology is possible!
-13. 🧼 Right... but I have to respect memory space. Time to add buffers between layers.
+1. 🤔 AI isn’t just nested ifs… how does it work?
+2. 🖥️ Boolean perceptron coded, AND works.
+3. 🧮 Weights, biases, error — adjustments automated.
+4. ❌ XOR unsolvable at first… challenge accepted.
+5. ➕ More neurons needed.
+6. 🏋️ Training a full network… learning derivatives.
+7. 🛠️ Built flexible structs for neurons & networks.
+8. 🔌 Connections like electrical wiring: inputs as pointers, outputs as variables.
+9. 🕸️ Any topology possible with dynamic memory.
+10. 🧼 Buffers added to respect memory space.
+11. 💡 “Aha!” moments: flow of info in perceptrons, combining neurons for XOR.
+12. 💪 No step too big, every problem solvable.
+13. 📂 Libraries & helper scripts make the system organized.
+14. 🧩 Pointers & buffers prevent memory explosion.
+15. 🔄 memtrack handles tricky memory freeing.
+16. 💾 Saving networks: binary files, endianness, IEEE floats.
+17. 🐛 Bugs: sneaky double-free caught after memory optimization.
+18. ⚡ Pure C power: speed, control, flexibility.
+19. 🎉 Pride: flexible networks, beginner-friendly, fully hackable.
+20. 🔧 Next: generic buffer connections, training from files/sensors, wild topologies.
