@@ -42,6 +42,7 @@
 #include "nttrain.h"
 #include "ntmemory.h"
 #include "ntfeedforward.h"
+#include "ntfile.h"
 
 // === START ===
 int main(){
@@ -63,11 +64,21 @@ int main(){
     }
 // === TRAINING ===
     printf( "\nAttempts: %i\n" , backpropagation( &Net , &data ) );
-// === RESULTS ===
+    // === RESULTS ===
     printf( "\n| A | B | O |\n" );
     for( unsigned int i= 0 ; i < data.samples ; i++ ){
         for( unsigned int j= 0 ; j < Net.inputs ; j++ ) Net.in[j]= &data.in[i][j];
         printf( "| %.0f | %.0f | %.0f |\n" , data.in[i][0] , data.in[i][1] , feedforward( &Net )[0] );
+    }
+    printf( "\n" );
+// === SAVE ===
+    savenet( &Net , "examples/logic_gate" );
+    net_t Net2= loadnet( "examples/logic_gate" );
+
+    printf( "\n\n| A | B | O |\n" );
+    for( unsigned int i= 0 ; i < data.samples ; i++ ){
+        for( unsigned int j= 0 ; j < Net2.inputs ; j++ ) Net2.in[j]= &data.in[i][j];
+        printf( "| %.0f | %.0f | %.0f |\n" , data.in[i][0] , data.in[i][1] , feedforward( &Net2 )[0] );
     }
     printf( "\n" );
 // === END ===
