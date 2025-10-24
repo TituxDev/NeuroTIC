@@ -20,16 +20,16 @@ compile:
 	else \
 		export PROJECT_NAME=$(PROJECT_NAME); \
 	fi; \
-	if [ -z "$(PLATAFORM)" ]; then \
+	if [ -z "$(PLATFORM)" ]; then \
 		read -p "Enter platform (e.g., CPU): " plat; \
-		export PLATAFORM=$$plat; \
+		export PLATFORM=$$plat; \
 	else \
-		export PLATAFORM=$(PLATAFORM); \
+		export PLATFORM=$(PLATFORM); \
 	fi; \
 	echo "Compiling project in location: $$PROJECT_LOCATION"; \
 	echo "Project name: $$PROJECT_NAME"; \
-	echo "Plataform: $$PLATAFORM"; \
-	./scripts/compile.sh "$$PROJECT_LOCATION" "$$PROJECT_NAME" "$$PLATAFORM"
+	echo "Platform: $$PLATFORM"; \
+	./scripts/compile.sh "$$PROJECT_LOCATION" "$$PROJECT_NAME" "$$PLATFORM"
 
 install:
 	@printf "NeuroTIC DOWNLOAD PROCESS STARTED...\n"; \

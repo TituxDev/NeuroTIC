@@ -120,6 +120,8 @@ unsigned char savenet( net_t * net , const char *name ){
     return 0;
 }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-result"
 struct ntnet loadnet( char *name ){
     char NAME[ NAME_LENGTH ];
     strcpy( NAME , name );
@@ -129,48 +131,47 @@ struct ntnet loadnet( char *name ){
     fseek( fp , 9 , SEEK_SET );
 
     net_t net;
-    size_t aux;
-    aux= fread( &net.inputs , sizeof( uint32_t ) , 1 , fp );
-    aux= fread( &net.layers , sizeof( uint16_t ) , 1 , fp );
+    fread( &net.inputs , sizeof( uint32_t ) , 1 , fp );
+    fread( &net.layers , sizeof( uint16_t ) , 1 , fp );
 
     uint16_t *neurons;
     neurons= malloc( net.layers * sizeof( uint16_t ) );
-    aux= fread( neurons , sizeof( uint16_t ) , net.layers , fp );
+    fread( neurons , sizeof( uint16_t ) , net.layers , fp );
     newnet( &net , neurons , net.layers );
     free( neurons );
 
     for( uint16_t i= 0 ; i < net.layers ; i ++ ) for( uint16_t j= 0 ; j < net.neurons[i] ; j++ ){
-        aux= fread( &net.nn[i][j].inputs , sizeof( uint32_t ) , 1 , fp );
-        aux= fread( &net.nn[i][j].bff_idx , sizeof( uint16_t ) , 1 , fp );
+        fread( &net.nn[i][j].inputs , sizeof( uint32_t ) , 1 , fp );
+        fread( &net.nn[i][j].bff_idx , sizeof( uint16_t ) , 1 , fp );
     }
 
     if( net.layers > 1 ){
         memtrack( net.bff_wiring= malloc( ( net.layers - 1 ) * sizeof( bffwiring_t ) ) );
         for( uint16_t i= 0 ; i < net.layers - 1 ; i++ ){
-            aux= fread( &net.bff_wiring[i].arrays , sizeof( uint16_t ) , 1 , fp );
+            fread( &net.bff_wiring[i].arrays , sizeof( uint16_t ) , 1 , fp );
             memtrack( net.bff_wiring[i].array_type= malloc( net.bff_wiring[i].arrays * sizeof( uint8_t ) ) );
             memtrack( net.bff_wiring[i].size= malloc( net.bff_wiring[i].arrays * sizeof( uint32_t ) ) );
             memtrack( net.bff_wiring[i].src_type= malloc( net.bff_wiring[i].arrays * sizeof( uint8_t * ) ) );
             memtrack( net.bff_wiring[i].src_layer= malloc( net.bff_wiring[i].arrays * sizeof( uint16_t * ) ) );
             memtrack( net.bff_wiring[i].src_index= malloc( net.bff_wiring[i].arrays * sizeof( uint16_t * ) ) );
             for( uint16_t j= 0 ; j < net.bff_wiring[i].arrays ; j++ ){
-                aux= fread( &net.bff_wiring[i].array_type[j] , sizeof( uint8_t ) , 1 , fp );
+                fread( &net.bff_wiring[i].array_type[j] , sizeof( uint8_t ) , 1 , fp );
                 switch( net.bff_wiring[i].array_type[j] ){
                     case 'M':
-                        aux= fread( &net.bff_wiring[i].size[j] , sizeof( uint32_t ) , 1 , fp );
+                        fread( &net.bff_wiring[i].size[j] , sizeof( uint32_t ) , 1 , fp );
                         memtrack( net.bff_wiring[i].src_type[j]= malloc( net.bff_wiring[i].size[j] * sizeof( uint8_t ) ) );
                         memtrack( net.bff_wiring[i].src_layer[j]= malloc( net.bff_wiring[i].size[j] * sizeof( uint16_t ) ) );
                         memtrack( net.bff_wiring[i].src_index[j]= malloc( net.bff_wiring[i].size[j] * sizeof( uint16_t ) ) );
                         for( uint32_t k= 0 ; k < net.bff_wiring[i].size[j] ; k++ ){
-                            aux= fread( &net.bff_wiring[i].src_type[j][k] , sizeof( uint8_t ) , 1 , fp );
+                            fread( &net.bff_wiring[i].src_type[j][k] , sizeof( uint8_t ) , 1 , fp );
                             switch( net.bff_wiring[i].src_type[j][k] ){
                                 case 'N':
-                                    aux= fread( &net.bff_wiring[i].src_layer[j][k] , sizeof( uint16_t ) , 1 , fp );
-                                    aux= fread( &net.bff_wiring[i].src_index[j][k] , sizeof( uint16_t ) , 1 , fp );
+                                    fread( &net.bff_wiring[i].src_layer[j][k] , sizeof( uint16_t ) , 1 , fp );
+                                    fread( &net.bff_wiring[i].src_index[j][k] , sizeof( uint16_t ) , 1 , fp );
                                     break;
                                 case 'O':
                                 case 'I':
-                                    aux= fread( &net.bff_wiring[i].src_index[j][k] , sizeof( uint16_t ) , 1 , fp );
+                                    fread( &net.bff_wiring[i].src_index[j][k] , sizeof( uint16_t ) , 1 , fp );
                             }
                         }
                         break;
@@ -178,8 +179,8 @@ struct ntnet loadnet( char *name ){
                         memtrack( net.bff_wiring[i].src_type[j]= malloc( sizeof( uint8_t ) ) );
                         memtrack( net.bff_wiring[i].src_layer[j]= malloc( sizeof( uint16_t ) ) );
                         memtrack( net.bff_wiring[i].src_index[j]= malloc( sizeof( uint16_t ) ) );
-                        aux= fread( &net.bff_wiring[i].src_layer[j][0] , sizeof( uint16_t ) , 1 , fp );
-                        aux= fread( &net.bff_wiring[i].src_index[j][0] , sizeof( uint16_t ) , 1 , fp );
+                        fread( &net.bff_wiring[i].src_layer[j][0] , sizeof( uint16_t ) , 1 , fp );
+                        fread( &net.bff_wiring[i].src_index[j][0] , sizeof( uint16_t ) , 1 , fp );
                         break;
                 }
             }
@@ -189,10 +190,11 @@ struct ntnet loadnet( char *name ){
     buildnet( &net );
 
     for( uint16_t i= 0 ; i < net.layers ; i ++ ) for( uint16_t j= 0 ; j < net.neurons[i] ; j++ ){
-        aux= fread( &net.nn[i][j].fn , sizeof( uint8_t ) , 1 , fp );
-        aux= fread( &net.nn[i][j].b , sizeof( float ) , 1 , fp );
-        for( uint32_t k= 0 ; k < net.nn[i][j].inputs ; k++ ) aux= fread( &net.nn[i][j].w[k] , sizeof( float ) , 1 , fp );
+        fread( &net.nn[i][j].fn , sizeof( uint8_t ) , 1 , fp );
+        fread( &net.nn[i][j].b , sizeof( float ) , 1 , fp );
+        for( uint32_t k= 0 ; k < net.nn[i][j].inputs ; k++ ) fread( &net.nn[i][j].w[k] , sizeof( float ) , 1 , fp );
     }
     fclose( fp );
     return net;
 }
+#pragma GCC diagnostic pop

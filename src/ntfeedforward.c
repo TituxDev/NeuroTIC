@@ -78,3 +78,35 @@ struct ntnet *newfeedforward( net_t *net ){
     }
     return net;
 }
+
+struct ntnet *newdense( net_t *net ){
+    if( !net ) return NULL;
+    if( !net->neurons ) return NULL;
+    uint16_t L= net->layers - 1;
+    memtrack( net->bff_wiring= malloc (L * sizeof( bffwiring_t ) ) );
+    uint32_t count= 0;
+    for( uint16_t i= 0 ; i < L ; i++ ){
+        count+= net->neurons[i];
+        net->bff_wiring[i].arrays= 1;
+        memtrack( net->bff_wiring[i].array_type= malloc( sizeof( uint8_t ) ) );
+        net->bff_wiring[i].array_type[0]= 'M';
+        memtrack( net->bff_wiring[i].size= malloc( sizeof( uint32_t ) ) );
+        net->bff_wiring[i].size[0]= count;
+        memtrack( net->bff_wiring[i].src_type= malloc( sizeof( uint8_t * ) ) );
+        memtrack( net->bff_wiring[i].src_layer= malloc( sizeof( uint16_t * ) ) );
+        memtrack( net->bff_wiring[i].src_index= malloc( sizeof( uint16_t * ) ) );
+        memtrack( net->bff_wiring[i].src_type[0]= malloc( count * sizeof( uint8_t ) ) );
+        memtrack( net->bff_wiring[i].src_layer[0]= malloc( count * sizeof( uint16_t ) ) );
+        memtrack( net->bff_wiring[i].src_index[0]= malloc( count * sizeof( uint16_t ) ) );
+        uint16_t layer= 0;
+        uint16_t index= 0;
+        for( uint32_t j= 0 ; j < count ; j++ ){
+            net->bff_wiring[i].src_type[0][j]= 'N';
+            net->bff_wiring[i].src_layer[0][j]= layer;
+            net->bff_wiring[i].src_index[0][j]= index;
+            layer+= !!(index= index < net->neurons[layer] ? index + 1 : 0);
+        }
+        for( uint16_t j= 0 ; j < net->neurons[i] ; j++ ) net->nn[i][j].bff_idx= 0;
+    }
+    return net;
+}
