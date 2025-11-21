@@ -5,3 +5,5 @@
 #include "ntcalculate.h"
 #include "nttrain.h"
 #include "ntmemory.h"
+#include "ntfile.h"
+#include "ntfeedforward.h"
