@@ -9,6 +9,7 @@ if [ -z "$example" ]; then
 fi
 
 cd ..
-make compile PROJECT_LOCATION=examples PROJECT_NAME=$example PLATAFORM=CPU
+make compile PROJECT_LOCATION=examples PROJECT_NAME=$example PLATFORM=CPU
 ./examples/"$example"
 rm examples/"$example"
+rm examples/lib/*
