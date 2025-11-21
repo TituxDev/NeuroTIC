@@ -29,7 +29,7 @@ compile:
 	echo "Compiling project in location: $$PROJECT_LOCATION"; \
 	echo "Project name: $$PROJECT_NAME"; \
 	echo "Platform: $$PLATFORM"; \
-	./scripts/compile.sh "$$PROJECT_LOCATION" "$$PROJECT_NAME" "$$PLATFORM"
+	bash ./scripts/compile.sh "$$PROJECT_LOCATION" "$$PROJECT_NAME" "$$PLATFORM"
 
 install:
 	@printf "NeuroTIC DOWNLOAD PROCESS STARTED...\n"; \
