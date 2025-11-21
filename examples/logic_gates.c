@@ -21,12 +21,12 @@
 #define FUNCTION XOR  // Logic function to train
 
 #define AND           (data.in[i][0] && data.in[i][1])
-#define NAND          (!(AND))
+#define NAND          (!AND)
 #define OR            (data.in[i][0] || data.in[i][1])
-#define NOR           (!(OR))
-#define CONJUNCION_A  (!AND)
+#define NOR           (!OR)
+#define CONJUNCION_A  (!data.in[i][0] && data.in[i][1])
 #define CONJUNCION_B  (data.in[i][0] && !data.in[i][1])
-#define IMPLICATION_A (!OR)
+#define IMPLICATION_A (!data.in[i][0] || data.in[i][1])
 #define IMPLICATION_B (data.in[i][0] || !data.in[i][1])
 #define XOR           (data.in[i][0] != data.in[i][1])
 #define XNOR          (data.in[i][0] == data.in[i][1])
@@ -34,6 +34,7 @@
 // === LIBRAIES ===
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "ntcore.h"
 #include "ntactivation.h"
 #include "ntbuilder.h"
@@ -47,15 +48,16 @@
 // === START ===
 int main(){
 // === NETWORK DEFINITION ===
-    net_t Net= { 2 , 2 };
-    randnet( buildnet( newfeedforward( NEWNET( Net , ((uint16_t []){ 2 , 1 }) ) ) ) );
+    net_s Net= { .inputs= 2 , .layers= 2 };
+    buildnet( newfeedforward( NEWNET( Net , ( (uint16_t []){ 2 , 1 }) ) ) );
     for( unsigned int i= 0 ; i < Net.layers ; i++ ) for( unsigned int j= 0 ; j < Net.neurons[i] ; j++ ) Net.nn[i][j].fn= NTACT_SIGMOID;
+    randnet( &Net );
 // === DATA SET DEFINITION ===
     traindata_t data={
         .samples=4,
-        .learning_rate=0.1,
-        .tolerance=0.0,
-        .max_attempts=10000
+        .learning_rate=0.2,
+        .tolerance=0.5,
+        .max_attempts=1000000
     };
     newtraindata( &data , &Net );
     for( unsigned int i= 0 ; i < data.samples ; i++ ){
@@ -73,8 +75,8 @@ int main(){
     printf( "\n" );
 // === SAVE ===
     savenet( &Net , "examples/logic_gate" );
-    net_t Net2= loadnet( "examples/logic_gate" );
-
+    net_s Net2= loadnet( "examples/logic_gate" );
+    if( !Net2.inputs ) return 1;
     printf( "\n\n| A | B | O |\n" );
     for( unsigned int i= 0 ; i < data.samples ; i++ ){
         for( unsigned int j= 0 ; j < Net2.inputs ; j++ ) Net2.in[j]= &data.in[i][j];
@@ -82,5 +84,6 @@ int main(){
     }
     printf( "\n" );
 // === END ===
+    remove( "examples/logic_gate.ntic" );
     return 0;
 }
