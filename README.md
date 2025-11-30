@@ -1,80 +1,126 @@
 # NeuroTIC
 
-**NeuroTIC** is a minimalist neural network library written in **pure C** — for those who like their code raw, their terminals dark, and their neurons connected by hand.  
-Think of it as soldering logic gates... but with pointers.
+A framework for understanding, exploring, and experimenting with neural networks. `Built in C`, it gives you full visibility into the source code and the freedom to modify, extend, and hack every component.
 
----
+**NeuroTIC** helps you design, build, train, save, and load networks with complete creative control over their topology—without dragging you through the usual low-level chores.
 
-## 🧠 What is NeuroTIC?
+This workspace is meant for people who care about transparency and control: developers, students, and tinkerers who want to understand neural networks from the inside out and shape them on their own terms.
 
-NeuroTIC is a lightweight, modular neural network system built entirely in ANSI C — no external libraries, no hidden magic.  
-It was born from the desire to understand how AI works from the ground up, and evolved into a tool for learning, hacking, and creating neural networks manually and dynamically.
+## About the framework
 
-If you're curious about the journey behind this system, visit [NeuroTIClab](https://neuroticlab.com) — a companion site (in Spanish) documenting the project’s development.
+**NeuroTIC** offers a modular environment where every part of a neural network—layers, neurons, activation flows, learning rules, serialization—is open and accessible.
 
----
+The design is intentionally minimal: you get a clean API for common tasks, but nothing is hidden.
 
-## ✨ Features
+## Architecture overview
 
-- 🧠 Core neuron design: Flexible neuron structs allow you to connect neurons in any topology and assign activation functions dynamically.
-- 💾 Full network persistence: Save and load neural networks to and from binary files with a single call — all weights, biases, and wiring are preserved.
-- 🔧 All-in-one toolkit: Build, train, and run feedforward networks; helper functions and scripts automate compilation and testing.
-- ⚡ On-the-fly editing: Change network structure or parameters dynamically during runtime.
-- 🧹 Memory tracking: Built-in memory management ensures clean allocation and deallocation.
-- 📜 Script-powered framework: Bash scripts and Makefile handle project setup, compilation, and examples automatically — no hidden dependencies.
+The core idea behind NeuroTIC is simple:
+a neural network should be fully visible, fully editable, and never trapped inside a rigid template.
 
----
+The framework arranges neurons, layers, and data flows in a compact structure where everything is explicit. Nothing happens behind your back, and anything you dislike can be rewritten on the spot.
 
-## 🚀 Quick Start
+At the center sits the `net_s` structure. It exposes the external input ports, records the layer count and the neuron count per layer, stores the entire neuron matrix, and carries the wiring descriptors and buffer system that shuttle values between layers. After the build step the network has all connections resolved, the output ports assigned, and the internal memory under its control. External inputs—or any custom data sources you plug in—remain entirely yours. In practice, net_s becomes the fully inspectable device you run, train, save, reload, and tinker with.
 
-### Clone the repository and install dependencies
+Helper modules step in for convenience—dense wiring, feed-forward layouts, activation dispatch, weight initialization, training routines, persistence—but they’re always optional. They accelerate your work without limiting what you can build.
 
-(You can also just download the Makefile and use that)
+Because the network stays transparent at every stage, you can:
 
-``` bash
-make install
+- assemble a classic dense model with a single call,
+- mix automatic wiring with handcrafted connections,
+- shape exotic topologies layer by layer,
+- poke weights and activation paths directly,
+- experiment with training rules outside the usual canon,
+- and run inference without a single runtime allocation.
+
+NeuroTIC avoids the black-box mentality altogether. Everything arrives as plain C code sitting inside your project, ready for inspection, extension, mutation, or the occasional glorious detonation in the name of learning.
+
+[USER GUIDE](docs/User_guide.md)
+
+## Quick use guide
+
+### 1. Install
+
+Download the makefile from the repository and run:
+
+```sh
+make install 
 ```
 
-This will:
+This checks for required tools (gcc, ar) and offers to install them if missing. It will also guide you through cloning the repository.
 
-1. Check your environment
-2. Clone the NeuroTIC repository
-3. Set up required directories
+### 2. Compile an example
 
-### 📁 Examples
+To compile examples/logic_gates.c:
 
-To compile and run an example (e.g., `logic_gates.c`):
+```sh
+make compile PROJECT_LOCATION=examples PROJECT_NAME=logic_gates PLATFORM=CPU
+```
 
-```bash
+Alternatively, run `make compile` with no arguments and follow the prompts:
+
+```sh
+Enter project location (e.g., workspace, examples): examples
+Enter project name (filename without extension): logic_gates
+Enter platform (e.g., CPU): CPU
+```
+
+**NOTE:** *This only compiles the source code into an executable; it does not run it.*
+
+**Expected compile log**  
+
+```sh
+Compiling project in location: examples
+Project name: logic_gates
+Platform: CPU
+```
+
+### 3. Run the example
+
+```sh
+./examples/logic_gates
+```
+
+The program will:
+
+- Train a neural network that learns all 16 possible binary logic functions simultaneously
+- Save the trained network to a `.ntic` file
+- Load the network back into memory
+- Run both the trained and reloaded versions for comparison
+
+The console will print two complete truth tables, one for the live network and one for the loaded copy.
+Each table includes:
+
+> A, B, NULL, NOR, EXA, NOTB, EXB, NOTA, XOR, NAND, AND, XNOR, A, IMPB, B, IMPA, OR, ALL
+
+Every cell shows a 0 or 1 according to the network’s predictions.
+
+### 4. Clean up
+
+```sh
+rm examples/logic_gates
+```
+
+### 5. Shortcut
+
+A helper script is available inside `examples/`:
+
+```sh
 cd examples
 bash ./test.sh logic_gates
 ```
 
-It will automatically compile and run the selected example using the helper build system.
+This compiles, runs, and removes the binary automatically.
 
-## 📚 Documentation
+### 6. Start your first project
 
-Explore the internals and history of NeuroTIC through these documents:
+Ready to build your own?  
+Check out:
+[Create project](docs/Create_project.md)
 
-- [Project Philosophy](./docs/PHILOSOPHY.md) – Principles behind NeuroTIC.
-- [Development Log](./docs/DEVLOGS.md) – The journey from XOR to full networks.
-- [Roadmap](./docs/ROADMAP.md) – What’s done and what’s coming.
+## Author
 
-## 🧾 License
+Oscar Sotomayor (Titux) – Creator and maintainer.
 
-This project uses the [Mozilla Public License 2.0](./LICENSE).
-In short:
+## License
 
-- 🆓 You can use it freely (even in closed-source software)
-- 🪪 Keep modifications to this code open if redistributed
-- 🧾 Don’t remove the author’s name
-- 🤝 If you're making profit, consider contacting the author — fair is fair
-
-### 🛠️ About the helper scripts
-
-*All `.sh` and `Makefile` scripts in this repository are provided as helper tools.*  
-*They're not part of the NeuroTIC core library and are completely free to reuse or adapt — no license required, just give credit if you feel like it.*
-
-## 👤 Author
-
-Crafted with love, logic, and a healthy dose of malloc() by Oscar Sotomayor.
+NeuroTIC is distributed under the [MPL 2.0 license](LICENSE).
