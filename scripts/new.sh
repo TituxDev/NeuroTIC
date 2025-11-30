@@ -28,11 +28,11 @@ AUTHOR=${AUTHOR:-$(whoami)}
 read -r -p "Brief project description: " DESCRIPTION
 while true; do
     echo -e "Available header packs:\033[34m"
-    ls variants | grep NTIC_.*\.h | sed 's/NTIC_//; s/\.h//'
+    ls variants | grep nt.*\.h | sed 's/nt//; s/\.h//'
     echo -e -n "\033[0m"
     read -p "Enter the header pack to use: " HEADER
     [ -z "$HEADER" ] && break
-    [ -f "variants/NTIC_$HEADER.h" ] && cp variants/NTIC_$HEADER.h workspace/ && break
+    [ -f "variants/nt$HEADER.h" ] && cp variants/nt$HEADER.h workspace/ && break
     echo -e "\033[31mHeader pack not found. Please choose a valid header pack.\033[0m"
 done
 
@@ -59,7 +59,7 @@ echo " * Pro tip: use $PROJECT_NAME.h to store global constants, macros, variabl
 echo " * or include additional headers. Keep your main clean."
 echo " */"
 echo "#include \"$PROJECT_NAME.h\""
-[ -n "$HEADER" ] && echo "#include \"NTIC_$HEADER.h\""
+[ -n "$HEADER" ] && echo "#include \"nt$HEADER.h\""
 echo ""
 echo "int main( void ){"
 echo ""
