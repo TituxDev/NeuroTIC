@@ -121,7 +121,20 @@ Check out:
 
 Oscar Sotomayor (Titux) – Creator and maintainer.
 
-## License
+## Licensing
 
-NeuroTIC is distributed under the [GPLv3 license](LICENSE).  
-For commercial licensing inquiries: [ocrstmy@gmail.com]
+NeuroTIC is available under dual licensing to support both open source and commercial use.
+
+### Open Source (GPLv3)
+
+This software is available under the GNU GPLv3 license for open source projects, academic use, and personal projects.
+
+### Commercial License
+
+For companies needing proprietary usage, a [commercial license](COMERCIAL_LICESE.md) is available.  
+[Future implementations](ROADMAP.md)
+
+## Contact
+
+ ocrstmy@gmail.com for commercial licensing.
+ 
