@@ -123,4 +123,4 @@ Oscar Sotomayor (Titux) – Creator and maintainer.
 
 ## License
 
-NeuroTIC is distributed under the [MPL 2.0 license](LICENSE).
+NeuroTIC is distributed under the [GPLv3 license](LICENSE).
