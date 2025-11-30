@@ -1,13 +1,12 @@
 /**
- * ntcalculate.h - Neural network computation functions for NeuroTIC
+ * @file ntcalculate.h
+ * @brief Core feedforward computations for NeuroTIC networks.
  *
- * Author: Oscar Sotomayor
- * License: Mozilla Public License Version 2.0 (MPL-2.0)
+ * Provides functions to perform weighted summation, activation, and full
+ * forward propagation of a neural network in sequential order.
  *
- * Declares functions for calculating neuron weighted sums, applying activation
- * functions, and performing feedforward propagation through a neural network.
- * Designed for modular computation and easy extension to additional calculation
- * models.
+ * @author Oscar Sotomayor
+ * @date 2024
  */
 
 #ifndef NTCALCULATE_H
@@ -16,82 +15,32 @@
 #include "ntcore.h"
 
 /**
- * @brief Calculate the weighted sum of a neuron’s inputs plus bias.
+ * @brief Computes the weighted sum of a neuron's inputs plus bias.
  *
- * Multiplies each input by its corresponding weight and sums the results,
- * adding the bias term.
- *
- * @param neuron Pointer to the neuron structure.
- * @return Weighted sum as a float.
+ * @param neuron Pointer to the neuron to compute.
+ * @return The weighted sum (float).
  */
-float weighing( neuron_t *neuron );
+float weighing( neuron_s *neuron );
 
 /**
- * @brief Apply the neuron’s activation function to the weighted sum.
+ * @brief Applies the activation function to a neuron's weighted input.
  *
- * Computes the weighted sum and then applies the activation function
- * indexed by the neuron’s `fn` field. The output value is stored in the
- * neuron’s `out` field.
+ * Stores the result in the neuron's `out` field.
  *
- * @param neuron Pointer to the neuron structure.
- * @return Activated output value as a float.
+ * @param neuron Pointer to the neuron to activate.
+ * @return The activated output value (float).
  */
-float activate( neuron_t *neuron );
+float activate( neuron_s *neuron );
 
 /**
- * @brief Perform feedforward computation on the entire network.
+ * @brief Performs full feedforward computation for a network.
  *
- * Iterates through all neurons in all layers, computing their outputs
- * by applying the activation function to weighted sums. Returns a pointer
- * to the output values of the final layer neurons.
+ * Iterates over all layers and neurons in sequential order, computing
+ * activations for each neuron.
  *
- * @param net Pointer to the neural network structure.
- * @return Pointer to the array of output neuron values (final layer).
+ * @param net Pointer to the network to compute.
+ * @return Pointer to the array of output values from the final layer.
  */
-float *feedforward( net_t *net );
+float *feedforward( net_s *net );
 
 #endif // NTCALCULATE_H
-
-/*
-================================================================================
-1. WEIGHTED SUM CALCULATION (weighing)
-================================================================================
-
-Calculates the sum of weighted inputs plus bias for a single neuron.
-
-Example:
-
-    float sum = weighing(&net.nn[0][0]);
-
-================================================================================
-2. ACTIVATION (activate)
-================================================================================
-
-Applies the neuron’s activation function to the weighted sum and stores
-the output.
-
-Example:
-
-    float output = activate(&net.nn[0][0]);
-
-================================================================================
-3. FEEDFORWARD COMPUTATION (feedforward)
-================================================================================
-
-Computes outputs for all neurons layer-by-layer in feedforward order.
-
-Example:
-
-    float *outputs = feedforward(&net);
-
-    // 'outputs' points to final layer neuron outputs.
-
-================================================================================
-4. NOTES
-================================================================================
-
-- Functions assume a properly constructed network (`net_t`) with
-  initialized weights and inputs.
-- `activate` updates the neuron’s `out` field for downstream use.
-- `feedforward` returns a pointer to the final output layer’s output values.
-*/

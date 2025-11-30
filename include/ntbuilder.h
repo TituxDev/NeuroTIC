@@ -1,95 +1,60 @@
 /**
- * ntbuilder.h - Neural network construction utilities for NeuroTIC
+ * @file ntbuilder.h
+ * @brief Network construction functions for the NeuroTIC framework.
  *
- * Author: Oscar Sotomayor
- * License: Mozilla Public License Version 2.0 (MPL-2.0)
- *
- * Declares functions to initialize and build feedforward neural networks
- * using the `net_t` structure. Supports flexible layer counts and neuron
- * distributions.
- *
- * Functions:
- *  - newnet   : Initialize the network structure with layer neuron counts.
- *  - buildnet : Allocate and connect neurons, buffers, and outputs.
- *
- * Memory management:
- *  - All allocations are tracked by the `memtrack()` system.
- *  - No manual `free()` calls are required; use `memfree()` if needed.
+ * Provides utilities to create and build neural networks, allocating neurons,
+ * buffers, and connections dynamically. Includes convenience macros to
+ * simplify network creation.
+ * 
+ * @author Oscar Sotomayor
+ * @date 2024
  */
 
 #ifndef NTBUILDER_H
 #define NTBUILDER_H
 
-#include <stddef.h>
 #include "ntcore.h"
+#include <stddef.h>
 
+/**
+ * @brief Convenience macro to create a new network.
+ *
+ * Simplifies calling `newnet()` by automatically calculating the number
+ * of layers from the `neurons` array size.
+ *
+ * @param network Pointer to the network structure to initialize.
+ * @param neurons Array defining the number of neurons per layer.
+ */
 #define NEWNET( network, neurons) newnet( &network, neurons, sizeof( neurons )/sizeof( uint16_t ) )
-/**
- * @brief Initialize a network structure with neuron counts per layer.
- *
- * Allocates and stores the number of neurons for each layer in `net_t`.
- * Internal pointers (`in`, `nn`, `bff`, `out`) are initialized to NULL,
- * leaving full construction to `buildnet`.
- *
- * @param net Pointer to a pre-allocated `net_t`.
- * @param neurons_per_layer Array containing neuron counts per layer.
- *
- * @return Pointer to the initialized `net_t`.
- */
-struct ntnet *newnet (net_t *net , uint16_t *neurons_per_layer , size_t layers_size );
 
 /**
- * @brief Build the neural network by allocating neurons, inputs, buffers, and outputs.
+ * @brief Initializes a new neural network structure.
  *
- * Connects neurons across layers according to `bff_wiring`:
- *  - Allocates `nn` arrays if not already allocated.
- *  - Allocates `in` array for network inputs.
- *  - Allocates intermediate buffers (`bff`) between layers.
- *  - Allocates `out` array for network outputs.
- *  - Sets neuron input pointers to proper buffers or external inputs.
+ * Allocates memory for the neurons and layers, and sets initial pointers
+ * to NULL. Uses `memtrack` to register allocations for automatic cleanup.
  *
- * @param net Pointer to an initialized `net_t`.
- *
- * @return Pointer to the fully built `net_t`.
+ * @param net Pointer to the network structure to initialize.
+ * @param neurons_per_layer Array specifying the number of neurons in each layer.
+ * @param layers_size Number of layers (size of neurons_per_layer array).
+ * @return Pointer to the initialized network on success, or NULL on failure.
  */
-struct ntnet *buildnet( net_t *net );
+struct net_s *newnet (net_s *net , uint16_t *neurons_per_layer , size_t layers_size );
+
+/**
+ * @brief Builds the internal buffers and connections of a neural network.
+ *
+ * Allocates memory for input/output pointers and inter-layer buffers
+ * according to `bff_wiring`. Sets up neuron input references and weight arrays.
+ *
+ * @param net Pointer to the network structure to build.
+ * @return Pointer to the fully constructed network.
+ *
+ * Buffer types:
+ * - 'M': Mixed buffer with individual connections determined by `src_type`.
+ * - 'N': Buffer shared with another buffer in the network.
+ * - 'I': References network input array.
+ * - 'O': References network output array.
+ */
+struct net_s *buildnet( net_s *net );
 
 #endif // NTBUILDER_H
-
-/*
-================================================================================
-1. INITIALIZING A NETWORK (newnet)
-================================================================================
-
-Prepares the network structure for building by setting up neuron counts
-and initializing internal pointers.
-
-Example:
-
-    net_t net = { .inputs = 3, .layers = 2 };
-    unsigned int neurons[net.layers] = { 4, 2 };
-
-    newnet(&net, neurons);
-
-================================================================================
-2. BUILDING THE NETWORK (buildnet)
-================================================================================
-
-Allocates all internal structures: neuron arrays, input pointers,
-intermediate buffers, and output pointers. Sets up connections between layers.
-
-Example:
-
-    buildnet(&net);
-
-    // Now net.nn, net.in, net.bff, and net.out are fully allocated and connected.
-
-================================================================================
-3. NOTES
-================================================================================
-
-- Caller must manage the `net_t` structure lifetime.
-- Memory allocation is tracked by `memtrack()`.
-- Designed for feedforward layered networks; can be extended for other topologies.
-*/
-

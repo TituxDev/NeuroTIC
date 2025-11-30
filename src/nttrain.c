@@ -1,12 +1,12 @@
 /**
- * nttrain.c - Implementation of training functions for NeuroTIC
+ * @file nttrain.c
+ * @brief Implementation of backpropagation training for NeuroTIC networks.
  *
- * Author: Oscar Sotomayor
- * License: Mozilla Public License Version 2.0 (MPL-2.0)
- *
- * Contains core training routines for the NeuroTIC framework, including
- * allocation and initialization of training data structures and backpropagation
- * algorithm for supervised learning.
+ * Provides functions to allocate training datasets and train feedforward
+ * networks using standard backpropagation.
+ * 
+ * @author Oscar Sotomayor
+ * @date 2024
  */
 
 #include "nttrain.h"
@@ -19,16 +19,14 @@
 #include <math.h>
 
 /**
- * @brief Allocate and initialize training data buffers.
+ * @brief Allocates memory for input and output arrays in training data.
  *
- * Allocates memory for inputs and expected results arrays in the training data
- * structure based on the number of samples and network topology.
- * Uses `memtrack` for automatic memory management.
+ * Each sample gets an array for inputs and an array for expected outputs.
  *
  * @param train_data Pointer to training data structure to initialize.
- * @param net Pointer to the neural network structure.
+ * @param net Pointer to the network being trained.
  */
-void newtraindata( traindata_t *train_data , net_t *net ){
+void newtraindata( traindata_t *train_data , net_s *net ){
     memtrack( train_data->in=calloc( train_data->samples , sizeof( float * ) ) );
     memtrack( train_data->results=calloc( train_data->samples , sizeof( float * ) ) );
     for( uint16_t i= 0, last_ly= net->layers - 1 ; i < train_data->samples ; i++ ){
@@ -37,26 +35,20 @@ void newtraindata( traindata_t *train_data , net_t *net ){
     }
 }
 
+
 /**
- * @brief Train the neural network using the backpropagation algorithm.
+ * @brief Performs backpropagation training on a feedforward network.
  *
- * Performs iterative supervised learning on the provided network using
- * the training data. Updates weights and biases based on errors until
- * either the maximum number of attempts is reached or the error tolerance
- * is satisfied.
+ * - Computes outputs via feedforward.
+ * - Calculates errors for each neuron.
+ * - Propagates deltas backward and updates weights and biases.
+ * - Repeats until error is below `tolerance` or `max_attempts` is reached.
  *
- * The function:
- *  - Runs the network on each training sample,
- *  - Computes output errors and propagates them backward,
- *  - Adjusts weights and biases using the learning rate,
- *  - Continues iterating over epochs to minimize error.
- *
- * @param net Pointer to the neural network to train.
- * @param train_data Pointer to training data containing inputs, expected outputs,
- *                   learning rate, max attempts, and tolerance.
- * @return The number of attempts performed during training.
+ * @param net Pointer to the network to train.
+ * @param train_data Pointer to the training dataset and parameters.
+ * @return Number of training iterations performed.
  */
-int backpropagation( net_t *net , traindata_t *train_data ){
+int backpropagation( net_s *net , traindata_t *train_data ){
     uint64_t attempt= train_data->max_attempts;
     const uint16_t prev_layer= net->layers - 1;
     const int32_t penu_layer= ( int32_t )prev_layer - 1;

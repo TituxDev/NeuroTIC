@@ -63,7 +63,14 @@ struct net_s *newnet( net_s *net , uint16_t *neurons_per_layer , size_t layers_s
  */
 struct net_s *buildnet(net_s *net){
     memtrack(net->in  = malloc(net->inputs * sizeof(float *)));
+    for(uint16_t i = 0; i < net->neurons[0]; i++){
+        net->nn[0][i].inputs = net->inputs;
+        net->nn[0][i].in     = net->in;
+        memtrack(net->nn[0][i].w = malloc(net->inputs * sizeof(float)));
+    }
     memtrack(net->out = malloc(net->neurons[net->layers - 1] * sizeof(float *)));
+    for(uint16_t i = 0; i < net->neurons[net->layers - 1]; i++)
+        net->out[i] = &net->nn[net->layers - 1][i].out;
     if(net->layers > 1){
         memtrack(net->bff = malloc((net->layers - 1) * sizeof(float ***)));
         for(uint16_t i = 0; i < net->layers - 1; i++){
@@ -111,11 +118,6 @@ struct net_s *buildnet(net_s *net){
                 break;
         }
     }
-    for(uint16_t i = 0; i < net->neurons[0]; i++){
-        net->nn[0][i].inputs = net->inputs;
-        net->nn[0][i].in     = net->in;
-        memtrack(net->nn[0][i].w = malloc(net->inputs * sizeof(float)));
-    }
     for(uint16_t i = 1; i < net->layers; i++){
         for(uint16_t j = 0; j < net->neurons[i]; j++){
             net->nn[i][j].in     = net->bff[i - 1][net->nn[i][j].bff_idx];
@@ -123,8 +125,5 @@ struct net_s *buildnet(net_s *net){
             memtrack(net->nn[i][j].w = malloc(net->nn[i][j].inputs * sizeof(float)));
         }
     }
-    for(uint16_t i = 0; i < net->neurons[net->layers - 1]; i++)
-        net->out[i] = &net->nn[net->layers - 1][i].out;
-
     return net;
 }
