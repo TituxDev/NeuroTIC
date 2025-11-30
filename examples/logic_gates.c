@@ -1,89 +1,74 @@
-/*
- * Example usage of NeuroTIC - A neural network library by Oscar Sotomayor.
- * This example is provided under the terms of the Mozilla Public License v. 2.0.
- * See: https://mozilla.org/MPL/2.0/
- */
-
-/* INSTRUCTIONS:
-* This file is a simple example of how to use NeuroTIC.h V1.
-* It shows how to train a neural network on logic functions.
-* To change the logic function, select the corresponding macro
-* and assign it to FUNCTION. You can also tweak the training
-* parameters: learning_rate, error_tolerance, or max_attempts.
-*
-* Compile with math support: gcc logic_gates.c -lm
-*
-* The algorithm creates a network with 2 inputs, 2 input neurons,
-* and 1 output neuron. The network will be trained according to
-*  the logic function selected in FUNCTION.
+/**
+ * @file logic_gates.c
+ * Author: titux
+ * Date: 2025-11-21
+ * Description: fixing array net_t out reading.
 */
-// CONTROL PANEL
-#define FUNCTION XOR  // Logic function to train
 
-#define AND           (data.in[i][0] && data.in[i][1])
-#define NAND          (!AND)
-#define OR            (data.in[i][0] || data.in[i][1])
-#define NOR           (!OR)
-#define CONJUNCION_A  (!data.in[i][0] && data.in[i][1])
-#define CONJUNCION_B  (data.in[i][0] && !data.in[i][1])
-#define IMPLICATION_A (!data.in[i][0] || data.in[i][1])
-#define IMPLICATION_B (data.in[i][0] || !data.in[i][1])
-#define XOR           (data.in[i][0] != data.in[i][1])
-#define XNOR          (data.in[i][0] == data.in[i][1])
-
-// === LIBRAIES ===
+/**
+ * Pro tip: use logic_gates.h to store global constants, macros, variables,
+ * or include additional headers. Keep your main clean.
+ */
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "ntcore.h"
-#include "ntactivation.h"
-#include "ntbuilder.h"
-#include "ntinitialize.h"
-#include "ntcalculate.h"
-#include "nttrain.h"
-#include "ntmemory.h"
-#include "ntfeedforward.h"
-#include "ntfile.h"
+#include "ntcomplete.h"
 
-// === START ===
-int main(){
-// === NETWORK DEFINITION ===
-    net_s Net= { .inputs= 2 , .layers= 2 };
-    buildnet( newfeedforward( NEWNET( Net , ( (uint16_t []){ 2 , 1 }) ) ) );
-    for( unsigned int i= 0 ; i < Net.layers ; i++ ) for( unsigned int j= 0 ; j < Net.neurons[i] ; j++ ) Net.nn[i][j].fn= NTACT_SIGMOID;
-    randnet( &Net );
-// === DATA SET DEFINITION ===
-    traindata_t data={
-        .samples=4,
-        .learning_rate=0.2,
-        .tolerance=0.5,
-        .max_attempts=1000000
+int main( void ){
+    net_s network={
+        .inputs= 2,
+        .layers= 2,
     };
-    newtraindata( &data , &Net );
-    for( unsigned int i= 0 ; i < data.samples ; i++ ){
-        for( unsigned int j= 0 ; j < Net.inputs ; j++ ) data.in[i][j]= ( i >> j ) & 1;
-        for( unsigned int j= 0 ; j < Net.neurons[Net.layers - 1] ; j++ ) data.results[i][j]= FUNCTION;
+    buildnet( newfeedforward( NEWNET( network , ( (uint16_t[]){ 3 , 16 } ) ) ) );
+    for( uint16_t i= 0 ; i < network.layers ; i++ ) for( uint16_t j= 0 ; j < network.neurons[i] ; j++ ) network.nn[i][j].fn= NTACT_SIGMOID;
+    randnet( &network );
+    traindata_t data={
+        .learning_rate= 0.9f,
+        .tolerance= 0.9f,
+        .max_attempts= 10000000,
+        .samples= 4
+    };
+    newtraindata( &data , &network );
+    for( uint64_t i= 0 ; i < data.samples ; i++ ){
+        for( uint32_t j= 0 ; j < network.inputs ; j++ ) data.in[i][j]= ( i >> j ) & 1;
+        data.results[i][0]= 0;                                      // NULL 0000
+        data.results[i][1]= !( data.in[i][0] || data.in[i][1] );    // NOR  1000
+        data.results[i][2]= data.in[i][0] && !data.in[i][1];        // EXA  0100
+        data.results[i][3]= !data.in[i][1];                         // NOTB 1100
+        data.results[i][4]= !data.in[i][0] && data.in[i][1];        // EXB  0010
+        data.results[i][5]= !data.in[i][0];                         // NOTA 1010
+        data.results[i][6]= data.in[i][0] != data.in[i][1];         // XOR  0110
+        data.results[i][7]= !( data.in[i][0] && data.in[i][1] );    // NAND 1110
+        data.results[i][8]= data.in[i][0] && data.in[i][1];         // AND  0001
+        data.results[i][9]= data.in[i][0] == data.in[i][1];         // XNOR 1001
+        data.results[i][10]= data.in[i][0];                         //  A   0101
+        data.results[i][11]= !data.in[i][0] || data.in[i][1];       // IMPB 1101
+        data.results[i][12]= data.in[i][1];                         //  B   0011
+        data.results[i][13]= data.in[i][0] || !data.in[i][1];       // IMPA 1011
+        data.results[i][14]= data.in[i][0] || data.in[i][1];        //  OR  0111
+        data.results[i][15]= 1;                                     // ALL  1111        
     }
-// === TRAINING ===
-    printf( "\nAttempts: %i\n" , backpropagation( &Net , &data ) );
-    // === RESULTS ===
-    printf( "\n| A | B | O |\n" );
-    for( unsigned int i= 0 ; i < data.samples ; i++ ){
-        for( unsigned int j= 0 ; j < Net.inputs ; j++ ) Net.in[j]= &data.in[i][j];
-        printf( "| %.0f | %.0f | %.0f |\n" , data.in[i][0] , data.in[i][1] , feedforward( &Net )[0] );
+    printf( "\nAttemps: %i" , backpropagation( &network , &data ) );
+    printf( "\n\n=========================================================================================================================");
+    printf( "\n| A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPB |   B  | IMPA |  OR  |  ALL |" );
+    printf( "\n|---|---|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|" );
+    for( uint64_t i= 0 ; i < data.samples ; i++ ){
+        for( uint32_t j= 0 ; j < network.inputs ; j++ ) network.in[j]= &data.in[i][j];
+        feedforward( &network );
+        printf( "\n| %.0f | %.0f |" , data.in[i][0] , data.in[i][1] );
+        for( uint16_t j= 0 ; j < network.neurons[network.layers - 1] ; j++ ) printf( "   %.0f  |" , *network.out[j] );
     }
-    printf( "\n" );
-// === SAVE ===
-    savenet( &Net , "examples/logic_gate" );
-    net_s Net2= loadnet( "examples/logic_gate" );
-    if( !Net2.inputs ) return 1;
-    printf( "\n\n| A | B | O |\n" );
-    for( unsigned int i= 0 ; i < data.samples ; i++ ){
-        for( unsigned int j= 0 ; j < Net2.inputs ; j++ ) Net2.in[j]= &data.in[i][j];
-        printf( "| %.0f | %.0f | %.0f |\n" , data.in[i][0] , data.in[i][1] , feedforward( &Net2 )[0] );
+    printf( "\n=========================================================================================================================");
+    savenet( &network , "logic_gates" );
+    net_s network_copy= loadnet( "logic_gates" );
+    printf( "\n\n=========================================================================================================================");
+    printf( "\n| A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPB |   B  | IMPA |  OR  |  ALL |" );
+    printf( "\n|---|---|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|" );
+    for( uint64_t i= 0 ; i < data.samples ; i++ ){
+        for( uint32_t j= 0 ; j < network_copy.inputs ; j++ ) network_copy.in[j]= &data.in[i][j];
+        feedforward( &network_copy );
+        printf( "\n| %.0f | %.0f |" , data.in[i][0] , data.in[i][1] );
+        for( uint16_t j= 0 ; j < network_copy.neurons[network_copy.layers - 1] ; j++ ) printf( "   %.0f  |" , *network_copy.out[j] );
     }
-    printf( "\n" );
-// === END ===
-    remove( "examples/logic_gate.ntic" );
+    printf( "\n=========================================================================================================================\n\n");
+    remove( "logic_gates.ntic" );
     return 0;
 }
