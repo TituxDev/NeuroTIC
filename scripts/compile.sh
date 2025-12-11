@@ -12,9 +12,6 @@
 ## Example:
 ##   ./compile.sh ./MyProject main x86_64
 
-## Compiler and flags
-CC=gcc
-CFLAGS="-Iinclude -Wall -Wextra -Wno-missing-field-initializers -pedantic -std=c11 -O3 -march=native -fno-exceptions -fstrict-aliasing"
 
 ## \brief Project parameters.
 ## \param PROJECT_LOCATION Directory of the user project.
@@ -30,6 +27,9 @@ if [ -z "$PROJECT_LOCATION" ] || [ -z "$PROJECT_NAME" ] || [ -z "$PLATFORM" ]; t
     exit 1
 fi
 
+## Compiler and flags
+CC=gcc
+CFLAGS="-Iinclude/$PLATFORM -Wall -Wextra -Wno-missing-field-initializers -pedantic -std=c11 -O3 -march=native -fno-exceptions -fstrict-aliasing"
 ## \brief Check that project folder exists.
 if [ ! -d "$PROJECT_LOCATION" ]; then
     echo "Error: Project location '$PROJECT_LOCATION' does not exist."
