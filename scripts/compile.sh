@@ -14,7 +14,7 @@
 
 ## Compiler and flags
 CC=gcc
-CFLAGS="-Iinclude -Wall -Wextra -Wno-missing-field-initializers -pedantic -std=c11 -O3 -march=native -fno-exceptions -fstrict-aliasing"
+CFLAGS="-Iinclude/$3 -Wall -Wextra -Wno-missing-field-initializers -pedantic -std=c11 -O3 -march=native -fno-exceptions -fstrict-aliasing"
 
 ## \brief Project parameters.
 ## \param PROJECT_LOCATION Directory of the user project.
