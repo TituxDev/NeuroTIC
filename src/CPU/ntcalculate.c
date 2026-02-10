@@ -13,6 +13,7 @@
 #include "ntactivation.h"
 
 /**
+ * @ingroup atomic_uint
  * @brief Computes weighted sum plus bias for a neuron.
  *
  * @param neuron Pointer to the neuron.
@@ -25,6 +26,7 @@ float weighing( neuron_s *neuron ){
 }
 
 /**
+ * @ingroup atomic_uint
  * @brief Applies the activation function to a neuron.
  *
  * Stores the activated value in neuron->out.

@@ -1,4 +1,5 @@
 /**
+ * @ingroup atomic_unit
  * @file neurons.c
  * @author Oscar Sotomayor (TituxDev)
  * @date June 2025

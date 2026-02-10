@@ -113,7 +113,7 @@ newdense( &network );
 ```
 
 *You can also define connections manually.  
-See [Define_connections.md](Define_connectios.md) for details.*
+See [Define_connections.md](Wiring.md) for details.*
 
 ### 3. Build the Network
 
