@@ -1,7 +1,7 @@
-<map id="/home/titux/Desktop/NeuroTIC/src/CPU/ntfile.c" name="/home/titux/Desktop/NeuroTIC/src/CPU/ntfile.c">
-<area shape="rect" id="Node000001" title="Implementation of network persistence for NeuroTIC." alt="" coords="322,5,510,45"/>
+<map id="/home/titux/DEV/NeuroTIC/NeuroTIC/src/CPU/ntfile.c" name="/home/titux/DEV/NeuroTIC/NeuroTIC/src/CPU/ntfile.c">
+<area shape="rect" id="Node000001" title="Implementation of network persistence for NeuroTIC." alt="" coords="320,5,512,45"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,93,72,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="322,47,86,96,85,90,321,42"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="320,47,86,96,85,90,319,42"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="96,93,187,119"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="351,48,195,92,194,87,349,43"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="211,93,311,119"/>

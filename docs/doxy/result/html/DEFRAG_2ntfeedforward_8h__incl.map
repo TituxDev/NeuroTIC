@@ -1,4 +1,4 @@
-<map id="/home/titux/Desktop/NeuroTIC/include/DEFRAG/ntfeedforward.h" name="/home/titux/Desktop/NeuroTIC/include/DEFRAG/ntfeedforward.h">
+<map id="/home/titux/DEV/NeuroTIC/NeuroTIC/include/DEFRAG/ntfeedforward.h" name="/home/titux/DEV/NeuroTIC/NeuroTIC/include/DEFRAG/ntfeedforward.h">
 <area shape="rect" id="Node000001" title="Predefined feedforward topologies for NeuroTIC networks." alt="" coords="5,5,200,60"/>
 <area shape="rect" id="Node000002" href="$DEFRAG_2ntcore_8h.html" title="Core data structures for the NeuroTIC framework." alt="" coords="65,108,140,133"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,60,105,94,100,94,100,60"/>

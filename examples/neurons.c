@@ -1,10 +1,8 @@
 /**
- * @ingroup atomic_unit
  * @file neurons.c
  * @author Oscar Sotomayor
  * @brief Standalone neuron_s example with explicit connectivity.
- *
- * @ingroup NTCore
+ * 
  * This file provides a minimal, executable example that demonstrates
  * how multiple neuron_s instances can be connected and evaluated
  * without using the full NeuroTIC network container.

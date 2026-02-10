@@ -1,0 +1,48 @@
+/**
+ * @defgroup NTCore NTCore
+ * @brief Core data structures and concepts of the NeuroTIC framework.
+ * @see ntcore.h for detailed structure definitions.
+ * @code{.txt}
+ * net_s
+ * ├─ inputs   : net_s.inputs
+ * ├─ layers   : net_s.layers
+ * ├─ neurons  : net_s.neurons
+ * │   └─ [layers]
+ * ├─ in       : net_s.in
+ * │   └─ [inputs] *
+ * ├─ nn       : net_s.nn
+ * │   └─ [layers] *
+ * │       └─ [neurons[l]] : neuron_s
+ * │           ├─ inputs   : neuron_s.inputs
+ * │           ├─ bff_idx  : neuron_s.bff_idx
+ * │           ├─ in       : neuron_s.in
+ * │           │   └─ [inputs] *
+ * │           ├─ w        : neuron_s.w
+ * │           │   └─ [inputs] *
+ * │           ├─ b        : neuron_s.b
+ * │           ├─ fn       : neuron_s.fn
+ * │           └─ out      : neuron_s.out
+ * ├─ wiring   : net_s.wiring
+ * │   └─ [layers - 1] : wiring_s
+ * │       ├─ arrays      : wiring_s.arrays
+ * │       ├─ array_type  : wiring_s.array_type
+ * │       │   └─ [arrays] *
+ * │       ├─ size        : wiring_s.size
+ * │       │   └─ [arrays] *
+ * │       ├─ src_type    : wiring_s.src_type
+ * │       │   └─ [arrays] *
+ * │       │       └─ [size[a]] *
+ * │       ├─ src_layer   : wiring_s.src_layer
+ * │       │   └─ [arrays] *
+ * │       │       └─ [size[a]] *
+ * │       └─ src_index   : wiring_s.src_index
+ * │           └─ [arrays] *
+ * │               └─ [size[a]] *
+ * ├─ bff      : net_s.bff
+ * │   └─ [layers - 1] ***
+ * │       └─ [wiring[l].arrays] **
+ * │           └─ [wiring[l].size[a]] *
+ * └─ out      : net_s.out
+ *     └─ [neurons[layers-1]] *
+ * @endcode
+ **/

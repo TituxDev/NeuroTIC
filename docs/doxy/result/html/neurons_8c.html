@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NeuroTIC: /home/titux/Desktop/NeuroTIC/examples/neurons.c File Reference</title>
+<title>NeuroTIC: /home/titux/DEV/NeuroTIC/NeuroTIC/examples/neurons.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('neurons_8c.html',''); initResizable();
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">neurons.c File Reference<div class="ingroups"><a class="el" href="group__NTCore.html">NTCore</a></div></div></div>
+  <div class="headertitle"><div class="title">neurons.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -110,7 +110,7 @@ $(document).ready(function(){initNavTree('neurons_8c.html',''); initResizable();
 <p>The purpose of this file is illustrative. It shows how <a class="el" href="structneuron__s.html" title="Structural description of a single neuron.">neuron_s</a> behaves as a passive structure when driven by user-defined execution code.</p>
 <p>This example does not represent the complete NeuroTIC execution model. No <a class="el" href="structnet__s.html" title="Root container describing a complete NeuroTIC network.">net_s</a>, <a class="el" href="structwiring__s.html" title="Describes how logical input buffers are resolved between layers.">wiring_s</a>, training, or activation dispatch is involved.</p>
 <p>For the structural definition of <a class="el" href="structneuron__s.html" title="Structural description of a single neuron.">neuron_s</a>, see:</p><ul>
-<li>ntcore.h</li>
+<li><a class="el" href="ntcore_8h.html" title="Core neural network data structures for NeuroTIC framework.">ntcore.h</a></li>
 <li><a class="el" href="neuron__s_8dox.html" title="Technical description of neuron_s as an isolated execution descriptor.">neuron_s.dox</a></li>
 </ul>
 <h1><a class="anchor" id="neuron_example"></a>
@@ -120,7 +120,7 @@ Example topology</h1>
 <img src="dot_inline_dotgraph_2.png" alt="dot_inline_dotgraph_2.png" border="0" usemap="#dot_inline_dotgraph_2.map"/>
 </div>
  <div class="fragment"><div class="line">  /</div>
-<div class="line"><span class="preprocessor">#include &quot;ntcore.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="ntcore_8h.html">ntcore.h</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#define NEURON_0 NAND</span></div>
 <div class="line"><span class="preprocessor">#define NEURON_1 OR</span></div>
@@ -137,7 +137,7 @@ Example topology</h1>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="logic__gates_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>( <span class="keywordtype">void</span> ) {</div>
+<div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="examples_2logic__gates_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>( <span class="keywordtype">void</span> ) {</div>
 <div class="line">    <span class="keywordtype">float</span> inputs[2];</div>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_struct" href="structneuron__s.html">neuron_s</a> neuron[]={</div>
@@ -158,12 +158,13 @@ Example topology</h1>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="alogic__gates_8c_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="logic__gates_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdef"><b>Definition</b> logic_gates.c:25</div></div>
-<div class="ttc" id="astructneuron__s_html"><div class="ttname"><a href="structneuron__s.html">neuron_s</a></div><div class="ttdoc">Structural description of a single neuron.</div><div class="ttdef"><b>Definition</b> ntcore.h:135</div></div>
-<div class="ttc" id="astructneuron__s_html_a07d16aa895d76e507f90d64d697d20a8"><div class="ttname"><a href="structneuron__s.html#a07d16aa895d76e507f90d64d697d20a8">neuron_s::out</a></div><div class="ttdeci">data_t out</div><div class="ttdef"><b>Definition</b> ntcore.h:142</div></div>
-<div class="ttc" id="astructneuron__s_html_a66fcf313243ddc25dc459ef80cefabaf"><div class="ttname"><a href="structneuron__s.html#a66fcf313243ddc25dc459ef80cefabaf">neuron_s::in</a></div><div class="ttdeci">data_t ** in</div><div class="ttdef"><b>Definition</b> ntcore.h:138</div></div>
-<div class="ttc" id="astructneuron__s_html_af56147487a90dd9cd6c1757fcba3192f"><div class="ttname"><a href="structneuron__s.html#af56147487a90dd9cd6c1757fcba3192f">neuron_s::b</a></div><div class="ttdeci">bias_t b</div><div class="ttdef"><b>Definition</b> ntcore.h:140</div></div>
-<div class="ttc" id="astructneuron__s_html_afb4e8ac00eb57100081e46f82a7f876d"><div class="ttname"><a href="structneuron__s.html#afb4e8ac00eb57100081e46f82a7f876d">neuron_s::inputs</a></div><div class="ttdeci">input_t inputs</div><div class="ttdef"><b>Definition</b> ntcore.h:136</div></div>
+<div class="ttc" id="aexamples_2logic__gates_8c_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="examples_2logic__gates_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdef"><b>Definition</b> logic_gates.c:48</div></div>
+<div class="ttc" id="antcore_8h_html"><div class="ttname"><a href="ntcore_8h.html">ntcore.h</a></div><div class="ttdoc">Core neural network data structures for NeuroTIC framework.</div></div>
+<div class="ttc" id="astructneuron__s_html"><div class="ttname"><a href="structneuron__s.html">neuron_s</a></div><div class="ttdoc">Structural description of a single neuron.</div><div class="ttdef"><b>Definition</b> ntcore.h:57</div></div>
+<div class="ttc" id="astructneuron__s_html_a07d16aa895d76e507f90d64d697d20a8"><div class="ttname"><a href="structneuron__s.html#a07d16aa895d76e507f90d64d697d20a8">neuron_s::out</a></div><div class="ttdeci">data_t out</div><div class="ttdef"><b>Definition</b> ntcore.h:64</div></div>
+<div class="ttc" id="astructneuron__s_html_a66fcf313243ddc25dc459ef80cefabaf"><div class="ttname"><a href="structneuron__s.html#a66fcf313243ddc25dc459ef80cefabaf">neuron_s::in</a></div><div class="ttdeci">data_t ** in</div><div class="ttdef"><b>Definition</b> ntcore.h:60</div></div>
+<div class="ttc" id="astructneuron__s_html_af56147487a90dd9cd6c1757fcba3192f"><div class="ttname"><a href="structneuron__s.html#af56147487a90dd9cd6c1757fcba3192f">neuron_s::b</a></div><div class="ttdeci">bias_t b</div><div class="ttdef"><b>Definition</b> ntcore.h:62</div></div>
+<div class="ttc" id="astructneuron__s_html_afb4e8ac00eb57100081e46f82a7f876d"><div class="ttname"><a href="structneuron__s.html#afb4e8ac00eb57100081e46f82a7f876d">neuron_s::inputs</a></div><div class="ttdeci">input_t inputs</div><div class="ttdef"><b>Definition</b> ntcore.h:58</div></div>
 </div><!-- fragment --> 
 <p class="definition">Definition in file <a class="el" href="">neurons.c</a>.</p>
 </div></div><!-- contents -->

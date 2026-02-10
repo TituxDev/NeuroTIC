@@ -1,0 +1,37 @@
+<map id="/home/titux/DEV/NeuroTIC/NeuroTIC/workspace/logic_gates.c" name="/home/titux/DEV/NeuroTIC/NeuroTIC/workspace/logic_gates.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="211,5,405,60"/>
+<area shape="rect" id="Node000002" href="$logic__gates_8h.html" title=" " alt="" coords="189,108,297,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="290,62,262,99,258,95,286,58"/>
+<area shape="rect" id="Node000004" href="$workspace_2ntcomplete_8h.html" title=" " alt="" coords="479,108,587,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="378,58,492,101,490,106,376,63"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,181,72,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="211,136,85,179,84,174,209,131"/>
+<area shape="rect" id="Node000005" href="$ntcore_8h.html" title="Core neural network data structures for NeuroTIC framework." alt="" coords="541,255,616,280"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="529,134,515,168,512,187,516,206,530,227,549,244,546,248,526,230,511,208,507,187,509,166,524,132"/>
+<area shape="rect" id="Node000007" href="$ntactivation_8h.html" title="Activation function interface." alt="" coords="96,181,208,207"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="480,135,222,182,221,177,479,129"/>
+<area shape="rect" id="Node000008" href="$ntbuilder_8h.html" title="Network construction functions for the NeuroTIC framework." alt="" coords="1009,181,1100,207"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="588,125,765,146,996,179,995,184,764,151,587,130"/>
+<area shape="rect" id="Node000010" href="$ntinitialize_8h.html" title="Random weight initialization for NeuroTIC networks." alt="" coords="882,181,985,207"/>
+<area shape="poly" id="edge10_Node000004_Node000010" title=" " alt="" coords="588,129,869,179,868,184,587,134"/>
+<area shape="rect" id="Node000011" href="$ntcalculate_8h.html" title="Core feedforward computations for NeuroTIC networks." alt="" coords="525,181,632,207"/>
+<area shape="poly" id="edge12_Node000004_Node000011" title=" " alt="" coords="543,132,566,168,562,171,539,135"/>
+<area shape="rect" id="Node000012" href="$nttrain_8h.html" title="Training utilities for NeuroTIC networks using backpropagation." alt="" coords="780,181,857,207"/>
+<area shape="poly" id="edge14_Node000004_Node000012" title=" " alt="" coords="580,131,768,177,766,182,579,136"/>
+<area shape="rect" id="Node000013" href="$ntmemory_8h.html" title="Auxiliary memory tracking utilities." alt="" coords="657,181,757,207"/>
+<area shape="poly" id="edge16_Node000004_Node000013" title=" " alt="" coords="562,131,667,174,665,178,560,136"/>
+<area shape="rect" id="Node000014" href="$ntfile_8h.html" title="Save and load NeuroTIC networks to/from binary files." alt="" coords="232,181,299,207"/>
+<area shape="poly" id="edge17_Node000004_Node000014" title=" " alt="" coords="491,136,313,183,312,178,490,131"/>
+<area shape="rect" id="Node000015" href="$ntfeedforward_8h.html" title="Predefined feedforward topologies for NeuroTIC networks." alt="" coords="323,181,450,207"/>
+<area shape="poly" id="edge19_Node000004_Node000015" title=" " alt="" coords="511,136,424,178,422,173,509,131"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="543,328,614,353"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="581,280,581,314,576,314,576,280"/>
+<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="1009,207,998,209,794,240,630,262,629,257,793,235,997,204,1009,202"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1017,255,1092,280"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="1057,207,1057,241,1052,241,1052,207"/>
+<area shape="poly" id="edge11_Node000010_Node000005" title=" " alt="" coords="882,208,630,259,629,253,881,203"/>
+<area shape="poly" id="edge13_Node000011_Node000005" title=" " alt="" coords="581,207,581,241,576,241,576,207"/>
+<area shape="poly" id="edge15_Node000012_Node000005" title=" " alt="" coords="781,209,630,254,629,248,779,204"/>
+<area shape="poly" id="edge18_Node000014_Node000005" title=" " alt="" coords="300,201,311,204,529,253,527,258,310,209,298,206"/>
+<area shape="poly" id="edge20_Node000015_Node000005" title=" " alt="" coords="418,204,535,247,533,252,417,209"/>
+</map>

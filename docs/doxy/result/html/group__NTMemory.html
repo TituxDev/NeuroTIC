@@ -107,11 +107,11 @@ Collaboration diagram for NTMemory:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:CPU_2ntmemory_8c" id="r_CPU_2ntmemory_8c"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CPU_2ntmemory_8c.html">ntmemory.c</a></td></tr>
-<tr class="memdesc:CPU_2ntmemory_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer registry and deferred cleanup implementation. <br /></td></tr>
+<tr class="memitem:ntmemory_8h" id="r_ntmemory_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8h.html">ntmemory.h</a></td></tr>
+<tr class="memdesc:ntmemory_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auxiliary memory tracking utilities. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:CPU_2ntmemory_8h" id="r_CPU_2ntmemory_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="CPU_2ntmemory_8h.html">ntmemory.h</a></td></tr>
-<tr class="memdesc:CPU_2ntmemory_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auxiliary memory tracking utilities. <br /></td></tr>
+<tr class="memitem:ntmemory_8c" id="r_ntmemory_8c"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html">ntmemory.c</a></td></tr>
+<tr class="memdesc:ntmemory_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer registry and deferred cleanup implementation. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -142,10 +142,10 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Releases all memory blocks previously registered. </p>
+<p>Frees all tracked memory blocks and clears the registry.</p>
 <p>Frees every pointer stored in the internal tracking registry and clears the registry itself.</p>
-<p>This function is automatically registered with `atexit()` upon the first successful call to <a class="el" href="group__NTMemory.html#gad582239e0fb2ae41572d3f0582922bc2" title="Registers an allocated memory block for automatic cleanup.">memtrack()</a>, but may also be invoked explicitly.</p>
+<p>This function is automatically registered with `atexit()` upon the first successful call to <a class="el" href="group__NTMemory.html#gad582239e0fb2ae41572d3f0582922bc2" title="Registers a memory block for deferred collective release.">memtrack()</a>, but may also be invoked explicitly.</p>
 <dl class="section warning"><dt>Warning</dt><dd>This function assumes exclusive ownership of all tracked pointers. Manually freeing tracked memory before calling <a class="el" href="group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8" title="Releases all memory blocks previously registered.">memfree()</a> results in undefined behavior.</dd></dl>
-<p>Releases all memory blocks previously registered.</p>
 <p>This function iterates over the internal pointer register, releasing each allocated block. Once all tracked memory has been freed, the registry itself is also released and reset to NULL.</p>
 <p>Typically, this is called automatically at program termination via `atexit()`. It can also be called manually to force cleanup earlier in execution.</p>
 <dl class="section warning"><dt>Warning</dt><dd>This function does not validate whether a pointer has already been manually freed. Double freeing externally managed pointers will result in undefined behavior. </dd></dl>
@@ -159,6 +159,8 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   67</span>    mem_register= NULL;</div>
 <div class="line"><span class="lineno">   68</span>}</div>
 </div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="#l00086">memtrack()</a>.</p>
+
 </div>
 </div>
 <a id="gad582239e0fb2ae41572d3f0582922bc2" name="gad582239e0fb2ae41572d3f0582922bc2"></a>
@@ -189,7 +191,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>Passing a NULL pointer is treated as a fatal error and terminates execution. Tracked memory must not be manually freed.</dd></dl>
 <p>Registers a dynamically allocated memory block for deferred release.</p>
-<p>Tracks a newly allocated memory block for future cleanup.</p>
 <p>Appends a pointer to the internal tracking registry. The registry grows dynamically via `realloc()` as new blocks are registered.</p>
 <p>On the first successful registration, <a class="el" href="group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8" title="Releases all memory blocks previously registered.">memfree()</a> is automatically registered with `atexit()` to ensure cleanup at program termination.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -198,17 +199,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section warning"><dt>Warning</dt><dd>Passing a NULL pointer is considered a fatal error and terminates execution. Tracked memory must not be manually freed.</dd></dl>
-<p>Registers a pointer into the internal tracking registry. The registry expands dynamically via `realloc()` as new allocations are tracked.</p>
-<p>On the first successful registration, the function automatically sets up <a class="el" href="group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8" title="Releases all memory blocks previously registered.">memfree()</a> to be executed at program termination through `atexit()`.</p>
-<p>If allocation fails or a NULL pointer is passed, the program terminates immediately with an error message printed to `stderr`.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">mem</td><td>Pointer to a valid dynamically allocated memory block. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section warning"><dt>Warning</dt><dd>Passing a NULL pointer will trigger program termination. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Passing a NULL pointer is considered a fatal error and terminates execution. Tracked memory must not be manually freed. </dd></dl>
 <div class="fragment"><div class="line"><span class="lineno">   86</span>                          {</div>
 <div class="line"><span class="lineno">   87</span>    <span class="keywordflow">if</span>( !mem ){</div>
 <div class="line"><span class="lineno">   88</span>        fprintf( stderr , <span class="stringliteral">&quot;Failed to allocate memory for tracked object.\n&quot;</span> );</div>
@@ -227,8 +218,10 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  101</span>        called= 0;</div>
 <div class="line"><span class="lineno">  102</span>    }</div>
 <div class="line"><span class="lineno">  103</span>}</div>
-<div class="ttc" id="agroup__NTMemory_html_ga5fe9dfe999ba7e84a43b1dabd37fafb8"><div class="ttname"><a href="group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8">memfree</a></div><div class="ttdeci">void memfree(void)</div><div class="ttdoc">Releases all memory blocks previously registered.</div><div class="ttdef"><b>Definition</b> ntmemory.c:58</div></div>
+<div class="ttc" id="agroup__NTMemory_html_ga5fe9dfe999ba7e84a43b1dabd37fafb8"><div class="ttname"><a href="group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8">memfree</a></div><div class="ttdeci">void memfree(void)</div><div class="ttdoc">Releases all memory blocks previously registered.</div><div class="ttdef"><b>Definition</b> ntmemory.c:60</div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="#l00060">memfree()</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->

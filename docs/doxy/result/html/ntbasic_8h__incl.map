@@ -1,15 +1,23 @@
-<map id="/home/titux/Desktop/NeuroTIC/variants/ntbasic.h" name="/home/titux/Desktop/NeuroTIC/variants/ntbasic.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="242,5,449,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,80,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="274,48,94,94,93,89,272,43"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="104,93,216,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="302,48,201,90,199,85,300,43"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="240,93,331,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="333,47,305,84,300,81,329,44"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="355,93,458,119"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="362,44,391,81,387,84,358,47"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="483,93,589,119"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="392,43,496,86,494,91,390,48"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="613,93,691,119"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="419,43,601,89,599,94,418,48"/>
+<map id="/home/titux/DEV/NeuroTIC/NeuroTIC/variants/ntbasic.h" name="/home/titux/DEV/NeuroTIC/NeuroTIC/variants/ntbasic.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="179,5,385,45"/>
+<area shape="rect" id="Node000002" href="$ntcore_8h.html" title="Core neural network data structures for NeuroTIC framework." alt="" coords="310,167,385,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,33,107,42,45,57,24,69,11,82,9,98,20,117,38,131,65,142,139,159,223,169,296,174,296,179,222,174,139,164,64,147,35,135,16,120,4,99,6,80,20,64,43,52,106,36,178,28"/>
+<area shape="rect" id="Node000004" href="$ntactivation_8h.html" title="Activation function interface." alt="" coords="30,93,142,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="236,48,129,91,127,86,234,43"/>
+<area shape="rect" id="Node000005" href="$ntbuilder_8h.html" title="Network construction functions for the NeuroTIC framework." alt="" coords="526,93,617,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="352,43,517,87,515,92,351,48"/>
+<area shape="rect" id="Node000007" href="$ntinitialize_8h.html" title="Random weight initialization for NeuroTIC networks." alt="" coords="167,93,269,119"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="269,47,238,84,234,81,264,44"/>
+<area shape="rect" id="Node000008" href="$ntcalculate_8h.html" title="Core feedforward computations for NeuroTIC networks." alt="" coords="294,93,401,119"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="300,44,331,81,327,84,296,47"/>
+<area shape="rect" id="Node000009" href="$nttrain_8h.html" title="Training utilities for NeuroTIC networks using backpropagation." alt="" coords="425,93,502,119"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="327,43,425,85,423,90,324,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="312,240,383,265"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="350,192,350,226,345,226,345,192"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="536,121,397,165,396,160,535,116"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="534,167,609,192"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="574,119,574,153,569,153,569,119"/>
+<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="240,116,315,157,313,162,238,121"/>
+<area shape="poly" id="edge10_Node000008_Node000002" title=" " alt="" coords="350,119,350,153,345,153,345,119"/>
+<area shape="poly" id="edge12_Node000009_Node000002" title=" " alt="" coords="446,121,379,162,377,157,443,116"/>
 </map>

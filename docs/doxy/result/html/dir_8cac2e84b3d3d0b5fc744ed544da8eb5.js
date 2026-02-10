@@ -1,12 +1,12 @@
 var dir_8cac2e84b3d3d0b5fc744ed544da8eb5 =
 [
-    [ "ntactivation.h", "CPU_2ntactivation_8h.html", "CPU_2ntactivation_8h" ],
-    [ "ntbuilder.h", "CPU_2ntbuilder_8h.html", "CPU_2ntbuilder_8h" ],
-    [ "ntcalculate.h", "CPU_2ntcalculate_8h.html", "CPU_2ntcalculate_8h" ],
-    [ "ntcore.h", "CPU_2ntcore_8h.html", "CPU_2ntcore_8h" ],
-    [ "ntfeedforward.h", "CPU_2ntfeedforward_8h.html", "CPU_2ntfeedforward_8h" ],
-    [ "ntfile.h", "CPU_2ntfile_8h.html", "CPU_2ntfile_8h" ],
-    [ "ntinitialize.h", "CPU_2ntinitialize_8h.html", "CPU_2ntinitialize_8h" ],
-    [ "ntmemory.h", "CPU_2ntmemory_8h.html", "CPU_2ntmemory_8h" ],
-    [ "nttrain.h", "CPU_2nttrain_8h.html", "CPU_2nttrain_8h" ]
+    [ "ntactivation.h", "ntactivation_8h.html", "ntactivation_8h" ],
+    [ "ntbuilder.h", "ntbuilder_8h.html", "ntbuilder_8h" ],
+    [ "ntcalculate.h", "ntcalculate_8h.html", "ntcalculate_8h" ],
+    [ "ntcore.h", "ntcore_8h.html", "ntcore_8h" ],
+    [ "ntfeedforward.h", "ntfeedforward_8h.html", "ntfeedforward_8h" ],
+    [ "ntfile.h", "ntfile_8h.html", "ntfile_8h" ],
+    [ "ntinitialize.h", "ntinitialize_8h.html", "ntinitialize_8h" ],
+    [ "ntmemory.h", "ntmemory_8h.html", "ntmemory_8h" ],
+    [ "nttrain.h", "nttrain_8h.html", "nttrain_8h" ]
 ];
