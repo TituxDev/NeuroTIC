@@ -1,16 +1,91 @@
 /**
+ * @defgroup NTCore
  * @file ntcore.h
- * @brief Core data structures for the NeuroTIC framework.
- * @details
- * This header defines the fundamental structures used to assemble and operate
- * neural networks in NeuroTIC. These types describe neurons, inter-layer wiring,
- * buffer systems, and the network container itself.
+ * @author Oscar Sotomayor (Titux)
+ * @ingroup NTCore
+ * @brief Semantic and structural core of the NeuroTIC framework.
  *
- * All higher-level behaviors—construction, initialization, activation dispatch,
- * training, and persistence—are built on top of these definitions. The core
- * structures remain intentionally small, explicit, and fully transparent, making
- * every network inspectable at runtime and fully compatible with both automated
- * and hand-written topologies.
+ * This header defines the minimal, authoritative, and invariant data
+ * structures that describe a NeuroTIC network in memory.
+ *
+ * ntcore.h is a special-case header:
+ * - It defines *structure only*, never behavior.
+ * - It establishes the semantic contract of the framework.
+ * - It is stable by design and changes only under major revisions.
+ *
+ * No construction logic, execution flow, memory management,
+ * activation dispatch, training, mutation, or persistence rules
+ * are defined here.
+ *
+ * All higher-level behavior is implemented elsewhere and must
+ * conform strictly to the structures defined in this file.
+ *
+ * @todo Propagate typedef domain adjustments to dependent code.
+ * @todo Create const inputs for read-only references
+ * 
+ * ---------------------------------------------------------------------------
+ * Pointer hierarchy overview
+ * ---------------------------------------------------------------------------
+ *
+ * The following diagram illustrates the ownership and indirection levels
+ * inside the root network container (net_s).
+ *
+ * This diagram is descriptive, not procedural.
+ * It reflects memory layout and access relationships only.
+ *
+ * @code{.txt}
+ * net_s
+ * ├── inputs   :   input_t @ref net_s.inputs
+ * ├── layers   :   layer_t @ref net_s.layers
+ * ├── neurons  :   uint16_t*
+ * │   └── [layers] @ref net_s.neurons
+ * ├── in       :   data_t**
+ * │   └── [inputs]* @ref net_s.in
+ * ├── nn       :   neuron_s**
+ * │   └── [layers]*
+ * │       └── [neurons[l]] @ref neuron_s
+ * │           ├── inputs   :   input_t @ref neuron_s.inputs
+ * │           ├── bff_idx  :   index_t @ref neuron_s.bff_idx
+ * │           ├── in   :   data_t** @ref neuron_s.in
+ * │           ├── w    :   weight_t*
+ * |           |   └── [inputs] @ref neuron_s.w
+ * │           ├── b    :   bias_t @ref neuron_s.b
+ * │           ├── fn   :   index_t @ref neuron_s.fn
+ * │           └── out  :   data_t @ref neuron_s.out
+ * ├── wiring   :   wiring_s*
+ * │   └── [layers - 1] @ref wiring_s
+ * │       ├── arrays   :   uint16_t @ref wiring_s.arrays
+ * │       ├── array_type   :   type_t*
+ * |       |    └── [arrays] @ref wiring_s.array_type
+ * │       ├── size :   input_t*
+ * |       |   └── [arrays] @ref wiring_s.size
+ * │       ├── src_type :   type_t**
+ * |       |    └── [arrays]*
+ * |       |        └── [size[a]] @ref wiring_s.src_type
+ * │       ├── src_layer    :   layer_t**
+ * |       |    └── [arrays]*
+ * |       |        └──[size[a]] @ref wiring_s.src_layer
+ * │       └── src_index    :   uint16_t**
+ * |            └── [arrays]*
+ * |                └── [size[a]] @ref wiring_s.src_index
+ * ├── bff  :   data_t****
+ * │   └── [layers - 1]***
+ * │       └── [wiring[l].arrays]**
+ * │           └── [wiring[l].size[a]]* @ref net_s.bff
+ * └── out  :   data_t**
+ *     └── [neurons[last layer]]* @ref net_s.out
+ *@endcode
+ * ---------------------------------------------------------------------------
+ * Design notes
+ * ---------------------------------------------------------------------------
+ *
+ * - All pointer fields assume valid memory for the lifetime of the network.
+ * - No structure in this file allocates or frees memory.
+ * - No implicit ownership rules are encoded beyond what is structurally evident.
+ * - External inputs are treated as peripherals to the core.
+ *
+ * This file is the single source of truth for the internal shape
+ * of a NeuroTIC network.
  */
 
 #ifndef NTCORE_H
@@ -18,65 +93,105 @@
 
 #include <stdint.h>
 
+/* ------------------------------------------------------------------------- */
+/* Fundamental scalar types                                                   */
+/* ------------------------------------------------------------------------- */
+
+typedef float    
+    data_t,
+    weight_t,
+    bias_t
+;
+typedef uint8_t  
+    type_t,
+    index_t
+;
+typedef uint16_t
+    layer_t
+;
+typedef uint32_t
+    input_t
+;
+
+/* ------------------------------------------------------------------------- */
+/* Neuron                                                                     */
+/* ------------------------------------------------------------------------- */
+
 /**
- * @ingroup NTCore
  * @struct neuron_s
- * @brief Minimal data container for a single neuron.
- * @details
- * This structure stores the data required to evaluate a single neuron:
- * input references, weights, bias, activation selector and last output.
- * The struct is intentionally lightweight and pointer-driven so it can be
- * used inside NeuroTIC or in custom code that follows the same data conventions.
+ * @ingroup NTCore
+ * @brief Structural description of a single neuron.
  *
- * @warning
- * The structure itself does not manage the lifetime of pointers stored in it.
+ * A neuron is a lightweight container that binds:
+ * - a selected input buffer,
+ * - its associated weights,
+ * - a bias term,
+ * - an activation function selector,
+ * - and the last computed output value.
+ * 
+ * This structure does not own the memory referenced by its pointer members.
+ * It assumes all referenced memory remains valid while the neuron exists.
  */
 typedef struct neuron_s {
-    uint32_t inputs;     /**< Number of input connections. */
-    uint16_t bff_idx;    /**< Index referencing net_s::bff. @see Wiring.md */
-    float **in;          /**< Array of pointers to input values or sources. */
-    float *w;            /**< Weight array corresponding to each input. */
-    float b;             /**< Bias term of the neuron. */
-    uint8_t fn;          /**< Index of the activation function @see ntactivation.h. */
-    float out;           /**< Output value after activation function. */
+    input_t     inputs;     /**< Logical number of input connections. */
+    index_t     bff_idx;    /**< Selected input buffer set index. */
+    data_t      **in;       /**< Aliased input references. */
+    weight_t    *w;         /**< Weight array (one per input). */
+    bias_t      b;          /**< Bias term. */
+    index_t     fn;         /**< Activation function selector. */
+    data_t      out;        /**< Output value after activation. */
 } neuron_s;
 
-/**
- * @ingroup NTCore
- * @struct wiring_s
- * @brief Describes buffer wiring between adjacent network layers.
- * @details Each instance defines how intermediate buffers are allocated and how
- * they connect neuron outputs from one layer to inputs of the next.
- * These connections can originate from various internal or external
- * data sources, defined by the array and source type descriptors.
- */
-typedef struct wiring_s {
-    uint16_t arrays;        /**< Number of buffer arrays between two layers. */
-    uint8_t *array_type;    /**< Type of each array, defining the data source (input, output, intermediate, or external). */
-    uint32_t *size;         /**< Length of each buffer array. */
-    uint8_t **src_type;     /**< Source type for each pointer (e.g., neuron, input, output, or external). */
-    uint16_t **src_layer;   /**< Layer index from which the data originates. */
-    uint16_t **src_index;   /**< Index of the source element within the originating layer. */
-} wiring_s;
+/* ------------------------------------------------------------------------- */
+/* Wiring                                                                     */
+/* ------------------------------------------------------------------------- */
 
 /**
+ * @struct wiring_s
  * @ingroup NTCore
+ * @brief Describes how logical input buffers are resolved between layers.
+ *
+ * Each wiring instance defines a set of input arrays that may be
+ * selected by neurons in the destination layer.
+ *
+ * The semantic interpretation of the source fields depends on the
+ * array type and is resolved during network construction.
+ */
+typedef struct wiring_s {
+    uint16_t    arrays;         /**< Number of logical input sets. */
+    type_t      *array_type;    /**< Type selector per input set. */
+    input_t     *size;          /**< Logical input count per set. */
+    type_t      **src_type;     /**< Source type per input reference. */
+    layer_t     **src_layer;    /**< Source layer index, if applicable. */
+    uint16_t    **src_index;    /**< Source element index, if applicable. */
+} wiring_s;
+
+/* ------------------------------------------------------------------------- */
+/* Network                                                                    */
+/* ------------------------------------------------------------------------- */
+
+/**
  * @struct net_s
- * @brief Encapsulates the full neural network definition.
- * @details This structure represents an entire neural network within the NeuroTIC system.
- * It contains the neurons, inter-layer buffer wiring, and connection references.
- * Through its flexible pointer-based design, it supports dynamic construction
- * of complex, non-linear network topologies.
+ * @ingroup NTCore
+ * @brief Root container describing a complete NeuroTIC network.
+ *
+ * This structure represents the full internal state of a network.
+ *
+ * It owns all internal memory used by the network, with the exception
+ * of external input sources, which are treated as peripherals.
+ *
+ * The network is defined entirely by its structure; no behavioral
+ * guarantees are implied by this definition alone.
  */
 typedef struct net_s {
-    uint32_t inputs;         /**< Number of external input variables to the network. */
-    uint16_t layers;         /**< Total number of layers in the network. */
-    uint16_t *neurons;       /**< Array specifying the number of neurons per layer. */
-    float **in;              /**< Array of pointers to input data sources. */
-    neuron_s **nn;           /**< Matrix of neurons organized by layer. */
-    wiring_s *wiring;        /**< Array describing the buffer wiring between layers. */
-    float ****bff;           /**< Multi-dimensional array of buffers connecting layers. */
-    float **out;             /**< Array of pointers referencing the output neurons’ results. */
+    input_t     inputs;     /**< Number of external input references. */
+    layer_t     layers;     /**< Total number of layers. */
+    uint16_t    *neurons;   /**< Neuron count per layer. */
+    data_t      **in;       /**< External input references. */
+    neuron_s    **nn;       /**< Per-layer neuron arrays. */
+    wiring_s    *wiring;    /**< Wiring descriptors between layers. */
+    data_t      ****bff;    /**< Input buffer reference sets. */
+    data_t      **out;      /**< Output references (last layer). */
 } net_s;
 
 #endif // NTCORE_H

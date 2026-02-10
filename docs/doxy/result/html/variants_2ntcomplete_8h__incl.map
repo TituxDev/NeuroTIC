@@ -1,0 +1,21 @@
+<map id="/home/titux/Desktop/NeuroTIC/variants/ntcomplete.h" name="/home/titux/Desktop/NeuroTIC/variants/ntcomplete.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="419,5,653,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,80,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="420,44,269,66,94,96,93,91,268,61,419,39"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="104,93,216,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="446,48,229,93,228,88,445,43"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="240,93,331,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="477,48,336,92,334,87,475,43"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="355,93,458,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="506,48,439,88,436,84,503,43"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="483,93,589,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="539,46,539,79,533,79,533,46"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="613,93,691,119"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="566,43,625,83,622,88,563,48"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="715,93,815,119"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="592,43,720,86,718,91,590,48"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="840,93,907,119"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="621,43,827,90,826,96,620,48"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="931,93,1058,119"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="646,43,918,89,917,94,645,48"/>
+</map>

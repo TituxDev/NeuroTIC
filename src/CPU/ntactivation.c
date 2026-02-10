@@ -1,75 +1,101 @@
 /**
+ * @defgroup NTMath Operational behavior
+ * @ingroup NTPeripherals
  * @file ntactivation.c
- * @brief Implementation of activation and derivative functions for NeuroTIC.
+ * @ingroup NTMath
+ * @author Oscar Sotomayor (Titux)
+ * @brief Internal implementation of activation behavior.
  *
- * This file defines the activation behaviors and their derivatives used across
- * the framework. It also initializes the activation function lookup tables
- * and their recommended random initialization ranges.
+ * @details
+ * This file provides the concrete implementation of activation functions
+ * and their derivatives used by the NeuroTIC execution context.
+ *
+ * It defines the internal activation dispatch tables and the
+ * recommended initialization ranges associated with each activation.
+ *
+ * This file does not define public contracts.
+ * All external access is mediated through ntactivation.h.
  * 
- * @author Oscar Sotomayor
- * @date 2024
+ * ---------------------------------------------------------------------------  
+ * Activation execution model                                                 
+ * ---------------------------------------------------------------------------  
+ *
+ * The activation subsystem implements a stateless execution model
+ * for scalar transformations.
+ *
+ * A fixed set of activation operations is defined and resident
+ * in memory. Each operation can be selected and evaluated
+ * independently.
+ *
+ * Execution is defined by three elements:
+ *
+ * 1. Activation selector
+ *    Identifies the operation to be evaluated.
+ *
+ * 2. Operation mode
+ *    Selects between the activation function or its derivative.
+ *
+ * 3. Input operand
+ *    The scalar value provided for evaluation.
+ *
+ * No internal state is preserved between evaluations.
+ * All operations are pure and deterministic.
+ *
+ * Access to activation behavior is performed exclusively through
+ * the activation dispatch table.
+ * 
+ * @code{.c}
  */
 
 #include "ntactivation.h"
 #include <math.h>
 
-/**
- * @brief Boolean step activation function.
- *
- * Returns 1.0 if the input is non-negative, otherwise 0.0.
- * Useful for simple threshold-based neurons.
- */
+//BOOLEAN
 static float boolean( float x ){
     return x >= 0.0f ? 1.0f : 0.0f;
 }
-
-/**
- * @brief Boolean activation derivative (constant 1.0).
- *
- * Although the true derivative is 0, this implementation returns 1.0
- * to maintain gradient propagation stability during training.
- */
+// [!!] This derivative is not mathematically correct.
+// It intentionally returns a constant value to avoid zero-gradient behavior.
 static float boolean_d( float x ){
     return x= 1.0f;
 }
-
-/**
- * @brief Sigmoid activation function.
- *
- * Smoothly squashes input values into the (0, 1) range.
- */
+//SIGMOID
 static float sigmoid( float x ){
     return 1.0f / ( 1.0f + expf( -x ) );
 }
-
-/**
- * @brief Sigmoid activation derivative.
- *
- * Computes the derivative using the identity:
- *   f'(x) = f(x) * (1 - f(x))
- */
 static float sigmoid_d( float x ){
     x = sigmoid( x );
     return x * ( 1.0f - x );
 }
-
+// ...
+/** @endcode */
 /**
- * @brief Activation function lookup table.
- * Maps activation identifiers to their corresponding function and derivative.
+ * @ingroup NTMath
+ * @brief Activation dispatch table.
+ *
+ * Defines the mapping between activation identifiers and their
+ * associated execution functions.
+ *
+ * Indexing:
+ * - First index  : activation identifier
+ * - Second index : [0] activation
+ *                  [1] derivative
  */
 float ( *ntact_activation[NTACT_TOTAL_FUNCTIONS][2] )( float )={
     [NTACT_BOOLEAN]= { boolean , boolean_d },
     [NTACT_SIGMOID]= { sigmoid , sigmoid_d }
+//  [NTACT_<NAME>]= { <func> , <func>_d }
 };
 
 /**
+ * @ingroup NTMath
  * @brief Random initialization range table for activation functions.
  *
- * Defines the preferred input or weight initialization range for each
- * activation function, ensuring stable training conditions.
+ * Defines the preferred initialization range associated with each
+ * activation function.
  */
 float ntact_rand_range[NTACT_TOTAL_FUNCTIONS][2]={
     [NTACT_BOOLEAN]= { -1.0f , 1.0f },
     [NTACT_SIGMOID]= { -1.0f , 1.0f }
+//  [NTACT_<NAME>]= { <min> , <max> }
 };
-
