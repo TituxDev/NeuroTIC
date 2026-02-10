@@ -8,9 +8,23 @@
  * two-input logic functions. It demonstrates network construction, training, evaluation,
  * and model serialization.
 <<<<<<< HEAD
+<<<<<<< HEAD
  * 
+=======
+ *
+>>>>>>> d44e168 (NONE)
  * Expected output:
+ *
+ * ```sh
+ * $ time bash test.sh logic_gates
+ * Compiling project in location: examples
+ * Project name: logic_gates
+ * Platform: CPU
+ *
+ * Attemps: 2750963
+ *
  * =========================================================================================================================
+<<<<<<< HEAD
  * | A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPB |   B  | IMPA |  OR  |  ALL |
 =======
  *
@@ -27,6 +41,9 @@
  * =========================================================================================================================
  * | A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |
 >>>>>>> documentation
+=======
+ * | A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |
+>>>>>>> d44e168 (NONE)
  * |---|---|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
  * | 0 | 0 |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |
  * | 1 | 0 |   0  |   0  |   1  |   1  |   0  |   0  |   1  |   1  |   0  |   0  |   1  |   1  |   0  |   0  |   1  |   1  |
@@ -34,7 +51,10 @@
  * | 1 | 1 |   0  |   0  |   0  |   0  |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |   1  |   1  |   1  |   1  |
  * =========================================================================================================================
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> d44e168 (NONE)
  *
  * =========================================================================================================================
  * | A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |
@@ -50,7 +70,10 @@
  * user	0m4.250s
  * sys	0m0.188s
  * ```
+<<<<<<< HEAD
 >>>>>>> documentation
+=======
+>>>>>>> d44e168 (NONE)
  */
 
 #include <stdio.h>
@@ -84,6 +107,7 @@ int main( void ){
     for( uint64_t i= 0 ; i < data.samples ; i++ ){
         for( uint32_t j= 0 ; j < network.inputs ; j++ ) data.in[i][j]= ( i >> j ) & 1;
 <<<<<<< HEAD
+<<<<<<< HEAD
         data.results[i][0]= 0;                                      // NULL 0000
         data.results[i][1]= !( data.in[i][0] || data.in[i][1] );    // NOR  1000
         data.results[i][2]= data.in[i][0] && !data.in[i][1];        // EXA  0100
@@ -101,6 +125,8 @@ int main( void ){
         data.results[i][14]= data.in[i][0] || data.in[i][1];        //  OR  0111
         data.results[i][15]= 1;                                     // ALL  1111        
 =======
+=======
+>>>>>>> d44e168 (NONE)
         data.results[i][0]=  0;                                      // NULL 0000
         data.results[i][1]=  !( data.in[i][0] || data.in[i][1] );    // NOR  1000
         data.results[i][2]=  data.in[i][0] && !data.in[i][1];        // EXA  0100
@@ -117,11 +143,15 @@ int main( void ){
         data.results[i][11]= data.in[i][0] || !data.in[i][1];        // IMPB 1011
         data.results[i][14]= data.in[i][0] || data.in[i][1];         //  OR  0111
         data.results[i][15]= 1;                                      // ALL  1111
+<<<<<<< HEAD
 >>>>>>> documentation
+=======
+>>>>>>> d44e168 (NONE)
     }
 
 // Train the network using backpropagation
     printf( "\nAttemps: %i" , backpropagation( &network , &data ) );
+<<<<<<< HEAD
 <<<<<<< HEAD
     
 // Evaluate and display results
@@ -133,6 +163,12 @@ int main( void ){
     printf( "\n\n=========================================================================================================================" );
     printf( "\n| A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |" );
 >>>>>>> documentation
+=======
+
+// Evaluate and display results
+    printf( "\n\n=========================================================================================================================" );
+    printf( "\n| A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |" );
+>>>>>>> d44e168 (NONE)
     printf( "\n|---|---|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|" );
     for( uint64_t i= 0 ; i < data.samples ; i++ ){
         for( uint32_t j= 0 ; j < network.inputs ; j++ ) network.in[j]= &data.in[i][j];
@@ -141,10 +177,14 @@ int main( void ){
         for( uint16_t j= 0 ; j < network.neurons[network.layers - 1] ; j++ ) printf( "   %.0f  |" , *network.out[j] );
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     printf( "\n=========================================================================================================================");
 =======
     printf( "\n=========================================================================================================================" );
 >>>>>>> documentation
+=======
+    printf( "\n=========================================================================================================================" );
+>>>>>>> d44e168 (NONE)
 
 // Save and reload the trained network
     savenet( &network , "logic_gates" );
@@ -152,12 +192,17 @@ int main( void ){
 
 // Display results from the loaded network to verify persistence
 <<<<<<< HEAD
+<<<<<<< HEAD
     printf( "\n\n=========================================================================================================================");
     printf( "\n| A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPB |   B  | IMPA |  OR  |  ALL |" );
 =======
     printf( "\n\n=========================================================================================================================" );
     printf( "\n| A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |" );
 >>>>>>> documentation
+=======
+    printf( "\n\n=========================================================================================================================" );
+    printf( "\n| A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |" );
+>>>>>>> d44e168 (NONE)
     printf( "\n|---|---|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|" );
     for( uint64_t i= 0 ; i < data.samples ; i++ ){
         for( uint32_t j= 0 ; j < network_copy.inputs ; j++ ) network_copy.in[j]= &data.in[i][j];
@@ -166,10 +211,14 @@ int main( void ){
         for( uint16_t j= 0 ; j < network_copy.neurons[network_copy.layers - 1] ; j++ ) printf( "   %.0f  |" , *network_copy.out[j] );
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     printf( "\n=========================================================================================================================\n\n");
 =======
     printf( "\n=========================================================================================================================\n\n" );
 >>>>>>> documentation
+=======
+    printf( "\n=========================================================================================================================\n\n" );
+>>>>>>> d44e168 (NONE)
 
 // Clean up
     remove( "logic_gates.ntic" );
