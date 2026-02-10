@@ -30,7 +30,7 @@
  */
 struct net_s *newnet( net_s *net , uint16_t *neurons_per_layer , size_t layers_size ){
     if( !net || !neurons_per_layer || net->layers < 1 || layers_size != net->layers ) return NULL;
-    for( uint16_t i = 0 ; i < net->layers ; i++ ) if( neurons_per_layer[i] < 1 ) return NULL;
+    for( layer_t i = 0 ; i < net->layers ; i++ ) if( neurons_per_layer[i] < 1 ) return NULL;
     net->in= NULL;
     net->nn= NULL;
     net->bff= NULL;

@@ -1,0 +1,9 @@
+<map id="/home/titux/Desktop/NeuroTIC/include/DEFRAG/ntbuilder.h" name="/home/titux/Desktop/NeuroTIC/include/DEFRAG/ntbuilder.h">
+<area shape="rect" id="Node000001" title="Network construction functions for the NeuroTIC framework." alt="" coords="5,5,200,60"/>
+<area shape="rect" id="Node000002" href="$DEFRAG_2ntcore_8h.html" title="Core data structures for the NeuroTIC framework." alt="" coords="16,108,91,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,61,69,97,65,95,85,59"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="115,108,189,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="120,59,141,95,136,97,115,61"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="18,181,89,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="56,134,56,168,51,168,51,134"/>
+</map>

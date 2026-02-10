@@ -1,0 +1,182 @@
+/**
+ * @file net_s.dox
+ * @author Oscar Sotomayor (Titux)
+ * @ingroup NTCore
+ *
+ * @brief Technical description of net_s as a full neural network container.
+ * 
+ * @details
+ * This document describes net_s strictly as a structural descriptor of the network.
+ * It defines layers, neurons, buffers (bff), input/output pointers, and connectivity
+ * information. net_s does not execute computations by itself; all execution logic
+ * is implemented externally.
+ *
+ * No learning, optimization, or training concepts are included here.
+ *
+ * @section net_concept Concept
+ *
+ * net_s represents the full network container. Its purpose is to store:
+ * - Input references
+ * - Layer definitions (first layer, optional middle layers)
+ * - Neuron arrays per layer
+ * - Intermediate buffers (bff) for inter-layer communication
+ * - Wiring descriptors (wiring)
+ * - Output pointers
+ *
+ * net_s is purely structural. External code iterates over layers and neurons,
+ * reads inputs, applies operations (from neuron_s), and writes to outputs.
+ *
+ * @section net_structure Structural View
+ *
+ * The structure can be visualized as:
+ *
+ * @dot
+ * digraph net_s_structure {
+ *  fontname="Courier";
+ *  node [fontname="Courier", fontsize=10];
+ *  edge [fontname="Courier", fontsize=9, arrowsize=0.7];
+ *  label="net_s Structure";
+ *  labelloc=top;
+ *  subgraph cluster_external_world {
+ *      label="Sources";
+ *      shape=invhouse;
+ *      source1 [label="var", shape=Msquare];
+ *      source2 [label="ptr", shape=Mdiamond];
+ *      source3 [label="DB", shape=cylinder];
+ *      source4 [label="File", shape=note];
+ *      source5 [label="www", shape=Mcircle];
+ *      source6 [label="Sensor", shape=component]
+ *      source7 [label="...", shape=none]
+ *      { rank=same; source1; source2; source3; source4; source5; source6; source7; }
+ *      source1 -> source2 -> source3 -> source4 -> source5 -> source6 -> source7 [style=invis]; 
+ *  }
+ *  subgraph cluster_net_s{
+ *      label="net_s";
+ *      shape=box;
+ *      style=solid;
+ *      inputs [label="*in[0...inputs-1]", shape="box", style="rounded"];
+ *      source1 -> inputs;
+ *      source2 -> inputs;
+ *      source3 -> inputs;
+ *      source4 -> inputs;
+ *      source5 -> inputs;
+ *      source6 -> inputs;
+ *      source7 -> inputs;
+ *      subgraph cluster_neurons_first {
+ *          label="First Layer";
+ *          style="rounded";
+ *          subgraph cluster_neuron1 {
+ *              label="nn[0][0]";
+ *              shape=box;
+ *              style=solid;
+ *              in1  [label="**in",  shape=Mdiamond];
+ *              out1 [label="out",   shape=Msquare];
+ *          }
+ *          subgraph cluster_neuron2 {
+ *              label="nn[0][...]";
+ *              shape=box;
+ *              style=solid;
+ *              in2  [label="**in",  shape=Mdiamond];
+ *              out2 [label="out",   shape=Msquare];
+ *          }
+ *          subgraph cluster_neuron3 {
+ *              label="nn[0][neurons[0]-1]";
+ *              shape=box;
+ *              style=solid;
+ *              in3  [label="**in",  shape=Mdiamond];
+ *              out3 [label="out",   shape=Msquare];
+ *          }
+ *      }
+ *      inputs -> in1;
+ *      inputs -> in2;
+ *      inputs -> in3;
+ *      subgraph cluster_neurons_middle {
+ *          label="Middle Layers (L=1...layers-1)";
+ *          style="rounded,dashed";
+ *          subgraph wiring_definition {
+ *              label="wiring / bff";
+ *              style=rounded;
+ *              wiring [label="wiring[L-1]", shape=box, style=dotted];
+ *              bff    [label="**bff[L-1][0...wiring.arrays-1]", shape=box, style=rounded];
+ *              { rank=same; wiring; bff; }
+ *              wiring -> bff [label="description", arrowhead=pointers];
+ *          }
+ *          subgraph cluster_neurons{
+ *              label="Generic Neuron";
+ *              style="solid,rounded";
+ *              subgraph cluster_neuron4 {
+ *                  label="nn[L][0]";
+ *                  shape=box;
+ *                  style=solid;
+ *                  in4  [label="**in", shape=Mdiamond];
+ *                  out4 [label="out",  shape=Msquare];
+ *              }
+ *              subgraph cluster_neuron5 {
+ *                  label="nn[L][...]";
+ *                  shape=box;
+ *                  style=solid;
+ *                  in5  [label="**in", shape=Mdiamond];
+ *                  out5 [label="out",  shape=Msquare];
+ *              }
+ *              subgraph cluster_neuron6 {
+ *                  label="nn[L][neurons[L]-1]";
+ *                  shape=box;
+ *                  style=solid;
+ *                  in6  [label="**in", shape=Mdiamond];
+ *                  out6 [label="out",  shape=Msquare];
+ *              }
+ *         }
+ *          bff -> in4 [label="[L-1][bff_idx]"];
+ *          bff -> in5 [label="[L-1][bff_idx]"];
+ *          bff -> in6 [label="[L-1][bff_idx]"];
+ *      }
+ *      subgraph cluster_output {
+ *          label="Output Layer";
+ *          style="rounded";
+ *          output1 [label="*out[0]", shape=Mdiamond];
+ *          output2 [label="*out[...]", shape=Mdiamond];
+ *          output3 [label="*out[neurons[layers-1]-1]", shape=Mdiamond];
+ *      }
+ *      out1 -> bff [style=dashed];
+ *      out2 -> bff [style=dashed];
+ *      out3 -> bff [style=dashed];
+ *      out4 -> output1 [style=dashed];
+ *      out5 -> output2 [style=dashed];
+ *      out6 -> output3 [style=dashed];
+ *  }
+ * }
+ * @enddot
+ *
+ * @section net_flow External Information Flow
+ *
+ * Information flow is defined outside the structure. External responsibilities:
+ * - Iterating over layers
+ * - Reading data from inputs
+ * - Using bff for intermediate buffers (if middle layers exist)
+ * - Evaluating each neuron_s instance
+ * - Writing results to out pointers
+ *
+ * net_s only provides the framework to organize these operations.
+ *
+ * @section net_connectivity Referential Connectivity
+ *
+ * Inputs and outputs are accessed via pointers, enabling:
+ * - Shared data sources
+ * - Direct neuron-to-neuron connections through bff
+ * - Integration with external variables without copying
+ *
+ * @section net_bff_and_wiring Buffers and Wiring
+ *
+ * - bff: optional buffers connecting layers. Only present if net_s.layers > 1.
+ *        Can handle multiple arrays per neuron-to-neuron connection.
+ * - wiring: descriptor of connectivity; it does **not** transport data.
+ *
+ * @warning
+ * - Accessing bff when there are no middle layers is undefined.
+ * - wiring should never be modified directly outside network construction functions.
+ * - All internal neuron in/out pointers are only valid within the external evaluation loop.
+ *
+ * @see neuron_s.dox for individual neuron description
+ * @see wiring_s.dox for wiring descriptor details
+ * @see logic_gates.c for minimal network usage example
+ */

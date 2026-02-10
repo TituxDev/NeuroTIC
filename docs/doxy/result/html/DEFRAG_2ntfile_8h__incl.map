@@ -1,0 +1,7 @@
+<map id="/home/titux/Desktop/NeuroTIC/include/DEFRAG/ntfile.h" name="/home/titux/Desktop/NeuroTIC/include/DEFRAG/ntfile.h">
+<area shape="rect" id="Node000001" title="Save and load NeuroTIC networks to/from binary files." alt="" coords="5,5,200,60"/>
+<area shape="rect" id="Node000002" href="$DEFRAG_2ntcore_8h.html" title="Core data structures for the NeuroTIC framework." alt="" coords="65,108,140,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,60,105,94,100,94,100,60"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="67,181,138,207"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="105,134,105,168,100,168,100,134"/>
+</map>
