@@ -1,1 +1,5 @@
+<<<<<<< HEAD
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.01s
+=======
+error: manifest path `/home/titux/DEV/NeuroTIC/NeuroTIC/NeuroTIC/Cargo.toml` does not exist
+>>>>>>> FIX-buildnet
