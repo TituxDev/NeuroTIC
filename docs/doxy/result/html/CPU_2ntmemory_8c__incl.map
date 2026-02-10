@@ -1,0 +1,9 @@
+<map id="/home/titux/Desktop/NeuroTIC/src/CPU/ntmemory.c" name="/home/titux/Desktop/NeuroTIC/src/CPU/ntmemory.c">
+<area shape="rect" id="Node000001" title="Pointer registry and deferred cleanup implementation." alt="" coords="53,5,274,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,105,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,48,84,87,81,83,136,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="130,93,197,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="166,46,166,79,161,79,161,46"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="221,93,292,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="188,44,234,82,230,86,184,48"/>
+</map>

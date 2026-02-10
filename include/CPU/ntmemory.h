@@ -1,42 +1,61 @@
 /**
  * @file ntmemory.h
- * @brief Memory tracking utilities for the NeuroTIC framework.
+ * @ingroup NTMemory
+ * @brief Auxiliary memory tracking utilities.
+ * @author Oscar Sotomayor (TituxDev).
  *
- * This module provides basic memory tracking and cleanup functions that help
- * manage dynamically allocated memory within the framework and user code.
- * 
- * The functions allow for automatic memory deallocation at program exit,
- * preventing leaks when using dynamically created structures.
+ * Declares a minimal pointer tracking interface used to register
+ * dynamically allocated memory blocks for deferred collective release.
  *
- * @see ntmemory_doc
- * @author Oscar Sotomayor
- * @date 2024
+ * This interface is primarily intended for internal use during
+ * development and experimentation.
+ *
+ * The module does not define ownership semantics and may be replaced
+ * by a more complete solution as the framework evolves.
+ *
  */
 
 #ifndef NTMEMORY_H
 #define NTMEMORY_H
 
 
-/**
- * @brief Frees all memory previously registered with memtrack().
- *
- * This function iterates through all tracked pointers, freeing each one.
- * It is automatically called at program termination via `atexit()` when
- * memory tracking is first invoked, but can also be called manually.
- */
-void memfree(void);
 
 /**
- * @brief Registers an allocated memory block for automatic cleanup.
+ * @ingroup NTMemory
+ * @brief Releases all memory blocks previously registered.
  *
- * Tracks a pointer returned by `malloc`, `calloc`, or `realloc`. If the
- * pointer is NULL, the function prints an error message and terminates
- * the program to prevent undefined behavior. The first call to this
- * function automatically registers `memfree()` with `atexit()`.
+ * Frees every pointer stored in the internal tracking registry and clears
+ * the registry itself.
  *
- * @param mem Pointer to dynamically allocated memory to track.
- * @warning Do not manually free or modify tracked memory.
+ * This function is automatically registered with `atexit()` upon the first
+ * successful call to ::memtrack(), but may also be invoked explicitly.
+ *
+ * @warning
+ * This function assumes exclusive ownership of all tracked pointers.
+ * Manually freeing tracked memory before calling ::memfree() results in
+ * undefined behavior.
  */
-void memtrack(void *mem);
+void memfree( void );
+
+/**
+ * @ingroup NTMemory
+ * @brief Registers a dynamically allocated memory block for deferred release.
+ *
+ * Adds a pointer to the internal memory registry. The registry grows dynamically
+ * as new allocations are tracked.
+ *
+ * This function is intended to be called immediately after successful dynamic
+ * allocation (e.g. `malloc`, `calloc`, `realloc`).
+ *
+ * On the first invocation, ::memfree() is automatically registered to execute
+ * at program termination via `atexit()`.
+ *
+ * @param mem Pointer to a valid dynamically allocated memory block.
+ *
+ * @warning
+ * Passing a NULL pointer is treated as a fatal error and terminates execution.
+ * Tracked memory must not be manually freed.
+ */
+void memtrack( void *mem );
 
 #endif // NTMEMORY_H

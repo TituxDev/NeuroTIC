@@ -1,0 +1,50 @@
+/**
+ * @defgroup NTPeripherals Peripheral modules
+ * @brief Auxiliary subsystems supporting the NeuroTIC framework.
+ *
+ * @details
+ * Peripheral modules provide auxiliary functionality required during
+ * development and execution, but do not participate directly in the
+ * core computational or structural model of the framework.
+ *
+ * A peripheral is characterized by the following properties:
+ *
+ * - It is functionally self-contained.
+ * - It does not define or modify core execution semantics.
+ * - It does not participate in network topology or neuron evaluation.
+ * - It may be accessed publicly, but is typically consumed indirectly.
+ * - It is replaceable without impacting the conceptual model of the system.
+ *
+ * Peripheral modules exist to solve practical problems encountered during
+ * development and experimentation, such as temporary resource management
+ * or reusable low-level operations.
+ *
+ * They are not considered architectural pillars of the framework.
+ *
+ * ---------------------------------------------------------------------------
+ * Scope and stability
+ * ---------------------------------------------------------------------------
+ *
+ * Peripheral modules do not guarantee long-term interface stability.
+ * Their behavior, implementation, or existence may change as the framework
+ * evolves or more capable subsystems are introduced.
+ *
+ * As such, user code should avoid depending directly on peripheral
+ * implementations unless explicitly intended.
+ *
+ * ---------------------------------------------------------------------------
+ * Current peripheral groups
+ * ---------------------------------------------------------------------------
+ *
+ * The following peripheral subsystems are currently defined:
+ *
+ * - @ref NTMemory
+ *   Auxiliary memory tracking utilities used during development.
+ *
+ * - @ref NTMath  
+ *   Low-level mathematical operations supporting internal execution.
+ *
+ * Additional peripheral groups may be introduced in the future as
+ * development needs arise.
+ *
+ */

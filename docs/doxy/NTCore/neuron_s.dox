@@ -1,0 +1,93 @@
+/**
+ * @file neuron_s.dox
+ * @author Oscar Sotomayor (Titux)
+ * @ingroup NTCore
+ *
+ * @brief Technical description of neuron_s as an isolated execution descriptor.
+ *
+ * @details
+ * This document describes neuron_s strictly as a standalone structure.
+ * The structure does not execute logic: it only stores the information
+ * required by external code to perform computation.
+ *
+ * No neural network theory, training concepts, or framework-level usage
+ * are described here.
+ *
+ * @section neuron_concept Concept
+ *
+ * neuron_s is a passive data structure that describes a single computation.
+ *
+ * It does not control execution, data flow, or evaluation order.
+ * All logic involving a neuron is implemented externally.
+ *
+ * The structure can be used independently for:
+ * - rapid prototyping
+ * - debugging
+ * - low-level experimentation
+ *
+ * @section neuron_structure Structural View
+ *
+ * neuron_s can be interpreted as a compact execution frame:
+ *
+ * @verbatim
+ * ┌──────────────────────────────┐
+ * │          neuron_s            │
+ * ├──────────────────────────────┤
+ * │ inputs   : N                 │  ← number of operands
+ * │ bff_idx  : k                 │  ← memory selector
+ * │ fn       : f                 │  ← operation selector
+ * ├──────────────────────────────┤
+ * │ in   → [ ptr0 | ptr1 | … ]   │  ← input references
+ * │ w    → [  w0  |  w1  | … ]   │  ← coefficients
+ * ├──────────────────────────────┤
+ * │ b        : bias              │
+ * │ out      : result            │
+ * └──────────────────────────────┘
+ * @endverbatim
+ *
+ * The diagram represents available information, not execution order.
+ *
+ * @section neuron_flow External Information Flow
+ *
+ * Information flow is defined outside the structure.
+ *
+ * External code is responsible for:
+ * - iterating over inputs
+ * - reading values referenced by in
+ * - combining them with w and b
+ * - applying the operation selected by fn
+ * - writing the result to out
+ *
+ * neuron_s only provides the data required for this process.
+ *
+ * @section neuron_connectivity Referential Connectivity
+ *
+ * Inputs are accessed exclusively through pointers.
+ *
+ * This enables:
+ * - shared data sources
+ * - direct neuron-to-neuron connections (out → in)
+ * - integration with external variables without copying
+ *
+ * The structure does not own input data.
+ *
+ * @section neuron_bff_idx bff_idx as Memory Selector
+ *
+ * Within the scope of neuron_s, bff_idx acts as a memory selector.
+ *
+ * It does not define a buffer or storage mechanism.
+ * Its interpretation is left to the surrounding execution context.
+ *
+ * In standalone usage, bff_idx may be ignored without affecting correctness.
+ *
+ * @section neuron_example Reference Example
+ *
+ * A minimal standalone execution loop is provided in:
+ *
+ * 
+ * @ref neurons.c
+ * 
+ *
+ * That example explicitly implements the external flow described in
+ * this document.
+ */
