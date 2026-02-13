@@ -87,23 +87,7 @@ int main( void ){
         data.results[i][12]= data.in[i][1];                         //  B   0011
         data.results[i][13]= !data.in[i][0] || data.in[i][1];       // IMPA 1011
         data.results[i][14]= data.in[i][0] || data.in[i][1];        //  OR  0111
-        data.results[i][15]= 1;                                     // ALL  1111        
-        data.results[i][0]=  0;                                      // NULL 0000
-        data.results[i][1]=  !( data.in[i][0] || data.in[i][1] );    // NOR  1000
-        data.results[i][2]=  data.in[i][0] && !data.in[i][1];        // EXA  0100
-        data.results[i][3]=  !data.in[i][1];                         // NOTB 1100
-        data.results[i][4]=  !data.in[i][0] && data.in[i][1];        // EXB  0010
-        data.results[i][5]=  !data.in[i][0];                         // NOTA 1010
-        data.results[i][6]=  data.in[i][0] != data.in[i][1];         // XOR  0110
-        data.results[i][7]=  !( data.in[i][0] && data.in[i][1] );    // NAND 1110
-        data.results[i][8]=  data.in[i][0] && data.in[i][1];         // AND  0001
-        data.results[i][9]=  data.in[i][0] == data.in[i][1];         // XNOR 1001
-        data.results[i][10]= data.in[i][0];                          //  A   0101
-        data.results[i][13]= !data.in[i][0] || data.in[i][1];        // IMPA 1101
-        data.results[i][12]= data.in[i][1];                          //  B   0011
-        data.results[i][11]= data.in[i][0] || !data.in[i][1];        // IMPB 1011
-        data.results[i][14]= data.in[i][0] || data.in[i][1];         //  OR  0111
-        data.results[i][15]= 1;                                      // ALL  1111
+        data.results[i][15]= 1;                                     // ALL  1111
     }
 
 // Train the network using backpropagation
