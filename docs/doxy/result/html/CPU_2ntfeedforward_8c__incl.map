@@ -1,9 +1,0 @@
-<map id="/home/titux/DEV/NeuroTIC/NeuroTIC/src/CPU/ntfeedforward.c" name="/home/titux/DEV/NeuroTIC/NeuroTIC/src/CPU/ntfeedforward.c">
-<area shape="rect" id="Node000001" title="Implementation of predefined network topologies." alt="" coords="83,5,329,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,132,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,48,102,89,100,84,172,43"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="156,93,256,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="209,46,209,79,203,79,203,46"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="280,93,351,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="234,43,290,83,287,87,231,48"/>
-</map>
