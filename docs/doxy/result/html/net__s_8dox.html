@@ -98,13 +98,13 @@ $(document).ready(function(){initNavTree('net__s_8dox.html',''); initResizable()
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Root container of a NeuroTIC network instance. </p>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor (Titux)</dd></dl>
-<p><a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> aggregates all structural components required to represent a complete network topology and its memory graph. It owns its internal structures, while external inputs are referenced via pointers.</p>
+<p><a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> aggregates all structural components required to represent the complete static topology and memory graph of a network instance. It owns its internal structures, while external inputs are referenced via pointers.</p>
 <div class="dotgraph">
 <img src="dot_inline_dotgraph_1.png" alt="dot_inline_dotgraph_1.png" border="0" usemap="#dot_inline_dotgraph_1.map"/>
 </div>
 <h1><a class="anchor" id="net_concept"></a>
 Concept</h1>
-<p><a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> is a passive data structure that holds:</p><ul>
+<p><a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> is a passive structural container that holds:</p><ul>
 <li>Layer organization and neuron counts.</li>
 <li>External input references.</li>
 <li>Layered neuron arrays.</li>
@@ -129,14 +129,14 @@ Field Descriptions</h1>
 Structural Relationships</h1>
 <p>The diagram above illustrates the pointer hierarchy. Key points:</p><ul>
 <li>External sources are referenced directly by <code>in</code> and indirectly via wiring/buffers.</li>
-<li>Neurons in the first layer typically read from <code>in</code>.</li>
+<li>Neurons in the first layer read from 'in'.</li>
 <li>Neurons in subsequent layers read from buffers (<code>bff</code>) according to their <code>bff_idx</code>.</li>
 <li>Wiring descriptors define how buffers are populated from source layers.</li>
 <li>Outputs of the last layer are collected in <code>out</code>.</li>
 </ul>
 <h1><a class="anchor" id="net_construction"></a>
 Construction Contract</h1>
-<p>External code is responsible for allocating and populating all fields according to the topology. The structure does not manage memory; it only holds pointers. Refer to net_build.c for an example of constructing a simple network. </p>
+<p>External code is responsible for allocating and populating all fields according to the topology. The structure does not define allocation, ownership, or lifecycle semantics. It only stores references. </p>
 
 <p class="definition">Definition in file <a class="el" href="">net_s.dox</a>.</p>
 </div></div><!-- contents -->
