@@ -40,7 +40,7 @@ Because the network stays transparent at every stage, you can:
 
 NeuroTIC avoids the black-box mentality altogether. Everything arrives as plain C code sitting inside your project, ready for inspection, extension, mutation, or the occasional glorious detonation in the name of learning.
 
-[USER GUIDE](docs/doxy/html/index.html)
+[USER GUIDE](docs/doxy/USER_GUIDE.dox)
 
 ## Quick use guide
 
