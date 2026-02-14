@@ -115,13 +115,17 @@ Variables</h2></td></tr>
 <p>This file provides the concrete implementation of activation functions and their derivatives used by the NeuroTIC execution context.</p>
 <p>It defines the internal activation dispatch tables and the recommended initialization ranges associated with each activation.</p>
 <p>This file does not define public contracts. All external access is mediated through <a class="el" href="ntactivation_8h.html" title="Activation function interface.">ntactivation.h</a>.</p>
-<p>--------------------------------------------------------------------------- Activation execution model ---------------------------------------------------------------------------</p>
+<hr  />
+ <h2><a class="anchor" id="activation-execution-model-------------------------------------------------"></a>
+Activation execution model</h2>
 <p>The activation subsystem implements a stateless execution model for scalar transformations.</p>
 <p>A fixed set of activation operations is defined and resident in memory. Each operation can be selected and evaluated independently.</p>
 <p>Execution is defined by three elements:</p>
-<p>1. Activation selector Identifies the operation to be evaluated.</p>
-<p>2. Operation mode Selects between the activation function or its derivative.</p>
-<p>3. Input operand The scalar value provided for evaluation.</p>
+<ol type="1">
+<li>Activation selector Identifies the operation to be evaluated.</li>
+<li>Operation mode Selects between the activation function or its derivative.</li>
+<li>Input operand The scalar value provided for evaluation.</li>
+</ol>
 <p>No internal state is preserved between evaluations. All operations are pure and deterministic.</p>
 <p>Access to activation behavior is performed exclusively through the activation dispatch table.</p>
 <div class="fragment"><div class="line">  /</div>

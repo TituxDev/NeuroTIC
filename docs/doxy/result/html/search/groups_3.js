@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operational_20behavior_0',['Operational behavior',['../group__NTMath.html',1,'']]]
+  ['modules_0',['Peripheral modules',['../group__NTPeripherals.html',1,'']]]
 ];

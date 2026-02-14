@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['logic_5fgates_2ec_0',['logic_gates.c',['../examples_2logic__gates_8c.html',1,'(Global Namespace)'],['../workspace_2logic__gates_8c.html',1,'(Global Namespace)']]],
-  ['logic_5fgates_2eh_1',['logic_gates.h',['../logic__gates_8h.html',1,'']]]
+  ['comercial_5flicese_2emd_0',['COMERCIAL_LICESE.md',['../COMERCIAL__LICESE_8md.html',1,'']]],
+  ['contributing_2emd_1',['CONTRIBUTING.md',['../CONTRIBUTING_8md.html',1,'']]]
 ];

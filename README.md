@@ -1,3 +1,9 @@
+---
+ @file README.md
+
+ NeuroTIC introduction
+---
+
 # NeuroTIC
 
 A framework for understanding, exploring, and experimenting with neural networks. `Built in C`, it gives you full visibility into the source code and the freedom to modify, extend, and hack every component.
@@ -34,7 +40,7 @@ Because the network stays transparent at every stage, you can:
 
 NeuroTIC avoids the black-box mentality altogether. Everything arrives as plain C code sitting inside your project, ready for inspection, extension, mutation, or the occasional glorious detonation in the name of learning.
 
-[USER GUIDE](docs/User_guide.md)
+[USER GUIDE](index.html)
 
 ## Quick use guide
 
@@ -137,4 +143,3 @@ For companies needing proprietary usage, a [commercial license](COMERCIAL_LICESE
 ## Contact
 
  ocrstmy@gmail.com for commercial licensing.
- 

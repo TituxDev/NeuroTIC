@@ -89,21 +89,26 @@ $(document).ready(function(){initNavTree('neuron__s_8dox.html',''); initResizabl
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">NTCore/neuron_s.dox File Reference<div class="ingroups"><a class="el" href="group__NTCore.html">NTCore</a></div></div></div>
+  <div class="headertitle"><div class="title">NTCore/neuron_s.dox File Reference<div class="ingroups"><a class="el" href="group__NTCore.html">NeuroTIC Core Header</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Technical description of <a class="el" href="structneuron__s.html" title="Structural description of a single neuron.">neuron_s</a> as an isolated execution descriptor.  
+<p>Technical description of <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> as a standalone execution descriptor.  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Technical description of <a class="el" href="structneuron__s.html" title="Structural description of a single neuron.">neuron_s</a> as an isolated execution descriptor. </p>
+<div class="textblock"><p>Technical description of <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> as a standalone execution descriptor. </p>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor (Titux)</dd></dl>
-<p>This document describes <a class="el" href="structneuron__s.html" title="Structural description of a single neuron.">neuron_s</a> strictly as a standalone structure. The structure does not execute logic: it only stores the information required by external code to perform computation.</p>
-<p>No neural network theory, training concepts, or framework-level usage are described here.</p>
+<p>This document describes <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> strictly as an isolated structural unit. The structure contains no execution logic and defines no control flow. It only stores the information required by external code to perform computation.</p>
+<p>No neural network theory, training semantics, or framework-level behavior are described here.</p>
 <h1><a class="anchor" id="neuron_concept"></a>
 Concept</h1>
-<p><a class="el" href="structneuron__s.html" title="Structural description of a single neuron.">neuron_s</a> is a passive data structure that describes a single computation.</p>
-<p>It does not control execution, data flow, or evaluation order. All logic involving a neuron is implemented externally.</p>
+<p><a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> is a passive data descriptor representing a single computation frame.</p>
+<p>It does not define:</p><ul>
+<li>evaluation order</li>
+<li>scheduling</li>
+<li>ownership of referenced data</li>
+</ul>
+<p>All operational semantics are implemented externally.</p>
 <p>The structure can be used independently for:</p><ul>
 <li>rapid prototyping</li>
 <li>debugging</li>
@@ -111,7 +116,7 @@ Concept</h1>
 </ul>
 <h1><a class="anchor" id="neuron_structure"></a>
 Structural View</h1>
-<p><a class="el" href="structneuron__s.html" title="Structural description of a single neuron.">neuron_s</a> can be interpreted as a compact execution frame:</p>
+<p><a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> may be interpreted as a compact execution frame:</p>
 <pre class="fragment">* ┌──────────────────────────────┐
 * │          neuron_s            │
 * ├──────────────────────────────┤
@@ -125,37 +130,32 @@ Structural View</h1>
 * │ b        : bias              │
 * │ out      : result            │
 * └──────────────────────────────┘
-* </pre><p>The diagram represents available information, not execution order.</p>
+* </pre><p>The diagram represents structural layout only. It does not imply execution order.</p>
 <h1><a class="anchor" id="neuron_flow"></a>
-External Information Flow</h1>
-<p>Information flow is defined outside the structure.</p>
+External Execution Flow</h1>
+<p>Execution semantics are defined entirely outside the structure.</p>
 <p>External code is responsible for:</p><ul>
 <li>iterating over inputs</li>
-<li>reading values referenced by in</li>
+<li>dereferencing values through in</li>
 <li>combining them with w and b</li>
 <li>applying the operation selected by fn</li>
-<li>writing the result to out</li>
+<li>storing the result in out</li>
 </ul>
-<p><a class="el" href="structneuron__s.html" title="Structural description of a single neuron.">neuron_s</a> only provides the data required for this process.</p>
+<p><a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> only provides the data required for this process.</p>
 <h1><a class="anchor" id="neuron_connectivity"></a>
 Referential Connectivity</h1>
-<p>Inputs are accessed exclusively through pointers.</p>
+<p>All inputs are accessed through pointers.</p>
 <p>This enables:</p><ul>
 <li>shared data sources</li>
-<li>direct neuron-to-neuron connections (out → in)</li>
+<li>direct neuron-to-neuron linking (out → in)</li>
 <li>integration with external variables without copying</li>
 </ul>
-<p>The structure does not own input data.</p>
+<p><a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> does not own input memory.</p>
 <h1><a class="anchor" id="neuron_bff_idx"></a>
-bff_idx as Memory Selector</h1>
-<p>Within the scope of <a class="el" href="structneuron__s.html" title="Structural description of a single neuron.">neuron_s</a>, bff_idx acts as a memory selector.</p>
-<p>It does not define a buffer or storage mechanism. Its interpretation is left to the surrounding execution context.</p>
-<p>In standalone usage, bff_idx may be ignored without affecting correctness.</p>
-<h1><a class="anchor" id="neuron_example"></a>
-Example topology</h1>
-<p>A minimal standalone execution loop is provided in:</p>
-<p><a class="el" href="neurons_8c.html">neurons.c</a></p>
-<p>That example explicitly implements the external flow described in this document. </p>
+Memory Selector Role</h1>
+<p>Within <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a>, <a class="el" href="structneuron__s.html#aee0e6e609d818baeebd556e5f8af26a8">bff_idx</a> acts purely as an execution context selector.</p>
+<p>It does not define a buffer mechanism. Its interpretation is determined by surrounding execution logic.</p>
+<p>In standalone scenarios, <a class="el" href="structneuron__s.html#aee0e6e609d818baeebd556e5f8af26a8">bff_idx</a> may be ignored without affecting structural correctness. </p>
 
 <p class="definition">Definition in file <a class="el" href="">neuron_s.dox</a>.</p>
 </div></div><!-- contents -->

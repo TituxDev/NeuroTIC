@@ -1,7 +1,17 @@
 /**
- * @defgroup NTCore NTCore
- * @brief Core data structures and concepts of the NeuroTIC framework.
- * @see ntcore.h for detailed structure definitions.
+ * @defgroup NTCore NeuroTIC Core Header
+ * @brief @ref ./include/CPU/ntcore.h 
+ *
+ * @details
+ * NTCore defines the fundamental data structures that represent
+ * the static topology and memory graph of a NeuroTIC network instance.
+ *
+ * This group describes structure only.
+ * No construction, initialization, or execution semantics are defined here.
+ *
+ * The diagram below summarizes the containment hierarchy
+ * and pointer relationships of a network instance.
+ *
  * @code{.txt}
  * net_s
  * ├─ inputs   : net_s.inputs
@@ -45,4 +55,4 @@
  * └─ out      : net_s.out
  *     └─ [neurons[layers-1]] *
  * @endcode
- **/
+ */

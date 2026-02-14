@@ -1,6 +1,6 @@
 <map id="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntbuilder.h" name="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntbuilder.h">
 <area shape="rect" id="Node000001" title="Network construction functions for the NeuroTIC framework." alt="" coords="5,5,247,45"/>
-<area shape="rect" id="Node000002" href="$ntcore_8h.html" title="Core neural network data structures for NeuroTIC framework." alt="" coords="39,93,114,119"/>
+<area shape="rect" id="Node000002" href="$ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="39,93,114,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,47,93,83,89,80,112,44"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="138,93,213,119"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="140,44,163,80,159,83,136,47"/>

@@ -1,6 +1,6 @@
 <map id="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntcalculate.h" name="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntcalculate.h">
 <area shape="rect" id="Node000001" title="Core feedforward computations for NeuroTIC networks." alt="" coords="5,5,261,45"/>
-<area shape="rect" id="Node000002" href="$ntcore_8h.html" title="Core neural network data structures for NeuroTIC framework." alt="" coords="96,93,171,119"/>
+<area shape="rect" id="Node000002" href="$ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="96,93,171,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,46,136,79,131,79,131,46"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="98,167,169,192"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="136,119,136,153,131,153,131,119"/>

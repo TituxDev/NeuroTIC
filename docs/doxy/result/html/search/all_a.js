@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['operational_20behavior_0',['Operational behavior',['../group__NTMath.html',1,'']]],
-  ['out_1',['out',['../structneuron__s.html#a07d16aa895d76e507f90d64d697d20a8',1,'neuron_s::out'],['../structnet__s.html#ae1bef117a90a2f473c67a05ca7083ae5',1,'net_s::out']]]
+  ['descriptions_0',['Field Descriptions',['../net__s_8dox.html#net_fields',1,'']]],
+  ['development_1',['Ecosystem Development',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#ecosystem-development',1,'']]],
+  ['development_202025_2',['Long-term Development (2025+)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#long-term-development-2025',1,'']]],
+  ['development_20q1_202024_3',['Near-term Development (Q1 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#near-term-development-q1-2024',1,'']]],
+  ['development_20q2_20q4_202024_4',['Medium-term Development (Q2-Q4 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#medium-term-development-q2-q4-2024',1,'']]],
+  ['development_20roadmap_5',['Development Roadmap',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#development-roadmap',1,'']]]
 ];

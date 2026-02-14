@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['peripheral_20modules_0',['Peripheral modules',['../group__NTPeripherals.html',1,'']]]
+  ['neurotic_20core_20header_0',['NeuroTIC Core Header',['../group__NTCore.html',1,'']]],
+  ['ntmemory_1',['NTMemory',['../group__NTMemory.html',1,'']]]
 ];

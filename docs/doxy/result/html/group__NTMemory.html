@@ -144,21 +144,12 @@ Functions</h2></td></tr>
 <p>Releases all memory blocks previously registered. </p>
 <p>Frees all tracked memory blocks and clears the registry.</p>
 <p>Frees every pointer stored in the internal tracking registry and clears the registry itself.</p>
-<p>This function is automatically registered with `atexit()` upon the first successful call to <a class="el" href="group__NTMemory.html#gad582239e0fb2ae41572d3f0582922bc2" title="Registers a memory block for deferred collective release.">memtrack()</a>, but may also be invoked explicitly.</p>
+<p>This function is automatically registered with <code>atexit()</code> upon the first successful call to <a class="el" href="group__NTMemory.html#gad582239e0fb2ae41572d3f0582922bc2" title="Registers a memory block for deferred collective release.">memtrack()</a>, but may also be invoked explicitly.</p>
 <dl class="section warning"><dt>Warning</dt><dd>This function assumes exclusive ownership of all tracked pointers. Manually freeing tracked memory before calling <a class="el" href="group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8" title="Releases all memory blocks previously registered.">memfree()</a> results in undefined behavior.</dd></dl>
 <p>This function iterates over the internal pointer register, releasing each allocated block. Once all tracked memory has been freed, the registry itself is also released and reset to NULL.</p>
-<p>Typically, this is called automatically at program termination via `atexit()`. It can also be called manually to force cleanup earlier in execution.</p>
+<p>Typically, this is called automatically at program termination via <code>atexit()</code>. It can also be called manually to force cleanup earlier in execution.</p>
 <dl class="section warning"><dt>Warning</dt><dd>This function does not validate whether a pointer has already been manually freed. Double freeing externally managed pointers will result in undefined behavior. </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">   60</span>                    {</div>
-<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">while</span>( mem_count )</div>
-<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">if</span>( mem_register[--mem_count] ){</div>
-<div class="line"><span class="lineno">   63</span>            free( mem_register[mem_count] );</div>
-<div class="line"><span class="lineno">   64</span>            mem_register[mem_count]= NULL;</div>
-<div class="line"><span class="lineno">   65</span>        }</div>
-<div class="line"><span class="lineno">   66</span>    free( mem_register );</div>
-<div class="line"><span class="lineno">   67</span>    mem_register= NULL;</div>
-<div class="line"><span class="lineno">   68</span>}</div>
-</div><!-- fragment -->
+
 <p class="reference">Referenced by <a class="el" href="#l00086">memtrack()</a>.</p>
 
 </div>
@@ -181,8 +172,8 @@ Functions</h2></td></tr>
 
 <p>Registers a dynamically allocated memory block for deferred release. </p>
 <p>Adds a pointer to the internal memory registry. The registry grows dynamically as new allocations are tracked.</p>
-<p>This function is intended to be called immediately after successful dynamic allocation (e.g. `malloc`, `calloc`, `realloc`).</p>
-<p>On the first invocation, <a class="el" href="group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8" title="Releases all memory blocks previously registered.">memfree()</a> is automatically registered to execute at program termination via `atexit()`.</p>
+<p>This function is intended to be called immediately after successful dynamic allocation (e.g. <code>malloc</code>, <code>calloc</code>, <code>realloc</code>).</p>
+<p>On the first invocation, <a class="el" href="group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8" title="Releases all memory blocks previously registered.">memfree()</a> is automatically registered to execute at program termination via <code>atexit()</code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mem</td><td>Pointer to a valid dynamically allocated memory block.</td></tr>
@@ -191,8 +182,8 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>Passing a NULL pointer is treated as a fatal error and terminates execution. Tracked memory must not be manually freed.</dd></dl>
 <p>Registers a dynamically allocated memory block for deferred release.</p>
-<p>Appends a pointer to the internal tracking registry. The registry grows dynamically via `realloc()` as new blocks are registered.</p>
-<p>On the first successful registration, <a class="el" href="group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8" title="Releases all memory blocks previously registered.">memfree()</a> is automatically registered with `atexit()` to ensure cleanup at program termination.</p>
+<p>Appends a pointer to the internal tracking registry. The registry grows dynamically via <code>realloc()</code> as new blocks are registered.</p>
+<p>On the first successful registration, <a class="el" href="group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8" title="Releases all memory blocks previously registered.">memfree()</a> is automatically registered with <code>atexit()</code> to ensure cleanup at program termination.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">mem</td><td>Pointer to a valid dynamically allocated memory block.</td></tr>
@@ -200,26 +191,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>Passing a NULL pointer is considered a fatal error and terminates execution. Tracked memory must not be manually freed. </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">   86</span>                          {</div>
-<div class="line"><span class="lineno">   87</span>    <span class="keywordflow">if</span>( !mem ){</div>
-<div class="line"><span class="lineno">   88</span>        fprintf( stderr , <span class="stringliteral">&quot;Failed to allocate memory for tracked object.\n&quot;</span> );</div>
-<div class="line"><span class="lineno">   89</span>        exit( EXIT_FAILURE );</div>
-<div class="line"><span class="lineno">   90</span>    }</div>
-<div class="line"><span class="lineno">   91</span>    <span class="keywordtype">void</span> **temp= realloc( mem_register, ++mem_count * <span class="keyword">sizeof</span>( <span class="keywordtype">void</span> * ) );</div>
-<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">if</span>( !temp ){</div>
-<div class="line"><span class="lineno">   93</span>        fprintf( stderr, <span class="stringliteral">&quot;Failed to allocate memory for free tracking.\n&quot;</span> );</div>
-<div class="line"><span class="lineno">   94</span>        exit( EXIT_FAILURE );</div>
-<div class="line"><span class="lineno">   95</span>    }</div>
-<div class="line"><span class="lineno">   96</span>    mem_register= temp;</div>
-<div class="line"><span class="lineno">   97</span>    mem_register[mem_count - 1]= mem;</div>
-<div class="line"><span class="lineno">   98</span>    <span class="keyword">static</span> <span class="keywordtype">char</span> called= 1;</div>
-<div class="line"><span class="lineno">   99</span>    <span class="keywordflow">if</span>( called ){</div>
-<div class="line"><span class="lineno">  100</span>        atexit( <a class="code hl_function" href="group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8">memfree</a> );</div>
-<div class="line"><span class="lineno">  101</span>        called= 0;</div>
-<div class="line"><span class="lineno">  102</span>    }</div>
-<div class="line"><span class="lineno">  103</span>}</div>
-<div class="ttc" id="agroup__NTMemory_html_ga5fe9dfe999ba7e84a43b1dabd37fafb8"><div class="ttname"><a href="group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8">memfree</a></div><div class="ttdeci">void memfree(void)</div><div class="ttdoc">Releases all memory blocks previously registered.</div><div class="ttdef"><b>Definition</b> ntmemory.c:60</div></div>
-</div><!-- fragment -->
+
 <p class="reference">References <a class="el" href="#l00060">memfree()</a>.</p>
 
 </div>

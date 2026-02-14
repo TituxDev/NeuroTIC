@@ -93,25 +93,25 @@ $(document).ready(function(){initNavTree('neurons_8c.html',''); initResizable();
 </div><!--header-->
 <div class="contents">
 
-<p>Standalone <a class="el" href="structneuron__s.html" title="Structural description of a single neuron.">neuron_s</a> example with explicit connectivity.  
+<p>Standalone <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> example with explicit connectivity.  
 <a href="#details">More...</a></p>
 
 <p><a href="">Go to the source code of this file.</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Standalone <a class="el" href="structneuron__s.html" title="Structural description of a single neuron.">neuron_s</a> example with explicit connectivity. </p>
+<div class="textblock"><p>Standalone <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> example with explicit connectivity. </p>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor </dd></dl>
-<p>This file provides a minimal, executable example that demonstrates how multiple <a class="el" href="structneuron__s.html" title="Structural description of a single neuron.">neuron_s</a> instances can be connected and evaluated without using the full NeuroTIC network container.</p>
+<p>This file provides a minimal, executable example that demonstrates how multiple <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> instances can be connected and evaluated without using the full NeuroTIC network container.</p>
 <p>The example:</p><ul>
 <li>constructs a small set of neurons manually,</li>
 <li>connects them using direct pointer references,</li>
 <li>evaluates them using an explicit external loop,</li>
 <li>and prints the resulting output.</li>
 </ul>
-<p>The purpose of this file is illustrative. It shows how <a class="el" href="structneuron__s.html" title="Structural description of a single neuron.">neuron_s</a> behaves as a passive structure when driven by user-defined execution code.</p>
-<p>This example does not represent the complete NeuroTIC execution model. No <a class="el" href="structnet__s.html" title="Root container describing a complete NeuroTIC network.">net_s</a>, <a class="el" href="structwiring__s.html" title="Describes how logical input buffers are resolved between layers.">wiring_s</a>, training, or activation dispatch is involved.</p>
-<p>For the structural definition of <a class="el" href="structneuron__s.html" title="Structural description of a single neuron.">neuron_s</a>, see:</p><ul>
-<li><a class="el" href="ntcore_8h.html" title="Core neural network data structures for NeuroTIC framework.">ntcore.h</a></li>
-<li><a class="el" href="neuron__s_8dox.html" title="Technical description of neuron_s as an isolated execution descriptor.">neuron_s.dox</a></li>
+<p>The purpose of this file is illustrative. It shows how <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> behaves as a passive structure when driven by user-defined execution code.</p>
+<p>This example does not represent the complete NeuroTIC execution model. No <a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a>, <a class="el" href="structwiring__s.html" title="Declarative descriptor of inter-layer input resolution.">wiring_s</a>, training, or activation dispatch is involved.</p>
+<p>For the structural definition of <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a>, see:</p><ul>
+<li><a class="el" href="ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model.">ntcore.h</a></li>
+<li><a class="el" href="neuron__s_8dox.html" title="Technical description of neuron_s as a standalone execution descriptor.">neuron_s.dox</a></li>
 </ul>
 <h1><a class="anchor" id="neuron_example"></a>
 Example topology</h1>
@@ -159,12 +159,12 @@ Example topology</h1>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="aexamples_2logic__gates_8c_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="examples_2logic__gates_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdef"><b>Definition</b> logic_gates.c:48</div></div>
-<div class="ttc" id="antcore_8h_html"><div class="ttname"><a href="ntcore_8h.html">ntcore.h</a></div><div class="ttdoc">Core neural network data structures for NeuroTIC framework.</div></div>
-<div class="ttc" id="astructneuron__s_html"><div class="ttname"><a href="structneuron__s.html">neuron_s</a></div><div class="ttdoc">Structural description of a single neuron.</div><div class="ttdef"><b>Definition</b> ntcore.h:57</div></div>
-<div class="ttc" id="astructneuron__s_html_a07d16aa895d76e507f90d64d697d20a8"><div class="ttname"><a href="structneuron__s.html#a07d16aa895d76e507f90d64d697d20a8">neuron_s::out</a></div><div class="ttdeci">data_t out</div><div class="ttdef"><b>Definition</b> ntcore.h:64</div></div>
-<div class="ttc" id="astructneuron__s_html_a66fcf313243ddc25dc459ef80cefabaf"><div class="ttname"><a href="structneuron__s.html#a66fcf313243ddc25dc459ef80cefabaf">neuron_s::in</a></div><div class="ttdeci">data_t ** in</div><div class="ttdef"><b>Definition</b> ntcore.h:60</div></div>
-<div class="ttc" id="astructneuron__s_html_af56147487a90dd9cd6c1757fcba3192f"><div class="ttname"><a href="structneuron__s.html#af56147487a90dd9cd6c1757fcba3192f">neuron_s::b</a></div><div class="ttdeci">bias_t b</div><div class="ttdef"><b>Definition</b> ntcore.h:62</div></div>
-<div class="ttc" id="astructneuron__s_html_afb4e8ac00eb57100081e46f82a7f876d"><div class="ttname"><a href="structneuron__s.html#afb4e8ac00eb57100081e46f82a7f876d">neuron_s::inputs</a></div><div class="ttdeci">input_t inputs</div><div class="ttdef"><b>Definition</b> ntcore.h:58</div></div>
+<div class="ttc" id="antcore_8h_html"><div class="ttname"><a href="ntcore_8h.html">ntcore.h</a></div><div class="ttdoc">Fundamental structural definitions of the NeuroTIC runtime model.</div></div>
+<div class="ttc" id="astructneuron__s_html"><div class="ttname"><a href="structneuron__s.html">neuron_s</a></div><div class="ttdoc">Structural unit representing a computation node.</div><div class="ttdef"><b>Definition</b> ntcore.h:56</div></div>
+<div class="ttc" id="astructneuron__s_html_a07d16aa895d76e507f90d64d697d20a8"><div class="ttname"><a href="structneuron__s.html#a07d16aa895d76e507f90d64d697d20a8">neuron_s::out</a></div><div class="ttdeci">data_t out</div><div class="ttdef"><b>Definition</b> ntcore.h:63</div></div>
+<div class="ttc" id="astructneuron__s_html_a66fcf313243ddc25dc459ef80cefabaf"><div class="ttname"><a href="structneuron__s.html#a66fcf313243ddc25dc459ef80cefabaf">neuron_s::in</a></div><div class="ttdeci">data_t ** in</div><div class="ttdef"><b>Definition</b> ntcore.h:59</div></div>
+<div class="ttc" id="astructneuron__s_html_af56147487a90dd9cd6c1757fcba3192f"><div class="ttname"><a href="structneuron__s.html#af56147487a90dd9cd6c1757fcba3192f">neuron_s::b</a></div><div class="ttdeci">bias_t b</div><div class="ttdef"><b>Definition</b> ntcore.h:61</div></div>
+<div class="ttc" id="astructneuron__s_html_afb4e8ac00eb57100081e46f82a7f876d"><div class="ttname"><a href="structneuron__s.html#afb4e8ac00eb57100081e46f82a7f876d">neuron_s::inputs</a></div><div class="ttdeci">input_t inputs</div><div class="ttdef"><b>Definition</b> ntcore.h:57</div></div>
 </div><!-- fragment --> 
 <p class="definition">Definition in file <a class="el" href="">neurons.c</a>.</p>
 </div></div><!-- contents -->

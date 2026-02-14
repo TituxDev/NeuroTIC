@@ -89,68 +89,54 @@ $(document).ready(function(){initNavTree('net__s_8dox.html',''); initResizable()
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">NTCore/net_s.dox File Reference<div class="ingroups"><a class="el" href="group__NTCore.html">NTCore</a></div></div></div>
+  <div class="headertitle"><div class="title">NTCore/net_s.dox File Reference<div class="ingroups"><a class="el" href="group__NTCore.html">NeuroTIC Core Header</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Technical description of <a class="el" href="structnet__s.html" title="Root container describing a complete NeuroTIC network.">net_s</a> as a full neural network container.  
+<p>Root container of a NeuroTIC network instance.  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Technical description of <a class="el" href="structnet__s.html" title="Root container describing a complete NeuroTIC network.">net_s</a> as a full neural network container. </p>
+<div class="textblock"><p>Root container of a NeuroTIC network instance. </p>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor (Titux)</dd></dl>
-<p>This document describes <a class="el" href="structnet__s.html" title="Root container describing a complete NeuroTIC network.">net_s</a> strictly as a structural descriptor of the network. It defines layers, neurons, buffers (bff), input/output pointers, and connectivity information. <a class="el" href="structnet__s.html" title="Root container describing a complete NeuroTIC network.">net_s</a> does not execute computations by itself; all execution logic is implemented externally.</p>
-<p>No learning, optimization, or training concepts are included here.</p>
-<h1><a class="anchor" id="net_concept"></a>
-Concept</h1>
-<p><a class="el" href="structnet__s.html" title="Root container describing a complete NeuroTIC network.">net_s</a> represents the full network container. Its purpose is to store:</p><ul>
-<li>Input references</li>
-<li>Layer definitions (first layer, optional middle layers)</li>
-<li>Neuron arrays per layer</li>
-<li>Intermediate buffers (bff) for inter-layer communication</li>
-<li>Wiring descriptors (wiring)</li>
-<li>Output pointers</li>
-</ul>
-<p><a class="el" href="structnet__s.html" title="Root container describing a complete NeuroTIC network.">net_s</a> is purely structural. External code iterates over layers and neurons, reads inputs, applies operations (from <a class="el" href="structneuron__s.html" title="Structural description of a single neuron.">neuron_s</a>), and writes to outputs.</p>
-<h1><a class="anchor" id="net_structure"></a>
-Structural View</h1>
-<p>The structure can be visualized as:</p>
+<p><a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> aggregates all structural components required to represent a complete network topology and its memory graph. It owns its internal structures, while external inputs are referenced via pointers.</p>
 <div class="dotgraph">
 <img src="dot_inline_dotgraph_1.png" alt="dot_inline_dotgraph_1.png" border="0" usemap="#dot_inline_dotgraph_1.map"/>
 </div>
-<h1><a class="anchor" id="net_flow"></a>
-External Information Flow</h1>
-<p>Information flow is defined outside the structure. External responsibilities:</p><ul>
-<li>Iterating over layers</li>
-<li>Reading data from inputs</li>
-<li>Using bff for intermediate buffers (if middle layers exist)</li>
-<li>Evaluating each <a class="el" href="structneuron__s.html" title="Structural description of a single neuron.">neuron_s</a> instance</li>
-<li>Writing results to out pointers</li>
+<h1><a class="anchor" id="net_concept"></a>
+Concept</h1>
+<p><a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> is a passive data structure that holds:</p><ul>
+<li>Layer organization and neuron counts.</li>
+<li>External input references.</li>
+<li>Layered neuron arrays.</li>
+<li>Wiring descriptors defining inter-layer connectivity.</li>
+<li>Buffer sets for intermediate values.</li>
+<li>Output references.</li>
 </ul>
-<p><a class="el" href="structnet__s.html" title="Root container describing a complete NeuroTIC network.">net_s</a> only provides the framework to organize these operations.</p>
-<h1><a class="anchor" id="net_connectivity"></a>
-Referential Connectivity</h1>
-<p>Inputs and outputs are accessed via pointers, enabling:</p><ul>
-<li>Shared data sources</li>
-<li>Direct neuron-to-neuron connections through bff</li>
-<li>Integration with external variables without copying</li>
-</ul>
-<h1><a class="anchor" id="net_bff_and_wiring"></a>
-Buffers and Wiring</h1>
+<p>No execution logic is embedded; the structure merely describes the static topology and memory layout.</p>
+<h1><a class="anchor" id="net_fields"></a>
+Field Descriptions</h1>
 <ul>
-<li>bff: optional buffers connecting layers. Only present if <a class="el" href="structnet__s.html#a5c746e2e46cb64b2e9de5f86c477ca86">net_s.layers</a> &gt; 1. Can handle multiple arrays per neuron-to-neuron connection.</li>
-<li>wiring: descriptor of connectivity; it does **not** transport data.</li>
+<li><a class="el" href="structnet__s.html#afb4e8ac00eb57100081e46f82a7f876d">inputs</a>:  Number of external inputs.  </li>
+<li><a class="el" href="structnet__s.html#a5c746e2e46cb64b2e9de5f86c477ca86">layers</a>:  Total number of layers.  </li>
+<li><a class="el" href="structnet__s.html#ab1f1521405237a5dd4d4f9ce75268550">neurons</a>:  Neuron count per layer.  </li>
+<li><a class="el" href="structnet__s.html#a66fcf313243ddc25dc459ef80cefabaf">in</a>:  External input references.  </li>
+<li><a class="el" href="structnet__s.html#a6877796787972d3bff8fd8cec54e6261">nn</a>:  Layered neuron arrays.  </li>
+<li><a class="el" href="structnet__s.html#a14d0d65c8982a1ead16dd983f0eef753">wiring</a>:  Wiring descriptors per layer.  </li>
+<li><a class="el" href="structnet__s.html#aab2592bf81694910f17bdbd030044ff4">bff</a>:  Buffer reference sets.  </li>
+<li><a class="el" href="structnet__s.html#ae1bef117a90a2f473c67a05ca7083ae5">out</a>:  Output references.  </li>
 </ul>
-<dl class="section warning"><dt>Warning</dt><dd><ul>
-<li>Accessing bff when there are no middle layers is undefined.</li>
-<li>wiring should never be modified directly outside network construction functions.</li>
-<li>All internal neuron in/out pointers are only valid within the external evaluation loop.</li>
+<h1><a class="anchor" id="net_relationships"></a>
+Structural Relationships</h1>
+<p>The diagram above illustrates the pointer hierarchy. Key points:</p><ul>
+<li>External sources are referenced directly by <code>in</code> and indirectly via wiring/buffers.</li>
+<li>Neurons in the first layer typically read from <code>in</code>.</li>
+<li>Neurons in subsequent layers read from buffers (<code>bff</code>) according to their <code>bff_idx</code>.</li>
+<li>Wiring descriptors define how buffers are populated from source layers.</li>
+<li>Outputs of the last layer are collected in <code>out</code>.</li>
 </ul>
-</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="neuron__s_8dox.html" title="Technical description of neuron_s as an isolated execution descriptor.">neuron_s.dox</a> for individual neuron description </dd>
-<dd>
-wiring_s.dox for wiring descriptor details </dd>
-<dd>
-logic_gates.c for minimal network usage example </dd></dl>
+<h1><a class="anchor" id="net_construction"></a>
+Construction Contract</h1>
+<p>External code is responsible for allocating and populating all fields according to the topology. The structure does not manage memory; it only holds pointers. Refer to net_build.c for an example of constructing a simple network. </p>
 
 <p class="definition">Definition in file <a class="el" href="">net_s.dox</a>.</p>
 </div></div><!-- contents -->

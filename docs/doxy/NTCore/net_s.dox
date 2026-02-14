@@ -3,32 +3,12 @@
  * @author Oscar Sotomayor (Titux)
  * @ingroup NTCore
  *
- * @brief Technical description of net_s as a full neural network container.
- * 
+ * @brief Root container of a NeuroTIC network instance.
+ *
  * @details
- * This document describes net_s strictly as a structural descriptor of the network.
- * It defines layers, neurons, buffers (bff), input/output pointers, and connectivity
- * information. net_s does not execute computations by itself; all execution logic
- * is implemented externally.
- *
- * No learning, optimization, or training concepts are included here.
- *
- * @section net_concept Concept
- *
- * net_s represents the full network container. Its purpose is to store:
- * - Input references
- * - Layer definitions (first layer, optional middle layers)
- * - Neuron arrays per layer
- * - Intermediate buffers (bff) for inter-layer communication
- * - Wiring descriptors (wiring)
- * - Output pointers
- *
- * net_s is purely structural. External code iterates over layers and neurons,
- * reads inputs, applies operations (from neuron_s), and writes to outputs.
- *
- * @section net_structure Structural View
- *
- * The structure can be visualized as:
+ * net_s aggregates all structural components required to represent a complete
+ * network topology and its memory graph. It owns its internal structures,
+ * while external inputs are referenced via pointers.
  *
  * @dot
  * digraph net_s_structure {
@@ -147,36 +127,43 @@
  * }
  * @enddot
  *
- * @section net_flow External Information Flow
+ * @section net_concept Concept
  *
- * Information flow is defined outside the structure. External responsibilities:
- * - Iterating over layers
- * - Reading data from inputs
- * - Using bff for intermediate buffers (if middle layers exist)
- * - Evaluating each neuron_s instance
- * - Writing results to out pointers
+ * net_s is a passive data structure that holds:
+ * - Layer organization and neuron counts.
+ * - External input references.
+ * - Layered neuron arrays.
+ * - Wiring descriptors defining inter-layer connectivity.
+ * - Buffer sets for intermediate values.
+ * - Output references.
  *
- * net_s only provides the framework to organize these operations.
+ * No execution logic is embedded; the structure merely describes the
+ * static topology and memory layout.
  *
- * @section net_connectivity Referential Connectivity
+ * @section net_fields Field Descriptions
  *
- * Inputs and outputs are accessed via pointers, enabling:
- * - Shared data sources
- * - Direct neuron-to-neuron connections through bff
- * - Integration with external variables without copying
+ * - @ref net_s.inputs "inputs": @copydetails net_s.inputs.
+ * - @ref net_s.layers "layers": @copydetails net_s.layers.
+ * - @ref net_s.neurons "neurons": @copydetails net_s.neurons.
+ * - @ref net_s.in "in": @copydetails net_s.in.
+ * - @ref net_s.nn "nn": @copydetails net_s.nn.
+ * - @ref net_s.wiring "wiring": @copydetails net_s.wiring.
+ * - @ref net_s.bff "bff": @copydetails net_s.bff.
+ * - @ref net_s.out "out": @copydetails net_s.out.
  *
- * @section net_bff_and_wiring Buffers and Wiring
+ * @section net_relationships Structural Relationships
  *
- * - bff: optional buffers connecting layers. Only present if net_s.layers > 1.
- *        Can handle multiple arrays per neuron-to-neuron connection.
- * - wiring: descriptor of connectivity; it does **not** transport data.
+ * The diagram above illustrates the pointer hierarchy. Key points:
+ * - External sources are referenced directly by `in` and indirectly via wiring/buffers.
+ * - Neurons in the first layer typically read from `in`.
+ * - Neurons in subsequent layers read from buffers (`bff`) according to their `bff_idx`.
+ * - Wiring descriptors define how buffers are populated from source layers.
+ * - Outputs of the last layer are collected in `out`.
  *
- * @warning
- * - Accessing bff when there are no middle layers is undefined.
- * - wiring should never be modified directly outside network construction functions.
- * - All internal neuron in/out pointers are only valid within the external evaluation loop.
+ * @section net_construction Construction Contract
  *
- * @see neuron_s.dox for individual neuron description
- * @see wiring_s.dox for wiring descriptor details
- * @see logic_gates.c for minimal network usage example
+ * External code is responsible for allocating and populating all fields
+ * according to the topology. The structure does not manage memory; it only
+ * holds pointers. Refer to @ref net_build.c for an example of constructing
+ * a simple network.
  */

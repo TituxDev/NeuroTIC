@@ -104,7 +104,7 @@ Include dependency graph for ntinitialize.h:</div>
 <div class="center"><img src="ntinitialize_8h__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntinitialize_8h" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntinitialize_8h" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntinitialize_8h">
 <area shape="rect" title="Random weight initialization for NeuroTIC networks." alt="" coords="5,5,259,45"/>
-<area shape="rect" href="ntcore_8h.html" title="Core neural network data structures for NeuroTIC framework." alt="" coords="95,93,169,119"/>
+<area shape="rect" href="ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="95,93,169,119"/>
 <area shape="poly" title=" " alt="" coords="135,46,135,79,129,79,129,46"/>
 <area shape="rect" title=" " alt="" coords="97,167,167,192"/>
 <area shape="poly" title=" " alt="" coords="135,119,135,153,129,153,129,119"/>
@@ -166,7 +166,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Randomly initializes network weights and biases. </p>
-<p>Each neuron weight is set randomly within the limits specified by the corresponding activation function (`ntact_rand_range`). Biases are initialized to 0.</p>
+<p>Each neuron weight is set randomly within the limits specified by the corresponding activation function (<code>ntact_rand_range</code>). Biases are initialized to 0.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">net</td><td>Pointer to the network to initialize.</td></tr>
@@ -175,8 +175,8 @@ Functions</h2></td></tr>
 </dl>
 <p>Randomly initializes network weights and biases.</p>
 <p>For each neuron:</p><ul>
-<li>Weight `w[k]` is randomized in the range defined by `ntact_rand_range[fn]`.</li>
-<li>Bias `b` is set to 0.0f.</li>
+<li>Weight <code>w[k]</code> is randomized in the range defined by <code>ntact_rand_range[fn]</code>.</li>
+<li>Bias <code>b</code> is set to 0.0f.</li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -184,23 +184,8 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">   28</span>                          {</div>
-<div class="line"><span class="lineno">   29</span>    srand( time( NULL ) );</div>
-<div class="line"><span class="lineno">   30</span>    <span class="keywordflow">for</span>( uint16_t i= 0, j, k ; i &lt; net-&gt;<a class="code hl_variable" href="structnet__s.html#a5c746e2e46cb64b2e9de5f86c477ca86">layers</a> ; i++ ) <span class="keywordflow">for</span>( j= 0 ; j &lt; net-&gt;<a class="code hl_variable" href="structnet__s.html#ab1f1521405237a5dd4d4f9ce75268550">neurons</a>[i] ; j++ ){</div>
-<div class="line"><span class="lineno">   31</span>        <span class="keywordflow">for</span>( k= 0 ; k &lt; net-&gt;<a class="code hl_variable" href="structnet__s.html#a6877796787972d3bff8fd8cec54e6261">nn</a>[i][j].<a class="code hl_variable" href="structneuron__s.html#afb4e8ac00eb57100081e46f82a7f876d">inputs</a> ; k++ ) net-&gt;<a class="code hl_variable" href="structnet__s.html#a6877796787972d3bff8fd8cec54e6261">nn</a>[i][j].<a class="code hl_variable" href="structneuron__s.html#aa16e0f2a1f6eee7388a3dd5dd6229f73">w</a>[k]= ( ( <span class="keywordtype">float</span> )rand( ) / RAND_MAX ) * ( <a class="code hl_variable" href="group__NTMath.html#ga68975968643d0c6223716ffee442818a">ntact_rand_range</a>[net-&gt;<a class="code hl_variable" href="structnet__s.html#a6877796787972d3bff8fd8cec54e6261">nn</a>[i][j].<a class="code hl_variable" href="structneuron__s.html#a63cd0e2e5d3b375f4538c80c2905c1ef">fn</a>][1] - <a class="code hl_variable" href="group__NTMath.html#ga68975968643d0c6223716ffee442818a">ntact_rand_range</a>[net-&gt;<a class="code hl_variable" href="structnet__s.html#a6877796787972d3bff8fd8cec54e6261">nn</a>[i][j].<a class="code hl_variable" href="structneuron__s.html#a63cd0e2e5d3b375f4538c80c2905c1ef">fn</a>][0] ) + <a class="code hl_variable" href="group__NTMath.html#ga68975968643d0c6223716ffee442818a">ntact_rand_range</a>[net-&gt;<a class="code hl_variable" href="structnet__s.html#a6877796787972d3bff8fd8cec54e6261">nn</a>[i][j].<a class="code hl_variable" href="structneuron__s.html#a63cd0e2e5d3b375f4538c80c2905c1ef">fn</a>][0];</div>
-<div class="line"><span class="lineno">   32</span>        net-&gt;<a class="code hl_variable" href="structnet__s.html#a6877796787972d3bff8fd8cec54e6261">nn</a>[i][j].<a class="code hl_variable" href="structneuron__s.html#af56147487a90dd9cd6c1757fcba3192f">b</a> = 0.0f;</div>
-<div class="line"><span class="lineno">   33</span>    }</div>
-<div class="line"><span class="lineno">   34</span>}</div>
-<div class="ttc" id="agroup__NTMath_html_ga68975968643d0c6223716ffee442818a"><div class="ttname"><a href="group__NTMath.html#ga68975968643d0c6223716ffee442818a">ntact_rand_range</a></div><div class="ttdeci">float ntact_rand_range[NTACT_TOTAL_FUNCTIONS][2]</div><div class="ttdoc">Random initialization range table for activation functions.</div><div class="ttdef"><b>Definition</b> ntactivation.c:97</div></div>
-<div class="ttc" id="astructnet__s_html_a5c746e2e46cb64b2e9de5f86c477ca86"><div class="ttname"><a href="structnet__s.html#a5c746e2e46cb64b2e9de5f86c477ca86">net_s::layers</a></div><div class="ttdeci">layer_t layers</div><div class="ttdef"><b>Definition</b> ntcore.h:106</div></div>
-<div class="ttc" id="astructnet__s_html_a6877796787972d3bff8fd8cec54e6261"><div class="ttname"><a href="structnet__s.html#a6877796787972d3bff8fd8cec54e6261">net_s::nn</a></div><div class="ttdeci">neuron_s ** nn</div><div class="ttdef"><b>Definition</b> ntcore.h:109</div></div>
-<div class="ttc" id="astructnet__s_html_ab1f1521405237a5dd4d4f9ce75268550"><div class="ttname"><a href="structnet__s.html#ab1f1521405237a5dd4d4f9ce75268550">net_s::neurons</a></div><div class="ttdeci">uint16_t * neurons</div><div class="ttdef"><b>Definition</b> ntcore.h:107</div></div>
-<div class="ttc" id="astructneuron__s_html_a63cd0e2e5d3b375f4538c80c2905c1ef"><div class="ttname"><a href="structneuron__s.html#a63cd0e2e5d3b375f4538c80c2905c1ef">neuron_s::fn</a></div><div class="ttdeci">index_t fn</div><div class="ttdef"><b>Definition</b> ntcore.h:63</div></div>
-<div class="ttc" id="astructneuron__s_html_aa16e0f2a1f6eee7388a3dd5dd6229f73"><div class="ttname"><a href="structneuron__s.html#aa16e0f2a1f6eee7388a3dd5dd6229f73">neuron_s::w</a></div><div class="ttdeci">weight_t * w</div><div class="ttdef"><b>Definition</b> ntcore.h:61</div></div>
-<div class="ttc" id="astructneuron__s_html_af56147487a90dd9cd6c1757fcba3192f"><div class="ttname"><a href="structneuron__s.html#af56147487a90dd9cd6c1757fcba3192f">neuron_s::b</a></div><div class="ttdeci">bias_t b</div><div class="ttdef"><b>Definition</b> ntcore.h:62</div></div>
-<div class="ttc" id="astructneuron__s_html_afb4e8ac00eb57100081e46f82a7f876d"><div class="ttname"><a href="structneuron__s.html#afb4e8ac00eb57100081e46f82a7f876d">neuron_s::inputs</a></div><div class="ttdeci">input_t inputs</div><div class="ttdef"><b>Definition</b> ntcore.h:58</div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="#l00062">neuron_s::b</a>, <a class="el" href="#l00063">neuron_s::fn</a>, <a class="el" href="#l00058">neuron_s::inputs</a>, <a class="el" href="#l00106">net_s::layers</a>, <a class="el" href="#l00107">net_s::neurons</a>, <a class="el" href="#l00109">net_s::nn</a>, <a class="el" href="#l00097">ntact_rand_range</a>, and <a class="el" href="#l00061">neuron_s::w</a>.</p>
+
+<p class="reference">References <a class="el" href="#l00061">neuron_s::b</a>, <a class="el" href="#l00062">neuron_s::fn</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00097">ntact_rand_range</a>, and <a class="el" href="#l00060">neuron_s::w</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#l00048">main()</a>.</p>
 

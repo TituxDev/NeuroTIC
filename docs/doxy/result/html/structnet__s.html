@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('structnet__s.html',''); initResizable(
 </div><!--header-->
 <div class="contents">
 
-<p>Root container describing a complete NeuroTIC network.  
+<p>Root structural container of a NeuroTIC network.  
  <a href="structnet__s.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="">ntcore.h</a>&gt;</code></p>
@@ -104,38 +104,37 @@ Collaboration diagram for net_s:</div>
 <div class="dyncontent">
 <div class="center"><img src="structnet__s__coll__graph.png" border="0" usemap="#anet__s_coll__map" alt="Collaboration graph"/></div>
 <map name="anet__s_coll__map" id="anet__s_coll__map">
-<area shape="rect" title="Root container describing a complete NeuroTIC network." alt="" coords="68,93,125,119"/>
-<area shape="rect" href="structneuron__s.html" title="Structural description of a single neuron." alt="" coords="5,5,87,31"/>
+<area shape="rect" title="Root structural container of a NeuroTIC network." alt="" coords="68,93,125,119"/>
+<area shape="rect" href="structneuron__s.html" title="Structural unit representing a computation node." alt="" coords="5,5,87,31"/>
 <area shape="poly" title=" " alt="" coords="62,41,92,91,87,94,58,44"/>
-<area shape="rect" href="structwiring__s.html" title="Describes how logical input buffers are resolved between layers." alt="" coords="111,5,187,31"/>
+<area shape="rect" href="structwiring__s.html" title="Declarative descriptor of inter&#45;layer input resolution." alt="" coords="111,5,187,31"/>
 <area shape="poly" title=" " alt="" coords="137,44,106,94,102,91,132,41"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:afb4e8ac00eb57100081e46f82a7f876d" id="r_afb4e8ac00eb57100081e46f82a7f876d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ntcore_8h.html#a7c59638e48b5a0e56ac8c380bbab6dac">input_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnet__s.html#afb4e8ac00eb57100081e46f82a7f876d">inputs</a></td></tr>
+<tr class="memitem:afb4e8ac00eb57100081e46f82a7f876d" id="r_afb4e8ac00eb57100081e46f82a7f876d"><td class="memItemLeft" align="right" valign="top">input_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnet__s.html#afb4e8ac00eb57100081e46f82a7f876d">inputs</a></td></tr>
 <tr class="separator:afb4e8ac00eb57100081e46f82a7f876d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c746e2e46cb64b2e9de5f86c477ca86" id="r_a5c746e2e46cb64b2e9de5f86c477ca86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ntcore_8h.html#a758458e2c13ffc83d2832e5343bcf32e">layer_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnet__s.html#a5c746e2e46cb64b2e9de5f86c477ca86">layers</a></td></tr>
+<tr class="memitem:a5c746e2e46cb64b2e9de5f86c477ca86" id="r_a5c746e2e46cb64b2e9de5f86c477ca86"><td class="memItemLeft" align="right" valign="top">layer_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnet__s.html#a5c746e2e46cb64b2e9de5f86c477ca86">layers</a></td></tr>
 <tr class="separator:a5c746e2e46cb64b2e9de5f86c477ca86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1f1521405237a5dd4d4f9ce75268550" id="r_ab1f1521405237a5dd4d4f9ce75268550"><td class="memItemLeft" align="right" valign="top">uint16_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnet__s.html#ab1f1521405237a5dd4d4f9ce75268550">neurons</a></td></tr>
 <tr class="separator:ab1f1521405237a5dd4d4f9ce75268550"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66fcf313243ddc25dc459ef80cefabaf" id="r_a66fcf313243ddc25dc459ef80cefabaf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ntcore_8h.html#a954f50c62d1d3dacedaf7dbf3c29c799">data_t</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnet__s.html#a66fcf313243ddc25dc459ef80cefabaf">in</a></td></tr>
+<tr class="memitem:a66fcf313243ddc25dc459ef80cefabaf" id="r_a66fcf313243ddc25dc459ef80cefabaf"><td class="memItemLeft" align="right" valign="top">data_t **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnet__s.html#a66fcf313243ddc25dc459ef80cefabaf">in</a></td></tr>
 <tr class="separator:a66fcf313243ddc25dc459ef80cefabaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6877796787972d3bff8fd8cec54e6261" id="r_a6877796787972d3bff8fd8cec54e6261"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structneuron__s.html">neuron_s</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnet__s.html#a6877796787972d3bff8fd8cec54e6261">nn</a></td></tr>
 <tr class="separator:a6877796787972d3bff8fd8cec54e6261"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14d0d65c8982a1ead16dd983f0eef753" id="r_a14d0d65c8982a1ead16dd983f0eef753"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structwiring__s.html">wiring_s</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnet__s.html#a14d0d65c8982a1ead16dd983f0eef753">wiring</a></td></tr>
 <tr class="separator:a14d0d65c8982a1ead16dd983f0eef753"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab2592bf81694910f17bdbd030044ff4" id="r_aab2592bf81694910f17bdbd030044ff4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ntcore_8h.html#a954f50c62d1d3dacedaf7dbf3c29c799">data_t</a> ****&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnet__s.html#aab2592bf81694910f17bdbd030044ff4">bff</a></td></tr>
+<tr class="memitem:aab2592bf81694910f17bdbd030044ff4" id="r_aab2592bf81694910f17bdbd030044ff4"><td class="memItemLeft" align="right" valign="top">data_t ****&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnet__s.html#aab2592bf81694910f17bdbd030044ff4">bff</a></td></tr>
 <tr class="separator:aab2592bf81694910f17bdbd030044ff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1bef117a90a2f473c67a05ca7083ae5" id="r_ae1bef117a90a2f473c67a05ca7083ae5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ntcore_8h.html#a954f50c62d1d3dacedaf7dbf3c29c799">data_t</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnet__s.html#ae1bef117a90a2f473c67a05ca7083ae5">out</a></td></tr>
+<tr class="memitem:ae1bef117a90a2f473c67a05ca7083ae5" id="r_ae1bef117a90a2f473c67a05ca7083ae5"><td class="memItemLeft" align="right" valign="top">data_t **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnet__s.html#ae1bef117a90a2f473c67a05ca7083ae5">out</a></td></tr>
 <tr class="separator:ae1bef117a90a2f473c67a05ca7083ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Root container describing a complete NeuroTIC network. </p>
-<p>This structure represents the full internal state of a network.</p>
-<p>It owns all internal memory used by the network, with the exception of external input sources, which are treated as peripherals.</p>
-<p>The network is defined entirely by its structure; no behavioral guarantees are implied by this definition alone. </p>
+<div class="textblock"><p>Root structural container of a NeuroTIC network. </p>
+<p>Represents the complete structural topology and memory graph required to execute a network instance.</p>
+<p>The network owns its internal structures. External input sources are considered external references. </p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="aab2592bf81694910f17bdbd030044ff4" name="aab2592bf81694910f17bdbd030044ff4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aab2592bf81694910f17bdbd030044ff4">&#9670;&#160;</a></span>bff</h2>
@@ -144,11 +143,11 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="ntcore_8h.html#a954f50c62d1d3dacedaf7dbf3c29c799">data_t</a>**** bff</td>
+          <td class="memname">data_t**** bff</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Input buffer reference sets. </p>
+<p>Buffer reference sets. </p>
 
 <p class="reference">Referenced by <a class="el" href="#l00064">buildnet()</a>.</p>
 
@@ -161,7 +160,7 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="ntcore_8h.html#a954f50c62d1d3dacedaf7dbf3c29c799">data_t</a>** in</td>
+          <td class="memname">data_t** in</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -178,11 +177,11 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="ntcore_8h.html#a7c59638e48b5a0e56ac8c380bbab6dac">input_t</a> inputs</td>
+          <td class="memname">input_t inputs</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Number of external input references. </p>
+<p>Number of external inputs. </p>
 
 <p class="reference">Referenced by <a class="el" href="#l00064">buildnet()</a>, <a class="el" href="#l00159">loadnet()</a>, and <a class="el" href="#l00048">main()</a>.</p>
 
@@ -195,7 +194,7 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="ntcore_8h.html#a758458e2c13ffc83d2832e5343bcf32e">layer_t</a> layers</td>
+          <td class="memname">layer_t layers</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -233,7 +232,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Per-layer neuron arrays. </p>
+<p>Layered neuron arrays. </p>
 
 <p class="reference">Referenced by <a class="el" href="#l00064">buildnet()</a>, <a class="el" href="#l00050">feedforward()</a>, <a class="el" href="#l00159">loadnet()</a>, <a class="el" href="#l00048">main()</a>, <a class="el" href="#l00068">newdense()</a>, <a class="el" href="#l00030">newfeedforward()</a>, <a class="el" href="#l00028">randnet()</a>, and <a class="el" href="#l00098">savenet()</a>.</p>
 
@@ -246,11 +245,11 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="ntcore_8h.html#a954f50c62d1d3dacedaf7dbf3c29c799">data_t</a>** out</td>
+          <td class="memname">data_t** out</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Output references (last layer). </p>
+<p>Output references. </p>
 
 <p class="reference">Referenced by <a class="el" href="#l00064">buildnet()</a>, <a class="el" href="#l00050">feedforward()</a>, and <a class="el" href="#l00048">main()</a>.</p>
 
@@ -267,7 +266,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Wiring descriptors between layers. </p>
+<p>Wiring descriptors per layer. </p>
 
 <p class="reference">Referenced by <a class="el" href="#l00064">buildnet()</a>, <a class="el" href="#l00159">loadnet()</a>, <a class="el" href="#l00068">newdense()</a>, <a class="el" href="#l00030">newfeedforward()</a>, and <a class="el" href="#l00098">savenet()</a>.</p>
 

@@ -8,7 +8,7 @@
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="262,44,289,80,285,84,258,47"/>
 <area shape="rect" id="Node000007" title=" " alt="" coords="363,93,427,119"/>
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="283,43,362,84,360,89,281,48"/>
-<area shape="rect" id="Node000003" href="$ntcore_8h.html" title="Core neural network data structures for NeuroTIC framework." alt="" coords="19,167,94,192"/>
+<area shape="rect" id="Node000003" href="$ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="19,167,94,192"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="59,119,59,153,54,153,54,119"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="21,240,92,265"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="59,192,59,226,54,226,54,192"/>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['index_5ft_0',['index_t',['../ntcore_8h.html#a9ff1c947b95fe8029f3efefacb3d9094',1,'ntcore.h']]],
-  ['input_5ft_1',['input_t',['../ntcore_8h.html#a7c59638e48b5a0e56ac8c380bbab6dac',1,'ntcore.h']]]
+  ['wiring_5fs_0',['wiring_s',['../ntcore_8h.html#a67d4a57ca681ab9757f6dd9a04e419fb',1,'ntcore.h']]]
 ];
