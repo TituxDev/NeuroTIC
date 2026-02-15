@@ -1,7 +1,8 @@
 
  # NeuroTIC
 
-[GitHub](https://github.com/TituxDev/NeuroTIC)
+[GitHub](https://github.com/TituxDev/NeuroTIC)  
+[USER GUIDE](https://tituxdev.github.io/NeuroTIC/docs/doxy/result/html/index.html)  
 A framework for understanding, exploring, and experimenting with neural networks. `Built in C`, it gives you full visibility into the source code and the freedom to modify, extend, and hack every component.
 
 **NeuroTIC** helps you design, build, train, save, and load networks with complete creative control over their topology—without dragging you through the usual low-level chores.
@@ -36,4 +37,3 @@ Because the network stays transparent at every stage, you can:
 
 NeuroTIC avoids the black-box mentality altogether. Everything arrives as plain C code sitting inside your project, ready for inspection, extension, mutation, or the occasional glorious detonation in the name of learning.
 
-[USER GUIDE](https://tituxdev.github.io/NeuroTIC/docs/doxy/result/html/index.html)
