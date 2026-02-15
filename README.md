@@ -1,8 +1,6 @@
----
- @file README.md
-
- NeuroTIC introduction
----
+/**
+* @mainpage
+*/
 
 # NeuroTIC
 
