@@ -1,13 +1,15 @@
 var searchData=
 [
-  ['feature_20expansion_0',['Feature Expansion',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#feature-expansion',1,'']]],
-  ['feedforward_1',['feedforward',['../ntcalculate_8c.html#ad48d6e414dc6090dbdd62b29633541bf',1,'feedforward(net_s *net):&#160;ntcalculate.c'],['../ntcalculate_8h.html#ad48d6e414dc6090dbdd62b29633541bf',1,'feedforward(net_s *net):&#160;ntcalculate.c']]],
-  ['field_20descriptions_2',['Field Descriptions',['../net__s_8dox.html#net_fields',1,'']]],
-  ['first_20project_3',['6. Start your first project',['../README_8md.html#autotoc_md6-start-your-first-project',1,'']]],
-  ['float32_4',['float32',['../ntfile_8c.html#a9041095ed9ea53165999e5bebfc04271',1,'ntfile.c']]],
-  ['float_5fparts_5fs_5',['float_parts_s',['../structfloat__parts__s.html',1,'']]],
-  ['floatsys_6',['floatsys',['../ntfile_8c.html#acef0da894eb82c36eb54a30050eedaa0',1,'ntfile.c']]],
-  ['flow_7',['External Execution Flow',['../neuron__s_8dox.html#neuron_flow',1,'']]],
-  ['fn_8',['fn',['../structneuron__s.html#a63cd0e2e5d3b375f4538c80c2905c1ef',1,'neuron_s']]],
-  ['framework_9',['About the framework',['../README_8md.html#about-the-framework',1,'']]]
+  ['m_0',['m',['../structfloat__parts__s.html#ac51334f57ef8b81c0629c9421798c344',1,'float_parts_s']]],
+  ['magic_1',['MAGIC',['../ntfile_8c.html#a94630370ae389fb1189282fa0742f310',1,'ntfile.c']]],
+  ['main_2',['main',['../examples_2logic__gates_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;logic_gates.c'],['../workspace_2logic__gates_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;logic_gates.c']]],
+  ['market_20license_3',['Mid-Market License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#mid-market-license',1,'']]],
+  ['max_5fattempts_4',['max_attempts',['../structnttraindata.html#a2dc7001b59614d488ff420f56f1c4140',1,'nttraindata']]],
+  ['medium_20term_20development_20q2_20q4_202024_5',['Medium-term Development (Q2-Q4 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#medium-term-development-q2-q4-2024',1,'']]],
+  ['memfree_6',['memfree',['../group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8',1,'memfree(void):&#160;ntmemory.c'],['../group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8',1,'memfree(void):&#160;ntmemory.c']]],
+  ['memory_20selector_20role_7',['Memory Selector Role',['../neuron__s_8dox.html#neuron_bff_idx',1,'']]],
+  ['memtrack_8',['memtrack',['../group__NTMemory.html#gad582239e0fb2ae41572d3f0582922bc2',1,'memtrack(void *mem):&#160;ntmemory.c'],['../group__NTMemory.html#gad582239e0fb2ae41572d3f0582922bc2',1,'memtrack(void *mem):&#160;ntmemory.c']]],
+  ['mid_20market_20license_9',['Mid-Market License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#mid-market-license',1,'']]],
+  ['model_10',['Activation execution model',['../ntactivation_8c.html#activation-execution-model-------------------------------------------------',1,'']]],
+  ['modules_11',['Peripheral modules',['../group__NTPeripherals.html',1,'']]]
 ];

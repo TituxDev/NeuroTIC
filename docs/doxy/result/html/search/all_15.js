@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['q1_202024_0',['Near-term Development (Q1 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#near-term-development-q1-2024',1,'']]],
-  ['q2_20q4_202024_1',['Medium-term Development (Q2-Q4 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#medium-term-development-q2-q4-2024',1,'']]],
-  ['q4_202024_2',['Medium-term Development (Q2-Q4 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#medium-term-development-q2-q4-2024',1,'']]],
-  ['questions_3',['Questions?',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#questions',1,'']]],
-  ['quick_20use_20guide_4',['Quick use guide',['../README_8md.html#quick-use-guide',1,'']]]
+  ['w_0',['w',['../structneuron__s.html#aa16e0f2a1f6eee7388a3dd5dd6229f73',1,'neuron_s']]],
+  ['weighing_1',['weighing',['../ntcalculate_8c.html#a78cb662481458242e474dabbdbe53bda',1,'weighing(neuron_s *neuron):&#160;ntcalculate.c'],['../ntcalculate_8h.html#a78cb662481458242e474dabbdbe53bda',1,'weighing(neuron_s *neuron):&#160;ntcalculate.c']]],
+  ['wiring_2',['wiring',['../structnet__s.html#a14d0d65c8982a1ead16dd983f0eef753',1,'net_s']]],
+  ['wiring_5fs_3',['wiring_s',['../structwiring__s.html',1,'wiring_s'],['../ntcore_8h.html#a67d4a57ca681ab9757f6dd9a04e419fb',1,'wiring_s:&#160;ntcore.h']]]
 ];

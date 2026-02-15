@@ -25,7 +25,8 @@
 var NAVTREE =
 [
   [ "NeuroTIC", "index.html", [
-    [ "NeuroTIC User Guide", "index.html", null ],
+    [ "About the framework", "index.html#about-the-framework", null ],
+    [ "Architecture overview", "index.html#architecture-overview", null ],
     [ "NeuroTIC Commercial License Agreement", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html", [
       [ "Overview", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#overview", null ],
       [ "Commercial Licensing Tiers", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#commercial-licensing-tiers", [
@@ -54,7 +55,7 @@ var NAVTREE =
       [ "Code Standards", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#code-standards", null ],
       [ "Questions?", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#questions", null ]
     ] ],
-    [ "README", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2README.html", null ],
+    [ "Documentación", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2index.html", null ],
     [ "NeuroTIC Technical Roadmap", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html", [
       [ "Current Release (v1.0)", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#current-release-v10", [
         [ "Core Architecture", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#core-architecture", null ]

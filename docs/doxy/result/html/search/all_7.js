@@ -1,18 +1,12 @@
 var searchData=
 [
-  ['about_20the_20framework_0',['About the framework',['../README_8md.html#about-the-framework',1,'']]],
-  ['academic_20license_1',['Academic License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#academic-license',1,'']]],
-  ['activate_2',['activate',['../ntcalculate_8c.html#aa72c5a1f7a1f6a658ec46f1367c4b677',1,'activate(neuron_s *neuron):&#160;ntcalculate.c'],['../ntcalculate_8h.html#aa72c5a1f7a1f6a658ec46f1367c4b677',1,'activate(neuron_s *neuron):&#160;ntcalculate.c']]],
-  ['activation_20execution_20model_3',['Activation execution model',['../ntactivation_8c.html#activation-execution-model-------------------------------------------------',1,'']]],
-  ['adopter_20terms_4',['Early Adopter Terms',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#early-adopter-terms',1,'']]],
-  ['agreement_5',['agreement',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#contribution-license-agreement',1,'Contribution License Agreement'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html',1,'NeuroTIC Commercial License Agreement']]],
-  ['an_20example_6',['2. Compile an example',['../README_8md.html#autotoc_md2-compile-an-example',1,'']]],
-  ['and_20conditions_7',['Terms and Conditions',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#terms-and-conditions',1,'']]],
-  ['and_20stability_8',['Scope and stability',['../group__NTPeripherals.html#scope-and-stability',1,'']]],
-  ['architecture_9',['Core Architecture',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#core-architecture',1,'']]],
-  ['architecture_20overview_10',['Architecture overview',['../README_8md.html#architecture-overview',1,'']]],
-  ['array_5ftype_11',['array_type',['../structwiring__s.html#a13deb5fd65cc92b48dd36a474e49fb64',1,'wiring_s']]],
-  ['arrays_12',['arrays',['../structwiring__s.html#afbdb37838c9d4130d28ab9159cdb549c',1,'wiring_s']]],
-  ['author_13',['Author',['../README_8md.html#author',1,'']]],
-  ['available_14',['Currently Available',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#currently-available',1,'']]]
+  ['feature_20expansion_0',['Feature Expansion',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#feature-expansion',1,'']]],
+  ['feedforward_1',['feedforward',['../ntcalculate_8c.html#ad48d6e414dc6090dbdd62b29633541bf',1,'feedforward(net_s *net):&#160;ntcalculate.c'],['../ntcalculate_8h.html#ad48d6e414dc6090dbdd62b29633541bf',1,'feedforward(net_s *net):&#160;ntcalculate.c']]],
+  ['field_20descriptions_2',['Field Descriptions',['../net__s_8dox.html#net_fields',1,'']]],
+  ['float32_3',['float32',['../ntfile_8c.html#a9041095ed9ea53165999e5bebfc04271',1,'ntfile.c']]],
+  ['float_5fparts_5fs_4',['float_parts_s',['../structfloat__parts__s.html',1,'']]],
+  ['floatsys_5',['floatsys',['../ntfile_8c.html#acef0da894eb82c36eb54a30050eedaa0',1,'ntfile.c']]],
+  ['flow_6',['External Execution Flow',['../neuron__s_8dox.html#neuron_flow',1,'']]],
+  ['fn_7',['fn',['../structneuron__s.html#a63cd0e2e5d3b375f4538c80c2905c1ef',1,'neuron_s']]],
+  ['framework_8',['About the framework',['../index.html#about-the-framework',1,'']]]
 ];

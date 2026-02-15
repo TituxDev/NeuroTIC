@@ -1,28 +1,5 @@
 var searchData=
 [
-  ['capabilities_0',['Technical Capabilities',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#technical-capabilities',1,'']]],
-  ['checkendian_1',['checkendian',['../ntfile_8c.html#a3de58241794b44d5444556e2b354385c',1,'ntfile.c']]],
-  ['clean_20up_2',['4. Clean up',['../README_8md.html#autotoc_md4-clean-up',1,'']]],
-  ['code_20standards_3',['Code Standards',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#code-standards',1,'']]],
-  ['comercial_5flicese_2emd_4',['COMERCIAL_LICESE.md',['../COMERCIAL__LICESE_8md.html',1,'']]],
-  ['commercial_20license_5',['Commercial License',['../README_8md.html#commercial-license',1,'']]],
-  ['commercial_20license_20agreement_6',['NeuroTIC Commercial License Agreement',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html',1,'']]],
-  ['commercial_20licensing_20tiers_7',['Commercial Licensing Tiers',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#commercial-licensing-tiers',1,'']]],
-  ['compile_20an_20example_8',['2. Compile an example',['../README_8md.html#autotoc_md2-compile-an-example',1,'']]],
-  ['computational_20backends_9',['Computational Backends',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#computational-backends',1,'']]],
-  ['concept_10',['concept',['../net__s_8dox.html#net_concept',1,'Concept'],['../neuron__s_8dox.html#neuron_concept',1,'Concept']]],
-  ['conditions_11',['Terms and Conditions',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#terms-and-conditions',1,'']]],
-  ['connectivity_12',['Referential Connectivity',['../neuron__s_8dox.html#neuron_connectivity',1,'']]],
-  ['construction_20contract_13',['Construction Contract',['../net__s_8dox.html#net_construction',1,'']]],
-  ['contact_14',['Contact',['../README_8md.html#contact',1,'']]],
-  ['contract_15',['Construction Contract',['../net__s_8dox.html#net_construction',1,'']]],
-  ['contribute_16',['How to Contribute',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#how-to-contribute',1,'']]],
-  ['contributing_20to_20neurotic_17',['Contributing to NeuroTIC',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html',1,'']]],
-  ['contributing_2emd_18',['CONTRIBUTING.md',['../CONTRIBUTING_8md.html',1,'']]],
-  ['contribution_20license_20agreement_19',['Contribution License Agreement',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#contribution-license-agreement',1,'']]],
-  ['core_20architecture_20',['Core Architecture',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#core-architecture',1,'']]],
-  ['core_20header_21',['NeuroTIC Core Header',['../group__NTCore.html',1,'']]],
-  ['current_20peripheral_20groups_22',['Current peripheral groups',['../group__NTPeripherals.html#current-peripheral-groups',1,'']]],
-  ['current_20release_20v1_200_23',['Current Release (v1.0)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#current-release-v10',1,'']]],
-  ['currently_20available_24',['Currently Available',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#currently-available',1,'']]]
+  ['header_0',['NeuroTIC Core Header',['../group__NTCore.html',1,'']]],
+  ['how_20to_20contribute_1',['How to Contribute',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#how-to-contribute',1,'']]]
 ];

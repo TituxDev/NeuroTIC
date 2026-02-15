@@ -1,5 +1,29 @@
 var searchData=
 [
-  ['readme_2emd_0',['README.md',['../README_8md.html',1,'']]],
-  ['roadmap_2emd_1',['ROADMAP.md',['../ROADMAP_8md.html',1,'']]]
+  ['net_5fs_2edox_0',['net_s.dox',['../net__s_8dox.html',1,'']]],
+  ['neuron_5fs_2edox_1',['neuron_s.dox',['../neuron__s_8dox.html',1,'']]],
+  ['neurons_2ec_2',['neurons.c',['../neurons_8c.html',1,'']]],
+  ['neurotic_2d987e2930ee83c669_2ed_3',['NeuroTIC-987e2930ee83c669.d',['../NeuroTIC-987e2930ee83c669_8d.html',1,'']]],
+  ['neurotic_2ddbb9b30f74722b64_2ed_4',['NeuroTIC-dbb9b30f74722b64.d',['../NeuroTIC-dbb9b30f74722b64_8d.html',1,'']]],
+  ['ntactivation_2ec_5',['ntactivation.c',['../ntactivation_8c.html',1,'']]],
+  ['ntactivation_2eh_6',['ntactivation.h',['../ntactivation_8h.html',1,'']]],
+  ['ntbasic_2eh_7',['ntbasic.h',['../ntbasic_8h.html',1,'']]],
+  ['ntbuilder_2ec_8',['ntbuilder.c',['../ntbuilder_8c.html',1,'']]],
+  ['ntbuilder_2eh_9',['ntbuilder.h',['../ntbuilder_8h.html',1,'']]],
+  ['ntcalculate_2ec_10',['ntcalculate.c',['../ntcalculate_8c.html',1,'']]],
+  ['ntcalculate_2eh_11',['ntcalculate.h',['../ntcalculate_8h.html',1,'']]],
+  ['ntcomplete_2eh_12',['ntcomplete.h',['../workspace_2ntcomplete_8h.html',1,'(Global Namespace)'],['../variants_2ntcomplete_8h.html',1,'(Global Namespace)'],['../examples_2ntcomplete_8h.html',1,'(Global Namespace)']]],
+  ['ntcore_2edox_13',['NTCore.dox',['../NTCore_8dox.html',1,'']]],
+  ['ntcore_2eh_14',['ntcore.h',['../ntcore_8h.html',1,'']]],
+  ['ntfeedforward_2ec_15',['ntfeedforward.c',['../ntfeedforward_8c.html',1,'']]],
+  ['ntfeedforward_2eh_16',['ntfeedforward.h',['../ntfeedforward_8h.html',1,'']]],
+  ['ntfile_2ec_17',['ntfile.c',['../ntfile_8c.html',1,'']]],
+  ['ntfile_2eh_18',['ntfile.h',['../ntfile_8h.html',1,'']]],
+  ['ntinitialize_2ec_19',['ntinitialize.c',['../ntinitialize_8c.html',1,'']]],
+  ['ntinitialize_2eh_20',['ntinitialize.h',['../ntinitialize_8h.html',1,'']]],
+  ['ntmemory_2ec_21',['ntmemory.c',['../ntmemory_8c.html',1,'']]],
+  ['ntmemory_2eh_22',['ntmemory.h',['../ntmemory_8h.html',1,'']]],
+  ['ntperi_2edox_23',['NTPeri.dox',['../NTPeri_8dox.html',1,'']]],
+  ['nttrain_2ec_24',['nttrain.c',['../nttrain_8c.html',1,'']]],
+  ['nttrain_2eh_25',['nttrain.h',['../nttrain_8h.html',1,'']]]
 ];

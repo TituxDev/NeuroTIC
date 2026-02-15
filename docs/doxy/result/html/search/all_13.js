@@ -1,8 +1,17 @@
 var searchData=
 [
-  ['open_20source_20gplv3_0',['Open Source (GPLv3)',['../README_8md.html#open-source-gplv3',1,'']]],
-  ['operational_20behavior_1',['Operational behavior',['../group__NTMath.html',1,'']]],
-  ['optimization_2',['Performance Optimization',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#performance-optimization',1,'']]],
-  ['out_3',['out',['../structneuron__s.html#a07d16aa895d76e507f90d64d697d20a8',1,'neuron_s::out'],['../structnet__s.html#ae1bef117a90a2f473c67a05ca7083ae5',1,'net_s::out']]],
-  ['overview_4',['overview',['../README_8md.html#architecture-overview',1,'Architecture overview'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#overview',1,'Overview']]]
+  ['technical_20capabilities_0',['Technical Capabilities',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#technical-capabilities',1,'']]],
+  ['technical_20roadmap_1',['NeuroTIC Technical Roadmap',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html',1,'']]],
+  ['term_20development_202025_2',['Long-term Development (2025+)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#long-term-development-2025',1,'']]],
+  ['term_20development_20q1_202024_3',['Near-term Development (Q1 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#near-term-development-q1-2024',1,'']]],
+  ['term_20development_20q2_20q4_202024_4',['Medium-term Development (Q2-Q4 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#medium-term-development-q2-q4-2024',1,'']]],
+  ['terms_5',['terms',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#early-adopter-terms',1,'Early Adopter Terms'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#support-terms',1,'Support Terms']]],
+  ['terms_20and_20conditions_6',['Terms and Conditions',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#terms-and-conditions',1,'']]],
+  ['the_20framework_7',['About the framework',['../index.html#about-the-framework',1,'']]],
+  ['tiers_8',['Commercial Licensing Tiers',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#commercial-licensing-tiers',1,'']]],
+  ['to_20contribute_9',['How to Contribute',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#how-to-contribute',1,'']]],
+  ['to_20neurotic_10',['Contributing to NeuroTIC',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html',1,'']]],
+  ['tolerance_11',['tolerance',['../structnttraindata.html#ab93b9f6442e61e2a8cfbe045b0641127',1,'nttraindata']]],
+  ['topology_12',['Example topology',['../neurons_8c.html#neuron_example',1,'']]],
+  ['traindata_5ft_13',['traindata_t',['../nttrain_8h.html#a9efe515cacdc64eaea20b3cfc0564c77',1,'nttrain.h']]]
 ];

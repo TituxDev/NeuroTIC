@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['performance_20optimization_0',['Performance Optimization',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#performance-optimization',1,'']]],
-  ['peripheral_20groups_1',['Current peripheral groups',['../group__NTPeripherals.html#current-peripheral-groups',1,'']]],
-  ['peripheral_20modules_2',['Peripheral modules',['../group__NTPeripherals.html',1,'']]],
-  ['platform_20expansion_3',['Platform Expansion',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#platform-expansion',1,'']]],
-  ['project_4',['6. Start your first project',['../README_8md.html#autotoc_md6-start-your-first-project',1,'']]]
+  ['v1_200_0',['Current Release (v1.0)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#current-release-v10',1,'']]],
+  ['version_1',['VERSION',['../ntfile_8c.html#a1c6d5de492ac61ad29aec7aa9a436bbf',1,'ntfile.c']]],
+  ['view_2',['Structural View',['../neuron__s_8dox.html#neuron_structure',1,'']]]
 ];

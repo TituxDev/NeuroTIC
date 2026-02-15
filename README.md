@@ -1,9 +1,7 @@
-/**
-* @mainpage
-*/
 
-# NeuroTIC
+ # NeuroTIC
 
+[GitHub](https://github.com/TituxDev/NeuroTIC)
 A framework for understanding, exploring, and experimenting with neural networks. `Built in C`, it gives you full visibility into the source code and the freedom to modify, extend, and hack every component.
 
 **NeuroTIC** helps you design, build, train, save, and load networks with complete creative control over their topology—without dragging you through the usual low-level chores.
@@ -38,106 +36,4 @@ Because the network stays transparent at every stage, you can:
 
 NeuroTIC avoids the black-box mentality altogether. Everything arrives as plain C code sitting inside your project, ready for inspection, extension, mutation, or the occasional glorious detonation in the name of learning.
 
-[USER GUIDE](docs/doxy/result/html/index.html)
-
-## Quick use guide
-
-### 1. Install
-
-Download the makefile from the repository and run:
-
-```sh
-make install 
-```
-
-This checks for required tools (gcc, ar) and offers to install them if missing. It will also guide you through cloning the repository.
-
-### 2. Compile an example
-
-To compile examples/logic_gates.c:
-
-```sh
-make compile PROJECT_LOCATION=examples PROJECT_NAME=logic_gates PLATFORM=CPU
-```
-
-Alternatively, run `make compile` with no arguments and follow the prompts:
-
-```sh
-Enter project location (e.g., workspace, examples): examples
-Enter project name (filename without extension): logic_gates
-Enter platform (e.g., CPU): CPU
-```
-
-**NOTE:** *This only compiles the source code into an executable; it does not run it.*
-
-**Expected compile log**  
-
-```sh
-Compiling project in location: examples
-Project name: logic_gates
-Platform: CPU
-```
-
-### 3. Run the example
-
-```sh
-./examples/logic_gates
-```
-
-The program will:
-
-- Train a neural network that learns all 16 possible binary logic functions simultaneously
-- Save the trained network to a `.ntic` file
-- Load the network back into memory
-- Run both the trained and reloaded versions for comparison
-
-The console will print two complete truth tables, one for the live network and one for the loaded copy.
-Each table includes:
-
-> A, B, NULL, NOR, EXA, NOTB, EXB, NOTA, XOR, NAND, AND, XNOR, A, IMPB, B, IMPA, OR, ALL
-
-Every cell shows a 0 or 1 according to the network’s predictions.
-
-### 4. Clean up
-
-```sh
-rm examples/logic_gates
-```
-
-### 5. Shortcut
-
-A helper script is available inside `examples/`:
-
-```sh
-cd examples
-bash ./test.sh logic_gates
-```
-
-This compiles, runs, and removes the binary automatically.
-
-### 6. Start your first project
-
-Ready to build your own?  
-Check out:
-[Create project](docs/Create_project.md)
-
-## Author
-
-Oscar Sotomayor (Titux) – Creator and maintainer.
-
-## Licensing
-
-NeuroTIC is available under dual licensing to support both open source and commercial use.
-
-### Open Source (GPLv3)
-
-This software is available under the GNU GPLv3 license for open source projects, academic use, and personal projects.
-
-### Commercial License
-
-For companies needing proprietary usage, a [commercial license](COMERCIAL_LICESE.md) is available.  
-[Future implementations](ROADMAP.md)
-
-## Contact
-
- ocrstmy@gmail.com for commercial licensing.
+[USER GUIDE](https://tituxdev.github.io/NeuroTIC/docs/doxy/result/html/index.html)

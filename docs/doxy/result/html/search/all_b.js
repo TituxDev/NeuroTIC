@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['e_0',['e',['../structfloat__parts__s.html#acbfe9b4912fa253154972c27f6e91ad2',1,'float_parts_s']]],
-  ['early_20adopter_20terms_1',['Early Adopter Terms',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#early-adopter-terms',1,'']]],
-  ['ecosystem_20development_2',['Ecosystem Development',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#ecosystem-development',1,'']]],
-  ['enterprise_20license_3',['Enterprise License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#enterprise-license',1,'']]],
-  ['example_4',['example',['../README_8md.html#autotoc_md2-compile-an-example',1,'2. Compile an example'],['../README_8md.html#autotoc_md3-run-the-example',1,'3. Run the example']]],
-  ['example_20topology_5',['Example topology',['../neurons_8c.html#neuron_example',1,'']]],
-  ['execution_20flow_6',['External Execution Flow',['../neuron__s_8dox.html#neuron_flow',1,'']]],
-  ['execution_20model_7',['Activation execution model',['../ntactivation_8c.html#activation-execution-model-------------------------------------------------',1,'']]],
-  ['expansion_8',['expansion',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#feature-expansion',1,'Feature Expansion'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#platform-expansion',1,'Platform Expansion']]],
-  ['external_20execution_20flow_9',['External Execution Flow',['../neuron__s_8dox.html#neuron_flow',1,'']]]
+  ['layers_0',['layers',['../structnet__s.html#a5c746e2e46cb64b2e9de5f86c477ca86',1,'net_s']]],
+  ['learning_5frate_1',['learning_rate',['../structnttraindata.html#ad05dcf6fc713294a727588d246d0c924',1,'nttraindata']]],
+  ['license_2',['license',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#academic-license',1,'Academic License'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#enterprise-license',1,'Enterprise License'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#mid-market-license',1,'Mid-Market License'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#small-business-license',1,'Small Business License'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#startup-license',1,'Startup License']]],
+  ['license_20agreement_3',['license agreement',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#contribution-license-agreement',1,'Contribution License Agreement'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html',1,'NeuroTIC Commercial License Agreement']]],
+  ['license_20rights_4',['License Rights',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#license-rights',1,'']]],
+  ['licensing_20tiers_5',['Commercial Licensing Tiers',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#commercial-licensing-tiers',1,'']]],
+  ['loadnet_6',['loadnet',['../ntfile_8c.html#a8cdafc9f89ad9736acf6258f2b366101',1,'loadnet(char *name):&#160;ntfile.c'],['../ntfile_8h.html#a8cdafc9f89ad9736acf6258f2b366101',1,'loadnet(char *name):&#160;ntfile.c']]],
+  ['logic_5fgates_2ec_7',['logic_gates.c',['../workspace_2logic__gates_8c.html',1,'(Global Namespace)'],['../examples_2logic__gates_8c.html',1,'(Global Namespace)']]],
+  ['logic_5fgates_2eh_8',['logic_gates.h',['../logic__gates_8h.html',1,'']]],
+  ['long_20term_20development_202025_9',['Long-term Development (2025+)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#long-term-development-2025',1,'']]]
 ];
