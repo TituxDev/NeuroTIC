@@ -97,7 +97,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"NeuroTIC-987e2930ee83c669_8d.html"
+"annotated.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

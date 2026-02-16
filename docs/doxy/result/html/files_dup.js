@@ -2,7 +2,6 @@ var files_dup =
 [
     [ "examples", "dir_d28a4824dc47e487b107a5db32ef43c4.html", "dir_d28a4824dc47e487b107a5db32ef43c4" ],
     [ "include", "dir_d44c64559bbebec7f509842c48db8b23.html", "dir_d44c64559bbebec7f509842c48db8b23" ],
-    [ "NeuroTIC", "dir_720b3112f5c410ca6930756dcc68b6d1.html", "dir_720b3112f5c410ca6930756dcc68b6d1" ],
     [ "NTCore", "dir_1e983646cc4da7d668927bf68a791406.html", null ],
     [ "NTPeri", "dir_84f05f692641bb9121dbe63466a9f379.html", null ],
     [ "src", "dir_68267d1309a1af8e8297ef4c3efbcdba.html", "dir_68267d1309a1af8e8297ef4c3efbcdba" ],
