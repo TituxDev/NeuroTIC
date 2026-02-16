@@ -40,6 +40,8 @@
  * user	0m4.250s
  * sys	0m0.188s
  * ```
+ * 
+ * @code{.c}
  */
 
 #include <stdio.h>
@@ -125,3 +127,4 @@ int main( void ){
     remove( "logic_gates.ntic" );
     return 0;
 }
+/** @endcode */

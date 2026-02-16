@@ -1,15 +1,7 @@
 var searchData=
 [
-  ['randnet_0',['randnet',['../ntinitialize_8c.html#a0c2e77d2e0217cf512c8adb47097b485',1,'randnet(net_s *net):&#160;ntinitialize.c'],['../ntinitialize_8h.html#a0c2e77d2e0217cf512c8adb47097b485',1,'randnet(net_s *net):&#160;ntinitialize.c']]],
-  ['readme_2emd_1',['README.md',['../README_8md.html',1,'']]],
-  ['referential_20connectivity_2',['Referential Connectivity',['../neuron__s_8dox.html#neuron_connectivity',1,'']]],
-  ['relationships_3',['Structural Relationships',['../net__s_8dox.html#net_relationships',1,'']]],
-  ['release_20v1_200_4',['Current Release (v1.0)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#current-release-v10',1,'']]],
-  ['restrictions_5',['Restrictions',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#restrictions',1,'']]],
-  ['results_6',['results',['../structnttraindata.html#a972036341af64a51e1ad13a11725e214',1,'nttraindata']]],
-  ['rights_7',['rights',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#granted-rights',1,'Granted Rights'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#license-rights',1,'License Rights']]],
-  ['roadmap_8',['roadmap',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#development-roadmap',1,'Development Roadmap'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html',1,'NeuroTIC Technical Roadmap']]],
-  ['roadmap_2emd_9',['ROADMAP.md',['../ROADMAP_8md.html',1,'']]],
-  ['role_10',['Memory Selector Role',['../neuron__s_8dox.html#neuron_bff_idx',1,'']]],
-  ['run_20the_20example_11',['3. Run the example',['../index.html#autotoc_md3-run-the-example',1,'']]]
+  ['w_0',['w',['../structneuron__s.html#a059638704c555b4c152a924fcdf0c57f',1,'neuron_s']]],
+  ['weighing_1',['weighing',['../ntcalculate_8c.html#a78cb662481458242e474dabbdbe53bda',1,'weighing(neuron_s *neuron):&#160;ntcalculate.c'],['../ntcalculate_8h.html#a78cb662481458242e474dabbdbe53bda',1,'weighing(neuron_s *neuron):&#160;ntcalculate.c']]],
+  ['wiring_2',['wiring',['../structnet__s.html#a9d1e6329d693123aea04482318aad267',1,'net_s']]],
+  ['wiring_5fs_3',['wiring_s',['../structwiring__s.html',1,'wiring_s'],['../ntcore_8h.html#a67d4a57ca681ab9757f6dd9a04e419fb',1,'wiring_s:&#160;ntcore.h']]]
 ];

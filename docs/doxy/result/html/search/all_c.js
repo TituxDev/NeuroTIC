@@ -2,7 +2,7 @@ var searchData=
 [
   ['m_0',['m',['../structfloat__parts__s.html#a50cccc24316c556d1735c32dd17724a4',1,'float_parts_s']]],
   ['magic_1',['MAGIC',['../ntfile_8c.html#a94630370ae389fb1189282fa0742f310',1,'ntfile.c']]],
-  ['main_2',['main',['../examples_2logic__gates_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;logic_gates.c'],['../workspace_2logic__gates_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;logic_gates.c']]],
+  ['main_2',['main',['../workspace_2logic__gates_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'logic_gates.c']]],
   ['market_20license_3',['Mid-Market License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#mid-market-license',1,'']]],
   ['max_5fattempts_4',['max_attempts',['../structnttraindata.html#a6678b3ded507246ca1159ba759acb8be',1,'nttraindata']]],
   ['medium_20term_20development_20q2_20q4_202024_5',['Medium-term Development (Q2-Q4 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#medium-term-development-q2-q4-2024',1,'']]],

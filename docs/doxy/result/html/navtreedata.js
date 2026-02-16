@@ -25,8 +25,6 @@
 var NAVTREE =
 [
   [ "NeuroTIC", "index.html", [
-    [ "About the framework", "index.html#about-the-framework", null ],
-    [ "Architecture overview", "index.html#architecture-overview", null ],
     [ "NeuroTIC Commercial License Agreement", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html", [
       [ "Overview", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#overview", null ],
       [ "Commercial Licensing Tiers", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#commercial-licensing-tiers", [

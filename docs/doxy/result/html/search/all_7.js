@@ -8,6 +8,6 @@ var searchData=
   ['floatsys_5',['floatsys',['../ntfile_8c.html#acef0da894eb82c36eb54a30050eedaa0',1,'ntfile.c']]],
   ['flow_6',['External Execution Flow',['../neuron__s_8dox.html#neuron_flow',1,'']]],
   ['fn_7',['fn',['../structneuron__s.html#aed10404eb5eaa88df5243ebedcb3d872',1,'neuron_s']]],
-  ['framework_8',['About the framework',['../index.html#about-the-framework',1,'']]],
+  ['framework_8',['About the framework',['..//home/titux/DEV/NeuroTIC/NeuroTIC/README.md#about-the-framework',1,'']]],
   ['functions_9',['Activation Functions',['../group__NTActivation.html',1,'']]]
 ];
