@@ -1,5 +1,56 @@
 /**
  * @mainpage
- * @brief USER GUIDE
+ * @brief USER GUIDE  
+ *
  * @ref https://tituxdev.github.io/NeuroTIC/
+ *
+ * @details
+ *
+ * ---
+ * Quick Start
+ * ---
+ * 
+ * @code{.sh}
+ * ~/NeuroTIC$ make new
+ * Enter the new project name: test_code
+ * Author name (default: whoami): 
+ * Brief project description: 
+ * Available header packs:
+ * basic
+ * complete
+ * Enter the header pack to use: 
+ * Project created successfully at  workspace/test_code.c
+ * @endcode
+ * 
+ * @code{.c}
+ * 
+ * // Filename: test_code.c
+ * // Author: titux
+ * // Date: 2026-02-16
+ * // Description: .
+ *
+ * // Pro tip: use test_code.h to store global constants, macros, variables,
+ * // or include additional headers. Keep your main clean.
+ *
+ * #include "test_code.h"
+ *
+ * int main( void ){
+ *
+ *    // Your code here
+ *
+ *    return 0;
+ * }
+ * @endcode
+ * @ref logic_gates.c "API EXAMPLE"
+ * @code{.sh}
+ * ~/NeuroTIC$ make compile
+ * make compile
+ * Enter project location (e.g., workspace, examples): workspace
+ * Enter project name (filename without extension): test_code
+ * Enter platform (e.g., CPU): CPU
+ * Compiling project in location: workspace
+ * Project name: test_code
+ * Platform: CPU
+ * ~NeuroTIC$ bash workspace/test_code
+ * @endcode
  */

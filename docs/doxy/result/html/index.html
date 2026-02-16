@@ -92,8 +92,48 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">NeuroTIC </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>USER GUIDE <a href="https://tituxdev.github.io/NeuroTIC/">https://tituxdev.github.io/NeuroTIC/</a> </p>
-</div></div><!-- PageDoc -->
+<div class="textblock"><p>USER GUIDE <br  />
+<a href="https://tituxdev.github.io/NeuroTIC/">https://tituxdev.github.io/NeuroTIC/</a></p>
+<hr  />
+ <h2><a class="anchor" id="quick-start"></a>
+Quick Start</h2>
+<div class="fragment"><div class="line">~/NeuroTIC$ make new</div>
+<div class="line">Enter the new project name: test_code</div>
+<div class="line">Author name (default: whoami): </div>
+<div class="line">Brief project description: </div>
+<div class="line">Available header packs:</div>
+<div class="line">basic</div>
+<div class="line">complete</div>
+<div class="line">Enter the header pack to use: </div>
+<div class="line">Project created successfully at  workspace/test_code.c</div>
+</div><!-- fragment --><div class="fragment"><div class="line"><span class="comment">// Filename: test_code.c</span></div>
+<div class="line"><span class="comment">// Author: titux</span></div>
+<div class="line"><span class="comment">// Date: 2026-02-16</span></div>
+<div class="line"><span class="comment">// Description: .</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Pro tip: use test_code.h to store global constants, macros, variables,</span></div>
+<div class="line"><span class="comment">// or include additional headers. Keep your main clean.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="test__code_8h.html">test_code.h</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="test__code_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>( <span class="keywordtype">void</span> ){</div>
+<div class="line"> </div>
+<div class="line">   <span class="comment">// Your code here</span></div>
+<div class="line"> </div>
+<div class="line">   <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="atest__code_8c_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="test__code_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdef"><b>Definition</b> test_code.c:14</div></div>
+<div class="ttc" id="atest__code_8h_html"><div class="ttname"><a href="test__code_8h.html">test_code.h</a></div></div>
+</div><!-- fragment --><p> <a class="el" href="logic__gates_8c.html">API EXAMPLE</a> </p><div class="fragment"><div class="line">~/NeuroTIC$ make compile</div>
+<div class="line">make compile</div>
+<div class="line">Enter project location (e.g., workspace, examples): workspace</div>
+<div class="line">Enter project name (filename without extension): test_code</div>
+<div class="line">Enter platform (e.g., CPU): CPU</div>
+<div class="line">Compiling project in location: workspace</div>
+<div class="line">Project name: test_code</div>
+<div class="line">Platform: CPU</div>
+<div class="line">~NeuroTIC$ bash workspace/test_code</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

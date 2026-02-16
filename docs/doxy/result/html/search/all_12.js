@@ -14,11 +14,12 @@ var searchData=
   ['src_5ftype_11',['src_type',['../structwiring__s.html#a54a4436a7981644f7bcda46241df0f62',1,'wiring_s']]],
   ['stability_12',['Scope and stability',['../group__NTPeripherals.html#scope-and-stability',1,'']]],
   ['standards_13',['Code Standards',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#code-standards',1,'']]],
-  ['started_14',['Getting Started',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#getting-started',1,'']]],
-  ['startup_20license_15',['Startup License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#startup-license',1,'']]],
-  ['strict_5fle16_16',['STRICT_LE16',['../ntfile_8c.html#a30144b1185f06ef07c25abd5e05d46ba',1,'ntfile.c']]],
-  ['strict_5fle32_17',['STRICT_LE32',['../ntfile_8c.html#a6121f1de1e949f74c5e2517c8fd98d65',1,'ntfile.c']]],
-  ['structural_20relationships_18',['Structural Relationships',['../net__s_8dox.html#net_relationships',1,'']]],
-  ['structural_20view_19',['Structural View',['../neuron__s_8dox.html#neuron_structure',1,'']]],
-  ['support_20terms_20',['Support Terms',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#support-terms',1,'']]]
+  ['start_14',['Quick Start',['../index.html#quick-start',1,'']]],
+  ['started_15',['Getting Started',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#getting-started',1,'']]],
+  ['startup_20license_16',['Startup License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#startup-license',1,'']]],
+  ['strict_5fle16_17',['STRICT_LE16',['../ntfile_8c.html#a30144b1185f06ef07c25abd5e05d46ba',1,'ntfile.c']]],
+  ['strict_5fle32_18',['STRICT_LE32',['../ntfile_8c.html#a6121f1de1e949f74c5e2517c8fd98d65',1,'ntfile.c']]],
+  ['structural_20relationships_19',['Structural Relationships',['../net__s_8dox.html#net_relationships',1,'']]],
+  ['structural_20view_20',['Structural View',['../neuron__s_8dox.html#neuron_structure',1,'']]],
+  ['support_20terms_21',['Support Terms',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#support-terms',1,'']]]
 ];

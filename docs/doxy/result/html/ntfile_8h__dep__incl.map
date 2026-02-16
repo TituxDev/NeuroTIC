@@ -1,13 +1,9 @@
 <map id="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntfile.h" name="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntfile.h">
-<area shape="rect" id="Node000001" title="Save and load NeuroTIC networks to/from binary files." alt="" coords="380,5,597,45"/>
+<area shape="rect" id="Node000001" title="Save and load NeuroTIC networks to/from binary files." alt="" coords="261,5,479,45"/>
 <area shape="rect" id="Node000002" href="$examples_2ntcomplete_8h.html" title=" " alt="" coords="5,93,249,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="397,51,207,96,206,91,396,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="305,52,181,96,180,91,303,47"/>
 <area shape="rect" id="Node000003" href="$ntfile_8c.html" title="Implementation of network persistence for NeuroTIC." alt="" coords="274,93,466,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="453,56,398,95,395,91,450,51"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="373,59,373,93,367,93,367,59"/>
 <area shape="rect" id="Node000004" href="$variants_2ntcomplete_8h.html" title=" " alt="" coords="491,93,724,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="528,51,583,91,580,95,525,56"/>
-<area shape="rect" id="Node000005" href="$workspace_2ntcomplete_8h.html" title=" " alt="" coords="749,93,999,133"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="587,46,790,91,789,96,586,51"/>
-<area shape="rect" id="Node000006" href="$workspace_2logic__gates_8c.html" title=" " alt="" coords="777,181,971,236"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="877,147,877,181,871,181,871,147"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="436,48,556,91,554,96,434,53"/>
 </map>

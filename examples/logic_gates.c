@@ -10,7 +10,7 @@
  * Expected output:
  *
  * ```sh
- * $ time bash test.sh logic_gates
+ * ~/NeuroTIC/examples$ time bash test.sh logic_gates
  * Compiling project in location: examples
  * Project name: logic_gates
  * Platform: CPU
