@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['behavior_0',['Operational behavior',['../group__NTMath.html',1,'']]]
+  ['activation_20functions_0',['Activation Functions',['../group__NTActivation.html',1,'']]]
 ];

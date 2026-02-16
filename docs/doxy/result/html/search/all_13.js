@@ -11,7 +11,7 @@ var searchData=
   ['tiers_8',['Commercial Licensing Tiers',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#commercial-licensing-tiers',1,'']]],
   ['to_20contribute_9',['How to Contribute',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#how-to-contribute',1,'']]],
   ['to_20neurotic_10',['Contributing to NeuroTIC',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html',1,'']]],
-  ['tolerance_11',['tolerance',['../structnttraindata.html#ab93b9f6442e61e2a8cfbe045b0641127',1,'nttraindata']]],
+  ['tolerance_11',['tolerance',['../structnttraindata.html#a21d64216c09aca6a3ffe1a5bd5872e8b',1,'nttraindata']]],
   ['topology_12',['Example topology',['../neurons_8c.html#neuron_example',1,'']]],
   ['traindata_5ft_13',['traindata_t',['../nttrain_8h.html#a9efe515cacdc64eaea20b3cfc0564c77',1,'nttrain.h']]]
 ];

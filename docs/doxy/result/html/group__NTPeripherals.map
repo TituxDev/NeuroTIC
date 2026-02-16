@@ -1,5 +1,5 @@
 <map id="Peripheral modules" name="Peripheral modules">
-<area shape="rect" id="Node000002" href="$group__NTMath.html" title=" " alt="" coords="201,5,360,31"/>
-<area shape="rect" id="Node000003" href="$group__NTMemory.html" title=" " alt="" coords="233,55,328,80"/>
+<area shape="rect" id="Node000003" href="$group__NTActivation.html" title="Implementation of various activation functions and their derivatives." alt="" coords="201,5,356,31"/>
+<area shape="rect" id="Node000002" href="$group__NTMemory.html" title=" " alt="" coords="231,55,326,80"/>
 <area shape="rect" id="Node000001" title="Auxiliary subsystems supporting the NeuroTIC framework." alt="" coords="5,31,153,56"/>
 </map>

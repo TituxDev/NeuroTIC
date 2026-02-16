@@ -1,10 +1,10 @@
 var structneuron__s =
 [
-    [ "b", "structneuron__s.html#af56147487a90dd9cd6c1757fcba3192f", null ],
-    [ "bff_idx", "structneuron__s.html#aee0e6e609d818baeebd556e5f8af26a8", null ],
-    [ "fn", "structneuron__s.html#a63cd0e2e5d3b375f4538c80c2905c1ef", null ],
-    [ "in", "structneuron__s.html#a66fcf313243ddc25dc459ef80cefabaf", null ],
-    [ "inputs", "structneuron__s.html#afb4e8ac00eb57100081e46f82a7f876d", null ],
-    [ "out", "structneuron__s.html#a07d16aa895d76e507f90d64d697d20a8", null ],
-    [ "w", "structneuron__s.html#aa16e0f2a1f6eee7388a3dd5dd6229f73", null ]
+    [ "b", "structneuron__s.html#ae239907b17a7ffc03e88e7cca6cccf7e", null ],
+    [ "bff_idx", "structneuron__s.html#a3e6523ab54cd8fbc812a629681bef291", null ],
+    [ "fn", "structneuron__s.html#aed10404eb5eaa88df5243ebedcb3d872", null ],
+    [ "in", "structneuron__s.html#a82d6c8f34b3f522e97cef2341eeb7e35", null ],
+    [ "inputs", "structneuron__s.html#ab9ab1fa3dd333f6076963d0918bbec9d", null ],
+    [ "out", "structneuron__s.html#ad6eb92a05bc2233ff9afb6e1d6323b3a", null ],
+    [ "w", "structneuron__s.html#a059638704c555b4c152a924fcdf0c57f", null ]
 ];

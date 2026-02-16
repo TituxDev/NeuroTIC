@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['operational_20behavior_0',['Operational behavior',['../group__NTMath.html',1,'']]]
+  ['neurotic_20core_20header_0',['NeuroTIC Core Header',['../group__NTCore.html',1,'']]],
+  ['ntmemory_1',['NTMemory',['../group__NTMemory.html',1,'']]]
 ];

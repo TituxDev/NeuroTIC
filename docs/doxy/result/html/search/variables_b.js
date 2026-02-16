@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tolerance_0',['tolerance',['../structnttraindata.html#ab93b9f6442e61e2a8cfbe045b0641127',1,'nttraindata']]]
+  ['tolerance_0',['tolerance',['../structnttraindata.html#a21d64216c09aca6a3ffe1a5bd5872e8b',1,'nttraindata']]]
 ];

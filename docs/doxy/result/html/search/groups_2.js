@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['header_0',['NeuroTIC Core Header',['../group__NTCore.html',1,'']]]
+  ['functions_0',['Activation Functions',['../group__NTActivation.html',1,'']]]
 ];

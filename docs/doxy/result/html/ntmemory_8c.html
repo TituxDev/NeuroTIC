@@ -90,7 +90,8 @@ $(document).ready(function(){initNavTree('ntmemory_8c.html',''); initResizable()
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">ntmemory.c File Reference<div class="ingroups"><a class="el" href="group__NTPeripherals.html">Peripheral modules</a> &raquo; <a class="el" href="group__NTMemory.html">NTMemory</a></div></div></div>
 </div><!--header-->
 <div class="contents">
@@ -125,6 +126,15 @@ Functions</h2></td></tr>
 <tr class="memitem:gad582239e0fb2ae41572d3f0582922bc2" id="r_gad582239e0fb2ae41572d3f0582922bc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__NTMemory.html#gad582239e0fb2ae41572d3f0582922bc2">memtrack</a> (void *mem)</td></tr>
 <tr class="memdesc:gad582239e0fb2ae41572d3f0582922bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a memory block for deferred collective release.  <br /></td></tr>
 <tr class="separator:gad582239e0fb2ae41572d3f0582922bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ad133ae2d7da4b7bcac6d96aa1969043a" id="r_ad133ae2d7da4b7bcac6d96aa1969043a"><td class="memItemLeft" align="right" valign="top">static void **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html#ad133ae2d7da4b7bcac6d96aa1969043a">mem_register</a> = NULL</td></tr>
+<tr class="memdesc:ad133ae2d7da4b7bcac6d96aa1969043a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dynamic registry of tracked memory blocks.  <br /></td></tr>
+<tr class="separator:ad133ae2d7da4b7bcac6d96aa1969043a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3597c3032a56286b9f401ed3b7b7382a" id="r_a3597c3032a56286b9f401ed3b7b7382a"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html#a3597c3032a56286b9f401ed3b7b7382a">mem_count</a> = 0</td></tr>
+<tr class="memdesc:a3597c3032a56286b9f401ed3b7b7382a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of currently tracked memory blocks.  <br /></td></tr>
+<tr class="separator:a3597c3032a56286b9f401ed3b7b7382a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Pointer registry and deferred cleanup implementation. </p>
@@ -135,7 +145,62 @@ Functions</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="ntmemory_8h.html" title="Auxiliary memory tracking utilities.">ntmemory.h</a> </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="">ntmemory.c</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Variable Documentation</h2>
+<a id="a3597c3032a56286b9f401ed3b7b7382a" name="a3597c3032a56286b9f401ed3b7b7382a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3597c3032a56286b9f401ed3b7b7382a">&#9670;&#160;</a></span>mem_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">mem_count = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of currently tracked memory blocks. </p>
+<p>Indicates how many pointers are stored in <a class="el" href="ntmemory_8c.html#ad133ae2d7da4b7bcac6d96aa1969043a" title="Dynamic registry of tracked memory blocks.">mem_register</a>. </p>
+
+<p class="reference">Referenced by <a class="el" href="#l00060">memfree()</a>, and <a class="el" href="#l00086">memtrack()</a>.</p>
+
+</div>
+</div>
+<a id="ad133ae2d7da4b7bcac6d96aa1969043a" name="ad133ae2d7da4b7bcac6d96aa1969043a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad133ae2d7da4b7bcac6d96aa1969043a">&#9670;&#160;</a></span>mem_register</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">mem_register = NULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dynamic registry of tracked memory blocks. </p>
+<p>Stores pointers to all memory blocks registered through <a class="el" href="group__NTMemory.html#gad582239e0fb2ae41572d3f0582922bc2" title="Registers a memory block for deferred collective release.">memtrack()</a>. The registry itself is dynamically resized as new entries are added. </p>
+
+<p class="reference">Referenced by <a class="el" href="#l00060">memfree()</a>, and <a class="el" href="#l00086">memtrack()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

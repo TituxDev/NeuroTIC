@@ -8,7 +8,7 @@
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="211,136,85,179,84,174,209,131"/>
 <area shape="rect" id="Node000005" href="$ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="541,255,616,280"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="529,134,515,168,512,187,516,206,530,227,549,244,546,248,526,230,511,208,507,187,509,166,524,132"/>
-<area shape="rect" id="Node000007" href="$ntactivation_8h.html" title="Activation function interface." alt="" coords="96,181,208,207"/>
+<area shape="rect" id="Node000007" href="$ntactivation_8h.html" title="Internal implementation of activation behavior." alt="" coords="96,181,208,207"/>
 <area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="480,135,222,182,221,177,479,129"/>
 <area shape="rect" id="Node000008" href="$ntbuilder_8h.html" title="Network construction functions for the NeuroTIC framework." alt="" coords="1009,181,1100,207"/>
 <area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="588,125,765,146,996,179,995,184,764,151,587,130"/>

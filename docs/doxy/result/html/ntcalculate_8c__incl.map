@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Implementation of feedforward network computations." alt="" coords="12,5,239,45"/>
 <area shape="rect" id="Node000002" href="$ntcalculate_8h.html" title="Core feedforward computations for NeuroTIC networks." alt="" coords="5,93,112,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,47,79,84,75,81,107,44"/>
-<area shape="rect" id="Node000005" href="$ntactivation_8h.html" title="Activation function interface." alt="" coords="136,93,248,119"/>
+<area shape="rect" id="Node000005" href="$ntactivation_8h.html" title="Internal implementation of activation behavior." alt="" coords="136,93,248,119"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="143,44,175,81,171,84,139,47"/>
 <area shape="rect" id="Node000003" href="$ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="21,167,96,192"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="61,119,61,153,56,153,56,119"/>

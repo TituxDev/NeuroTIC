@@ -5,6 +5,6 @@ var ntactivation_8h =
       [ "NTACT_SIGMOID", "ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea4389b6d31de2d327aaa4c65d0f8e9322", null ],
       [ "NTACT_TOTAL_FUNCTIONS", "ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea859361193d6a6eb43e11e144bef7acf5", null ]
     ] ],
-    [ "ntact_activation", "group__NTMath.html#ga1190711e4f39ccc396a6bc46a5518f88", null ],
-    [ "ntact_rand_range", "group__NTMath.html#ga68975968643d0c6223716ffee442818a", null ]
+    [ "ntact_activation", "ntactivation_8h.html#a1190711e4f39ccc396a6bc46a5518f88", null ],
+    [ "ntact_rand_range", "ntactivation_8h.html#a68975968643d0c6223716ffee442818a", null ]
 ];

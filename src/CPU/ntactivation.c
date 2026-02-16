@@ -1,8 +1,5 @@
 /**
- * @defgroup NTMath Operational behavior
- * @ingroup NTPeripherals
  * @file ntactivation.c
- * @ingroup NTMath
  * @author Oscar Sotomayor (Titux)
  * @brief Internal implementation of activation behavior.
  *
@@ -44,11 +41,11 @@
  * Access to activation behavior is performed exclusively through
  * the activation dispatch table.
  * 
- * @code{.c}
  */
 
 #include "ntactivation.h"
 #include <math.h>
+
 
 //BOOLEAN
 static float boolean( float x ){
@@ -68,14 +65,12 @@ static float sigmoid_d( float x ){
     return x * ( 1.0f - x );
 }
 // ...
-/** @endcode */
+
 /**
- * @ingroup NTMath
  * @brief Activation dispatch table.
- *
+ * @details
  * Defines the mapping between activation identifiers and their
  * associated execution functions.
- *
  * Indexing:
  * - First index  : activation identifier
  * - Second index : [0] activation
@@ -88,9 +83,8 @@ float ( *ntact_activation[NTACT_TOTAL_FUNCTIONS][2] )( float )={
 };
 
 /**
- * @ingroup NTMath
  * @brief Random initialization range table for activation functions.
- *
+ * @details
  * Defines the preferred initialization range associated with each
  * activation function.
  */

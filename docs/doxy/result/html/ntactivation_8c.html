@@ -90,31 +90,57 @@ $(document).ready(function(){initNavTree('ntactivation_8c.html',''); initResizab
 
 <div class="header">
   <div class="summary">
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">ntactivation.c File Reference<div class="ingroups"><a class="el" href="group__NTPeripherals.html">Peripheral modules</a> &raquo; <a class="el" href="group__NTMath.html">Operational behavior</a></div></div></div>
+  <div class="headertitle"><div class="title">ntactivation.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Internal implementation of activation behavior.  
 <a href="#details">More...</a></p>
-
+<div class="textblock"><code>#include &quot;<a class="el" href="">ntactivation.h</a>&quot;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for ntactivation.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="ntactivation_8c__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntactivation_8c" alt=""/></div>
+<map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntactivation_8c" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntactivation_8c">
+<area shape="rect" title="Internal implementation of activation behavior." alt="" coords="5,5,239,45"/>
+<area shape="rect" href="ntactivation_8h.html" title="Internal implementation of activation behavior." alt="" coords="10,93,122,119"/>
+<area shape="poly" title=" " alt="" coords="111,47,84,84,80,80,106,44"/>
+<area shape="rect" title=" " alt="" coords="145,93,213,119"/>
+<area shape="poly" title=" " alt="" coords="138,44,165,80,161,84,134,47"/>
+</map>
+</div>
+</div>
 <p><a href="">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:acb2549f95530e4bc81d95fdeeeb31de4" id="r_acb2549f95530e4bc81d95fdeeeb31de4"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntactivation_8c.html#acb2549f95530e4bc81d95fdeeeb31de4">boolean</a> (float x)</td></tr>
+<tr class="separator:acb2549f95530e4bc81d95fdeeeb31de4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33589c484ea969438b7eef085027bce3" id="r_a33589c484ea969438b7eef085027bce3"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntactivation_8c.html#a33589c484ea969438b7eef085027bce3">boolean_d</a> (float x)</td></tr>
+<tr class="separator:a33589c484ea969438b7eef085027bce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d6c3b760cc362b62007ec74dfcf223e" id="r_a1d6c3b760cc362b62007ec74dfcf223e"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntactivation_8c.html#a1d6c3b760cc362b62007ec74dfcf223e">sigmoid</a> (float x)</td></tr>
+<tr class="separator:a1d6c3b760cc362b62007ec74dfcf223e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42eda3809c5bd0ccc1b96af90373c010" id="r_a42eda3809c5bd0ccc1b96af90373c010"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntactivation_8c.html#a42eda3809c5bd0ccc1b96af90373c010">sigmoid_d</a> (float x)</td></tr>
+<tr class="separator:a42eda3809c5bd0ccc1b96af90373c010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ga1190711e4f39ccc396a6bc46a5518f88" id="r_ga1190711e4f39ccc396a6bc46a5518f88"><td class="memItemLeft" align="right" valign="top">float(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__NTMath.html#ga1190711e4f39ccc396a6bc46a5518f88">ntact_activation</a> [<a class="el" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea859361193d6a6eb43e11e144bef7acf5">NTACT_TOTAL_FUNCTIONS</a>][2])(float)</td></tr>
-<tr class="memdesc:ga1190711e4f39ccc396a6bc46a5518f88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activation dispatch table.  <br /></td></tr>
-<tr class="separator:ga1190711e4f39ccc396a6bc46a5518f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga68975968643d0c6223716ffee442818a" id="r_ga68975968643d0c6223716ffee442818a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__NTMath.html#ga68975968643d0c6223716ffee442818a">ntact_rand_range</a> [<a class="el" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea859361193d6a6eb43e11e144bef7acf5">NTACT_TOTAL_FUNCTIONS</a>][2]</td></tr>
-<tr class="memdesc:ga68975968643d0c6223716ffee442818a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random initialization range table for activation functions.  <br /></td></tr>
-<tr class="separator:ga68975968643d0c6223716ffee442818a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1190711e4f39ccc396a6bc46a5518f88" id="r_a1190711e4f39ccc396a6bc46a5518f88"><td class="memItemLeft" align="right" valign="top">float(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntactivation_8c.html#a1190711e4f39ccc396a6bc46a5518f88">ntact_activation</a> [<a class="el" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea859361193d6a6eb43e11e144bef7acf5">NTACT_TOTAL_FUNCTIONS</a>][2])(float)</td></tr>
+<tr class="memdesc:a1190711e4f39ccc396a6bc46a5518f88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activation dispatch table.  <br /></td></tr>
+<tr class="separator:a1190711e4f39ccc396a6bc46a5518f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68975968643d0c6223716ffee442818a" id="r_a68975968643d0c6223716ffee442818a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntactivation_8c.html#a68975968643d0c6223716ffee442818a">ntact_rand_range</a> [<a class="el" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea859361193d6a6eb43e11e144bef7acf5">NTACT_TOTAL_FUNCTIONS</a>][2]</td></tr>
+<tr class="memdesc:a68975968643d0c6223716ffee442818a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random initialization range table for activation functions.  <br /></td></tr>
+<tr class="separator:a68975968643d0c6223716ffee442818a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Internal implementation of activation behavior. </p>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor (Titux) </dd></dl>
 <p>This file provides the concrete implementation of activation functions and their derivatives used by the NeuroTIC execution context.</p>
 <p>It defines the internal activation dispatch tables and the recommended initialization ranges associated with each activation.</p>
-<p>This file does not define public contracts. All external access is mediated through <a class="el" href="ntactivation_8h.html" title="Activation function interface.">ntactivation.h</a>.</p>
+<p>This file does not define public contracts. All external access is mediated through <a class="el" href="ntactivation_8h.html" title="Internal implementation of activation behavior.">ntactivation.h</a>.</p>
 <hr  />
  <h2><a class="anchor" id="activation-execution-model-------------------------------------------------"></a>
 Activation execution model</h2>
@@ -127,34 +153,182 @@ Activation execution model</h2>
 <li>Input operand The scalar value provided for evaluation.</li>
 </ol>
 <p>No internal state is preserved between evaluations. All operations are pure and deterministic.</p>
-<p>Access to activation behavior is performed exclusively through the activation dispatch table.</p>
-<div class="fragment"><div class="line">  /</div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="ntactivation_8h.html">ntactivation.h</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;math.h&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">//BOOLEAN</span></div>
-<div class="line"><span class="keyword">static</span> <span class="keywordtype">float</span> boolean( <span class="keywordtype">float</span> x ){</div>
-<div class="line">    <span class="keywordflow">return</span> x &gt;= 0.0f ? 1.0f : 0.0f;</div>
-<div class="line">}</div>
-<div class="line"><span class="comment">// [!!] This derivative is not mathematically correct.</span></div>
-<div class="line"><span class="comment">// It intentionally returns a constant value to avoid zero-gradient behavior.</span></div>
-<div class="line"><span class="keyword">static</span> <span class="keywordtype">float</span> boolean_d( <span class="keywordtype">float</span> x ){</div>
-<div class="line">    <span class="keywordflow">return</span> x= 1.0f;</div>
-<div class="line">}</div>
-<div class="line"><span class="comment">//SIGMOID</span></div>
-<div class="line"><span class="keyword">static</span> <span class="keywordtype">float</span> sigmoid( <span class="keywordtype">float</span> x ){</div>
-<div class="line">    <span class="keywordflow">return</span> 1.0f / ( 1.0f + expf( -x ) );</div>
-<div class="line">}</div>
-<div class="line"><span class="keyword">static</span> <span class="keywordtype">float</span> sigmoid_d( <span class="keywordtype">float</span> x ){</div>
-<div class="line">    x = sigmoid( x );</div>
-<div class="line">    <span class="keywordflow">return</span> x * ( 1.0f - x );</div>
-<div class="line">}</div>
-<div class="line"><span class="comment">// ...</span></div>
-<div class="ttc" id="antactivation_8h_html"><div class="ttname"><a href="ntactivation_8h.html">ntactivation.h</a></div><div class="ttdoc">Activation function interface.</div></div>
-</div><!-- fragment --> 
+<p>Access to activation behavior is performed exclusively through the activation dispatch table. </p>
+
 <p class="definition">Definition in file <a class="el" href="">ntactivation.c</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="acb2549f95530e4bc81d95fdeeeb31de4" name="acb2549f95530e4bc81d95fdeeeb31de4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb2549f95530e4bc81d95fdeeeb31de4">&#9670;&#160;</a></span>boolean()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static float boolean </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33589c484ea969438b7eef085027bce3" name="a33589c484ea969438b7eef085027bce3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33589c484ea969438b7eef085027bce3">&#9670;&#160;</a></span>boolean_d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static float boolean_d </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d6c3b760cc362b62007ec74dfcf223e" name="a1d6c3b760cc362b62007ec74dfcf223e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d6c3b760cc362b62007ec74dfcf223e">&#9670;&#160;</a></span>sigmoid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static float sigmoid </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="#l00063">sigmoid_d()</a>.</p>
+
+</div>
+</div>
+<a id="a42eda3809c5bd0ccc1b96af90373c010" name="a42eda3809c5bd0ccc1b96af90373c010"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42eda3809c5bd0ccc1b96af90373c010">&#9670;&#160;</a></span>sigmoid_d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static float sigmoid_d </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="#l00060">sigmoid()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a1190711e4f39ccc396a6bc46a5518f88" name="a1190711e4f39ccc396a6bc46a5518f88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1190711e4f39ccc396a6bc46a5518f88">&#9670;&#160;</a></span>ntact_activation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float(* ntact_activation[<a class="el" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea859361193d6a6eb43e11e144bef7acf5">NTACT_TOTAL_FUNCTIONS</a>][2])(float) </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">={</div>
+<div class="line">    [<a class="code hl_enumvalue" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea587a29efb246908053458f5ea4347b1d">NTACT_BOOLEAN</a>]= { <a class="code hl_function" href="ntactivation_8c.html#acb2549f95530e4bc81d95fdeeeb31de4">boolean</a> , <a class="code hl_function" href="ntactivation_8c.html#a33589c484ea969438b7eef085027bce3">boolean_d</a> },</div>
+<div class="line">    [<a class="code hl_enumvalue" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea4389b6d31de2d327aaa4c65d0f8e9322">NTACT_SIGMOID</a>]= { <a class="code hl_function" href="ntactivation_8c.html#a1d6c3b760cc362b62007ec74dfcf223e">sigmoid</a> , <a class="code hl_function" href="ntactivation_8c.html#a42eda3809c5bd0ccc1b96af90373c010">sigmoid_d</a> }</div>
+<div class="line"> </div>
+<div class="line">}</div>
+<div class="ttc" id="antactivation_8c_html_a1d6c3b760cc362b62007ec74dfcf223e"><div class="ttname"><a href="ntactivation_8c.html#a1d6c3b760cc362b62007ec74dfcf223e">sigmoid</a></div><div class="ttdeci">static float sigmoid(float x)</div><div class="ttdef"><b>Definition</b> ntactivation.c:60</div></div>
+<div class="ttc" id="antactivation_8c_html_a33589c484ea969438b7eef085027bce3"><div class="ttname"><a href="ntactivation_8c.html#a33589c484ea969438b7eef085027bce3">boolean_d</a></div><div class="ttdeci">static float boolean_d(float x)</div><div class="ttdef"><b>Definition</b> ntactivation.c:56</div></div>
+<div class="ttc" id="antactivation_8c_html_a42eda3809c5bd0ccc1b96af90373c010"><div class="ttname"><a href="ntactivation_8c.html#a42eda3809c5bd0ccc1b96af90373c010">sigmoid_d</a></div><div class="ttdeci">static float sigmoid_d(float x)</div><div class="ttdef"><b>Definition</b> ntactivation.c:63</div></div>
+<div class="ttc" id="antactivation_8c_html_acb2549f95530e4bc81d95fdeeeb31de4"><div class="ttname"><a href="ntactivation_8c.html#acb2549f95530e4bc81d95fdeeeb31de4">boolean</a></div><div class="ttdeci">static float boolean(float x)</div><div class="ttdef"><b>Definition</b> ntactivation.c:51</div></div>
+<div class="ttc" id="antactivation_8h_html_a371f27f3712ebe40d139d5dd2729237ea4389b6d31de2d327aaa4c65d0f8e9322"><div class="ttname"><a href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea4389b6d31de2d327aaa4c65d0f8e9322">NTACT_SIGMOID</a></div><div class="ttdeci">@ NTACT_SIGMOID</div><div class="ttdoc">Sigmoid activation function.</div><div class="ttdef"><b>Definition</b> ntactivation.h:31</div></div>
+<div class="ttc" id="antactivation_8h_html_a371f27f3712ebe40d139d5dd2729237ea587a29efb246908053458f5ea4347b1d"><div class="ttname"><a href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea587a29efb246908053458f5ea4347b1d">NTACT_BOOLEAN</a></div><div class="ttdeci">@ NTACT_BOOLEAN</div><div class="ttdoc">Boolean step activation function.</div><div class="ttdef"><b>Definition</b> ntactivation.h:30</div></div>
+</div><!-- fragment -->
+<p>Activation dispatch table. </p>
+<p>Defines the mapping between activation identifiers and their associated execution functions. Indexing:</p><ul>
+<li>First index : activation identifier</li>
+<li>Second index : [0] activation [1] derivative </li>
+</ul>
+
+<p class="reference">Referenced by <a class="el" href="#l00037">activate()</a>.</p>
+
+</div>
+</div>
+<a id="a68975968643d0c6223716ffee442818a" name="a68975968643d0c6223716ffee442818a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68975968643d0c6223716ffee442818a">&#9670;&#160;</a></span>ntact_rand_range</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ntact_rand_range[<a class="el" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea859361193d6a6eb43e11e144bef7acf5">NTACT_TOTAL_FUNCTIONS</a>][2]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">={</div>
+<div class="line">    [<a class="code hl_enumvalue" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea587a29efb246908053458f5ea4347b1d">NTACT_BOOLEAN</a>]= { -1.0f , 1.0f },</div>
+<div class="line">    [<a class="code hl_enumvalue" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea4389b6d31de2d327aaa4c65d0f8e9322">NTACT_SIGMOID</a>]= { -1.0f , 1.0f }</div>
+<div class="line"> </div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>Random initialization range table for activation functions. </p>
+<p>Random initialization range table for activation functions.  </p>
+<p>Defines the preferred initialization range associated with each activation function. </p>
+
+<p class="reference">Referenced by <a class="el" href="#l00028">randnet()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
