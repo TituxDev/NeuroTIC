@@ -55,7 +55,6 @@ var NAVTREE =
       [ "Code Standards", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#code-standards", null ],
       [ "Questions?", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#questions", null ]
     ] ],
-    [ "Documentación", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2index.html", null ],
     [ "NeuroTIC Technical Roadmap", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html", [
       [ "Current Release (v1.0)", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#current-release-v10", [
         [ "Core Architecture", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#core-architecture", null ]
