@@ -21,7 +21,7 @@
  */
 float weighing( neuron_s *neuron ){
     float wgh= neuron->b;
-    for( uint32_t i = 0 ; i < neuron->inputs ; i++ ) wgh+= *neuron->in[i] * neuron->w[i];
+    for( input_t i= 0 ; i < neuron->inputs ; i++ ) wgh+= *neuron->in[i] * neuron->w[i];
     return wgh;
 }
 
@@ -48,6 +48,6 @@ float activate( neuron_s *neuron ){
  * @return Pointer to the final layer's output array.
  */
 float *feedforward( net_s *net ){
-    for( uint16_t i = 0, j ; i < net->layers ; i++ ) for( j = 0 ; j < net->neurons[i] ; j++ ) activate( &net->nn[i][j] );
+    for( layer_t i= 0, j ; i < net->layers ; i++ ) for( j= 0 ; j < net->neurons[i] ; j++ ) activate( &net->nn[i][j] );
     return *net->out;
 }

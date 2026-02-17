@@ -30,20 +30,20 @@
 struct net_s *newfeedforward( net_s *net ){
     if( !net ) return NULL;
     if( !net->neurons ) return NULL;
-    uint16_t L= net->layers - 1;
+    layer_t L= net->layers - 1;
     memtrack( net->wiring= malloc (L * sizeof( wiring_s ) ) );
-    for( uint16_t i= 0 ; i < L ; i++ ){
+    for( layer_t i= 0 ; i < L ; i++ ){
         uint16_t count= net->neurons[i];
         net->wiring[i].arrays= 1;
-        memtrack( net->wiring[i].array_type= malloc( sizeof( uint8_t ) ) );
+        memtrack( net->wiring[i].array_type= malloc( sizeof( type_t ) ) );
         net->wiring[i].array_type[0]= 'M';
-        memtrack( net->wiring[i].size= malloc( sizeof( uint32_t ) ) );
+        memtrack( net->wiring[i].size= malloc( sizeof( input_t ) ) );
         net->wiring[i].size[0]= count;
-        memtrack( net->wiring[i].src_type= malloc( sizeof( uint8_t * ) ) );
-        memtrack( net->wiring[i].src_layer= malloc( sizeof( uint16_t * ) ) );
+        memtrack( net->wiring[i].src_type= malloc( sizeof( type_t * ) ) );
+        memtrack( net->wiring[i].src_layer= malloc( sizeof( layer_t * ) ) );
         memtrack( net->wiring[i].src_index= malloc( sizeof( uint16_t * ) ) );
-        memtrack( net->wiring[i].src_type[0]= malloc( count * sizeof( uint8_t ) ) );
-        memtrack( net->wiring[i].src_layer[0]= malloc( count * sizeof( uint16_t ) ) );
+        memtrack( net->wiring[i].src_type[0]= malloc( count * sizeof( type_t ) ) );
+        memtrack( net->wiring[i].src_layer[0]= malloc( count * sizeof( layer_t ) ) );
         memtrack( net->wiring[i].src_index[0]= malloc( count * sizeof( uint16_t ) ) );
         for( uint16_t j= 0 ; j < count ; j++ ){
             net->wiring[i].src_type[0][j]= 'N';
@@ -68,9 +68,9 @@ struct net_s *newfeedforward( net_s *net ){
 struct net_s *newdense( net_s *net ){
     if( !net ) return NULL;
     if( !net->neurons ) return NULL;
-    uint16_t L= net->layers - 1;
+    layer_t L= net->layers - 1;
     memtrack( net->wiring= malloc (L * sizeof( wiring_s ) ) );
-    uint32_t count= 0;
+    input_t count= 0;
     for( uint16_t i= 0 ; i < L ; i++ ){
         count+= net->neurons[i];
         net->wiring[i].arrays= 1;
@@ -78,15 +78,15 @@ struct net_s *newdense( net_s *net ){
         net->wiring[i].array_type[0]= 'M';
         memtrack( net->wiring[i].size= malloc( sizeof( uint32_t ) ) );
         net->wiring[i].size[0]= count;
-        memtrack( net->wiring[i].src_type= malloc( sizeof( uint8_t * ) ) );
-        memtrack( net->wiring[i].src_layer= malloc( sizeof( uint16_t * ) ) );
+        memtrack( net->wiring[i].src_type= malloc( sizeof( type_t * ) ) );
+        memtrack( net->wiring[i].src_layer= malloc( sizeof( layer_t * ) ) );
         memtrack( net->wiring[i].src_index= malloc( sizeof( uint16_t * ) ) );
-        memtrack( net->wiring[i].src_type[0]= malloc( count * sizeof( uint8_t ) ) );
-        memtrack( net->wiring[i].src_layer[0]= malloc( count * sizeof( uint16_t ) ) );
+        memtrack( net->wiring[i].src_type[0]= malloc( count * sizeof( type_t ) ) );
+        memtrack( net->wiring[i].src_layer[0]= malloc( count * sizeof( layer_t ) ) );
         memtrack( net->wiring[i].src_index[0]= malloc( count * sizeof( uint16_t ) ) );
-        uint16_t layer= 0;
+        layer_t layer= 0;
         uint16_t index= 0;
-        for( uint32_t j= 0 ; j < count ; j++ ){
+        for( input_t j= 0 ; j < count ; j++ ){
             net->wiring[i].src_type[0][j]= 'N';
             net->wiring[i].src_layer[0][j]= layer;
             net->wiring[i].src_index[0][j]= index;

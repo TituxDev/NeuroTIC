@@ -14,17 +14,20 @@
 
 #include "ntcore.h"
 
+typedef data_t precision_t;
+typedef uint64_t sample_t;
+
 
 /**
  * @brief Structure to hold training dataset and parameters.
  */
 typedef struct nttraindata {
-    uint64_t samples;
-    float learning_rate;
-    float tolerance;
+    sample_t samples;
+    precision_t learning_rate;
+    precision_t tolerance;
     uint64_t max_attempts;
-    float **in;
-    float **results;
+    data_t **in;
+    data_t **results;
 } traindata_t;
 
 /**

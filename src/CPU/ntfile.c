@@ -86,6 +86,8 @@ float floatsys( int32_t x , uint8_t ieee754 ){
     result= ldexpf( float_parts.m , float_parts.e );
     return float_parts.sign ? -result : result;
 }
+
+
 /**
  * @brief Saves a network to disk in binary format.
  *

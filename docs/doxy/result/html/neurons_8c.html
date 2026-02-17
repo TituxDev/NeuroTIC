@@ -126,32 +126,32 @@ Example topology</h1>
 <div class="line"><span class="preprocessor">#define NEURON_1 OR</span></div>
 <div class="line"><span class="preprocessor">#define NEURON_2 AND</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#define AND           .w= ( float[] ){ 1.0f , 1.0f } , .b= -1.5f</span></div>
-<div class="line"><span class="preprocessor">#define NAND          .w= ( float[] ){ -1.0f , -1.0f } , .b= 1.5f</span></div>
-<div class="line"><span class="preprocessor">#define OR            .w= ( float[] ){ 1.0f , 1.0f } , .b= -0.5f</span></div>
-<div class="line"><span class="preprocessor">#define NOR           .w= ( float[] ){ -1.0f , -1.0f } , .b= 0.5f</span></div>
-<div class="line"><span class="preprocessor">#define CONJUNCION_A  .w= ( float[] ){ -1.0f , 1.0f } , .b= -0.5f</span></div>
-<div class="line"><span class="preprocessor">#define CONJUNCION_B  .w= ( float[] ){ 1.0f , -1.0f } , .b= -0.5f</span></div>
-<div class="line"><span class="preprocessor">#define IMPLICATION_A .w= ( float[] ){ -1.0f , 1.0f } , .b= 0.5f</span></div>
-<div class="line"><span class="preprocessor">#define IMPLICATION_B .w= ( float[] ){ 1.0f , -1.0f } , .b= 0.5f</span></div>
+<div class="line"><span class="preprocessor">#define AND             .w= (weight_t []){  0.1 ,  0.1 } , .b= (bias_t)(-0.15)</span></div>
+<div class="line"><span class="preprocessor">#define NAND            .w= (weight_t []){ -0.1 , -0.1 } , .b= (bias_t)( 0.15)</span></div>
+<div class="line"><span class="preprocessor">#define OR              .w= (weight_t []){  0.1 ,  0.1 } , .b= (bias_t)(-0.05)</span></div>
+<div class="line"><span class="preprocessor">#define NOR             .w= (weight_t []){ -0.1 , -0.1 } , .b= (bias_t)( 0.05)</span></div>
+<div class="line"><span class="preprocessor">#define CONJUNCION_A    .w= (weight_t []){ -0.1 ,  0.1 } , .b= (bias_t)(-0.05)</span></div>
+<div class="line"><span class="preprocessor">#define CONJUNCION_B    .w= (weight_t []){  0.1 , -0.1 } , .b= (bias_t)(-0.05)</span></div>
+<div class="line"><span class="preprocessor">#define IMPLICATION_A   .w= (weight_t []){ -0.1 ,  0.1 } , .b= (bias_t)( 0.05)</span></div>
+<div class="line"><span class="preprocessor">#define IMPLICATION_B   .w= (weight_t []){  0.1 , -0.1 } , .b= (bias_t)( 0.05)</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="test__code_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>( <span class="keywordtype">void</span> ) {</div>
-<div class="line">    <span class="keywordtype">float</span> inputs[2];</div>
+<div class="line">    data_t inputs[2];</div>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_struct" href="structneuron__s.html">neuron_s</a> neuron[]={</div>
-<div class="line">        [0]= { .<a class="code hl_variable" href="structneuron__s.html#ab9ab1fa3dd333f6076963d0918bbec9d">inputs</a>= <span class="keyword">sizeof</span>( inputs ) / <span class="keyword">sizeof</span>( <span class="keywordtype">float</span> ) , .bff_idx= 0 , .in= ( <span class="keywordtype">float</span> *[] ){ &amp;inputs[0], &amp;inputs[1] } , NEURON_0 , .fn= 0 , .out= 0.0f },</div>
-<div class="line">        [1]= { .inputs= <span class="keyword">sizeof</span>( inputs ) / <span class="keyword">sizeof</span>( <span class="keywordtype">float</span> ) , .bff_idx= 0 , .in= neuron[0].<a class="code hl_variable" href="structneuron__s.html#a82d6c8f34b3f522e97cef2341eeb7e35">in</a> , NEURON_1 , .fn= 0 , .out= 0.0f },</div>
-<div class="line">        [2]= { .inputs= 2 , .bff_idx= 0 , .in= ( <span class="keywordtype">float</span> *[] ){ &amp;neuron[0].<a class="code hl_variable" href="structneuron__s.html#ad6eb92a05bc2233ff9afb6e1d6323b3a">out</a>, &amp;neuron[1].<a class="code hl_variable" href="structneuron__s.html#ad6eb92a05bc2233ff9afb6e1d6323b3a">out</a> } , NEURON_2 , .fn= 0 , .out= 0.0f }</div>
+<div class="line">        [0]= { .<a class="code hl_variable" href="structneuron__s.html#ab9ab1fa3dd333f6076963d0918bbec9d">inputs</a>= <span class="keyword">sizeof</span>( inputs ) / <span class="keyword">sizeof</span>( data_t ) , .bff_idx= 0 , .in= (data_t *[]){ &amp;inputs[0] , &amp;inputs[1] } , NEURON_0 , .fn= 0 , .out= (data_t)(0.0) },</div>
+<div class="line">        [1]= { .inputs= <span class="keyword">sizeof</span>( inputs ) / <span class="keyword">sizeof</span>( data_t ) , .bff_idx= 0 , .in= neuron[0].<a class="code hl_variable" href="structneuron__s.html#a82d6c8f34b3f522e97cef2341eeb7e35">in</a> , NEURON_1 , .fn= 0 , .out= (data_t)(0.0) },</div>
+<div class="line">        [2]= { .inputs= 2 , .bff_idx= 0 , .in= (data_t *[]){ &amp;neuron[0].<a class="code hl_variable" href="structneuron__s.html#ad6eb92a05bc2233ff9afb6e1d6323b3a">out</a> , &amp;neuron[1].<a class="code hl_variable" href="structneuron__s.html#ad6eb92a05bc2233ff9afb6e1d6323b3a">out</a> } , NEURON_2 , .fn= 0 , .out= (data_t)(0.0) }</div>
 <div class="line">    };</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">for</span>( uint8_t i= 0 ; i &lt; 4 ; i++ ){</div>
-<div class="line">        <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> j= 0 , f= <span class="keyword">sizeof</span>( inputs ) / <span class="keyword">sizeof</span>( float ) ; j &lt; f ; j++ ) inputs[j]= !!( <span class="keywordtype">float</span> )( i &amp; ( 1 &lt;&lt; j ) );</div>
+<div class="line">        <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> j= 0 , f= <span class="keyword">sizeof</span>( inputs ) / <span class="keyword">sizeof</span>( data_t ) ; j &lt; f ; j++ ) inputs[j]= !!(data_t)( i &amp; ( 1 &lt;&lt; j ) );</div>
 <div class="line">        <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> j= 0 , f= <span class="keyword">sizeof</span>( neuron ) / <span class="keyword">sizeof</span>( <a class="code hl_struct" href="structneuron__s.html">neuron_s</a> ) ; j &lt; f ; j++ ){</div>
 <div class="line">            <span class="keywordtype">float</span> sum= neuron[j].<a class="code hl_variable" href="structneuron__s.html#ae239907b17a7ffc03e88e7cca6cccf7e">b</a>;</div>
-<div class="line">            <span class="keywordflow">for</span>( uint16_t k= 0 ; k &lt; neuron[j].<a class="code hl_variable" href="structneuron__s.html#ab9ab1fa3dd333f6076963d0918bbec9d">inputs</a> ; k++ ) sum+= *neuron[j].in[k] * neuron[j].w[k];</div>
-<div class="line">            neuron[j].<a class="code hl_variable" href="structneuron__s.html#ad6eb92a05bc2233ff9afb6e1d6323b3a">out</a>= (float)( sum &gt;= 0.0f );</div>
+<div class="line">            <span class="keywordflow">for</span>( input_t k= 0 ; k &lt; neuron[j].<a class="code hl_variable" href="structneuron__s.html#ab9ab1fa3dd333f6076963d0918bbec9d">inputs</a> ; k++ ) sum+= *neuron[j].in[k] * neuron[j].w[k];</div>
+<div class="line">            neuron[j].<a class="code hl_variable" href="structneuron__s.html#ad6eb92a05bc2233ff9afb6e1d6323b3a">out</a>= (data_t)( sum &gt;= 0.0f );</div>
 <div class="line">        }</div>
 <div class="line">        printf( <span class="stringliteral">&quot;| input_A: %0.0f | input_B: %0.0f | output: %0.0f |\n&quot;</span>, inputs[0] , inputs[1] , neuron[2].out );</div>
 <div class="line">    }</div>

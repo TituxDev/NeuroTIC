@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['samples_0',['samples',['../structnttraindata.html#a75f5c07fe4565db8e4f01e9b58b1e353',1,'nttraindata']]],
+  ['samples_0',['samples',['../structnttraindata.html#a017b75fd3ee214cf09468b7a658f00ed',1,'nttraindata']]],
   ['sign_1',['sign',['../structfloat__parts__s.html#ade828e3fa454f350d770e5950fe9c898',1,'float_parts_s']]],
   ['size_2',['size',['../structwiring__s.html#a77151b3a90f51e267593d8fcfca01f7b',1,'wiring_s']]],
   ['src_5findex_3',['src_index',['../structwiring__s.html#a482deb05260de5ecb212c01b91c9f2fc',1,'wiring_s']]],

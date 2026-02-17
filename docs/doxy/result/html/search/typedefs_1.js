@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['traindata_5ft_0',['traindata_t',['../nttrain_8h.html#a9efe515cacdc64eaea20b3cfc0564c77',1,'nttrain.h']]]
+  ['precision_5ft_0',['precision_t',['../nttrain_8h.html#a2cfe1c0a780a80675abb2076680638aa',1,'nttrain.h']]]
 ];

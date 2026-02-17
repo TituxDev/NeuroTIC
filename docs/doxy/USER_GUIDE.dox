@@ -11,7 +11,7 @@
  * ---
  * 
  * @code{.sh}
- * ~/NeuroTIC$ make new
+ * ~/NeuroTIC$ make create
  * Enter the new project name: test_code
  * Author name (default: whoami): 
  * Brief project description: 
