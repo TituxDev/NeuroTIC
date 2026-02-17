@@ -15,7 +15,7 @@
  * Project name: logic_gates
  * Platform: CPU
  *
- * Attemps: 2750963
+ * Attemps: 3261142
  *
  * =========================================================================================================================
  * | A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |
@@ -36,9 +36,9 @@
  * =========================================================================================================================
  *
  *
- * real	0m4.441s
- * user	0m4.250s
- * sys	0m0.188s
+ * real    0m5.245s
+ * user    0m5.027s
+ * sys     0m0.214s
  * ```
  * 
  * @code{.c}
@@ -54,18 +54,18 @@ int main( void ){
         .inputs= 2,
         .layers= 2,
     };
-    buildnet( newfeedforward( NEWNET( network , ( (uint16_t[]){ 3 , 16 } ) ) ) );
+    buildnet( newfeedforward( NEWNET( network , ( (uint16_t []){ 3 , 16 } ) ) ) );
 
 // Set activation functions to sigmoid for all neurons
-    for( uint16_t i= 0 ; i < network.layers ; i++ ) for( uint16_t j= 0 ; j < network.neurons[i] ; j++ ) network.nn[i][j].fn= NTACT_SIGMOID;
+    for( layer_t i= 0 ; i < network.layers ; i++ ) for( uint16_t j= 0 ; j < network.neurons[i] ; j++ ) network.nn[i][j].fn= NTACT_SIGMOID;
 
 // Initialize weights randomly
     randnet( &network );
 
 // Prepare training data for all 16 two-input logic functions
     traindata_t data={
-        .learning_rate= 0.9f,
-        .tolerance= 0.9f,
+        .learning_rate= (precision_t)(0.1),
+        .tolerance= (precision_t)(0.0),
         .max_attempts= 10000000,
         .samples= 4
     };
@@ -73,7 +73,7 @@ int main( void ){
     newtraindata( &data , &network );
 // Define input-output pairs for all logic functions
     for( uint64_t i= 0 ; i < data.samples ; i++ ){
-        for( uint32_t j= 0 ; j < network.inputs ; j++ ) data.in[i][j]= ( i >> j ) & 1;
+        for( input_t j= 0 ; j < network.inputs ; j++ ) data.in[i][j]= ( i >> j ) & 1;
         data.results[i][0]= 0;                                      // NULL 0000
         data.results[i][1]= !( data.in[i][0] || data.in[i][1] );    // NOR  1000
         data.results[i][2]= data.in[i][0] && !data.in[i][1];        // EXA  0100
@@ -99,8 +99,8 @@ int main( void ){
     printf( "\n\n=========================================================================================================================" );
     printf( "\n| A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |" );
     printf( "\n|---|---|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|" );
-    for( uint64_t i= 0 ; i < data.samples ; i++ ){
-        for( uint32_t j= 0 ; j < network.inputs ; j++ ) network.in[j]= &data.in[i][j];
+    for( sample_t i= 0 ; i < data.samples ; i++ ){
+        for( input_t j= 0 ; j < network.inputs ; j++ ) network.in[j]= &data.in[i][j];
         feedforward( &network );
         printf( "\n| %.0f | %.0f |" , data.in[i][0] , data.in[i][1] );
         for( uint16_t j= 0 ; j < network.neurons[network.layers - 1] ; j++ ) printf( "   %.0f  |" , *network.out[j] );
@@ -115,8 +115,8 @@ int main( void ){
     printf( "\n\n=========================================================================================================================" );
     printf( "\n| A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |" );
     printf( "\n|---|---|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|" );
-    for( uint64_t i= 0 ; i < data.samples ; i++ ){
-        for( uint32_t j= 0 ; j < network_copy.inputs ; j++ ) network_copy.in[j]= &data.in[i][j];
+    for( sample_t i= 0 ; i < data.samples ; i++ ){
+        for( input_t j= 0 ; j < network_copy.inputs ; j++ ) network_copy.in[j]= &data.in[i][j];
         feedforward( &network_copy );
         printf( "\n| %.0f | %.0f |" , data.in[i][0] , data.in[i][1] );
         for( uint16_t j= 0 ; j < network_copy.neurons[network_copy.layers - 1] ; j++ ) printf( "   %.0f  |" , *network_copy.out[j] );

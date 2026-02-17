@@ -58,32 +58,32 @@
 #define NEURON_1 OR
 #define NEURON_2 AND
 
-#define AND           .w= ( float[] ){ 1.0f , 1.0f } , .b= -1.5f
-#define NAND          .w= ( float[] ){ -1.0f , -1.0f } , .b= 1.5f
-#define OR            .w= ( float[] ){ 1.0f , 1.0f } , .b= -0.5f
-#define NOR           .w= ( float[] ){ -1.0f , -1.0f } , .b= 0.5f
-#define CONJUNCION_A  .w= ( float[] ){ -1.0f , 1.0f } , .b= -0.5f
-#define CONJUNCION_B  .w= ( float[] ){ 1.0f , -1.0f } , .b= -0.5f
-#define IMPLICATION_A .w= ( float[] ){ -1.0f , 1.0f } , .b= 0.5f
-#define IMPLICATION_B .w= ( float[] ){ 1.0f , -1.0f } , .b= 0.5f
+#define AND             .w= (weight_t []){  0.1 ,  0.1 } , .b= (bias_t)(-0.15)
+#define NAND            .w= (weight_t []){ -0.1 , -0.1 } , .b= (bias_t)( 0.15)
+#define OR              .w= (weight_t []){  0.1 ,  0.1 } , .b= (bias_t)(-0.05)
+#define NOR             .w= (weight_t []){ -0.1 , -0.1 } , .b= (bias_t)( 0.05)
+#define CONJUNCION_A    .w= (weight_t []){ -0.1 ,  0.1 } , .b= (bias_t)(-0.05)
+#define CONJUNCION_B    .w= (weight_t []){  0.1 , -0.1 } , .b= (bias_t)(-0.05)
+#define IMPLICATION_A   .w= (weight_t []){ -0.1 ,  0.1 } , .b= (bias_t)( 0.05)
+#define IMPLICATION_B   .w= (weight_t []){  0.1 , -0.1 } , .b= (bias_t)( 0.05)
 
 #include <stdio.h>
 
 int main( void ) {
-    float inputs[2];
+    data_t inputs[2];
 
     neuron_s neuron[]={
-        [0]= { .inputs= sizeof( inputs ) / sizeof( float ) , .bff_idx= 0 , .in= ( float *[] ){ &inputs[0], &inputs[1] } , NEURON_0 , .fn= 0 , .out= 0.0f },
-        [1]= { .inputs= sizeof( inputs ) / sizeof( float ) , .bff_idx= 0 , .in= neuron[0].in , NEURON_1 , .fn= 0 , .out= 0.0f },
-        [2]= { .inputs= 2 , .bff_idx= 0 , .in= ( float *[] ){ &neuron[0].out, &neuron[1].out } , NEURON_2 , .fn= 0 , .out= 0.0f }
+        [0]= { .inputs= sizeof( inputs ) / sizeof( data_t ) , .bff_idx= 0 , .in= (data_t *[]){ &inputs[0] , &inputs[1] } , NEURON_0 , .fn= 0 , .out= (data_t)(0.0) },
+        [1]= { .inputs= sizeof( inputs ) / sizeof( data_t ) , .bff_idx= 0 , .in= neuron[0].in , NEURON_1 , .fn= 0 , .out= (data_t)(0.0) },
+        [2]= { .inputs= 2 , .bff_idx= 0 , .in= (data_t *[]){ &neuron[0].out , &neuron[1].out } , NEURON_2 , .fn= 0 , .out= (data_t)(0.0) }
     };
 
     for( uint8_t i= 0 ; i < 4 ; i++ ){
-        for( size_t j= 0 , f= sizeof( inputs ) / sizeof( float ) ; j < f ; j++ ) inputs[j]= !!( float )( i & ( 1 << j ) );
+        for( size_t j= 0 , f= sizeof( inputs ) / sizeof( data_t ) ; j < f ; j++ ) inputs[j]= !!(data_t)( i & ( 1 << j ) );
         for( size_t j= 0 , f= sizeof( neuron ) / sizeof( neuron_s ) ; j < f ; j++ ){
             float sum= neuron[j].b;
-            for( uint16_t k= 0 ; k < neuron[j].inputs ; k++ ) sum+= *neuron[j].in[k] * neuron[j].w[k];
-            neuron[j].out= (float)( sum >= 0.0f );
+            for( input_t k= 0 ; k < neuron[j].inputs ; k++ ) sum+= *neuron[j].in[k] * neuron[j].w[k];
+            neuron[j].out= (data_t)( sum >= 0.0f );
         }
         printf( "| input_A: %0.0f | input_B: %0.0f | output: %0.0f |\n", inputs[0] , inputs[1] , neuron[2].out );
     }
