@@ -89,7 +89,7 @@ int main( void ){
     }
 
 // Train the network using backpropagation
-    printf( "\nAttemps: %i" , backpropagation( &network , &data ) );
+    printf( "\nAttemps: %li" , backpropagation( &network , &data ) );
 
 // Evaluate and display results
     printf( "\n\n=========================================================================================================================" );
