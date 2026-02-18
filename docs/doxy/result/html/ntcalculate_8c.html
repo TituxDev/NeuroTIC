@@ -105,7 +105,7 @@ Include dependency graph for ntcalculate.c:</div>
 <div class="center"><img src="ntcalculate_8c__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntcalculate_8c" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntcalculate_8c" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntcalculate_8c">
 <area shape="rect" title="Implementation of feedforward network computations." alt="" coords="12,5,239,45"/>
-<area shape="rect" href="ntcalculate_8h.html" title="Core feedforward computations for NeuroTIC networks." alt="" coords="5,93,112,119"/>
+<area shape="rect" href="ntcalculate_8h.html" title="Computation Module." alt="" coords="5,93,112,119"/>
 <area shape="poly" title=" " alt="" coords="111,47,79,84,75,81,107,44"/>
 <area shape="rect" href="ntactivation_8h.html" title="Internal implementation of activation behavior." alt="" coords="136,93,248,119"/>
 <area shape="poly" title=" " alt="" coords="143,44,175,81,171,84,139,47"/>
@@ -120,32 +120,32 @@ Include dependency graph for ntcalculate.c:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a78cb662481458242e474dabbdbe53bda" id="r_a78cb662481458242e474dabbdbe53bda"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntcalculate_8c.html#a78cb662481458242e474dabbdbe53bda">weighing</a> (<a class="el" href="structneuron__s.html">neuron_s</a> *neuron)</td></tr>
-<tr class="memdesc:a78cb662481458242e474dabbdbe53bda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes weighted sum plus bias for a neuron.  <br /></td></tr>
-<tr class="separator:a78cb662481458242e474dabbdbe53bda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa72c5a1f7a1f6a658ec46f1367c4b677" id="r_aa72c5a1f7a1f6a658ec46f1367c4b677"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntcalculate_8c.html#aa72c5a1f7a1f6a658ec46f1367c4b677">activate</a> (<a class="el" href="structneuron__s.html">neuron_s</a> *neuron)</td></tr>
-<tr class="memdesc:aa72c5a1f7a1f6a658ec46f1367c4b677"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the activation function to a neuron.  <br /></td></tr>
-<tr class="separator:aa72c5a1f7a1f6a658ec46f1367c4b677"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad48d6e414dc6090dbdd62b29633541bf" id="r_ad48d6e414dc6090dbdd62b29633541bf"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntcalculate_8c.html#ad48d6e414dc6090dbdd62b29633541bf">feedforward</a> (<a class="el" href="structnet__s.html">net_s</a> *net)</td></tr>
-<tr class="memdesc:ad48d6e414dc6090dbdd62b29633541bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs full feedforward computation for the network.  <br /></td></tr>
-<tr class="separator:ad48d6e414dc6090dbdd62b29633541bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63f28fa48fc407e117fe61bf55aa53f6" id="r_a63f28fa48fc407e117fe61bf55aa53f6"><td class="memItemLeft" align="right" valign="top">data_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntcalculate_8c.html#a63f28fa48fc407e117fe61bf55aa53f6">weighing</a> (<a class="el" href="structneuron__s.html">neuron_s</a> *neuron)</td></tr>
+<tr class="memdesc:a63f28fa48fc407e117fe61bf55aa53f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the weighted sum of a neuron.  <br /></td></tr>
+<tr class="separator:a63f28fa48fc407e117fe61bf55aa53f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0ef2a7aa3daf3c5b815284a7b322f05" id="r_aa0ef2a7aa3daf3c5b815284a7b322f05"><td class="memItemLeft" align="right" valign="top">data_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntcalculate_8c.html#aa0ef2a7aa3daf3c5b815284a7b322f05">activate</a> (<a class="el" href="structneuron__s.html">neuron_s</a> *neuron)</td></tr>
+<tr class="memdesc:aa0ef2a7aa3daf3c5b815284a7b322f05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the configured activation function.  <br /></td></tr>
+<tr class="separator:aa0ef2a7aa3daf3c5b815284a7b322f05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80593fe4480cce8f4dac43ee48d8a7a2" id="r_a80593fe4480cce8f4dac43ee48d8a7a2"><td class="memItemLeft" align="right" valign="top">data_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntcalculate_8c.html#a80593fe4480cce8f4dac43ee48d8a7a2">feedforward</a> (<a class="el" href="structnet__s.html">net_s</a> *net)</td></tr>
+<tr class="memdesc:a80593fe4480cce8f4dac43ee48d8a7a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes full feedforward propagation.  <br /></td></tr>
+<tr class="separator:a80593fe4480cce8f4dac43ee48d8a7a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of feedforward network computations. </p>
 <p>Provides weighted sum, activation, and full forward propagation for NeuroTIC networks. Assumes sequential layer-by-layer calculation.</p>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2024 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="">ntcalculate.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="aa72c5a1f7a1f6a658ec46f1367c4b677" name="aa72c5a1f7a1f6a658ec46f1367c4b677"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa72c5a1f7a1f6a658ec46f1367c4b677">&#9670;&#160;</a></span>activate()</h2>
+<a id="aa0ef2a7aa3daf3c5b815284a7b322f05" name="aa0ef2a7aa3daf3c5b815284a7b322f05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0ef2a7aa3daf3c5b815284a7b322f05">&#9670;&#160;</a></span>activate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float activate </td>
+          <td class="memname">data_t activate </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structneuron__s.html">neuron_s</a> *&#160;</td>
           <td class="paramname"><em>neuron</em></td><td>)</td>
@@ -154,31 +154,24 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Applies the activation function to a neuron. </p>
-<p>Applies the activation function to a neuron's weighted input.</p>
-<p>Stores the activated value in neuron-&gt;out.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">neuron</td><td>Pointer to the neuron. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Activated output value. </dd></dl>
+<p>Applies the configured activation function. </p>
+<p>Activation functions are resolved from the global <code>ntact_activation</code> lookup table using the neuron's configured activation identifier.</p>
+<p>Result is stored in the neuron's <code>out</code> field. </p>
 
-<p class="reference">References <a class="el" href="#l00062">neuron_s::fn</a>, <a class="el" href="#l00079">ntact_activation</a>, <a class="el" href="#l00063">neuron_s::out</a>, and <a class="el" href="#l00022">weighing()</a>.</p>
+<p class="reference">References <a class="el" href="#l00062">neuron_s::fn</a>, <a class="el" href="#l00079">ntact_activation</a>, <a class="el" href="#l00063">neuron_s::out</a>, and <a class="el" href="#l00021">weighing()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#l00050">feedforward()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00046">feedforward()</a>.</p>
 
 </div>
 </div>
-<a id="ad48d6e414dc6090dbdd62b29633541bf" name="ad48d6e414dc6090dbdd62b29633541bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad48d6e414dc6090dbdd62b29633541bf">&#9670;&#160;</a></span>feedforward()</h2>
+<a id="a80593fe4480cce8f4dac43ee48d8a7a2" name="a80593fe4480cce8f4dac43ee48d8a7a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80593fe4480cce8f4dac43ee48d8a7a2">&#9670;&#160;</a></span>feedforward()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float * feedforward </td>
+          <td class="memname">data_t * feedforward </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structnet__s.html">net_s</a> *&#160;</td>
           <td class="paramname"><em>net</em></td><td>)</td>
@@ -187,31 +180,23 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Performs full feedforward computation for the network. </p>
-<p>Performs full feedforward computation for a network.</p>
-<p>Iterates over all layers and neurons sequentially, activating each neuron.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">net</td><td>Pointer to the network to compute. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the final layer's output array. </dd></dl>
+<p>Executes full feedforward propagation. </p>
+<p>Iterates layer-by-layer to maintain deterministic ordering. No buffering is required since outputs of previous layers are already wired via pointer connections. </p>
 
-<p class="reference">References <a class="el" href="#l00037">activate()</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, and <a class="el" href="#l00108">net_s::out</a>.</p>
+<p class="reference">References <a class="el" href="#l00035">activate()</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, and <a class="el" href="#l00108">net_s::out</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#l00052">backpropagation()</a>.</p>
 
 </div>
 </div>
-<a id="a78cb662481458242e474dabbdbe53bda" name="a78cb662481458242e474dabbdbe53bda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78cb662481458242e474dabbdbe53bda">&#9670;&#160;</a></span>weighing()</h2>
+<a id="a63f28fa48fc407e117fe61bf55aa53f6" name="a63f28fa48fc407e117fe61bf55aa53f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63f28fa48fc407e117fe61bf55aa53f6">&#9670;&#160;</a></span>weighing()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float weighing </td>
+          <td class="memname">data_t weighing </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structneuron__s.html">neuron_s</a> *&#160;</td>
           <td class="paramname"><em>neuron</em></td><td>)</td>
@@ -220,19 +205,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Computes weighted sum plus bias for a neuron. </p>
-<p>Computes the weighted sum of a neuron's inputs plus bias.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">neuron</td><td>Pointer to the neuron. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Weighted sum of inputs plus bias. </dd></dl>
+<p>Computes the weighted sum of a neuron. </p>
+<p>The bias term is accumulated first to reduce one addition inside the loop. Inputs are assumed to be valid pointers. </p>
 
 <p class="reference">References <a class="el" href="#l00061">neuron_s::b</a>, <a class="el" href="#l00059">neuron_s::in</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, and <a class="el" href="#l00060">neuron_s::w</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#l00037">activate()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00035">activate()</a>.</p>
 
 </div>
 </div>

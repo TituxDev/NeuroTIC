@@ -1,12 +1,10 @@
 /**
  * @file ntcalculate.h
- * @brief Core feedforward computations for NeuroTIC networks.
+ * @brief Computation Module.
  *
- * Provides functions to perform weighted summation, activation, and full
- * forward propagation of a neural network in sequential order.
- *
- * @author Oscar Sotomayor
- * @date 2024
+ * @ref https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c
+ * 
+ * @copydetails ntcalculate.c
  */
 
 #ifndef NTCALCULATE_H
@@ -15,32 +13,33 @@
 #include "ntcore.h"
 
 /**
- * @brief Computes the weighted sum of a neuron's inputs plus bias.
+ * @brief Computes the weighted sum of a neuron.
  *
- * @param neuron Pointer to the neuron to compute.
- * @return The weighted sum (float).
+ * Performs:
+ * weighted_sum = Σ(input_i * weight_i) + bias
+ *
+ * @param neuron Pointer to the neuron.
+ * @return Weighted sum including bias.
  */
-float weighing( neuron_s *neuron );
+data_t weighing( neuron_s *neuron );
 
 /**
- * @brief Applies the activation function to a neuron's weighted input.
+ * @brief Applies the configured activation function.
  *
- * Stores the result in the neuron's `out` field.
- *
- * @param neuron Pointer to the neuron to activate.
- * @return The activated output value (float).
+ * @param neuron Pointer to the neuron.
+ * @return Activated output value.
  */
-float activate( neuron_s *neuron );
+data_t activate( neuron_s *neuron );
 
 /**
- * @brief Performs full feedforward computation for a network.
+ * @brief Executes full feedforward propagation.
  *
- * Iterates over all layers and neurons in sequential order, computing
- * activations for each neuron.
+ * All layers are evaluated sequentially. Each neuron is activated
+ * in order of declaration.
  *
- * @param net Pointer to the network to compute.
- * @return Pointer to the array of output values from the final layer.
+ * @param net Pointer to the network.
+ * @return Pointer to the output buffer of the final layer.
  */
-float *feedforward( net_s *net );
+data_t *feedforward( net_s *net );
 
 #endif // NTCALCULATE_H

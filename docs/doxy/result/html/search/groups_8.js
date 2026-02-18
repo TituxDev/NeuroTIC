@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['peripheral_20modules_0',['Peripheral modules',['../group__NTPeripherals.html',1,'']]]
+  ['training_20utilities_0',['Training Utilities',['../group__NTTrain.html',1,'']]]
 ];

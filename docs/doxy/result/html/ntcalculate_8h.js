@@ -1,6 +1,6 @@
 var ntcalculate_8h =
 [
-    [ "activate", "ntcalculate_8h.html#aa72c5a1f7a1f6a658ec46f1367c4b677", null ],
-    [ "feedforward", "ntcalculate_8h.html#ad48d6e414dc6090dbdd62b29633541bf", null ],
-    [ "weighing", "ntcalculate_8h.html#a78cb662481458242e474dabbdbe53bda", null ]
+    [ "activate", "ntcalculate_8h.html#aa0ef2a7aa3daf3c5b815284a7b322f05", null ],
+    [ "feedforward", "ntcalculate_8h.html#a80593fe4480cce8f4dac43ee48d8a7a2", null ],
+    [ "weighing", "ntcalculate_8h.html#a63f28fa48fc407e117fe61bf55aa53f6", null ]
 ];

@@ -1,6 +1,7 @@
 /**
+ * @defgroup NTTrain Training Utilities
  * @file nttrain.h
- * @brief Training utilities for NeuroTIC networks using backpropagation.
+ * @brief Header for training utilities in NeuroTIC
  *
  * Provides structures and functions to store training data and perform
  * supervised learning on feedforward networks.

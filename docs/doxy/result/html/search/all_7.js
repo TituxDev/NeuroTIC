@@ -1,7 +1,7 @@
 var searchData=
 [
   ['feature_20expansion_0',['Feature Expansion',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#feature-expansion',1,'']]],
-  ['feedforward_1',['feedforward',['../ntcalculate_8c.html#ad48d6e414dc6090dbdd62b29633541bf',1,'feedforward(net_s *net):&#160;ntcalculate.c'],['../ntcalculate_8h.html#ad48d6e414dc6090dbdd62b29633541bf',1,'feedforward(net_s *net):&#160;ntcalculate.c']]],
+  ['feedforward_1',['feedforward',['../ntcalculate_8c.html#a80593fe4480cce8f4dac43ee48d8a7a2',1,'feedforward(net_s *net):&#160;ntcalculate.c'],['../ntcalculate_8h.html#a80593fe4480cce8f4dac43ee48d8a7a2',1,'feedforward(net_s *net):&#160;ntcalculate.c']]],
   ['field_20descriptions_2',['Field Descriptions',['../net__s_8dox.html#net_fields',1,'']]],
   ['float32_3',['float32',['../ntfile_8c.html#a9041095ed9ea53165999e5bebfc04271',1,'ntfile.c']]],
   ['float_5fparts_5fs_4',['float_parts_s',['../structfloat__parts__s.html',1,'']]],

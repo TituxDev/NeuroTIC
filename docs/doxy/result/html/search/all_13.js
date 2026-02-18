@@ -12,5 +12,6 @@ var searchData=
   ['to_20neurotic_9',['Contributing to NeuroTIC',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html',1,'']]],
   ['tolerance_10',['tolerance',['../structnttraindata.html#ad1287d32685e7e867a53d61c41d11b94',1,'nttraindata']]],
   ['topology_11',['Example topology',['../neurons_8c.html#neuron_example',1,'']]],
-  ['traindata_5ft_12',['traindata_t',['../nttrain_8h.html#a9efe515cacdc64eaea20b3cfc0564c77',1,'nttrain.h']]]
+  ['traindata_5ft_12',['traindata_t',['../nttrain_8h.html#a9efe515cacdc64eaea20b3cfc0564c77',1,'nttrain.h']]],
+  ['training_20utilities_13',['Training Utilities',['../group__NTTrain.html',1,'']]]
 ];
