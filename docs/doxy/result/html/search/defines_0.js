@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['magic_0',['MAGIC',['../ntfile_8c.html#a94630370ae389fb1189282fa0742f310',1,'ntfile.c']]]
+  ['create_5fnet_5ffeedforward_0',['CREATE_NET_FEEDFORWARD',['../ntbuilder_8h.html#ac4ca47bc0d692b1d915cdc405f21cd85',1,'ntbuilder.h']]]
 ];

@@ -26,6 +26,12 @@
  * @param neurons Array defining the number of neurons per layer.
  */
 #define NEWNET( network, neurons) newnet( &network, neurons, sizeof( neurons )/sizeof( uint16_t ) )
+#define CREATE_NET_FEEDFORWARD( network , i , neurons ) \
+    net_s network={ \
+        .inputs= i, \
+        .layers= sizeof( neurons )/sizeof( uint16_t ), \
+    }; \
+    buildnet( newfeedforward( NEWNET( network , neurons ) ) );
 
 /**
  * @brief Initializes a new neural network structure.

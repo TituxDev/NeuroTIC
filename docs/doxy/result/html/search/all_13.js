@@ -7,12 +7,10 @@ var searchData=
   ['term_20development_20q2_20q4_202024_4',['Medium-term Development (Q2-Q4 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#medium-term-development-q2-q4-2024',1,'']]],
   ['terms_5',['terms',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#early-adopter-terms',1,'Early Adopter Terms'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#support-terms',1,'Support Terms']]],
   ['terms_20and_20conditions_6',['Terms and Conditions',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#terms-and-conditions',1,'']]],
-  ['test_5fcode_2ec_7',['test_code.c',['../test__code_8c.html',1,'']]],
-  ['test_5fcode_2eh_8',['test_code.h',['../test__code_8h.html',1,'']]],
-  ['tiers_9',['Commercial Licensing Tiers',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#commercial-licensing-tiers',1,'']]],
-  ['to_20contribute_10',['How to Contribute',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#how-to-contribute',1,'']]],
-  ['to_20neurotic_11',['Contributing to NeuroTIC',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html',1,'']]],
-  ['tolerance_12',['tolerance',['../structnttraindata.html#ad1287d32685e7e867a53d61c41d11b94',1,'nttraindata']]],
-  ['topology_13',['Example topology',['../neurons_8c.html#neuron_example',1,'']]],
-  ['traindata_5ft_14',['traindata_t',['../nttrain_8h.html#a9efe515cacdc64eaea20b3cfc0564c77',1,'nttrain.h']]]
+  ['tiers_7',['Commercial Licensing Tiers',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#commercial-licensing-tiers',1,'']]],
+  ['to_20contribute_8',['How to Contribute',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#how-to-contribute',1,'']]],
+  ['to_20neurotic_9',['Contributing to NeuroTIC',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html',1,'']]],
+  ['tolerance_10',['tolerance',['../structnttraindata.html#ad1287d32685e7e867a53d61c41d11b94',1,'nttraindata']]],
+  ['topology_11',['Example topology',['../neurons_8c.html#neuron_example',1,'']]],
+  ['traindata_5ft_12',['traindata_t',['../nttrain_8h.html#a9efe515cacdc64eaea20b3cfc0564c77',1,'nttrain.h']]]
 ];

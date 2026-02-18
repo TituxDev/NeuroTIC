@@ -15,7 +15,7 @@ var searchData=
   ['src_5ftype_12',['src_type',['../structwiring__s.html#a54a4436a7981644f7bcda46241df0f62',1,'wiring_s']]],
   ['stability_13',['Scope and stability',['../group__NTPeripherals.html#scope-and-stability',1,'']]],
   ['standards_14',['Code Standards',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#code-standards',1,'']]],
-  ['start_15',['Quick Start',['../index.html#quick-start',1,'']]],
+  ['start_15',['Quick Start',['../index.html#quick_start',1,'']]],
   ['started_16',['Getting Started',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#getting-started',1,'']]],
   ['startup_20license_17',['Startup License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#startup-license',1,'']]],
   ['strict_5fle16_18',['STRICT_LE16',['../ntfile_8c.html#a30144b1185f06ef07c25abd5e05d46ba',1,'ntfile.c']]],

@@ -15,7 +15,7 @@
  * Project name: logic_gates
  * Platform: CPU
  *
- * Attemps: 3261142
+ * Attemps: 7438254
  *
  * =========================================================================================================================
  * | A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |
@@ -35,10 +35,10 @@
  * | 1 | 1 |   0  |   0  |   0  |   0  |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |   1  |   1  |   1  |   1  |
  * =========================================================================================================================
  *
- *
- * real    0m5.245s
- * user    0m5.027s
- * sys     0m0.214s
+ * 
+ * real    0m10.910s
+ * user    0m10.728s
+ * sys     0m0.183s
  * ```
  * 
  * @code{.c}
@@ -50,11 +50,7 @@
 int main( void ){
 
 // Network structure: 2 inputs, 2 layers (one hidden layer with 3 neurons and output layer with 16 neurons)
-    net_s network={
-        .inputs= 2,
-        .layers= 2,
-    };
-    buildnet( newfeedforward( NEWNET( network , ( (uint16_t []){ 3 , 16 } ) ) ) );
+    CREATE_NET_FEEDFORWARD( network , 2 , ((uint16_t []){3,16}) );
 
 // Set activation functions to sigmoid for all neurons
     for( layer_t i= 0 ; i < network.layers ; i++ ) for( uint16_t j= 0 ; j < network.neurons[i] ; j++ ) network.nn[i][j].fn= NTACT_SIGMOID;
@@ -64,8 +60,8 @@ int main( void ){
 
 // Prepare training data for all 16 two-input logic functions
     traindata_t data={
-        .learning_rate= (precision_t)(0.1),
-        .tolerance= (precision_t)(0.0),
+        .learning_rate= (precision_t)(2.5),
+        .tolerance= (precision_t)(0.49),
         .max_attempts= 10000000,
         .samples= 4
     };

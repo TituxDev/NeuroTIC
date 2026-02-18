@@ -10,5 +10,6 @@ var searchData=
   ['rights_7',['rights',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#granted-rights',1,'Granted Rights'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#license-rights',1,'License Rights']]],
   ['roadmap_8',['roadmap',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#development-roadmap',1,'Development Roadmap'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html',1,'NeuroTIC Technical Roadmap']]],
   ['roadmap_2emd_9',['ROADMAP.md',['../ROADMAP_8md.html',1,'']]],
-  ['role_10',['Memory Selector Role',['../neuron__s_8dox.html#neuron_bff_idx',1,'']]]
+  ['role_10',['Memory Selector Role',['../neuron__s_8dox.html#neuron_bff_idx',1,'']]],
+  ['run_20your_20project_11',['Run Your Project',['../index.html#run-your-project',1,'']]]
 ];

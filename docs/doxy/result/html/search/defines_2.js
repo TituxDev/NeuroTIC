@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['strict_5fle16_0',['STRICT_LE16',['../ntfile_8c.html#a30144b1185f06ef07c25abd5e05d46ba',1,'ntfile.c']]],
-  ['strict_5fle32_1',['STRICT_LE32',['../ntfile_8c.html#a6121f1de1e949f74c5e2517c8fd98d65',1,'ntfile.c']]]
+  ['name_5flength_0',['NAME_LENGTH',['../ntfile_8c.html#af71324c57f05ff9e24bd384925dd6b17',1,'ntfile.c']]],
+  ['newnet_1',['NEWNET',['../ntbuilder_8h.html#a6c4abea58db7193ec0663d0347bdeb96',1,'ntbuilder.h']]]
 ];

@@ -140,6 +140,8 @@ Macros</h2></td></tr>
 <tr class="memitem:a6c4abea58db7193ec0663d0347bdeb96" id="r_a6c4abea58db7193ec0663d0347bdeb96"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntbuilder_8h.html#a6c4abea58db7193ec0663d0347bdeb96">NEWNET</a>(network,  neurons)&#160;&#160;&#160;<a class="el" href="ntbuilder_8c.html#a989e74c1920071ab6daabc69b003bc01">newnet</a>( &amp;network, neurons, sizeof( neurons )/sizeof( uint16_t ) )</td></tr>
 <tr class="memdesc:a6c4abea58db7193ec0663d0347bdeb96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience macro to create a new network.  <br /></td></tr>
 <tr class="separator:a6c4abea58db7193ec0663d0347bdeb96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4ca47bc0d692b1d915cdc405f21cd85" id="r_ac4ca47bc0d692b1d915cdc405f21cd85"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntbuilder_8h.html#ac4ca47bc0d692b1d915cdc405f21cd85">CREATE_NET_FEEDFORWARD</a>(network,  i,  neurons)</td></tr>
+<tr class="separator:ac4ca47bc0d692b1d915cdc405f21cd85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -158,6 +160,49 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="">ntbuilder.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ac4ca47bc0d692b1d915cdc405f21cd85" name="ac4ca47bc0d692b1d915cdc405f21cd85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4ca47bc0d692b1d915cdc405f21cd85">&#9670;&#160;</a></span>CREATE_NET_FEEDFORWARD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CREATE_NET_FEEDFORWARD</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">network, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">i, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">neurons&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <a class="code hl_struct" href="structnet__s.html">net_s</a> network={ \</div>
+<div class="line">        .<a class="code hl_variable" href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">inputs</a>= i, \</div>
+<div class="line">        .layers= <span class="keyword">sizeof</span>( neurons )/<span class="keyword">sizeof</span>( uint16_t ), \</div>
+<div class="line">    }; \</div>
+<div class="line">    buildnet( <a class="code hl_function" href="ntfeedforward_8c.html#ad4572edfe44001ed5b40ffc7e29026b9">newfeedforward</a>( <a class="code hl_define" href="ntbuilder_8h.html#a6c4abea58db7193ec0663d0347bdeb96">NEWNET</a>( network , neurons ) ) );</div>
+<div class="ttc" id="antbuilder_8h_html_a6c4abea58db7193ec0663d0347bdeb96"><div class="ttname"><a href="ntbuilder_8h.html#a6c4abea58db7193ec0663d0347bdeb96">NEWNET</a></div><div class="ttdeci">#define NEWNET(network, neurons)</div><div class="ttdoc">Convenience macro to create a new network.</div><div class="ttdef"><b>Definition</b> ntbuilder.h:28</div></div>
+<div class="ttc" id="antfeedforward_8c_html_ad4572edfe44001ed5b40ffc7e29026b9"><div class="ttname"><a href="ntfeedforward_8c.html#ad4572edfe44001ed5b40ffc7e29026b9">newfeedforward</a></div><div class="ttdeci">struct net_s * newfeedforward(net_s *net)</div><div class="ttdoc">Initializes a simple feedforward topology.</div><div class="ttdef"><b>Definition</b> ntfeedforward.c:30</div></div>
+<div class="ttc" id="astructnet__s_html"><div class="ttname"><a href="structnet__s.html">net_s</a></div><div class="ttdoc">Root structural container of a NeuroTIC network.</div><div class="ttdef"><b>Definition</b> ntcore.h:100</div></div>
+<div class="ttc" id="astructnet__s_html_a252eb5f95334455a30914a1d3706a4d0"><div class="ttname"><a href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">net_s::inputs</a></div><div class="ttdeci">input_t inputs</div><div class="ttdef"><b>Definition</b> ntcore.h:101</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a6c4abea58db7193ec0663d0347bdeb96" name="a6c4abea58db7193ec0663d0347bdeb96"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6c4abea58db7193ec0663d0347bdeb96">&#9670;&#160;</a></span>NEWNET</h2>
 

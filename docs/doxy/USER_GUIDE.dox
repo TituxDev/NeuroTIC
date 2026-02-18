@@ -1,56 +1,152 @@
 /**
  * @mainpage
- * @brief USER GUIDE  
- *
- * @ref https://tituxdev.github.io/NeuroTIC/
+ * @brief **USER GUIDE**  
  *
  * @details
  *
- * ---
- * Quick Start
- * ---
+ * @ref https://tituxdev.github.io/NeuroTIC/
+ *
+ * @section quick_start Quick Start
  * 
+ * ---
+ * Create a New Project
+ * ---
  * @code{.sh}
- * ~/NeuroTIC$ make create
- * Enter the new project name: test_code
- * Author name (default: whoami): 
- * Brief project description: 
+ * ~/NeuroTIC$ make create 
+ *
+ * Error: The workspace directory is not empty.
+ * Do you want to remove all files in the workspace directory? (y/n): y
+ * Workspace cleared.
+ * 
+ * Enter the new project name: test
+ * Author name (default: whoami): whoami
+ * Brief project description: testing
  * Available header packs:
  * basic
  * complete
- * Enter the header pack to use: 
- * Project created successfully at  workspace/test_code.c
+ * Enter the header pack to use: complete
+ * Project created successfully at  workspace/test.c
+ *
  * @endcode
  * 
+ * ---
+ * Write Your Code
+ * ---
  * @code{.c}
- * 
- * // Filename: test_code.c
+ * // Filename: test.c
  * // Author: whoami
- * // Date: 2026-02-16
- * // Description: .
+ * // Date: 2026-02-17
+ * // Description: testing.
  *
- * // Pro tip: use test_code.h to store global constants, macros, variables,
+ * // Pro tip: use test.h to store global constants, macros, variables,
  * // or include additional headers. Keep your main clean.
  *
- * #include "test_code.h"
+ * #include "test.h"
+ * #include "ntcomplete.h"
  *
+ * #define NETWORK_NAME test
+ * #define OUTPUT_DIR "./test_net.ntic"
+ * 
+ * #define INPUTS 1
+ * #define NEURONS_PER_LAYER 1 // , ... , ... , ... 
+ * #define ACTIVATION_FUNCTIONS NTACT_SIGMOID // Watch ntactivation.h for available activation functions
+ * 
+ * #define TRAINING_SAMPLES 1
+ * #define LEARNING_RATE 0.1
+ * #define TOLERANCE 0.0
+ * #define MAX_ATTEMPTS 1
+ * 
  * int main( void ){
+ * 
+ *  // Your code here
  *
- *    // Your code here
+ *  CREATE_NET_FEEDFORWARD( NETWORK_NAME , INPUTS , ( (uint16_t []){ NEURONS_PER_LAYER } ) ); 
+ *  // Select activation functions for each neuron
+ *  for( layer_t i= 0 ; i < NETWORK_NAME.layers ; i++ ) for( uint16_t j= 0 ; j < NETWORK_NAME.neurons[i] ; j++ )
+ *      NETWORK_NAME.nn[i][j].fn= ACTIVATION_FUNCTIONS;
+ *  // Initialize weights
+ *  randnet( &NETWORK_NAME );
+ * 
+ *  // Prepare training data
+ *  traindata_t data={
+ *      .learning_rate= (precision_t)(LEARNING_RATE),
+ *      .tolerance= (precision_t)(TOLERANCE),
+ *      .max_attempts= MAX_ATTEMPTS,
+ *      .samples= TRAINING_SAMPLES,
+ * };
+ * // Allocate training data
+ * newtraindata( &data , &NETWORK_NAME );
+ * // Fill training data with your samples and expected outputs
+ * // for( sample_t i= 0 ; i < TRAINING_SAMPLES ; i++ ){
+ * //     for( input_t j= 0 ; j < NETWORK_NAME.inputs ; j++ ) data.in[i][j]= ...; // Set input values
+ * //     for( uint16_t j= 0 ; j < NETWORK_NAME.neurons[NETWORK_NAME.layers-1] ; j++ ) data.results[i][j]= ...; // Set expected output values
+ * // }
+ * 
+ *  // Train the network
+ *  backpropagation( &NETWORK_NAME , &data );
  *
- *    return 0;
+ *  // Select a test sample to evaluate the trained network
+ *  size_t sample;
+ *  printf( "Select test: " );
+ *  #pragma GCC diagnostic push
+ *  #pragma GCC diagnostic ignored "-Wunused-result"
+ *  scanf( "%zu" , &sample );
+ *  #pragma GCC diagnostic pop
+ *  // Print test
+ *  printf( "SAMPLE INPUTS: " );
+ *  for( input_t i= 0 ; i < NETWORK_NAME.inputs ; i++ ) printf( "%f " , data.in[sample][i] );
+ *  printf( "\nEXPECTED OUTPUTS: " );
+ *  for( uint16_t i= 0 ; i < NETWORK_NAME.neurons[NETWORK_NAME.layers-1] ; i++ ) printf( "%f " , data.results[sample][i] );
+ * 
+ *  //Connect network
+ *  data_t inputs[NETWORK_NAME.inputs];
+ *  for( input_t i= 0 ; i < NETWORK_NAME.inputs ; i++ ) NETWORK_NAME.in[i]= &inputs[i];
+ *  // Set input values
+ *  memcpy( inputs , data.in[sample] , NETWORK_NAME.inputs * sizeof( data_t ) );
+ *  printf( "\n\nNETWORK INPUTS:  " );
+ *  for( input_t i= 0 ; i < NETWORK_NAME.inputs ; i++ ) printf( "%f " , *NETWORK_NAME.in[i] );
+ *  // Evaluate network
+ *  feedforward( &NETWORK_NAME );
+ *  // Print outputs
+ *  printf( "\nNETWORK OUTPUTS: " );
+ *  for( uint16_t i= 0 ; i < NETWORK_NAME.neurons[NETWORK_NAME.layers-1] ; i++ ) printf( "%f " , *NETWORK_NAME.out[i] );
+ * 
+ *  // Save the trained network to a file
+ *  savenet( &NETWORK_NAME , OUTPUT_DIR );
+ *
+ *  // Your code here
+ * 
+ *  putchar( '\n' );
+ *  return 0;
  * }
+ * 
  * @endcode
  * @ref logic_gates.c "API EXAMPLE"
+ *
+ * ---
+ * Compile
+ * ---
  * @code{.sh}
  * ~/NeuroTIC$ make compile
  * make compile
  * Enter project location (e.g., workspace, examples): workspace
- * Enter project name (filename without extension): test_code
+ * Enter project name (filename without extension): test
  * Enter platform (e.g., CPU): CPU
  * Compiling project in location: workspace
- * Project name: test_code
+ * Project name: test
  * Platform: CPU
- * ~NeuroTIC$ bash workspace/test_code
+ * @endcode
+ *
+ * ---
+ * Run Your Project
+ * ---
+ * @code{.sh}
+ * ~/NeuroTIC$ ./workspace/test
+ * Select test: 0
+ * SAMPLE INPUTS: 0.000000 
+ * EXPECTED OUTPUTS: 0.000000
+ *
+ * NETWORK INPUTS:  0.000000
+ * NETWORK OUTPUTS: 0.496875 
  * @endcode
  */

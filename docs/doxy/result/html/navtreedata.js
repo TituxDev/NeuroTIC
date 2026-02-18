@@ -25,8 +25,13 @@
 var NAVTREE =
 [
   [ "NeuroTIC", "index.html", [
+    [ "Quick Start", "index.html#quick_start", [
+      [ "Create a New Project", "index.html#create-a-new-project", null ],
+      [ "Write Your Code", "index.html#write-your-code", null ],
+      [ "Compile", "index.html#compile", null ],
+      [ "Run Your Project", "index.html#run-your-project", null ]
+    ] ],
     [ "NeuroTIC Commercial License Agreement", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html", [
-      [ "Quick Start", "index.html#quick-start", null ],
       [ "Overview", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#overview", null ],
       [ "Commercial Licensing Tiers", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#commercial-licensing-tiers", [
         [ "Startup License", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#startup-license", null ],
