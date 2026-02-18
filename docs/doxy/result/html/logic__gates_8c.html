@@ -107,7 +107,7 @@ $(document).ready(function(){initNavTree('logic__gates_8c.html',''); initResizab
 <div class="line">Project name: logic_gates</div>
 <div class="line">Platform: CPU</div>
 <div class="line"> </div>
-<div class="line">Attemps: 3261142</div>
+<div class="line">Attemps: 7438254</div>
 <div class="line"> </div>
 <div class="line">=========================================================================================================================</div>
 <div class="line">| A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |</div>
@@ -128,9 +128,9 @@ $(document).ready(function(){initNavTree('logic__gates_8c.html',''); initResizab
 <div class="line">=========================================================================================================================</div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line">real    0m5.245s</div>
-<div class="line">user    0m5.027s</div>
-<div class="line">sys     0m0.214s</div>
+<div class="line">real    0m10.910s</div>
+<div class="line">user    0m10.728s</div>
+<div class="line">sys     0m0.183s</div>
 </div><!-- fragment --><div class="fragment"><div class="line">  /</div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
@@ -149,8 +149,8 @@ $(document).ready(function(){initNavTree('logic__gates_8c.html',''); initResizab
 <div class="line"> </div>
 <div class="line"><span class="comment">// Prepare training data for all 16 two-input logic functions</span></div>
 <div class="line">    <a class="code hl_struct" href="structnttraindata.html">traindata_t</a> data={</div>
-<div class="line">        .<a class="code hl_variable" href="structnttraindata.html#a81a2bf262f89fd15d537c6e1d100af12">learning_rate</a>= (<a class="code hl_typedef" href="nttrain_8h.html#a2cfe1c0a780a80675abb2076680638aa">precision_t</a>)(0.1),</div>
-<div class="line">        .tolerance= (<a class="code hl_typedef" href="nttrain_8h.html#a2cfe1c0a780a80675abb2076680638aa">precision_t</a>)(0.0),</div>
+<div class="line">        .<a class="code hl_variable" href="structnttraindata.html#a81a2bf262f89fd15d537c6e1d100af12">learning_rate</a>= (<a class="code hl_typedef" href="nttrain_8h.html#a2cfe1c0a780a80675abb2076680638aa">precision_t</a>)(2.5),</div>
+<div class="line">        .tolerance= (<a class="code hl_typedef" href="nttrain_8h.html#a2cfe1c0a780a80675abb2076680638aa">precision_t</a>)(0.49),</div>
 <div class="line">        .max_attempts= 10000000,</div>
 <div class="line">        .samples= 4</div>
 <div class="line">    };</div>
