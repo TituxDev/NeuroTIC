@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['training_20utilities_0',['Training Utilities',['../group__NTTrain.html',1,'']]]
+  ['solurions_0',['Workflow Solurions',['../group__NTErgonomics.html',1,'']]]
 ];
