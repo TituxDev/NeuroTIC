@@ -1,10 +1,9 @@
 /**
  * @file ntfeedforward.h
- * @brief Predefined feedforward topologies for NeuroTIC networks.
+ * @brief Predefined Feedforward Topologies.  
+ * @ref http://tituxdev.github.io/NeuroTIC/src/CPU/ntfeedforward.c
  *
  * @copydetails ntfeedforward.c
- * 
- * @ref http://tituxdev.github.io/NeuroTIC/src/CPU/ntfeedforward.c
  */
 
 #ifndef NTFEEDFORWARD_H

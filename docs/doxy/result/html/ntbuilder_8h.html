@@ -96,7 +96,8 @@ $(document).ready(function(){initNavTree('ntbuilder_8h.html',''); initResizable(
 </div><!--header-->
 <div class="contents">
 
-<p>Network construction functions for the NeuroTIC framework.  
+<p>Construction Functions. <br  />
+ <a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="">ntcore.h</a>&quot;</code><br />
 <code>#include &lt;stddef.h&gt;</code><br />
@@ -105,7 +106,7 @@ Include dependency graph for ntbuilder.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="ntbuilder_8h__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntbuilder_8h" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntbuilder_8h" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntbuilder_8h">
-<area shape="rect" title="Network construction functions for the NeuroTIC framework." alt="" coords="5,5,247,45"/>
+<area shape="rect" title="Construction Functions. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c." alt="" coords="5,5,247,45"/>
 <area shape="rect" href="ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="39,93,114,119"/>
 <area shape="poly" title=" " alt="" coords="116,47,93,83,89,80,112,44"/>
 <area shape="rect" title=" " alt="" coords="138,93,213,119"/>
@@ -119,12 +120,12 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="ntbuilder_8h__dep__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntbuilder_8hdep" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntbuilder_8hdep" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntbuilder_8hdep">
-<area shape="rect" title="Network construction functions for the NeuroTIC framework." alt="" coords="485,5,727,45"/>
+<area shape="rect" title="Construction Functions. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c." alt="" coords="485,5,727,45"/>
 <area shape="rect" href="examples_2ntcomplete_8h.html" title=" " alt="" coords="5,93,249,133"/>
 <area shape="poly" title=" " alt="" coords="488,50,233,96,232,91,487,45"/>
 <area shape="rect" href="ntbuilder_8c.html" title="Implementation of network construction functions." alt="" coords="273,93,485,133"/>
 <area shape="poly" title=" " alt="" coords="544,53,430,96,428,91,542,48"/>
-<area shape="rect" href="ntfile_8c.html" title="Implementation of network persistence for NeuroTIC." alt="" coords="510,93,702,133"/>
+<area shape="rect" href="ntfile_8c.html" title="Implementation of network saving and loading for NeuroTIC." alt="" coords="510,93,702,133"/>
 <area shape="poly" title=" " alt="" coords="609,59,609,93,603,93,603,59"/>
 <area shape="rect" href="ntbasic_8h.html" title=" " alt="" coords="727,93,933,133"/>
 <area shape="poly" title=" " alt="" coords="669,48,782,91,780,96,667,53"/>
@@ -154,11 +155,12 @@ Functions</h2></td></tr>
 <tr class="separator:aaaecf1ef6fe5d9fb9b603d7479b22f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Network construction functions for the NeuroTIC framework. </p>
-<p>Provides memory allocation and pointer setup for neurons, input/output references, and inter-layer buffers. Uses <a class="el" href="group__NTMemory.html#gad582239e0fb2ae41572d3f0582922bc2" title="Registers a dynamically allocated memory block for deferred release.">memtrack()</a> to manage memory safely.</p>
+<div class="textblock"><p>Construction Functions. <br  />
+ <a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c</a>. </p>
+<p>Provides memory allocation and pointer setup for neurons, input/output references, and inter-layer buffers. <br  />
+ Uses <a class="el" href="group__NTMemory.html#gad582239e0fb2ae41572d3f0582922bc2" title="Registers a dynamically allocated memory block for deferred release.">memtrack()</a> to manage memory safely.</p>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026  </dd></dl>
-<p><a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c</a> </p>
+<dl class="section date"><dt>Date</dt><dd>2026   </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="">ntbuilder.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
@@ -198,8 +200,8 @@ Functions</h2></td></tr>
 <div class="line">        .layers= <span class="keyword">sizeof</span>( neurons )/<span class="keyword">sizeof</span>( uint16_t ), \</div>
 <div class="line">    }; \</div>
 <div class="line">    buildnet( <a class="code hl_function" href="ntfeedforward_8c.html#ad4572edfe44001ed5b40ffc7e29026b9">newfeedforward</a>( <a class="code hl_define" href="ntbuilder_8h.html#a6c4abea58db7193ec0663d0347bdeb96">NEWNET</a>( network , neurons ) ) );</div>
-<div class="ttc" id="antbuilder_8h_html_a6c4abea58db7193ec0663d0347bdeb96"><div class="ttname"><a href="ntbuilder_8h.html#a6c4abea58db7193ec0663d0347bdeb96">NEWNET</a></div><div class="ttdeci">#define NEWNET(network, neurons)</div><div class="ttdoc">Convenience macro to create a new network.</div><div class="ttdef"><b>Definition</b> ntbuilder.h:26</div></div>
-<div class="ttc" id="antfeedforward_8c_html_ad4572edfe44001ed5b40ffc7e29026b9"><div class="ttname"><a href="ntfeedforward_8c.html#ad4572edfe44001ed5b40ffc7e29026b9">newfeedforward</a></div><div class="ttdeci">struct net_s * newfeedforward(net_s *net)</div><div class="ttdoc">Initializes a simple feedforward topology.</div><div class="ttdef"><b>Definition</b> ntfeedforward.c:23</div></div>
+<div class="ttc" id="antbuilder_8h_html_a6c4abea58db7193ec0663d0347bdeb96"><div class="ttname"><a href="ntbuilder_8h.html#a6c4abea58db7193ec0663d0347bdeb96">NEWNET</a></div><div class="ttdeci">#define NEWNET(network, neurons)</div><div class="ttdoc">Convenience macro to create a new network.</div><div class="ttdef"><b>Definition</b> ntbuilder.h:25</div></div>
+<div class="ttc" id="antfeedforward_8c_html_ad4572edfe44001ed5b40ffc7e29026b9"><div class="ttname"><a href="ntfeedforward_8c.html#ad4572edfe44001ed5b40ffc7e29026b9">newfeedforward</a></div><div class="ttdeci">struct net_s * newfeedforward(net_s *net)</div><div class="ttdoc">Initializes a simple feedforward topology.</div><div class="ttdef"><b>Definition</b> ntfeedforward.c:21</div></div>
 <div class="ttc" id="astructnet__s_html"><div class="ttname"><a href="structnet__s.html">net_s</a></div><div class="ttdoc">Root structural container of a NeuroTIC network.</div><div class="ttdef"><b>Definition</b> ntcore.h:100</div></div>
 <div class="ttc" id="astructnet__s_html_a252eb5f95334455a30914a1d3706a4d0"><div class="ttname"><a href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">net_s::inputs</a></div><div class="ttdeci">input_t inputs</div><div class="ttdef"><b>Definition</b> ntcore.h:101</div></div>
 </div><!-- fragment -->
@@ -281,8 +283,9 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the fully constructed network.</dd></dl>
-<p>Allocates memory for inputs, outputs, and inter-layer buffers according to the <code>bff_wiring</code> configuration. Sets neuron input pointers and weight arrays.</p>
-<p>Buffer type explanations:</p><ul>
+<p>Allocates memory for inputs, outputs, and inter-layer buffers according to the <code>bff_wiring</code> configuration. <br  />
+ Sets neuron input pointers and weight arrays. <br  />
+ Buffer type explanations:</p><ul>
 <li>'M': Mixed buffer; each pointer is set based on <code>src_type</code>.<ul>
 <li>'N': Points to another buffer in the network.</li>
 <li>'I': Points to the network input array.</li>
@@ -297,7 +300,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="#l00079">wiring_s::array_type</a>, <a class="el" href="#l00078">wiring_s::arrays</a>, <a class="el" href="#l00107">net_s::bff</a>, <a class="el" href="#l00058">neuron_s::bff_idx</a>, <a class="el" href="#l00059">neuron_s::in</a>, <a class="el" href="#l00104">net_s::in</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, <a class="el" href="#l00101">net_s::inputs</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00063">neuron_s::out</a>, <a class="el" href="#l00108">net_s::out</a>, <a class="el" href="#l00080">wiring_s::size</a>, <a class="el" href="#l00083">wiring_s::src_index</a>, <a class="el" href="#l00082">wiring_s::src_layer</a>, <a class="el" href="#l00081">wiring_s::src_type</a>, and <a class="el" href="#l00106">net_s::wiring</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#l00161">loadnet()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00176">loadnet()</a>.</p>
 
 </div>
 </div>
@@ -343,11 +346,12 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the initialized network on success, or NULL on failure.</dd></dl>
-<p>Initializes a new neural network structure by allocating memory for neurons and layers, and setting initial pointers to NULL. Validates input parameters and uses <code>memtrack</code> to register allocations for automatic cleanup. </p>
+<p>Initializes a new neural network structure by allocating memory for neurons and layers, and setting initial pointers to NULL. <br  />
+ Validates input parameters and uses <code>memtrack</code> to register allocations for automatic cleanup. </p>
 
 <p class="reference">References <a class="el" href="#l00102">net_s::layers</a>, and <a class="el" href="#l00103">net_s::neurons</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#l00161">loadnet()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00176">loadnet()</a>.</p>
 
 </div>
 </div>

@@ -1,7 +1,6 @@
 /**
  * @file nttrain.h
- * @brief Header for training utilities in NeuroTIC
- *
+ * @brief Training Utilities.  
  * @ref https://tituxdev.github.io/NeuroTIC/src/CPU/nttrain.c
  *
  * @copydetails nttrain.c

@@ -2,6 +2,6 @@
  * @defgroup NTExecution Execution Algorithms
  * @brief NTExecution module documentation
  * 
- * ntcalculate.h  
- * nttrain.h
+ * ntcalculate.h @copybrief ntcalculate.h  
+ * nttrain.h @copybrief nttrain.h
  */

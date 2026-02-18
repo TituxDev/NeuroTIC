@@ -1,10 +1,9 @@
 /**
  * @file ntbuilder.h
- * @brief Network construction functions for the NeuroTIC framework.
+ * @brief Construction Functions.  
+ * @ref http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c
  *
  * @copydetails ntbuilder.c
- * 
- * @ref http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c
  */
 
 #ifndef NTBUILDER_H

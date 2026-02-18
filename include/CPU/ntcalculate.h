@@ -1,7 +1,6 @@
 /**
  * @file ntcalculate.h
- * @brief Computation Module.
- *
+ * @brief Computation Module.  
  * @ref https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c
  * 
  * @copydetails ntcalculate.c
@@ -14,9 +13,6 @@
 
 /**
  * @brief Computes the weighted sum of a neuron.
- *
- * Performs:
- * weighted_sum = Σ(input_i * weight_i) + bias
  *
  * @param neuron Pointer to the neuron.
  * @return Weighted sum including bias.
@@ -33,9 +29,6 @@ data_t activate( neuron_s *neuron );
 
 /**
  * @brief Executes full feedforward propagation.
- *
- * All layers are evaluated sequentially. Each neuron is activated
- * in order of declaration.
  *
  * @param net Pointer to the network.
  * @return Pointer to the output buffer of the final layer.

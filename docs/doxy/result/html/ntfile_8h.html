@@ -95,7 +95,8 @@ $(document).ready(function(){initNavTree('ntfile_8h.html',''); initResizable(); 
 </div><!--header-->
 <div class="contents">
 
-<p>Save and load NeuroTIC networks to/from binary files.  
+<p>Save and Load Files. <br  />
+ <a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="">ntcore.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -103,7 +104,7 @@ Include dependency graph for ntfile.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="ntfile_8h__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntfile_8h" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntfile_8h" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntfile_8h">
-<area shape="rect" title="Save and load NeuroTIC networks to/from binary files." alt="" coords="5,5,223,45"/>
+<area shape="rect" title="Save and Load Files. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c." alt="" coords="5,5,223,45"/>
 <area shape="rect" href="ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="77,93,151,119"/>
 <area shape="poly" title=" " alt="" coords="117,46,117,79,111,79,111,46"/>
 <area shape="rect" title=" " alt="" coords="79,167,149,192"/>
@@ -115,10 +116,10 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="ntfile_8h__dep__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntfile_8hdep" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntfile_8hdep" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntfile_8hdep">
-<area shape="rect" title="Save and load NeuroTIC networks to/from binary files." alt="" coords="261,5,479,45"/>
+<area shape="rect" title="Save and Load Files. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c." alt="" coords="261,5,479,45"/>
 <area shape="rect" href="examples_2ntcomplete_8h.html" title=" " alt="" coords="5,93,249,133"/>
 <area shape="poly" title=" " alt="" coords="305,52,181,96,180,91,303,47"/>
-<area shape="rect" href="ntfile_8c.html" title="Implementation of network persistence for NeuroTIC." alt="" coords="274,93,466,133"/>
+<area shape="rect" href="ntfile_8c.html" title="Implementation of network saving and loading for NeuroTIC." alt="" coords="274,93,466,133"/>
 <area shape="poly" title=" " alt="" coords="373,59,373,93,367,93,367,59"/>
 <area shape="rect" href="variants_2ntcomplete_8h.html" title=" " alt="" coords="491,93,724,133"/>
 <area shape="poly" title=" " alt="" coords="436,48,556,91,554,96,434,53"/>
@@ -137,10 +138,17 @@ Functions</h2></td></tr>
 <tr class="separator:a8cdafc9f89ad9736acf6258f2b366101"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Save and load NeuroTIC networks to/from binary files. </p>
-<p>Provides functions to persist network structures and weights, allowing training to be stored and reloaded.</p>
+<div class="textblock"><p>Save and Load Files. <br  />
+ <a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c</a>. </p>
+<p>Provides functions to persist network structures and weights, allowing training to be stored and reloaded. <br  />
+ The file format is binary with a custom structure, including endianness and floating-point representation handling for cross-platform compatibility. <br  />
+ Currently, the implementation focuses on core data serialization and deserialization, with future plans for validation and standardization of loaded data.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd><p class="startdd">Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks. </p>
+<p class="interdd">Consider adding support for versioning in the file format to allow for future extensions and backward compatibility. </p>
+<p class="enddd">Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks.</p>
+</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2024 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026   </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="">ntfile.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -161,25 +169,21 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Loads a network from a binary file with extension .ntic. </p>
-<p>Reconstructs the network structure, weights, biases, and buffer wiring. Currently, data standardization and validation are not integrated.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>Base filename (without extension) of the saved network. </td></tr>
+    <tr><td class="paramname">name</td><td>Base filename (without extension) to load the network from. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The loaded network structure.</dd></dl>
-<p>Loads a network from a binary file with extension .ntic.</p>
-<p>Reconstructs all network data and buffer wiring. Currently does not validate the file or perform data standardization.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>Base filename to load (extension .ntic will be added). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The reconstructed network. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The loaded network structure. If loading fails, returns an empty network.</dd></dl>
+<p>Reconstructs the network structure, weights, biases, and buffer wiring from a binary file. <br  />
+ The function reads the file header to validate the format and version, then proceeds to read the core network data while handling endianness and floating-point representation.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd><p class="startdd">Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks. </p>
+<p class="interdd">Consider adding support for versioning in the file format to allow for future extensions and backward compatibility. </p>
+<p class="enddd">Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks. </p>
+</dd></dl>
 
-<p class="reference">References <a class="el" href="#l00079">wiring_s::array_type</a>, <a class="el" href="#l00078">wiring_s::arrays</a>, <a class="el" href="#l00061">neuron_s::b</a>, <a class="el" href="#l00058">neuron_s::bff_idx</a>, <a class="el" href="#l00033">bswap16()</a>, <a class="el" href="#l00036">bswap32()</a>, <a class="el" href="#l00057">buildnet()</a>, <a class="el" href="#l00029">checkendian()</a>, <a class="el" href="#l00073">floatsys()</a>, <a class="el" href="#l00062">neuron_s::fn</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, <a class="el" href="#l00101">net_s::inputs</a>, <a class="el" href="#l00044">isieee754()</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00025">newnet()</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00080">wiring_s::size</a>, <a class="el" href="#l00083">wiring_s::src_index</a>, <a class="el" href="#l00082">wiring_s::src_layer</a>, <a class="el" href="#l00081">wiring_s::src_type</a>, <a class="el" href="#l00060">neuron_s::w</a>, and <a class="el" href="#l00106">net_s::wiring</a>.</p>
+<p class="reference">References <a class="el" href="#l00079">wiring_s::array_type</a>, <a class="el" href="#l00078">wiring_s::arrays</a>, <a class="el" href="#l00061">neuron_s::b</a>, <a class="el" href="#l00058">neuron_s::bff_idx</a>, <a class="el" href="#l00055">buildnet()</a>, <a class="el" href="#l00062">neuron_s::fn</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, <a class="el" href="#l00101">net_s::inputs</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00024">newnet()</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00080">wiring_s::size</a>, <a class="el" href="#l00083">wiring_s::src_index</a>, <a class="el" href="#l00082">wiring_s::src_layer</a>, <a class="el" href="#l00081">wiring_s::src_type</a>, <a class="el" href="#l00060">neuron_s::w</a>, and <a class="el" href="#l00106">net_s::wiring</a>.</p>
 
 </div>
 </div>
@@ -210,27 +214,31 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Saves a network to a binary file with extension .ntic. </p>
-<p>Stores the network's layers, neurons, weights, biases, and buffer wiring.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">net</td><td>Pointer to the network to save. </td></tr>
-    <tr><td class="paramname">name</td><td>Base filename (without extension) to save the network. </td></tr>
+    <tr><td class="paramname">name</td><td>Base filename (without extension) to save the network as. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>0 on success, non-zero on failure (future validation to be added).</dd></dl>
-<p>Saves a network to a binary file with extension .ntic.</p>
-<p>Writes the network structure, weights, biases, and buffer wiring.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">net</td><td>Pointer to the network to save. </td></tr>
-    <tr><td class="paramname">name</td><td>Base filename to save (extension .ntic will be added). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0 on success. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, non-zero on failure.</dd></dl>
+<p>Saves the network's layers, neurons, weights, biases, and buffer wiring to a binary file. <br  />
+ The file is structured with a header containing a magic string and version byte, followed by the network's core data. <br  />
+ The function handles endianness and floating-point representation to ensure cross-platform compatibility. <br  />
+</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd><p class="startdd">Add validation checks for the input network structure before attempting to save, ensuring that all necessary data is present and correctly formatted. <br  />
+ </p>
+<p class="interdd">Implement error handling for file operations, such as checking for write permissions and handling disk space issues. <br  />
+ </p>
+<p class="interdd">Consider adding metadata to the file format, such as timestamps or training information, to provide more context when loading networks in the future. <br  />
+ </p>
+<p class="interdd">Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks. <br  />
+ </p>
+<p class="enddd">Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks. <br  />
+ </p>
+</dd></dl>
 
-<p class="reference">References <a class="el" href="#l00079">wiring_s::array_type</a>, <a class="el" href="#l00078">wiring_s::arrays</a>, <a class="el" href="#l00029">checkendian()</a>, <a class="el" href="#l00062">neuron_s::fn</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, <a class="el" href="#l00044">isieee754()</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00080">wiring_s::size</a>, <a class="el" href="#l00081">wiring_s::src_type</a>, and <a class="el" href="#l00106">net_s::wiring</a>.</p>
+<p class="reference">References <a class="el" href="#l00079">wiring_s::array_type</a>, <a class="el" href="#l00078">wiring_s::arrays</a>, <a class="el" href="#l00058">neuron_s::bff_idx</a>, <a class="el" href="#l00062">neuron_s::fn</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00080">wiring_s::size</a>, <a class="el" href="#l00081">wiring_s::src_type</a>, and <a class="el" href="#l00106">net_s::wiring</a>.</p>
 
 </div>
 </div>

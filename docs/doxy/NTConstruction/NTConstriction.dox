@@ -2,7 +2,7 @@
  * @defgroup NTConstruction  Construction Algorithms
  * @brief NTConstruction module documentation
  * 
- * ntbuilder.h  
- * ntfeedforward.h  
- * ntfile.h
+ * ntbuilder.h @copybrief ntbuilder.h  
+ * ntfeedforward.h @copybrief ntfeedforward.h  
+ * ntfile.h @copybrief ntfile.h
  */

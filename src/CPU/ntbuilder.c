@@ -2,8 +2,8 @@
  * @file ntbuilder.c
  * @brief Implementation of network construction functions.
  *
- * Provides memory allocation and pointer setup for neurons, input/output
- * references, and inter-layer buffers. Uses memtrack() to manage memory safely.
+ * Provides memory allocation and pointer setup for neurons, input/output references, and inter-layer buffers.  
+ * Uses memtrack() to manage memory safely.
  * 
  * @author Oscar Sotomayor
  * @date 2026
@@ -18,9 +18,8 @@
 
 /**
  * @details
- * Initializes a new neural network structure by allocating memory for neurons
- * and layers, and setting initial pointers to NULL. Validates input parameters
- * and uses `memtrack` to register allocations for automatic cleanup.
+ * Initializes a new neural network structure by allocating memory for neurons and layers, and setting initial pointers to NULL.  
+ * Validates input parameters and uses `memtrack` to register allocations for automatic cleanup.
  */
 struct net_s *newnet( net_s *net , uint16_t *neurons_per_layer , layer_t layers_size ){
     if( !net || !neurons_per_layer || net->layers < 1 || layers_size != net->layers ) return NULL;
@@ -39,9 +38,8 @@ struct net_s *newnet( net_s *net , uint16_t *neurons_per_layer , layer_t layers_
 
 /**
  * @details
- * Allocates memory for inputs, outputs, and inter-layer buffers according to
- * the `bff_wiring` configuration. Sets neuron input pointers and weight arrays.
- * 
+ * Allocates memory for inputs, outputs, and inter-layer buffers according to the `bff_wiring` configuration.  
+ * Sets neuron input pointers and weight arrays.  
  * Buffer type explanations:
  * - 'M': Mixed buffer; each pointer is set based on `src_type`.
  *   - 'N': Points to another buffer in the network.

@@ -90,14 +90,12 @@ $(document).ready(function(){initNavTree('ntfile_8c.html',''); initResizable(); 
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle"><div class="title">ntfile.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of network persistence for NeuroTIC.  
+<p>Implementation of network saving and loading for NeuroTIC.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="">ntfile.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="">ntbuilder.h</a>&quot;</code><br />
@@ -112,10 +110,10 @@ Include dependency graph for ntfile.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="ntfile_8c__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntfile_8c" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntfile_8c" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntfile_8c">
-<area shape="rect" title="Implementation of network persistence for NeuroTIC." alt="" coords="321,5,513,45"/>
-<area shape="rect" href="ntfile_8h.html" title="Save and load NeuroTIC networks to/from binary files." alt="" coords="7,93,73,119"/>
+<area shape="rect" title="Implementation of network saving and loading for NeuroTIC." alt="" coords="321,5,513,45"/>
+<area shape="rect" href="ntfile_8h.html" title="Save and Load Files. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c." alt="" coords="7,93,73,119"/>
 <area shape="poly" title=" " alt="" coords="322,47,87,96,86,90,321,42"/>
-<area shape="rect" href="ntbuilder_8h.html" title="Network construction functions for the NeuroTIC framework." alt="" coords="97,93,188,119"/>
+<area shape="rect" href="ntbuilder_8h.html" title="Construction Functions. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c." alt="" coords="97,93,188,119"/>
 <area shape="poly" title=" " alt="" coords="352,48,197,92,195,87,351,43"/>
 <area shape="rect" href="ntmemory_8h.html" title="Auxiliary memory tracking utilities." alt="" coords="213,93,313,119"/>
 <area shape="poly" title=" " alt="" coords="381,48,299,89,296,85,379,43"/>
@@ -141,11 +139,6 @@ Include dependency graph for ntfile.c:</div>
 </div>
 <p><a href="">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfloat__parts__s.html">float_parts_s</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:af71324c57f05ff9e24bd384925dd6b17" id="r_af71324c57f05ff9e24bd384925dd6b17"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntfile_8c.html#af71324c57f05ff9e24bd384925dd6b17">NAME_LENGTH</a>&#160;&#160;&#160;30</td></tr>
@@ -154,38 +147,94 @@ Macros</h2></td></tr>
 <tr class="separator:a94630370ae389fb1189282fa0742f310"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c6d5de492ac61ad29aec7aa9a436bbf" id="r_a1c6d5de492ac61ad29aec7aa9a436bbf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntfile_8c.html#a1c6d5de492ac61ad29aec7aa9a436bbf">VERSION</a>&#160;&#160;&#160;0x0</td></tr>
 <tr class="separator:a1c6d5de492ac61ad29aec7aa9a436bbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30144b1185f06ef07c25abd5e05d46ba" id="r_a30144b1185f06ef07c25abd5e05d46ba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntfile_8c.html#a30144b1185f06ef07c25abd5e05d46ba">STRICT_LE16</a>(x)&#160;&#160;&#160;&amp;( uint16_t ){ little_endian ? ( x ) : <a class="el" href="ntfile_8c.html#a5a8b3bfdc9d73cf146aa2ca82d36888a">bswap16</a>( x )}</td></tr>
-<tr class="separator:a30144b1185f06ef07c25abd5e05d46ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6121f1de1e949f74c5e2517c8fd98d65" id="r_a6121f1de1e949f74c5e2517c8fd98d65"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntfile_8c.html#a6121f1de1e949f74c5e2517c8fd98d65">STRICT_LE32</a>(x)&#160;&#160;&#160;&amp;( uint32_t ){ little_endian ? ( x ) : <a class="el" href="ntfile_8c.html#a9246798c7cd3b8ee1ac6aa07119b2524">bswap32</a>( x )}</td></tr>
-<tr class="separator:a6121f1de1e949f74c5e2517c8fd98d65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3de58241794b44d5444556e2b354385c" id="r_a3de58241794b44d5444556e2b354385c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntfile_8c.html#a3de58241794b44d5444556e2b354385c">checkendian</a> (void)</td></tr>
-<tr class="separator:a3de58241794b44d5444556e2b354385c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a8b3bfdc9d73cf146aa2ca82d36888a" id="r_a5a8b3bfdc9d73cf146aa2ca82d36888a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntfile_8c.html#a5a8b3bfdc9d73cf146aa2ca82d36888a">bswap16</a> (uint16_t x)</td></tr>
-<tr class="separator:a5a8b3bfdc9d73cf146aa2ca82d36888a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9246798c7cd3b8ee1ac6aa07119b2524" id="r_a9246798c7cd3b8ee1ac6aa07119b2524"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntfile_8c.html#a9246798c7cd3b8ee1ac6aa07119b2524">bswap32</a> (uint32_t x)</td></tr>
-<tr class="separator:a9246798c7cd3b8ee1ac6aa07119b2524"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7ca6060b9601d33ebb9411dc72286f4" id="r_ac7ca6060b9601d33ebb9411dc72286f4"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntfile_8c.html#ac7ca6060b9601d33ebb9411dc72286f4">isieee754</a> (void)</td></tr>
-<tr class="separator:ac7ca6060b9601d33ebb9411dc72286f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9041095ed9ea53165999e5bebfc04271" id="r_a9041095ed9ea53165999e5bebfc04271"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntfile_8c.html#a9041095ed9ea53165999e5bebfc04271">float32</a> (float x, uint8_t ieee754)</td></tr>
-<tr class="separator:a9041095ed9ea53165999e5bebfc04271"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acef0da894eb82c36eb54a30050eedaa0" id="r_acef0da894eb82c36eb54a30050eedaa0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntfile_8c.html#acef0da894eb82c36eb54a30050eedaa0">floatsys</a> (int32_t x, uint8_t ieee754)</td></tr>
-<tr class="separator:acef0da894eb82c36eb54a30050eedaa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Endianness and Floating-Point Handling</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>The STRICT_LE16 and STRICT_LE32 macros ensure that data is written in little-endian format, regardless of the host system's endianness. <br  />
+ The checkendian function detects the system's endianness, while bswap16 and bswap32 perform byte swapping for 16-bit and 32-bit integers, respectively. <br  />
+ The isieee754 function checks if the system uses IEEE 754 floating-point representation, and the float32 and floatsys functions convert between float and uint32_t representations based on the IEEE 754 standard or a custom format if not supported.</p>
+<div class="fragment"><div class="line">  /</div>
+<div class="line"><span class="preprocessor">#define STRICT_LE16( x ) &amp;( uint16_t ){ little_endian ? ( x ) : bswap16( x )}</span></div>
+<div class="line"><span class="preprocessor">#define STRICT_LE32( x ) &amp;( uint32_t ){ little_endian ? ( x ) : bswap32( x )}</span></div>
+<div class="line">uint8_t checkendian( <span class="keywordtype">void</span> ){</div>
+<div class="line">    uint16_t x= 1;</div>
+<div class="line">    <span class="keywordflow">return</span> *(uint8_t *)&amp;x;</div>
+<div class="line">}</div>
+<div class="line">uint16_t bswap16( uint16_t x ){</div>
+<div class="line">    <span class="keywordflow">return</span> ( x &gt;&gt; 8 ) | ( x &lt;&lt; 8 );</div>
+<div class="line">}</div>
+<div class="line">uint32_t bswap32( uint32_t x ){</div>
+<div class="line">    <span class="keywordflow">return</span></div>
+<div class="line">        ( ( x &gt;&gt; 24 ) &amp; 0xFF ) |</div>
+<div class="line">        ( ( x &gt;&gt; 8 ) &amp; 0xFF00 ) |</div>
+<div class="line">        ( ( x &lt;&lt; 8 ) &amp; 0xFF0000 ) |</div>
+<div class="line">        ( ( x &lt;&lt; 24 ) &amp; 0xFF000000 );</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">uint8_t isieee754( <span class="keywordtype">void</span> ){</div>
+<div class="line">    <span class="keywordflow">return</span></div>
+<div class="line">        ( <span class="keyword">sizeof</span>( <span class="keywordtype">float</span> ) == 4) &amp;</div>
+<div class="line">        ( FLT_RADIX == 2 ) &amp;</div>
+<div class="line">        ( FLT_MANT_DIG == 24 ) &amp;</div>
+<div class="line">        ( FLT_MAX_EXP == 128 );</div>
+<div class="line">}</div>
+<div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line">    uint8_t sign;</div>
+<div class="line">    int32_t e;</div>
+<div class="line">    <span class="keywordtype">float</span> m;</div>
+<div class="line">} float_parts_s;</div>
+<div class="line">uint32_t float32( <span class="keywordtype">float</span> x , uint8_t ieee754 ){</div>
+<div class="line">    uint32_t result;</div>
+<div class="line">    float_parts_s float_parts= {0};</div>
+<div class="line">    <span class="keywordflow">if</span>( ieee754 ){</div>
+<div class="line">        memcpy( &amp;result , &amp;x , <span class="keyword">sizeof</span>( <span class="keywordtype">float</span> ) );</div>
+<div class="line">        <span class="keywordflow">return</span> result;</div>
+<div class="line">    }</div>
+<div class="line">    float_parts.sign= x &lt; 0.0f;</div>
+<div class="line">    <span class="keywordflow">if</span>( ( x= fabsf( x ) ) == 0.0f ) <span class="keywordflow">return</span> 0;</div>
+<div class="line">    float_parts.m= frexpf( x , &amp;float_parts.e );</div>
+<div class="line">    <span class="keywordflow">if</span>( float_parts.e &lt;= -126 ) <span class="keywordflow">return</span> ( float_parts.sign &lt;&lt; 31 );</div>
+<div class="line">    <span class="keywordflow">if</span>( float_parts.e &gt;= 129 ) <span class="keywordflow">return</span> ( float_parts.sign &lt;&lt; 31 ) | ( 0xFF &lt;&lt; 23 );</div>
+<div class="line">    <span class="keywordflow">return</span> ( float_parts.sign &lt;&lt; 31 ) |</div>
+<div class="line">           ( ( uint32_t )( float_parts.e + 126 ) &lt;&lt; 23 ) |</div>
+<div class="line">           ( ( uint32_t )( ( float_parts.m * 2.0f - 1.0f ) * ( 1u &lt;&lt; 23 ) + 0.5f ) &amp; 0x7FFFFF );</div>
+<div class="line">}</div>
+<div class="line"><span class="keywordtype">float</span> floatsys( int32_t x , uint8_t ieee754 ){</div>
+<div class="line">    <span class="keywordtype">float</span> result;</div>
+<div class="line">    <span class="keywordflow">if</span>( ieee754 ){</div>
+<div class="line">        memcpy( &amp;result , &amp;x , <span class="keyword">sizeof</span>( <span class="keywordtype">float</span> ) );</div>
+<div class="line">        <span class="keywordflow">return</span> result;</div>
+<div class="line">    }</div>
+<div class="line">    float_parts_s float_parts= { .sign= ( x &gt;&gt; 31 ) &amp; 1 , .e= ( x &gt;&gt; 23 ) &amp; 0xFF , .m= ( float )( x &amp; 0x7FFFFF ) / ( 1u &lt;&lt; 23 ) };</div>
+<div class="line">    <span class="keywordflow">if</span>( float_parts.e == 0 &amp;&amp; ( x &amp; 0x7FFFFF ) == 0 ) <span class="keywordflow">return</span> 0.0f;</div>
+<div class="line">    <span class="keywordflow">if</span>( float_parts.e == 0 ) float_parts.e= -126;</div>
+<div class="line">    <span class="keywordflow">else</span> {</div>
+<div class="line">        float_parts.m+= 1.0f;</div>
+<div class="line">        float_parts.e-= 127;</div>
+<div class="line">    }</div>
+<div class="line">    result= ldexpf( float_parts.m , float_parts.e );</div>
+<div class="line">    <span class="keywordflow">return</span> float_parts.sign ? -result : result;</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></td></tr>
 <tr class="memitem:ac70bcbf3321b6e08b5c9fe134e4b8426" id="r_ac70bcbf3321b6e08b5c9fe134e4b8426"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntfile_8c.html#ac70bcbf3321b6e08b5c9fe134e4b8426">savenet</a> (<a class="el" href="structnet__s.html">net_s</a> *net, const char *name)</td></tr>
-<tr class="memdesc:ac70bcbf3321b6e08b5c9fe134e4b8426"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves a network to disk in binary format.  <br /></td></tr>
+<tr class="memdesc:ac70bcbf3321b6e08b5c9fe134e4b8426"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves a network to a binary file with extension .ntic.  <br /></td></tr>
 <tr class="separator:ac70bcbf3321b6e08b5c9fe134e4b8426"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8cdafc9f89ad9736acf6258f2b366101" id="r_a8cdafc9f89ad9736acf6258f2b366101"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structnet__s.html">net_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntfile_8c.html#a8cdafc9f89ad9736acf6258f2b366101">loadnet</a> (char *name)</td></tr>
-<tr class="memdesc:a8cdafc9f89ad9736acf6258f2b366101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a network from a binary file.  <br /></td></tr>
+<tr class="memdesc:a8cdafc9f89ad9736acf6258f2b366101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a network from a binary file with extension .ntic.  <br /></td></tr>
 <tr class="separator:a8cdafc9f89ad9736acf6258f2b366101"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of network persistence for NeuroTIC. </p>
-<p>Supports saving and loading network structures to binary .ntic files.</p>
-<p>Pending: data standardization, validation checks, and error handling.</p>
+<div class="textblock"><p>Implementation of network saving and loading for NeuroTIC. </p>
+<p>Provides functions to persist network structures and weights, allowing training to be stored and reloaded. <br  />
+ The file format is binary with a custom structure, including endianness and floating-point representation handling for cross-platform compatibility. <br  />
+ Currently, the implementation focuses on core data serialization and deserialization, with future plans for validation and standardization of loaded data.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd><p class="startdd">Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks. </p>
+<p class="interdd">Consider adding support for versioning in the file format to allow for future extensions and backward compatibility. </p>
+<p class="enddd">Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks.</p>
+</dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2024 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="">ntfile.c</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
@@ -217,42 +266,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a30144b1185f06ef07c25abd5e05d46ba" name="a30144b1185f06ef07c25abd5e05d46ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30144b1185f06ef07c25abd5e05d46ba">&#9670;&#160;</a></span>STRICT_LE16</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define STRICT_LE16</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">x</td><td>)</td>
-          <td>&#160;&#160;&#160;&amp;( uint16_t ){ little_endian ? ( x ) : <a class="el" href="ntfile_8c.html#a5a8b3bfdc9d73cf146aa2ca82d36888a">bswap16</a>( x )}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6121f1de1e949f74c5e2517c8fd98d65" name="a6121f1de1e949f74c5e2517c8fd98d65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6121f1de1e949f74c5e2517c8fd98d65">&#9670;&#160;</a></span>STRICT_LE32</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define STRICT_LE32</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">x</td><td>)</td>
-          <td>&#160;&#160;&#160;&amp;( uint32_t ){ little_endian ? ( x ) : <a class="el" href="ntfile_8c.html#a9246798c7cd3b8ee1ac6aa07119b2524">bswap32</a>( x )}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a1c6d5de492ac61ad29aec7aa9a436bbf" name="a1c6d5de492ac61ad29aec7aa9a436bbf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1c6d5de492ac61ad29aec7aa9a436bbf">&#9670;&#160;</a></span>VERSION</h2>
 
@@ -268,148 +281,6 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a5a8b3bfdc9d73cf146aa2ca82d36888a" name="a5a8b3bfdc9d73cf146aa2ca82d36888a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a8b3bfdc9d73cf146aa2ca82d36888a">&#9670;&#160;</a></span>bswap16()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t bswap16 </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="#l00161">loadnet()</a>.</p>
-
-</div>
-</div>
-<a id="a9246798c7cd3b8ee1ac6aa07119b2524" name="a9246798c7cd3b8ee1ac6aa07119b2524"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9246798c7cd3b8ee1ac6aa07119b2524">&#9670;&#160;</a></span>bswap32()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t bswap32 </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="#l00161">loadnet()</a>.</p>
-
-</div>
-</div>
-<a id="a3de58241794b44d5444556e2b354385c" name="a3de58241794b44d5444556e2b354385c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3de58241794b44d5444556e2b354385c">&#9670;&#160;</a></span>checkendian()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t checkendian </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="#l00161">loadnet()</a>, and <a class="el" href="#l00100">savenet()</a>.</p>
-
-</div>
-</div>
-<a id="a9041095ed9ea53165999e5bebfc04271" name="a9041095ed9ea53165999e5bebfc04271"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9041095ed9ea53165999e5bebfc04271">&#9670;&#160;</a></span>float32()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t float32 </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>ieee754</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="reference">References <a class="el" href="#l00053">float_parts_s::e</a>, <a class="el" href="#l00054">float_parts_s::m</a>, and <a class="el" href="#l00052">float_parts_s::sign</a>.</p>
-
-</div>
-</div>
-<a id="acef0da894eb82c36eb54a30050eedaa0" name="acef0da894eb82c36eb54a30050eedaa0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acef0da894eb82c36eb54a30050eedaa0">&#9670;&#160;</a></span>floatsys()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float floatsys </td>
-          <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>ieee754</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="reference">References <a class="el" href="#l00053">float_parts_s::e</a>, <a class="el" href="#l00054">float_parts_s::m</a>, and <a class="el" href="#l00052">float_parts_s::sign</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="#l00161">loadnet()</a>.</p>
-
-</div>
-</div>
-<a id="ac7ca6060b9601d33ebb9411dc72286f4" name="ac7ca6060b9601d33ebb9411dc72286f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7ca6060b9601d33ebb9411dc72286f4">&#9670;&#160;</a></span>isieee754()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t isieee754 </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="#l00161">loadnet()</a>, and <a class="el" href="#l00100">savenet()</a>.</p>
-
-</div>
-</div>
 <a id="a8cdafc9f89ad9736acf6258f2b366101" name="a8cdafc9f89ad9736acf6258f2b366101"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8cdafc9f89ad9736acf6258f2b366101">&#9670;&#160;</a></span>loadnet()</h2>
 
@@ -426,18 +297,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Loads a network from a binary file. </p>
-<p>Loads a network from a binary file with extension .ntic.</p>
-<p>Reconstructs all network data and buffer wiring. Currently does not validate the file or perform data standardization.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>Base filename to load (extension .ntic will be added). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The reconstructed network. </dd></dl>
+<p>Loads a network from a binary file with extension .ntic. </p>
+<p>Reconstructs the network structure, weights, biases, and buffer wiring from a binary file. <br  />
+ The function reads the file header to validate the format and version, then proceeds to read the core network data while handling endianness and floating-point representation.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd><p class="startdd">Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks. </p>
+<p class="interdd">Consider adding support for versioning in the file format to allow for future extensions and backward compatibility. </p>
+<p class="enddd">Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks. </p>
+</dd></dl>
 
-<p class="reference">References <a class="el" href="#l00079">wiring_s::array_type</a>, <a class="el" href="#l00078">wiring_s::arrays</a>, <a class="el" href="#l00061">neuron_s::b</a>, <a class="el" href="#l00058">neuron_s::bff_idx</a>, <a class="el" href="#l00033">bswap16()</a>, <a class="el" href="#l00036">bswap32()</a>, <a class="el" href="#l00057">buildnet()</a>, <a class="el" href="#l00029">checkendian()</a>, <a class="el" href="#l00073">floatsys()</a>, <a class="el" href="#l00062">neuron_s::fn</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, <a class="el" href="#l00101">net_s::inputs</a>, <a class="el" href="#l00044">isieee754()</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00025">newnet()</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00080">wiring_s::size</a>, <a class="el" href="#l00083">wiring_s::src_index</a>, <a class="el" href="#l00082">wiring_s::src_layer</a>, <a class="el" href="#l00081">wiring_s::src_type</a>, <a class="el" href="#l00060">neuron_s::w</a>, and <a class="el" href="#l00106">net_s::wiring</a>.</p>
+<p class="reference">References <a class="el" href="#l00079">wiring_s::array_type</a>, <a class="el" href="#l00078">wiring_s::arrays</a>, <a class="el" href="#l00061">neuron_s::b</a>, <a class="el" href="#l00058">neuron_s::bff_idx</a>, <a class="el" href="#l00055">buildnet()</a>, <a class="el" href="#l00062">neuron_s::fn</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, <a class="el" href="#l00101">net_s::inputs</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00024">newnet()</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00080">wiring_s::size</a>, <a class="el" href="#l00083">wiring_s::src_index</a>, <a class="el" href="#l00082">wiring_s::src_layer</a>, <a class="el" href="#l00081">wiring_s::src_type</a>, <a class="el" href="#l00060">neuron_s::w</a>, and <a class="el" href="#l00106">net_s::wiring</a>.</p>
 
 </div>
 </div>
@@ -467,19 +335,24 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Saves a network to disk in binary format. </p>
-<p>Saves a network to a binary file with extension .ntic.</p>
-<p>Writes the network structure, weights, biases, and buffer wiring.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">net</td><td>Pointer to the network to save. </td></tr>
-    <tr><td class="paramname">name</td><td>Base filename to save (extension .ntic will be added). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0 on success. </dd></dl>
+<p>Saves a network to a binary file with extension .ntic. </p>
+<p>Saves the network's layers, neurons, weights, biases, and buffer wiring to a binary file. <br  />
+ The file is structured with a header containing a magic string and version byte, followed by the network's core data. <br  />
+ The function handles endianness and floating-point representation to ensure cross-platform compatibility. <br  />
+</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd><p class="startdd">Add validation checks for the input network structure before attempting to save, ensuring that all necessary data is present and correctly formatted. <br  />
+ </p>
+<p class="interdd">Implement error handling for file operations, such as checking for write permissions and handling disk space issues. <br  />
+ </p>
+<p class="interdd">Consider adding metadata to the file format, such as timestamps or training information, to provide more context when loading networks in the future. <br  />
+ </p>
+<p class="interdd">Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks. <br  />
+ </p>
+<p class="enddd">Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks. <br  />
+ </p>
+</dd></dl>
 
-<p class="reference">References <a class="el" href="#l00079">wiring_s::array_type</a>, <a class="el" href="#l00078">wiring_s::arrays</a>, <a class="el" href="#l00029">checkendian()</a>, <a class="el" href="#l00062">neuron_s::fn</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, <a class="el" href="#l00044">isieee754()</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00080">wiring_s::size</a>, <a class="el" href="#l00081">wiring_s::src_type</a>, and <a class="el" href="#l00106">net_s::wiring</a>.</p>
+<p class="reference">References <a class="el" href="#l00079">wiring_s::array_type</a>, <a class="el" href="#l00078">wiring_s::arrays</a>, <a class="el" href="#l00058">neuron_s::bff_idx</a>, <a class="el" href="#l00062">neuron_s::fn</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00080">wiring_s::size</a>, <a class="el" href="#l00081">wiring_s::src_type</a>, and <a class="el" href="#l00106">net_s::wiring</a>.</p>
 
 </div>
 </div>

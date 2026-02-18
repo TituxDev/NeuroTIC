@@ -105,7 +105,7 @@ Include dependency graph for ntcalculate.c:</div>
 <div class="center"><img src="ntcalculate_8c__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntcalculate_8c" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntcalculate_8c" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntcalculate_8c">
 <area shape="rect" title="Implementation of feedforward network computations." alt="" coords="12,5,239,45"/>
-<area shape="rect" href="ntcalculate_8h.html" title="Computation Module." alt="" coords="5,93,112,119"/>
+<area shape="rect" href="ntcalculate_8h.html" title="Computation Module. &#160;&#160;https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c." alt="" coords="5,93,112,119"/>
 <area shape="poly" title=" " alt="" coords="111,47,79,84,75,81,107,44"/>
 <area shape="rect" href="ntactivation_8h.html" title="Internal implementation of activation behavior." alt="" coords="136,93,248,119"/>
 <area shape="poly" title=" " alt="" coords="143,44,175,81,171,84,139,47"/>
@@ -132,7 +132,8 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of feedforward network computations. </p>
-<p>Provides weighted sum, activation, and full forward propagation for NeuroTIC networks. Assumes sequential layer-by-layer calculation.</p>
+<p>Provides weighted sum, activation, and full forward propagation. <br  />
+ Assumes sequential layer-by-layer calculation.</p>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2026 </dd></dl>
 
@@ -155,12 +156,12 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Applies the configured activation function. </p>
-<p>Activation functions are resolved from the global <code>ntact_activation</code> lookup table using the neuron's configured activation identifier.</p>
-<p>Result is stored in the neuron's <code>out</code> field. </p>
+<p>Activation functions are resolved from the global <code>ntact_activation</code> lookup table using the neuron's configured activation identifier. <br  />
+ Result is stored in the neuron's <code>out</code> field. </p>
 
-<p class="reference">References <a class="el" href="#l00062">neuron_s::fn</a>, <a class="el" href="#l00079">ntact_activation</a>, <a class="el" href="#l00063">neuron_s::out</a>, and <a class="el" href="#l00021">weighing()</a>.</p>
+<p class="reference">References <a class="el" href="#l00062">neuron_s::fn</a>, <a class="el" href="#l00079">ntact_activation</a>, <a class="el" href="#l00063">neuron_s::out</a>, and <a class="el" href="#l00023">weighing()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#l00046">feedforward()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00044">feedforward()</a>.</p>
 
 </div>
 </div>
@@ -181,11 +182,12 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Executes full feedforward propagation. </p>
-<p>Iterates layer-by-layer to maintain deterministic ordering. No buffering is required since outputs of previous layers are already wired via pointer connections. </p>
+<p>Iterates layer-by-layer to maintain deterministic ordering. <br  />
+ No buffering is required since outputs of previous layers are already wired via pointer connections. </p>
 
-<p class="reference">References <a class="el" href="#l00035">activate()</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, and <a class="el" href="#l00108">net_s::out</a>.</p>
+<p class="reference">References <a class="el" href="#l00034">activate()</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, and <a class="el" href="#l00108">net_s::out</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#l00047">backpropagation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00046">backpropagation()</a>.</p>
 
 </div>
 </div>
@@ -206,11 +208,14 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Computes the weighted sum of a neuron. </p>
-<p>The bias term is accumulated first to reduce one addition inside the loop. Inputs are assumed to be valid pointers. </p>
+<p>Calculates the weighted sum of a neuron by iterating over its inputs and weights. <br  />
+ weighted_sum = Σ(input_i * weight_i) + bias <br  />
+ The bias term is accumulated first to reduce one addition inside the loop. <br  />
+ Inputs are assumed to be valid pointers. </p>
 
 <p class="reference">References <a class="el" href="#l00061">neuron_s::b</a>, <a class="el" href="#l00059">neuron_s::in</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, and <a class="el" href="#l00060">neuron_s::w</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#l00035">activate()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00034">activate()</a>.</p>
 
 </div>
 </div>

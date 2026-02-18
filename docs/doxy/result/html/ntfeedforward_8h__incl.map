@@ -1,5 +1,5 @@
 <map id="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntfeedforward.h" name="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntfeedforward.h">
-<area shape="rect" id="Node000001" title="Predefined feedforward topologies for NeuroTIC networks." alt="" coords="5,5,281,45"/>
+<area shape="rect" id="Node000001" title="Predefined Feedforward Topologies. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntfeedforward...." alt="" coords="5,5,281,45"/>
 <area shape="rect" id="Node000002" href="$ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="106,93,181,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,46,146,79,141,79,141,46"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="108,167,179,192"/>

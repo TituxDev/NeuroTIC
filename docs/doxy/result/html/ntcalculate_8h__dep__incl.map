@@ -1,5 +1,5 @@
 <map id="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntcalculate.h" name="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntcalculate.h">
-<area shape="rect" id="Node000001" title="Computation Module." alt="" coords="497,5,753,45"/>
+<area shape="rect" id="Node000001" title="Computation Module. &#160;&#160;https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c." alt="" coords="497,5,753,45"/>
 <area shape="rect" id="Node000002" href="$examples_2ntcomplete_8h.html" title=" " alt="" coords="5,93,249,133"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="503,50,237,96,236,91,502,45"/>
 <area shape="rect" id="Node000003" href="$ntcalculate_8c.html" title="Implementation of feedforward network computations." alt="" coords="274,93,501,133"/>

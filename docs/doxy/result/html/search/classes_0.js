@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['float_5fparts_5fs_0',['float_parts_s',['../structfloat__parts__s.html',1,'']]]
+  ['net_5fs_0',['net_s',['../structnet__s.html',1,'']]],
+  ['neuron_5fs_1',['neuron_s',['../structneuron__s.html',1,'']]]
 ];

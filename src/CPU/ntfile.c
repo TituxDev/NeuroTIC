@@ -1,13 +1,17 @@
 /**
  * @file ntfile.c
- * @brief Implementation of network persistence for NeuroTIC.
- *
- * Supports saving and loading network structures to binary .ntic files.
+ * @brief Implementation of network saving and loading for NeuroTIC.
  * 
- * Pending: data standardization, validation checks, and error handling.
+ * Provides functions to persist network structures and weights, allowing training to be stored and reloaded.  
+ * The file format is binary with a custom structure, including endianness and floating-point representation handling for cross-platform compatibility.  
+ * Currently, the implementation focuses on core data serialization and deserialization, with future plans for validation and standardization of loaded data.
+ * 
+ * @todo Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks.
+ * @todo Consider adding support for versioning in the file format to allow for future extensions and backward compatibility.
+ * @todo Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks.
  * 
  * @author Oscar Sotomayor
- * @date 2024
+ * @date 2026
  */
 
 #include "ntfile.h"
@@ -23,7 +27,16 @@
 #define MAGIC "NeuroTIC"
 #define VERSION 0x0
 
-// Endianness helpers
+/**
+ * @name Endianness and Floating-Point Handling
+ * 
+ * The STRICT_LE16 and STRICT_LE32 macros ensure that data is written in little-endian format, regardless of the host system's endianness.  
+ * The checkendian function detects the system's endianness, while bswap16 and bswap32 perform byte swapping for 16-bit and 32-bit integers, respectively.  
+ * The isieee754 function checks if the system uses IEEE 754 floating-point representation, and the float32 and floatsys functions convert between
+ * float and uint32_t representations based on the IEEE 754 standard or a custom format if not supported.
+ * 
+ * @code
+ */
 #define STRICT_LE16( x ) &( uint16_t ){ little_endian ? ( x ) : bswap16( x )}
 #define STRICT_LE32( x ) &( uint32_t ){ little_endian ? ( x ) : bswap32( x )}
 uint8_t checkendian( void ){
@@ -53,7 +66,6 @@ typedef struct{
     int32_t e;
     float m;
 } float_parts_s;
-
 uint32_t float32( float x , uint8_t ieee754 ){
     uint32_t result;
     float_parts_s float_parts= {0};
@@ -86,16 +98,19 @@ float floatsys( int32_t x , uint8_t ieee754 ){
     result= ldexpf( float_parts.m , float_parts.e );
     return float_parts.sign ? -result : result;
 }
-
+/** @endcode */
 
 /**
- * @brief Saves a network to disk in binary format.
- *
- * Writes the network structure, weights, biases, and buffer wiring.
- *
- * @param net Pointer to the network to save.
- * @param name Base filename to save (extension .ntic will be added).
- * @return 0 on success.
+ * @details
+ * Saves the network's layers, neurons, weights, biases, and buffer wiring to a binary file.  
+ * The file is structured with a header containing a magic string and version byte, followed by the network's core data.  
+ * The function handles endianness and floating-point representation to ensure cross-platform compatibility.  
+ * 
+ * @todo Add validation checks for the input network structure before attempting to save, ensuring that all necessary data is present and correctly formatted.  
+ * @todo Implement error handling for file operations, such as checking for write permissions and handling disk space issues.  
+ * @todo Consider adding metadata to the file format, such as timestamps or training information, to provide more context when loading networks in the future.  
+ * @todo Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks.  
+ * @todo Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks.  
  */
 unsigned char savenet( net_s * net , const char *name ){
     uint8_t little_endian= checkendian( ) , ieee754= isieee754( );
@@ -104,25 +119,25 @@ unsigned char savenet( net_s * net , const char *name ){
     FILE *fp= fopen( NAME , "wb" );
     if( fp == NULL ) return 2;
     fprintf( fp , "%s%c" , MAGIC , VERSION );
-    fwrite( STRICT_LE32( net->inputs ) , sizeof( uint32_t ) , 1 , fp );
-    fwrite( STRICT_LE32( net->layers ) , sizeof( uint16_t ) , 1 , fp );
-    for( uint16_t i= 0 ; i < net->layers ; i ++ ) fwrite( STRICT_LE16( net->neurons[i] ) , sizeof( uint16_t ) , 1 , fp );
-    for( uint16_t i= 0 ; i < net->layers ; i ++ ) for( uint16_t j= 0 ; j < net->neurons[i] ; j++ ){
-        fwrite( STRICT_LE32( net->nn[i][j].inputs ) , sizeof( uint32_t ) , 1 , fp );
-        fwrite( STRICT_LE16( net->nn[i][j].bff_idx ) , sizeof( uint16_t ) , 1 , fp );
+    fwrite( STRICT_LE32( net->inputs ) , sizeof( input_t ) , 1 , fp );
+    fwrite( STRICT_LE32( net->layers ) , sizeof( layer_t ) , 1 , fp );
+    for( layer_t i= 0 ; i < net->layers ; i ++ ) fwrite( STRICT_LE16( net->neurons[i] ) , sizeof( uint16_t ) , 1 , fp );
+    for( layer_t i= 0 ; i < net->layers ; i ++ ) for( uint16_t j= 0 ; j < net->neurons[i] ; j++ ){
+        fwrite( STRICT_LE32( net->nn[i][j].inputs ) , sizeof( input_t ) , 1 , fp );
+        fwrite( &net->nn[i][j].bff_idx , sizeof( index_t ) , 1 , fp );
     }
-    if( net->layers > 1 ) for( uint16_t i= 0 ; i < net->layers - 1 ; i++ ){
-        fwrite( STRICT_LE16( net->wiring[i].arrays ) , sizeof( uint16_t ) , 1 , fp );
-        for( uint16_t j= 0 ; j < net->wiring[i].arrays ; j++ ){
-            fwrite( &net->wiring[i].array_type[j] , sizeof( uint8_t ) , 1 , fp );
+    if( net->layers > 1 ) for( layer_t i= 0 ; i < net->layers - 1 ; i++ ){
+        fwrite( &net->wiring[i].arrays , sizeof( index_t ) , 1 , fp );
+        for( index_t j= 0 ; j < net->wiring[i].arrays ; j++ ){
+            fwrite( &net->wiring[i].array_type[j] , sizeof( type_t ) , 1 , fp );
             switch( net->wiring[i].array_type[j] ){
                 case 'M':
-                    fwrite( STRICT_LE32( net->wiring[i].size[j] ) , sizeof( uint32_t ) , 1 , fp );
-                    for( uint32_t k= 0 ; k < net->wiring[i].size[j] ; k++ ){
-                        fwrite( &net->wiring[i].src_type[j][k] , sizeof( uint8_t ) , 1 , fp );
+                    fwrite( STRICT_LE32( net->wiring[i].size[j] ) , sizeof( input_t ) , 1 , fp );
+                    for( input_t k= 0 ; k < net->wiring[i].size[j] ; k++ ){
+                        fwrite( &net->wiring[i].src_type[j][k] , sizeof( type_t ) , 1 , fp );
                         switch( net->wiring[i].src_type[j][k] ){
                         case 'N':
-                            fwrite( STRICT_LE16( net->wiring[i].src_layer[j][k] ) , sizeof( uint16_t ) , 1 , fp );
+                            fwrite( STRICT_LE16( net->wiring[i].src_layer[j][k] ) , sizeof( layer_t ) , 1 , fp );
                             fwrite( STRICT_LE16( net->wiring[i].src_index[j][k] ) , sizeof( uint16_t ) , 1 , fp );
                             break;
                         case 'O':
@@ -132,16 +147,16 @@ unsigned char savenet( net_s * net , const char *name ){
                     }
                     break;
                 case 'N':
-                    fwrite( STRICT_LE16( net->wiring[i].src_layer[j][0] ) , sizeof( uint16_t ) , 1 , fp );
+                    fwrite( STRICT_LE16( net->wiring[i].src_layer[j][0] ) , sizeof( layer_t ) , 1 , fp );
                     fwrite( STRICT_LE16( net->wiring[i].src_index[j][0] ) , sizeof( uint16_t ) , 1 , fp );
                     break;
             }
         }
     }
-    for( uint16_t i= 0 ; i < net->layers ; i ++ ) for( uint16_t j= 0 ; j < net->neurons[i] ; j++ ){
-        fwrite( &net->nn[i][j].fn , sizeof( uint8_t ) , 1 , fp );
-        fwrite( STRICT_LE32( float32( net->nn[i][j].b , ieee754 ) ) , sizeof( float ) , 1 , fp );
-        for( uint32_t k= 0 ; k < net->nn[i][j].inputs ; k++ ) fwrite( STRICT_LE32( float32( net->nn[i][j].w[k] , ieee754 ) ) , sizeof( float ) , 1 , fp );
+    for( layer_t i= 0 ; i < net->layers ; i ++ ) for( uint16_t j= 0 ; j < net->neurons[i] ; j++ ){
+        fwrite( &net->nn[i][j].fn , sizeof( index_t ) , 1 , fp );
+        fwrite( STRICT_LE32( float32( net->nn[i][j].b , ieee754 ) ) , sizeof( data_t ) , 1 , fp );
+        for( input_t k= 0 ; k < net->nn[i][j].inputs ; k++ ) fwrite( STRICT_LE32( float32( net->nn[i][j].w[k] , ieee754 ) ) , sizeof( data_t ) , 1 , fp );
     }
     fclose( fp );
     return 0;
@@ -150,13 +165,13 @@ unsigned char savenet( net_s * net , const char *name ){
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-result"
 /**
- * @brief Loads a network from a binary file.
- *
- * Reconstructs all network data and buffer wiring.
- * Currently does not validate the file or perform data standardization.
- *
- * @param name Base filename to load (extension .ntic will be added).
- * @return The reconstructed network.
+ * @details
+ * Reconstructs the network structure, weights, biases, and buffer wiring from a binary file.  
+ * The function reads the file header to validate the format and version, then proceeds to read the core network data while handling endianness and floating-point representation.
+ * 
+ * @todo Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks.
+ * @todo Consider adding support for versioning in the file format to allow for future extensions and backward compatibility.
+ * @todo Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks.
  */
 struct net_s loadnet( char *name ){
     net_s net= {0};
@@ -181,13 +196,12 @@ struct net_s loadnet( char *name ){
     for( uint16_t i= 0 ; i < net.layers ; i ++ ) for( uint16_t j= 0 ; j < net.neurons[i] ; j++ ){
         fread( &net.nn[i][j].inputs , sizeof( uint32_t ) , 1 , fp );
         if( little_endian ) net.nn[i][j].inputs= bswap32( net.nn[i][j].inputs );
-        fread( &net.nn[i][j].bff_idx , sizeof( uint16_t ) , 1 , fp );
-        if( little_endian ) net.nn[i][j].bff_idx= bswap16( net.nn[i][j].bff_idx );
+        fread( &net.nn[i][j].bff_idx , sizeof( index_t ) , 1 , fp );
     }
     if( net.layers > 1 ){
         memtrack( net.wiring= malloc( ( net.layers - 1 ) * sizeof( wiring_s ) ) );
         for( uint16_t i= 0 ; i < net.layers - 1 ; i++ ){
-            fread( &net.wiring[i].arrays , sizeof( uint16_t ) , 1 , fp );
+            fread( &net.wiring[i].arrays , sizeof( index_t ) , 1 , fp );
             if( little_endian ) net.wiring[i].arrays= bswap16( net.wiring[i].arrays );
             memtrack( net.wiring[i].array_type= malloc( net.wiring[i].arrays * sizeof( uint8_t ) ) );
             memtrack( net.wiring[i].size= malloc( net.wiring[i].arrays * sizeof( uint32_t ) ) );

@@ -2,9 +2,8 @@
  * @file ntfeedforward.c
  * @brief Implementation of predefined feedforward topologies for NeuroTIC networks.
  * 
- * Provides convenient functions to initialize common neural network wiring
- * configurations. These functions allocate and configure the network's
- * `bff_wiring` structure according to a specific topology.
+ * Provides convenient functions to initialize common neural network wiring configurations.  
+ * These functions allocate and configure the network's `bff_wiring` structure according to a specific topology.
  * 
  * @author Oscar Sotomayor
  * @date 2026
@@ -16,9 +15,8 @@
 
 /**
  * @details
- * Sets up one buffer per neuron connecting each neuron to the corresponding
- * neuron in the previous layer. Validates input and uses `memtrack` for all
- * allocations.
+ * Sets up one buffer per neuron connecting each neuron to the corresponding neuron in the previous layer.  
+ * Validates input and uses `memtrack` for all allocations.
  */
 struct net_s *newfeedforward( net_s *net ){
     if( !net ) return NULL;
@@ -50,9 +48,8 @@ struct net_s *newfeedforward( net_s *net ){
 
 /**
  * @details
- * Connects each neuron in a layer to all neurons in previous layers, creating
- * a fully connected inter-layer mapping. Validates input and uses `memtrack`
- * for all allocations.
+ * Connects each neuron in a layer to all neurons in previous layers, creating a fully connected inter-layer mapping.  
+ * Validates input and uses `memtrack` for all allocations.
  */
 struct net_s *newdense( net_s *net ){
     if( !net ) return NULL;

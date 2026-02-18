@@ -95,7 +95,8 @@ $(document).ready(function(){initNavTree('ntcalculate_8h.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 
-<p>Computation Module.  
+<p>Computation Module. <br  />
+ <a href="https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c">https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="">ntcore.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -103,7 +104,7 @@ Include dependency graph for ntcalculate.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="ntcalculate_8h__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntcalculate_8h" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntcalculate_8h" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntcalculate_8h">
-<area shape="rect" title="Computation Module." alt="" coords="5,5,261,45"/>
+<area shape="rect" title="Computation Module. &#160;&#160;https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c." alt="" coords="5,5,261,45"/>
 <area shape="rect" href="ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="96,93,171,119"/>
 <area shape="poly" title=" " alt="" coords="136,46,136,79,131,79,131,46"/>
 <area shape="rect" title=" " alt="" coords="98,167,169,192"/>
@@ -115,7 +116,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="ntcalculate_8h__dep__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntcalculate_8hdep" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntcalculate_8hdep" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntcalculate_8hdep">
-<area shape="rect" title="Computation Module." alt="" coords="497,5,753,45"/>
+<area shape="rect" title="Computation Module. &#160;&#160;https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c." alt="" coords="497,5,753,45"/>
 <area shape="rect" href="examples_2ntcomplete_8h.html" title=" " alt="" coords="5,93,249,133"/>
 <area shape="poly" title=" " alt="" coords="503,50,237,96,236,91,502,45"/>
 <area shape="rect" href="ntcalculate_8c.html" title="Implementation of feedforward network computations." alt="" coords="274,93,501,133"/>
@@ -144,9 +145,10 @@ Functions</h2></td></tr>
 <tr class="separator:a80593fe4480cce8f4dac43ee48d8a7a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Computation Module. </p>
-<p><a href="https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c">https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c</a></p>
-<p>Provides weighted sum, activation, and full forward propagation for NeuroTIC networks. Assumes sequential layer-by-layer calculation.</p>
+<div class="textblock"><p>Computation Module. <br  />
+ <a href="https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c">https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c</a>. </p>
+<p>Provides weighted sum, activation, and full forward propagation. <br  />
+ Assumes sequential layer-by-layer calculation.</p>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2026   </dd></dl>
 
@@ -176,12 +178,12 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Activated output value.</dd></dl>
-<p>Activation functions are resolved from the global <code>ntact_activation</code> lookup table using the neuron's configured activation identifier.</p>
-<p>Result is stored in the neuron's <code>out</code> field. </p>
+<p>Activation functions are resolved from the global <code>ntact_activation</code> lookup table using the neuron's configured activation identifier. <br  />
+ Result is stored in the neuron's <code>out</code> field. </p>
 
-<p class="reference">References <a class="el" href="#l00062">neuron_s::fn</a>, <a class="el" href="#l00079">ntact_activation</a>, <a class="el" href="#l00063">neuron_s::out</a>, and <a class="el" href="#l00021">weighing()</a>.</p>
+<p class="reference">References <a class="el" href="#l00062">neuron_s::fn</a>, <a class="el" href="#l00079">ntact_activation</a>, <a class="el" href="#l00063">neuron_s::out</a>, and <a class="el" href="#l00023">weighing()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#l00046">feedforward()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00044">feedforward()</a>.</p>
 
 </div>
 </div>
@@ -202,7 +204,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Executes full feedforward propagation. </p>
-<p>All layers are evaluated sequentially. Each neuron is activated in order of declaration.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">net</td><td>Pointer to the network. </td></tr>
@@ -210,11 +211,12 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the output buffer of the final layer.</dd></dl>
-<p>Iterates layer-by-layer to maintain deterministic ordering. No buffering is required since outputs of previous layers are already wired via pointer connections. </p>
+<p>Iterates layer-by-layer to maintain deterministic ordering. <br  />
+ No buffering is required since outputs of previous layers are already wired via pointer connections. </p>
 
-<p class="reference">References <a class="el" href="#l00035">activate()</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, and <a class="el" href="#l00108">net_s::out</a>.</p>
+<p class="reference">References <a class="el" href="#l00034">activate()</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, and <a class="el" href="#l00108">net_s::out</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#l00047">backpropagation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00046">backpropagation()</a>.</p>
 
 </div>
 </div>
@@ -235,7 +237,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Computes the weighted sum of a neuron. </p>
-<p>Performs: weighted_sum = Σ(input_i * weight_i) + bias</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">neuron</td><td>Pointer to the neuron. </td></tr>
@@ -243,11 +244,14 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Weighted sum including bias.</dd></dl>
-<p>The bias term is accumulated first to reduce one addition inside the loop. Inputs are assumed to be valid pointers. </p>
+<p>Calculates the weighted sum of a neuron by iterating over its inputs and weights. <br  />
+ weighted_sum = Σ(input_i * weight_i) + bias <br  />
+ The bias term is accumulated first to reduce one addition inside the loop. <br  />
+ Inputs are assumed to be valid pointers. </p>
 
 <p class="reference">References <a class="el" href="#l00061">neuron_s::b</a>, <a class="el" href="#l00059">neuron_s::in</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, and <a class="el" href="#l00060">neuron_s::w</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#l00035">activate()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00034">activate()</a>.</p>
 
 </div>
 </div>

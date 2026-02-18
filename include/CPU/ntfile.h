@@ -1,12 +1,10 @@
 /**
  * @file ntfile.h
- * @brief Save and load NeuroTIC networks to/from binary files.
+ * @brief Save and Load Files.  
+ * @ref http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c
  *
- * Provides functions to persist network structures and weights,
- * allowing training to be stored and reloaded.
- *
- * @author Oscar Sotomayor
- * @date 2024
+ * @copydetails ntfile.c
+ * 
  */
 
 #ifndef NTFILE_H
@@ -16,23 +14,18 @@
 
 /**
  * @brief Saves a network to a binary file with extension .ntic
- *
- * Stores the network's layers, neurons, weights, biases, and buffer wiring.
- *
+ * 
  * @param net Pointer to the network to save.
- * @param name Base filename (without extension) to save the network.
- * @return 0 on success, non-zero on failure (future validation to be added).
+ * @param name Base filename (without extension) to save the network as.
+ * @return 0 on success, non-zero on failure.
  */
 unsigned char savenet( net_s * net , const char *name );
 
 /**
  * @brief Loads a network from a binary file with extension .ntic
- *
- * Reconstructs the network structure, weights, biases, and buffer wiring.
- * Currently, data standardization and validation are not integrated.
- *
- * @param name Base filename (without extension) of the saved network.
- * @return The loaded network structure.
+ * 
+ * @param name Base filename (without extension) to load the network from.
+ * @return The loaded network structure. If loading fails, returns an empty network.
  */
 struct net_s loadnet( char *name );
 

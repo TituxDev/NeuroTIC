@@ -12,7 +12,7 @@ var searchData=
   ['and_20stability_9',['Scope and stability',['../group__NTPeripherals.html#scope-and-stability',1,'']]],
   ['architecture_10',['Core Architecture',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#core-architecture',1,'']]],
   ['array_5ftype_11',['array_type',['../structwiring__s.html#a55998c4dbd80bde56ab7c27e2dbd8be7',1,'wiring_s']]],
-  ['arrays_12',['arrays',['../structwiring__s.html#a9543b5e1546e3c2147684ba914f22421',1,'wiring_s']]],
+  ['arrays_12',['arrays',['../structwiring__s.html#aafd4ea0a9c58820183ea128ef94eb653',1,'wiring_s']]],
   ['attempts_5ft_13',['attempts_t',['../nttrain_8h.html#a2386c30c7735ce500ed3033a84dbd65d',1,'nttrain.h']]],
   ['available_14',['Currently Available',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#currently-available',1,'']]]
 ];

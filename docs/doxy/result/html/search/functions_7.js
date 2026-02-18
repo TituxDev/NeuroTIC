@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['newdense_0',['newdense',['../ntfeedforward_8c.html#a54ba7592f94e76dd8dc25536cb06eac2',1,'newdense(net_s *net):&#160;ntfeedforward.c'],['../ntfeedforward_8h.html#a54ba7592f94e76dd8dc25536cb06eac2',1,'newdense(net_s *net):&#160;ntfeedforward.c']]],
-  ['newfeedforward_1',['newfeedforward',['../ntfeedforward_8c.html#ad4572edfe44001ed5b40ffc7e29026b9',1,'newfeedforward(net_s *net):&#160;ntfeedforward.c'],['../ntfeedforward_8h.html#ad4572edfe44001ed5b40ffc7e29026b9',1,'newfeedforward(net_s *net):&#160;ntfeedforward.c']]],
-  ['newnet_2',['newnet',['../ntbuilder_8c.html#a0828749590e88600e1ef5329509f6fc7',1,'newnet(net_s *net, uint16_t *neurons_per_layer, layer_t layers_size):&#160;ntbuilder.c'],['../ntbuilder_8h.html#a0828749590e88600e1ef5329509f6fc7',1,'newnet(net_s *net, uint16_t *neurons_per_layer, layer_t layers_size):&#160;ntbuilder.c']]],
-  ['newtraindata_3',['newtraindata',['../nttrain_8c.html#a1d7455b7a18bd3d79bdf722dfc65cc50',1,'newtraindata(traindata_t *train_data, net_s *net):&#160;nttrain.c'],['../nttrain_8h.html#a1d7455b7a18bd3d79bdf722dfc65cc50',1,'newtraindata(traindata_t *train_data, net_s *net):&#160;nttrain.c']]]
+  ['savenet_0',['savenet',['../ntfile_8c.html#ac70bcbf3321b6e08b5c9fe134e4b8426',1,'savenet(net_s *net, const char *name):&#160;ntfile.c'],['../ntfile_8h.html#ac70bcbf3321b6e08b5c9fe134e4b8426',1,'savenet(net_s *net, const char *name):&#160;ntfile.c']]],
+  ['sigmoid_1',['sigmoid',['../ntactivation_8c.html#a1d6c3b760cc362b62007ec74dfcf223e',1,'ntactivation.c']]],
+  ['sigmoid_5fd_2',['sigmoid_d',['../ntactivation_8c.html#a42eda3809c5bd0ccc1b96af90373c010',1,'ntactivation.c']]]
 ];

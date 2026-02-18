@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['feedforward_0',['feedforward',['../ntcalculate_8c.html#a80593fe4480cce8f4dac43ee48d8a7a2',1,'feedforward(net_s *net):&#160;ntcalculate.c'],['../ntcalculate_8h.html#a80593fe4480cce8f4dac43ee48d8a7a2',1,'feedforward(net_s *net):&#160;ntcalculate.c']]],
-  ['float32_1',['float32',['../ntfile_8c.html#a9041095ed9ea53165999e5bebfc04271',1,'ntfile.c']]],
-  ['floatsys_2',['floatsys',['../ntfile_8c.html#acef0da894eb82c36eb54a30050eedaa0',1,'ntfile.c']]]
+  ['loadnet_0',['loadnet',['../ntfile_8c.html#a8cdafc9f89ad9736acf6258f2b366101',1,'loadnet(char *name):&#160;ntfile.c'],['../ntfile_8h.html#a8cdafc9f89ad9736acf6258f2b366101',1,'loadnet(char *name):&#160;ntfile.c']]]
 ];

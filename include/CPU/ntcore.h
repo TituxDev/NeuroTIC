@@ -75,7 +75,7 @@ typedef struct neuron_s {
  * Field interpretation is type-dependent and resolved externally.
  */
 typedef struct wiring_s {
-    uint16_t    arrays;         /**< Number of logical input sets. */
+    index_t    arrays;         /**< Number of logical input sets. */
     type_t      *array_type;    /**< Type of each input set. */
     input_t     *size;          /**< Logical size per input set. */
     type_t      **src_type;     /**< Source type per element. */

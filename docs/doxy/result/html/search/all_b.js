@@ -6,7 +6,8 @@ var searchData=
   ['license_20agreement_3',['license agreement',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#contribution-license-agreement',1,'Contribution License Agreement'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html',1,'NeuroTIC Commercial License Agreement']]],
   ['license_20rights_4',['License Rights',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#license-rights',1,'']]],
   ['licensing_20tiers_5',['Commercial Licensing Tiers',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#commercial-licensing-tiers',1,'']]],
-  ['loadnet_6',['loadnet',['../ntfile_8c.html#a8cdafc9f89ad9736acf6258f2b366101',1,'loadnet(char *name):&#160;ntfile.c'],['../ntfile_8h.html#a8cdafc9f89ad9736acf6258f2b366101',1,'loadnet(char *name):&#160;ntfile.c']]],
-  ['logic_5fgates_2ec_7',['logic_gates.c',['../logic__gates_8c.html',1,'']]],
-  ['long_20term_20development_202025_8',['Long-term Development (2025+)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#long-term-development-2025',1,'']]]
+  ['list_6',['Todo List',['../todo.html',1,'']]],
+  ['loadnet_7',['loadnet',['../ntfile_8c.html#a8cdafc9f89ad9736acf6258f2b366101',1,'loadnet(char *name):&#160;ntfile.c'],['../ntfile_8h.html#a8cdafc9f89ad9736acf6258f2b366101',1,'loadnet(char *name):&#160;ntfile.c']]],
+  ['logic_5fgates_2ec_8',['logic_gates.c',['../logic__gates_8c.html',1,'']]],
+  ['long_20term_20development_202025_9',['Long-term Development (2025+)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#long-term-development-2025',1,'']]]
 ];

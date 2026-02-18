@@ -20,9 +20,8 @@
 
 /**
  * @details
- * Allocates memory for training data arrays.
- * Initializes `in` and `results` arrays based on the network structure
- * and number of samples.
+ * Allocates memory for training data arrays.  
+ * Initializes `in` and `results` arrays based on the network structure and number of samples.
  */
 void newtraindata( traindata_t *train_data , net_s *net ){
     memtrack( train_data->in= calloc( train_data->samples , sizeof( data_t * ) ) );

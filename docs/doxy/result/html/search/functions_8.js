@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['randnet_0',['randnet',['../ntinitialize_8c.html#a0c2e77d2e0217cf512c8adb47097b485',1,'randnet(net_s *net):&#160;ntinitialize.c'],['../ntinitialize_8h.html#a0c2e77d2e0217cf512c8adb47097b485',1,'randnet(net_s *net):&#160;ntinitialize.c']]]
+  ['weighing_0',['weighing',['../ntcalculate_8c.html#a63f28fa48fc407e117fe61bf55aa53f6',1,'weighing(neuron_s *neuron):&#160;ntcalculate.c'],['../ntcalculate_8h.html#a63f28fa48fc407e117fe61bf55aa53f6',1,'weighing(neuron_s *neuron):&#160;ntcalculate.c']]]
 ];

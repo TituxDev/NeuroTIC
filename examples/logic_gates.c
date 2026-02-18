@@ -2,7 +2,7 @@
  * @file logic_gates.c
  * @brief Example: Train a neural network to compute all 16 two-input logic functions.
  * @author Oscar Sotomayor (Titux)
- * @date 2025-11-21
+ * @date 2026
  *
  * This example creates a 3-16 neural network and trains it to learn all 16 possible
  * two-input logic functions. It demonstrates network construction, training, evaluation,
