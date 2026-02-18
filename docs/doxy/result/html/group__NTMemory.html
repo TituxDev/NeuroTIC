@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NeuroTIC: NTMemory</title>
+<title>NeuroTIC: Memory Management</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,115 +89,21 @@ $(document).ready(function(){initNavTree('group__NTMemory.html',''); initResizab
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#files">Files</a> &#124;
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">NTMemory<div class="ingroups"><a class="el" href="group__NTPeripherals.html">Peripheral modules</a></div></div></div>
+  <div class="headertitle"><div class="title">Memory Management<div class="ingroups"><a class="el" href="group__NTPeripherals.html">Peripheral modules</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 <div class="dynheader">
-Collaboration diagram for NTMemory:</div>
+Collaboration diagram for Memory Management:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__NTMemory.png" border="0" usemap="#agroup____NTMemory" alt=""/></div>
 <map name="agroup____NTMemory" id="agroup____NTMemory">
-<area shape="rect" title=" " alt="" coords="201,5,296,31"/>
+<area shape="rect" title=" " alt="" coords="201,5,368,31"/>
 <area shape="rect" href="group__NTPeripherals.html" title="Auxiliary subsystems supporting the NeuroTIC framework." alt="" coords="5,5,153,31"/>
 </map>
 </div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:ntmemory_8h" id="r_ntmemory_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8h.html">ntmemory.h</a></td></tr>
-<tr class="memdesc:ntmemory_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auxiliary memory tracking utilities. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ntmemory_8c" id="r_ntmemory_8c"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html">ntmemory.c</a></td></tr>
-<tr class="memdesc:ntmemory_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer registry and deferred cleanup implementation. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga5fe9dfe999ba7e84a43b1dabd37fafb8" id="r_ga5fe9dfe999ba7e84a43b1dabd37fafb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8">memfree</a> (void)</td></tr>
-<tr class="memdesc:ga5fe9dfe999ba7e84a43b1dabd37fafb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases all memory blocks previously registered.  <br /></td></tr>
-<tr class="separator:ga5fe9dfe999ba7e84a43b1dabd37fafb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad582239e0fb2ae41572d3f0582922bc2" id="r_gad582239e0fb2ae41572d3f0582922bc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__NTMemory.html#gad582239e0fb2ae41572d3f0582922bc2">memtrack</a> (void *mem)</td></tr>
-<tr class="memdesc:gad582239e0fb2ae41572d3f0582922bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a dynamically allocated memory block for deferred release.  <br /></td></tr>
-<tr class="separator:gad582239e0fb2ae41572d3f0582922bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ga5fe9dfe999ba7e84a43b1dabd37fafb8" name="ga5fe9dfe999ba7e84a43b1dabd37fafb8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5fe9dfe999ba7e84a43b1dabd37fafb8">&#9670;&#160;</a></span>memfree()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void memfree </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Releases all memory blocks previously registered. </p>
-<p>Frees all tracked memory blocks and clears the registry.</p>
-<p>Frees every pointer stored in the internal tracking registry and clears the registry itself.</p>
-<p>This function is automatically registered with <code>atexit()</code> upon the first successful call to <a class="el" href="group__NTMemory.html#gad582239e0fb2ae41572d3f0582922bc2" title="Registers a memory block for deferred collective release.">memtrack()</a>, but may also be invoked explicitly.</p>
-<dl class="section warning"><dt>Warning</dt><dd>This function assumes exclusive ownership of all tracked pointers. Manually freeing tracked memory before calling <a class="el" href="group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8" title="Releases all memory blocks previously registered.">memfree()</a> results in undefined behavior.</dd></dl>
-<p>This function iterates over the internal pointer register, releasing each allocated block. Once all tracked memory has been freed, the registry itself is also released and reset to NULL.</p>
-<p>Typically, this is called automatically at program termination via <code>atexit()</code>. It can also be called manually to force cleanup earlier in execution.</p>
-<dl class="section warning"><dt>Warning</dt><dd>This function does not validate whether a pointer has already been manually freed. Double freeing externally managed pointers will result in undefined behavior. </dd></dl>
-
-<p class="reference">References <a class="el" href="#l00042">mem_count</a>, and <a class="el" href="#l00034">mem_register</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="#l00086">memtrack()</a>.</p>
-
-</div>
-</div>
-<a id="gad582239e0fb2ae41572d3f0582922bc2" name="gad582239e0fb2ae41572d3f0582922bc2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad582239e0fb2ae41572d3f0582922bc2">&#9670;&#160;</a></span>memtrack()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void memtrack </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>mem</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Registers a dynamically allocated memory block for deferred release. </p>
-<p>Adds a pointer to the internal memory registry. The registry grows dynamically as new allocations are tracked.</p>
-<p>This function is intended to be called immediately after successful dynamic allocation (e.g. <code>malloc</code>, <code>calloc</code>, <code>realloc</code>).</p>
-<p>On the first invocation, <a class="el" href="group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8" title="Releases all memory blocks previously registered.">memfree()</a> is automatically registered to execute at program termination via <code>atexit()</code>.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">mem</td><td>Pointer to a valid dynamically allocated memory block.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section warning"><dt>Warning</dt><dd>Passing a NULL pointer is treated as a fatal error and terminates execution. Tracked memory must not be manually freed.</dd></dl>
-<p>Registers a dynamically allocated memory block for deferred release.</p>
-<p>Appends a pointer to the internal tracking registry. The registry grows dynamically via <code>realloc()</code> as new blocks are registered.</p>
-<p>On the first successful registration, <a class="el" href="group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8" title="Releases all memory blocks previously registered.">memfree()</a> is automatically registered with <code>atexit()</code> to ensure cleanup at program termination.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">mem</td><td>Pointer to a valid dynamically allocated memory block.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section warning"><dt>Warning</dt><dd>Passing a NULL pointer is considered a fatal error and terminates execution. Tracked memory must not be manually freed. </dd></dl>
-
-<p class="reference">References <a class="el" href="#l00042">mem_count</a>, <a class="el" href="#l00034">mem_register</a>, and <a class="el" href="#l00060">memfree()</a>.</p>
-
-</div>
-</div>
+<p><a class="el" href="ntmemory_8h.html">ntmemory.h</a>  Memory Management Functions <br  />
+ <a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntmemory.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntmemory.c</a>.   <br  />
+ </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

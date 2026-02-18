@@ -4,5 +4,4 @@
  * @brief Implementation of various activation functions and their derivatives.
  * @details
  * @ref ntactivation.h @copybrief ntactivation.h  
- * @ref ntactivation.c @copybrief ntactivation.c
  */

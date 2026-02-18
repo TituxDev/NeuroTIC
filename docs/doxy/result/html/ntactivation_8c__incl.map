@@ -1,6 +1,6 @@
 <map id="/home/titux/DEV/NeuroTIC/NeuroTIC/src/CPU/ntactivation.c" name="/home/titux/DEV/NeuroTIC/NeuroTIC/src/CPU/ntactivation.c">
-<area shape="rect" id="Node000001" title="Internal implementation of activation behavior." alt="" coords="5,5,239,45"/>
-<area shape="rect" id="Node000002" href="$ntactivation_8h.html" title="Internal implementation of activation behavior." alt="" coords="10,93,122,119"/>
+<area shape="rect" id="Node000001" title="Activation Functions List. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation...." alt="" coords="5,5,239,45"/>
+<area shape="rect" id="Node000002" href="$ntactivation_8h.html" title="Activation Function List &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation...." alt="" coords="10,93,122,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,47,84,84,80,80,106,44"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="145,93,213,119"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="138,44,165,80,161,84,134,47"/>

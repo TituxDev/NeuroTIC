@@ -1,12 +1,12 @@
 /**
  * @file ntinitialize.c
- * @brief Implementation of random weight initialization.
+ * @brief Implementation Random Initialization.
  *
- * Initializes all neuron weights within their activation function's specified
- * range and sets biases to zero. Uses `rand()` seeded with the current time.
+ * Initializes all neuron weights within their activation function's specified range and sets biases to zero.  
+ * Uses `rand()` seeded with the current time.
  * 
  * @author Oscar Sotomayor
- * @date 2024
+ * @date 2026
  */
 
 #include "ntinitialize.h"
@@ -17,13 +17,10 @@
 
 
 /**
- * @brief Randomly sets weights and biases of a network.
- *
- * For each neuron:
- * - Weight `w[k]` is randomized in the range defined by `ntact_rand_range[fn]`.
- * - Bias `b` is set to 0.0f.
- *
- * @param net Pointer to the network to initialize.
+ * @details
+ * Iterates through each layer and neuron in the network, assigning random weights based on the activation function's defined range in `ntact_rand_range`.  
+ * Biases are set to zero for all neurons.  
+ * The random values are generated using the standard `rand()` function, scaled to the appropriate range for each activation function.
  */
 void randnet( net_s *net ){
     srand( time( NULL ) );

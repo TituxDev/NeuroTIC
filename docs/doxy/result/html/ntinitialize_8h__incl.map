@@ -1,5 +1,5 @@
 <map id="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntinitialize.h" name="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntinitialize.h">
-<area shape="rect" id="Node000001" title="Random weight initialization for NeuroTIC networks." alt="" coords="5,5,259,45"/>
+<area shape="rect" id="Node000001" title="Random Initialization. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntinitialize.c." alt="" coords="5,5,259,45"/>
 <area shape="rect" id="Node000002" href="$ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="95,93,169,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,46,135,79,129,79,129,46"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="97,167,167,192"/>

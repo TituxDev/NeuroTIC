@@ -1,8 +1,8 @@
 <map id="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntinitialize.h" name="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntinitialize.h">
-<area shape="rect" id="Node000001" title="Random weight initialization for NeuroTIC networks." alt="" coords="379,5,633,45"/>
+<area shape="rect" id="Node000001" title="Random Initialization. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntinitialize.c." alt="" coords="379,5,633,45"/>
 <area shape="rect" id="Node000002" href="$examples_2ntcomplete_8h.html" title=" " alt="" coords="5,93,249,133"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="410,51,211,96,210,91,409,46"/>
-<area shape="rect" id="Node000003" href="$ntinitialize_8c.html" title="Implementation of random weight initialization." alt="" coords="274,93,498,133"/>
+<area shape="rect" id="Node000003" href="$ntinitialize_8c.html" title="Implementation Random Initialization." alt="" coords="274,93,498,133"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="470,56,414,95,411,91,466,51"/>
 <area shape="rect" id="Node000004" href="$ntbasic_8h.html" title=" " alt="" coords="523,93,729,133"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="546,51,601,91,598,95,542,56"/>

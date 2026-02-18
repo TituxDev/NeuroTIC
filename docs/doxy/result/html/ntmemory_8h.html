@@ -91,18 +91,19 @@ $(document).ready(function(){initNavTree('ntmemory_8h.html',''); initResizable()
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">ntmemory.h File Reference<div class="ingroups"><a class="el" href="group__NTPeripherals.html">Peripheral modules</a> &raquo; <a class="el" href="group__NTMemory.html">NTMemory</a></div></div></div>
+  <div class="headertitle"><div class="title">ntmemory.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Auxiliary memory tracking utilities.  
+<p>Memory Management Functions <br  />
+ <a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntmemory.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntmemory.c</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="ntmemory_8h__dep__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntmemory_8hdep" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntmemory_8hdep" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntmemory_8hdep">
-<area shape="rect" title="Auxiliary memory tracking utilities." alt="" coords="751,5,1002,45"/>
+<area shape="rect" title="Memory Management Functions &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntmemory...." alt="" coords="751,5,1002,45"/>
 <area shape="rect" href="examples_2ntcomplete_8h.html" title=" " alt="" coords="5,93,249,133"/>
 <area shape="poly" title=" " alt="" coords="738,43,261,96,250,97,249,92,260,91,737,38"/>
 <area shape="rect" href="ntbuilder_8c.html" title="Implementation of network construction functions." alt="" coords="273,93,485,133"/>
@@ -111,7 +112,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <area shape="poly" title=" " alt="" coords="811,52,687,96,685,91,809,47"/>
 <area shape="rect" href="ntfile_8c.html" title="Implementation of network saving and loading for NeuroTIC." alt="" coords="781,93,973,133"/>
 <area shape="poly" title=" " alt="" coords="879,59,879,93,874,93,874,59"/>
-<area shape="rect" href="ntmemory_8c.html" title="Pointer registry and deferred cleanup implementation." alt="" coords="997,93,1218,133"/>
+<area shape="rect" href="ntmemory_8c.html" title="Implementation of memory management functions." alt="" coords="997,93,1218,133"/>
 <area shape="poly" title=" " alt="" coords="941,48,1058,91,1056,96,939,53"/>
 <area shape="rect" href="nttrain_8c.html" title="Implementation of backpropagation training for NeuroTIC networks." alt="" coords="1243,93,1441,133"/>
 <area shape="poly" title=" " alt="" coords="993,45,1243,91,1242,96,992,51"/>
@@ -124,22 +125,84 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga5fe9dfe999ba7e84a43b1dabd37fafb8" id="r_ga5fe9dfe999ba7e84a43b1dabd37fafb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__NTMemory.html#ga5fe9dfe999ba7e84a43b1dabd37fafb8">memfree</a> (void)</td></tr>
-<tr class="memdesc:ga5fe9dfe999ba7e84a43b1dabd37fafb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases all memory blocks previously registered.  <br /></td></tr>
-<tr class="separator:ga5fe9dfe999ba7e84a43b1dabd37fafb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad582239e0fb2ae41572d3f0582922bc2" id="r_gad582239e0fb2ae41572d3f0582922bc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__NTMemory.html#gad582239e0fb2ae41572d3f0582922bc2">memtrack</a> (void *mem)</td></tr>
-<tr class="memdesc:gad582239e0fb2ae41572d3f0582922bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a dynamically allocated memory block for deferred release.  <br /></td></tr>
-<tr class="separator:gad582239e0fb2ae41572d3f0582922bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fe9dfe999ba7e84a43b1dabd37fafb8" id="r_a5fe9dfe999ba7e84a43b1dabd37fafb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8h.html#a5fe9dfe999ba7e84a43b1dabd37fafb8">memfree</a> (void)</td></tr>
+<tr class="memdesc:a5fe9dfe999ba7e84a43b1dabd37fafb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees all memory blocks registered in the internal tracking registry.  <br /></td></tr>
+<tr class="separator:a5fe9dfe999ba7e84a43b1dabd37fafb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad582239e0fb2ae41572d3f0582922bc2" id="r_ad582239e0fb2ae41572d3f0582922bc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8h.html#ad582239e0fb2ae41572d3f0582922bc2">memtrack</a> (void *mem)</td></tr>
+<tr class="memdesc:ad582239e0fb2ae41572d3f0582922bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a memory block for tracking and automatic cleanup.  <br /></td></tr>
+<tr class="separator:ad582239e0fb2ae41572d3f0582922bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Auxiliary memory tracking utilities. </p>
-<dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor (TituxDev).</dd></dl>
-<p>Declares a minimal pointer tracking interface used to register dynamically allocated memory blocks for deferred collective release.</p>
-<p>This interface is primarily intended for internal use during development and experimentation.</p>
-<p>The module does not define ownership semantics and may be replaced by a more complete solution as the framework evolves. </p>
+<div class="textblock"><p>Memory Management Functions <br  />
+ <a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntmemory.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntmemory.c</a>. </p>
+<p>Provides functions for tracking dynamically allocated memory blocks and ensuring they are freed at program termination. <br  />
+ Uses a dynamic registry to store pointers to allocated memory, and registers a cleanup function with <code>atexit()</code> to automatically free all tracked memory when the program exits.</p>
+<dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor. </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026   </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="">ntmemory.h</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a5fe9dfe999ba7e84a43b1dabd37fafb8" name="a5fe9dfe999ba7e84a43b1dabd37fafb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fe9dfe999ba7e84a43b1dabd37fafb8">&#9670;&#160;</a></span>memfree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void memfree </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Frees all memory blocks registered in the internal tracking registry. </p>
+<p>Frees all memory blocks registered in the internal tracking registry. <br  />
+ Iterates through the <code>mem_register</code> array, freeing each pointer and setting it to NULL to prevent dangling references. <br  />
+ After all tracked memory has been freed, the registry itself is freed and set to NULL. <br  />
+ This function is registered with <code>atexit()</code> to ensure that it is called automatically when the program terminates, providing a safety net for memory management and preventing leaks. </p>
+
+<p class="reference">References <a class="el" href="#l00042">mem_count</a>, and <a class="el" href="#l00029">mem_register</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="#l00069">memtrack()</a>.</p>
+
+</div>
+</div>
+<a id="ad582239e0fb2ae41572d3f0582922bc2" name="ad582239e0fb2ae41572d3f0582922bc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad582239e0fb2ae41572d3f0582922bc2">&#9670;&#160;</a></span>memtrack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void memtrack </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>mem</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registers a memory block for tracking and automatic cleanup. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mem</td><td>Pointer to the memory block to track.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Registers a dynamically allocated memory block for deferred release. <br  />
+ Adds a pointer to the internal memory registry. The registry grows dynamically as new allocations are tracked. <br  />
+ This function is intended to be called immediately after successful dynamic allocation (e.g. <code>malloc</code>, <code>calloc</code>, <code>realloc</code>). <br  />
+ On the first invocation, <a class="el" href="ntmemory_8c.html#a5fe9dfe999ba7e84a43b1dabd37fafb8" title="Frees all memory blocks registered in the internal tracking registry.">memfree()</a> is automatically registered to execute at program termination via <code>atexit()</code>. </p>
+
+<p class="reference">References <a class="el" href="#l00042">mem_count</a>, <a class="el" href="#l00029">mem_register</a>, and <a class="el" href="#l00051">memfree()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

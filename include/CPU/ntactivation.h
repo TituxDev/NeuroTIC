@@ -1,19 +1,9 @@
 /**
  * @file ntactivation.h
- * @author Oscar Sotomayor (Titux)
- * @brief @copybrief ntactivation.c
+ * @brief Activation Function List    
+ * @ref http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation.c
  * 
- * @details
- * This module defines the set of activation operations supported by the system
- * and exposes global lookup tables that bind activation identifiers to their
- * corresponding execution routines and derivatives.
- *
- * Although this interface is publicly accessible, it is typically consumed
- * indirectly through higher-level execution components.
- *
- * The activation subsystem itself is stateless and purely functional.
- *
- * @ref ntactivation.c "Source code"
+ * @copydetauls ntactivation.c
  */
 
 
@@ -21,10 +11,13 @@
 #define NTACTIVATION_H
 
 /**
- * @brief Identifiers for supported activation operations.
+ * @brief Enumeration of supported activation functions.
+ * 
  * @details
- * Each identifier selects a row in the activation lookup tables defined
- * by this module.
+ * This enumeration defines identifiers for the activation functions implemented in the NeuroTIC framework.  
+ * Each identifier corresponds to a specific activation function and its derivative, which are stored in the `ntact_activation` dispatch table.  
+ * The `NTACT_TOTAL_FUNCTIONS` entry is used to indicate the total number of activation functions available, which is useful for iterating over the dispatch table and for validating activation function identifiers.  
+ * Additional activation functions can be added to this enumeration as needed, along with their corresponding implementations in the `ntact_activation` dispatch table and appropriate entries in the `ntact_rand_range` for weight initialization.
  */
 typedef enum {
     NTACT_BOOLEAN,   ///< Boolean step activation function
@@ -34,15 +27,19 @@ typedef enum {
 } ntact_function_id_t;
 
 /**
- * @details
- * This table maps each activation identifier to its corresponding execution
- * routines for both the activation function and its derivative.
+ * @brief Activation function and derivative dispatch tables.
+ * 
+ * @see ntact_function_id_t for function identifiers.
  */
-extern float (*ntact_activation[NTACT_TOTAL_FUNCTIONS][2])(float);
+extern float (*ntact_activation[NTACT_TOTAL_FUNCTIONS][2])( float );
 
 
 /**
- * @copydoc ntact_rand_range
+ * @brief Random initialization range table for activation functions.
+ * 
+ * @return ntact_rand_range
+ * A 2D array where each row corresponds to an activation function, with the first column representing the minimum value and the second column representing the maximum value for weight initialization.  
+ * These ranges are used in the `randnet` function to ensure that weights are initialized within appropriate bounds for each activation function, which can help improve training performance and convergence.
  */
 extern float ntact_rand_range[NTACT_TOTAL_FUNCTIONS][2];
 

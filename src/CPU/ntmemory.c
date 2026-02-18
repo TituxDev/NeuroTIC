@@ -1,22 +1,12 @@
 /**
- * @defgroup NTMemory
- * @ingroup NTPeripherals
  * @file ntmemory.c
- * @ingroup NTMemory
- * @brief Pointer registry and deferred cleanup implementation.
- * @author Oscar Sotomayor (TituxDev).
- *
- * Implements a simple global pointer registry used during development
- * to track dynamically allocated memory blocks and release them
- * collectively.
- *
- * The registry provides a coarse-grained cleanup mechanism intended
- * for small experiments and early framework development.
- *
- * This module is auxiliary in nature and may be replaced by a more
- * capable memory subsystem in the future.
- *
- * @see ntmemory.h
+ * @brief Implementation of memory management functions.
+ * 
+ * Provides functions for tracking dynamically allocated memory blocks and ensuring they are freed at program termination.  
+ * Uses a dynamic registry to store pointers to allocated memory, and registers a cleanup function with `atexit()` to automatically free all tracked memory when the program exits.
+ * 
+ * @author Oscar Sotomayor.
+ * @date 2026
  */
 
 #include "ntmemory.h"
@@ -25,37 +15,38 @@
 
 
 /**
- * @var mem_register
- * @brief Dynamic registry of tracked memory blocks.
- *
- * Stores pointers to all memory blocks registered through ::memtrack().
- * The registry itself is dynamically resized as new entries are added.
+ * @brief Internal registry for tracking allocated memory blocks.
+ * 
+ * This dynamic array stores pointers to all memory blocks that have been registered via ::memtrack().  
+ * The registry allows for collective management of memory, enabling the ::memfree() function to iterate through all tracked pointers and free them at once.  
+ * The registry is dynamically resized as new pointers are added, and is freed itself when ::memfree() is called.  
+ * This approach simplifies memory management by centralizing the tracking and cleanup of dynamically allocated memory within the NeuroTIC system.  
+ * 
+ * @warning
+ * This registry assumes exclusive ownership of all tracked pointers.  
+ * Manually freeing any pointer that has been registered will lead to undefined behavior when ::memfree() is called, as it will attempt to free already freed memory.
  */
 static void **mem_register= NULL;
 
 /**
- * @var mem_count
- * @brief Number of currently tracked memory blocks.
- *
- * Indicates how many pointers are stored in ::mem_register.
+ * @brief Counter for the number of tracked memory blocks.
+ * 
+ * This counter keeps track of how many pointers have been registered in the `mem_register` array.  
+ * It is incremented each time ::memtrack() is called and decremented as memory blocks are freed in ::memfree().  
+ * The counter is used to manage the size of the registry and to ensure that all tracked memory is properly released when ::memfree() is invoked.
+ * 
+ * @warning
+ * This counter must accurately reflect the number of valid pointers in the `mem_register`.  
+ * Any discrepancies (e.g., due to manual freeing of tracked memory) can lead to undefined behavior when ::memfree() is called, as it may attempt to free invalid pointers or miss freeing valid ones.
  */
 static unsigned int mem_count= 0;
 
 /**
- * @fn void memfree( void )
- * @brief Frees all tracked memory blocks and clears the registry.
- *
- * This function iterates over the internal pointer register, releasing
- * each allocated block. Once all tracked memory has been freed, the
- * registry itself is also released and reset to NULL.
- *
- * Typically, this is called automatically at program termination via
- * `atexit()`. It can also be called manually to force cleanup earlier
- * in execution.
- *
- * @warning This function does not validate whether a pointer has already
- * been manually freed. Double freeing externally managed pointers
- * will result in undefined behavior.
+ * @details
+ * Frees all memory blocks registered in the internal tracking registry.  
+ * Iterates through the `mem_register` array, freeing each pointer and setting it to NULL to prevent dangling references.  
+ * After all tracked memory has been freed, the registry itself is freed and set to NULL.  
+ * This function is registered with `atexit()` to ensure that it is called automatically when the program terminates, providing a safety net for memory management and preventing leaks.
  */
 void memfree( void ){
     while( mem_count )
@@ -69,19 +60,11 @@ void memfree( void ){
 
 
 /**
- * @brief Registers a memory block for deferred collective release.
- *
- * Appends a pointer to the internal tracking registry. The registry grows
- * dynamically via `realloc()` as new blocks are registered.
- *
- * On the first successful registration, ::memfree() is automatically
- * registered with `atexit()` to ensure cleanup at program termination.
- *
- * @param mem Pointer to a valid dynamically allocated memory block.
- *
- * @warning
- * Passing a NULL pointer is considered a fatal error and terminates execution.
- * Tracked memory must not be manually freed.
+ * @details
+ * Registers a dynamically allocated memory block for deferred release.  
+ * Adds a pointer to the internal memory registry. The registry grows dynamically as new allocations are tracked.  
+ * This function is intended to be called immediately after successful dynamic allocation (e.g. `malloc`, `calloc`, `realloc`).  
+ * On the first invocation, ::memfree() is automatically registered to execute at program termination via `atexit()`.
  */
 void memtrack( void *mem ){
     if( !mem ){

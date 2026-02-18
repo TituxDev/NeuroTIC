@@ -7,7 +7,6 @@ var searchData=
   ['example_20topology_4',['Example topology',['../neurons_8c.html#neuron_example',1,'']]],
   ['execution_20algorithms_5',['Execution Algorithms',['../group__NTExecution.html',1,'']]],
   ['execution_20flow_6',['External Execution Flow',['../neuron__s_8dox.html#neuron_flow',1,'']]],
-  ['execution_20model_7',['Activation execution model',['../ntactivation_8c.html#activation-execution-model-------------------------------------------------',1,'']]],
-  ['expansion_8',['expansion',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#feature-expansion',1,'Feature Expansion'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#platform-expansion',1,'Platform Expansion']]],
-  ['external_20execution_20flow_9',['External Execution Flow',['../neuron__s_8dox.html#neuron_flow',1,'']]]
+  ['expansion_7',['expansion',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#feature-expansion',1,'Feature Expansion'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#platform-expansion',1,'Platform Expansion']]],
+  ['external_20execution_20flow_8',['External Execution Flow',['../neuron__s_8dox.html#neuron_flow',1,'']]]
 ];

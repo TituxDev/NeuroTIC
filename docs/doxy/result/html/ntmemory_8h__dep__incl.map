@@ -1,5 +1,5 @@
 <map id="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntmemory.h" name="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntmemory.h">
-<area shape="rect" id="Node000001" title="Auxiliary memory tracking utilities." alt="" coords="751,5,1002,45"/>
+<area shape="rect" id="Node000001" title="Memory Management Functions &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntmemory...." alt="" coords="751,5,1002,45"/>
 <area shape="rect" id="Node000002" href="$examples_2ntcomplete_8h.html" title=" " alt="" coords="5,93,249,133"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="738,43,261,96,250,97,249,92,260,91,737,38"/>
 <area shape="rect" id="Node000003" href="$ntbuilder_8c.html" title="Implementation of network construction functions." alt="" coords="273,93,485,133"/>
@@ -8,7 +8,7 @@
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="811,52,687,96,685,91,809,47"/>
 <area shape="rect" id="Node000005" href="$ntfile_8c.html" title="Implementation of network saving and loading for NeuroTIC." alt="" coords="781,93,973,133"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="879,59,879,93,874,93,874,59"/>
-<area shape="rect" id="Node000006" href="$ntmemory_8c.html" title="Pointer registry and deferred cleanup implementation." alt="" coords="997,93,1218,133"/>
+<area shape="rect" id="Node000006" href="$ntmemory_8c.html" title="Implementation of memory management functions." alt="" coords="997,93,1218,133"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="941,48,1058,91,1056,96,939,53"/>
 <area shape="rect" id="Node000007" href="$nttrain_8c.html" title="Implementation of backpropagation training for NeuroTIC networks." alt="" coords="1243,93,1441,133"/>
 <area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="993,45,1243,91,1242,96,992,51"/>

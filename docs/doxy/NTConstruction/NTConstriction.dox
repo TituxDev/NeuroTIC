@@ -4,5 +4,6 @@
  * 
  * ntbuilder.h @copybrief ntbuilder.h  
  * ntfeedforward.h @copybrief ntfeedforward.h  
+ * ntinitialize.h @copybrief ntinitialize.h  
  * ntfile.h @copybrief ntfile.h
  */

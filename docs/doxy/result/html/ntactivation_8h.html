@@ -96,21 +96,22 @@ $(document).ready(function(){initNavTree('ntactivation_8h.html',''); initResizab
 </div><!--header-->
 <div class="contents">
 
-<p>Internal implementation of activation behavior.    
+<p>Activation Function List <br  />
+ <a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation.c</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="ntactivation_8h__dep__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntactivation_8hdep" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntactivation_8hdep" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntactivation_8hdep">
-<area shape="rect" title="Internal implementation of activation behavior." alt="" coords="763,5,1025,45"/>
+<area shape="rect" title="Activation Function List &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation...." alt="" coords="763,5,1025,45"/>
 <area shape="rect" href="examples_2ntcomplete_8h.html" title=" " alt="" coords="5,93,249,133"/>
 <area shape="poly" title=" " alt="" coords="749,43,261,96,250,97,249,92,260,91,749,38"/>
-<area shape="rect" href="ntactivation_8c.html" title="Internal implementation of activation behavior." alt="" coords="273,93,507,133"/>
+<area shape="rect" href="ntactivation_8c.html" title="Activation Functions List. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation...." alt="" coords="273,93,507,133"/>
 <area shape="poly" title=" " alt="" coords="770,50,501,96,500,91,769,45"/>
 <area shape="rect" href="ntcalculate_8c.html" title="Implementation of feedforward network computations." alt="" coords="531,93,758,133"/>
 <area shape="poly" title=" " alt="" coords="827,52,700,96,698,91,825,47"/>
-<area shape="rect" href="ntinitialize_8c.html" title="Implementation of random weight initialization." alt="" coords="782,93,1006,133"/>
+<area shape="rect" href="ntinitialize_8c.html" title="Implementation Random Initialization." alt="" coords="782,93,1006,133"/>
 <area shape="poly" title=" " alt="" coords="897,59,897,93,891,93,891,59"/>
 <area shape="rect" href="nttrain_8c.html" title="Implementation of backpropagation training for NeuroTIC networks." alt="" coords="1029,93,1228,133"/>
 <area shape="poly" title=" " alt="" coords="959,48,1078,91,1076,96,957,53"/>
@@ -129,25 +130,22 @@ Enumerations</h2></td></tr>
 , <a class="el" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea4389b6d31de2d327aaa4c65d0f8e9322">NTACT_SIGMOID</a>
 , <a class="el" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea859361193d6a6eb43e11e144bef7acf5">NTACT_TOTAL_FUNCTIONS</a>
  }</td></tr>
-<tr class="memdesc:a371f27f3712ebe40d139d5dd2729237e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifiers for supported activation operations.  <a href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237e">More...</a><br /></td></tr>
+<tr class="memdesc:a371f27f3712ebe40d139d5dd2729237e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration of supported activation functions.  <a href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237e">More...</a><br /></td></tr>
 <tr class="separator:a371f27f3712ebe40d139d5dd2729237e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a1190711e4f39ccc396a6bc46a5518f88" id="r_a1190711e4f39ccc396a6bc46a5518f88"><td class="memItemLeft" align="right" valign="top">float(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntactivation_8h.html#a1190711e4f39ccc396a6bc46a5518f88">ntact_activation</a> [<a class="el" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea859361193d6a6eb43e11e144bef7acf5">NTACT_TOTAL_FUNCTIONS</a>][2])(float)</td></tr>
-<tr class="memdesc:a1190711e4f39ccc396a6bc46a5518f88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activation dispatch table.  <br /></td></tr>
+<tr class="memdesc:a1190711e4f39ccc396a6bc46a5518f88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activation function and derivative dispatch tables.  <br /></td></tr>
 <tr class="separator:a1190711e4f39ccc396a6bc46a5518f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68975968643d0c6223716ffee442818a" id="r_a68975968643d0c6223716ffee442818a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntactivation_8h.html#a68975968643d0c6223716ffee442818a">ntact_rand_range</a> [<a class="el" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea859361193d6a6eb43e11e144bef7acf5">NTACT_TOTAL_FUNCTIONS</a>][2]</td></tr>
-<tr class="memdesc:a68975968643d0c6223716ffee442818a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random initialization range table for activation functions.    <br /></td></tr>
+<tr class="memdesc:a68975968643d0c6223716ffee442818a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random initialization range table for activation functions.  <br /></td></tr>
 <tr class="separator:a68975968643d0c6223716ffee442818a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Internal implementation of activation behavior.   </p>
-<dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor (Titux) </dd></dl>
-<p>This module defines the set of activation operations supported by the system and exposes global lookup tables that bind activation identifiers to their corresponding execution routines and derivatives.</p>
-<p>Although this interface is publicly accessible, it is typically consumed indirectly through higher-level execution components.</p>
-<p>The activation subsystem itself is stateless and purely functional.</p>
-<p><a class="el" href="ntactivation_8c.html">Source code</a> </p>
+<div class="textblock"><p>Activation Function List <br  />
+ <a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation.c</a>. </p>
+<p>@copydetauls <a class="el" href="ntactivation_8c.html" title="Activation Functions List.   http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation....">ntactivation.c</a> </p>
 
 <p class="definition">Definition in file <a class="el" href="">ntactivation.h</a>.</p>
 </div><h2 class="groupheader">Enumeration Type Documentation</h2>
@@ -163,8 +161,11 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Identifiers for supported activation operations. </p>
-<p>Each identifier selects a row in the activation lookup tables defined by this module. </p>
+<p>Enumeration of supported activation functions. </p>
+<p>This enumeration defines identifiers for the activation functions implemented in the NeuroTIC framework. <br  />
+ Each identifier corresponds to a specific activation function and its derivative, which are stored in the <code>ntact_activation</code> dispatch table. <br  />
+ The <code>NTACT_TOTAL_FUNCTIONS</code> entry is used to indicate the total number of activation functions available, which is useful for iterating over the dispatch table and for validating activation function identifiers. <br  />
+ Additional activation functions can be added to this enumeration as needed, along with their corresponding implementations in the <code>ntact_activation</code> dispatch table and appropriate entries in the <code>ntact_rand_range</code> for weight initialization. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a371f27f3712ebe40d139d5dd2729237ea587a29efb246908053458f5ea4347b1d" name="a371f27f3712ebe40d139d5dd2729237ea587a29efb246908053458f5ea4347b1d"></a>NTACT_BOOLEAN&#160;</td><td class="fielddoc"><p>Boolean step activation function. </p>
 </td></tr>
@@ -201,12 +202,14 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Activation dispatch table. </p>
-<p>This table maps each activation identifier to its corresponding execution routines for both the activation function and its derivative.</p>
-<p>Defines the mapping between activation identifiers and their associated execution functions. Indexing:</p><ul>
+<p>Activation function and derivative dispatch tables. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237e" title="Enumeration of supported activation functions.">ntact_function_id_t</a> for function identifiers.</dd></dl>
+<p>Defines the mapping between activation identifiers and their associated execution functions. <br  />
+ Indexing:</p><ul>
 <li>First index : activation identifier</li>
-<li>Second index : [0] activation [1] derivative </li>
+<li>Second index : [0] activation [1] derivative</li>
 </ul>
+<p>The table is initialized with the supported activation functions, and can be extended to include additional functions as needed. </p>
 
 <p class="reference">Referenced by <a class="el" href="#l00034">activate()</a>.</p>
 
@@ -232,12 +235,11 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Random initialization range table for activation functions.   </p>
-<p>Defines the preferred initialization range associated with each activation function.  </p>
-<p>Random initialization range table for activation functions.  </p>
-<p>Defines the preferred initialization range associated with each activation function. </p>
+<p>Random initialization range table for activation functions. </p>
+<dl class="section return"><dt>Returns</dt><dd>ntact_rand_range A 2D array where each row corresponds to an activation function, with the first column representing the minimum value and the second column representing the maximum value for weight initialization. <br  />
+ These ranges are used in the <code>randnet</code> function to ensure that weights are initialized within appropriate bounds for each activation function, which can help improve training performance and convergence. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="#l00028">randnet()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00025">randnet()</a>.</p>
 
 </div>
 </div>

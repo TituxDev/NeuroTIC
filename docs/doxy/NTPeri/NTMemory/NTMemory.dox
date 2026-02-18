@@ -1,0 +1,6 @@
+/**
+ * @defgroup NTMemory Memory Management
+ * @ingroup NTPeripherals
+ *
+ * @ref ntmemory.h @copybrief ntmemory.h  
+ */

@@ -23,8 +23,9 @@ var searchData=
   ['ntinitialize_2ec_20',['ntinitialize.c',['../ntinitialize_8c.html',1,'']]],
   ['ntinitialize_2eh_21',['ntinitialize.h',['../ntinitialize_8h.html',1,'']]],
   ['ntmemory_2ec_22',['ntmemory.c',['../ntmemory_8c.html',1,'']]],
-  ['ntmemory_2eh_23',['ntmemory.h',['../ntmemory_8h.html',1,'']]],
-  ['ntperi_2edox_24',['NTPeri.dox',['../NTPeri_8dox.html',1,'']]],
-  ['nttrain_2ec_25',['nttrain.c',['../nttrain_8c.html',1,'']]],
-  ['nttrain_2eh_26',['nttrain.h',['../nttrain_8h.html',1,'']]]
+  ['ntmemory_2edox_23',['NTMemory.dox',['../NTMemory_8dox.html',1,'']]],
+  ['ntmemory_2eh_24',['ntmemory.h',['../ntmemory_8h.html',1,'']]],
+  ['ntperi_2edox_25',['NTPeri.dox',['../NTPeri_8dox.html',1,'']]],
+  ['nttrain_2ec_26',['nttrain.c',['../nttrain_8c.html',1,'']]],
+  ['nttrain_2eh_27',['nttrain.h',['../nttrain_8h.html',1,'']]]
 ];

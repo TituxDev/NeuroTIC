@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Implementation of predefined feedforward topologies for NeuroTIC networks." alt="" coords="83,5,329,45"/>
 <area shape="rect" id="Node000002" href="$ntfeedforward_8h.html" title="Predefined Feedforward Topologies. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntfeedforward...." alt="" coords="5,93,132,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,48,102,89,100,84,172,43"/>
-<area shape="rect" id="Node000005" href="$ntmemory_8h.html" title="Auxiliary memory tracking utilities." alt="" coords="156,93,256,119"/>
+<area shape="rect" id="Node000005" href="$ntmemory_8h.html" title="Memory Management Functions &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntmemory...." alt="" coords="156,93,256,119"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="209,46,209,79,203,79,203,46"/>
 <area shape="rect" id="Node000006" title=" " alt="" coords="280,93,351,119"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="234,43,290,83,287,87,231,48"/>
