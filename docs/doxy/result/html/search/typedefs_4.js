@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['wiring_5fs_0',['wiring_s',['../ntcore_8h.html#a67d4a57ca681ab9757f6dd9a04e419fb',1,'ntcore.h']]]
+  ['traindata_5ft_0',['traindata_t',['../nttrain_8h.html#a8120b45c1f0d54c6d7b152840ef62972',1,'nttrain.h']]]
 ];

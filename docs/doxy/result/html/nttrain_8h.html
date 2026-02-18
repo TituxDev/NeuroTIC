@@ -133,8 +133,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnttraindata.html">nttraindata</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to hold training dataset and parameters.  <a href="structnttraindata.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtraindata__t.html">traindata_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to hold training dataset and parameters.  <a href="structtraindata__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
@@ -143,27 +143,44 @@ Typedefs</h2></td></tr>
 <tr class="separator:a2cfe1c0a780a80675abb2076680638aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98ac8fb7b8f6eb22689481efc504b757" id="r_a98ac8fb7b8f6eb22689481efc504b757"><td class="memItemLeft" align="right" valign="top">typedef uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nttrain_8h.html#a98ac8fb7b8f6eb22689481efc504b757">sample_t</a></td></tr>
 <tr class="separator:a98ac8fb7b8f6eb22689481efc504b757"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9efe515cacdc64eaea20b3cfc0564c77" id="r_a9efe515cacdc64eaea20b3cfc0564c77"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structnttraindata.html">nttraindata</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nttrain_8h.html#a9efe515cacdc64eaea20b3cfc0564c77">traindata_t</a></td></tr>
-<tr class="memdesc:a9efe515cacdc64eaea20b3cfc0564c77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to hold training dataset and parameters.  <br /></td></tr>
-<tr class="separator:a9efe515cacdc64eaea20b3cfc0564c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2386c30c7735ce500ed3033a84dbd65d" id="r_a2386c30c7735ce500ed3033a84dbd65d"><td class="memItemLeft" align="right" valign="top">typedef uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nttrain_8h.html#a2386c30c7735ce500ed3033a84dbd65d">attempts_t</a></td></tr>
+<tr class="separator:a2386c30c7735ce500ed3033a84dbd65d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8120b45c1f0d54c6d7b152840ef62972" id="r_a8120b45c1f0d54c6d7b152840ef62972"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structtraindata__t.html">traindata_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nttrain_8h.html#a8120b45c1f0d54c6d7b152840ef62972">traindata_t</a></td></tr>
+<tr class="memdesc:a8120b45c1f0d54c6d7b152840ef62972"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to hold training dataset and parameters.  <br /></td></tr>
+<tr class="separator:a8120b45c1f0d54c6d7b152840ef62972"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1d7455b7a18bd3d79bdf722dfc65cc50" id="r_a1d7455b7a18bd3d79bdf722dfc65cc50"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nttrain_8h.html#a1d7455b7a18bd3d79bdf722dfc65cc50">newtraindata</a> (<a class="el" href="nttrain_8h.html#a9efe515cacdc64eaea20b3cfc0564c77">traindata_t</a> *train_data, <a class="el" href="structnet__s.html">net_s</a> *net)</td></tr>
+<tr class="memitem:a1d7455b7a18bd3d79bdf722dfc65cc50" id="r_a1d7455b7a18bd3d79bdf722dfc65cc50"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nttrain_8h.html#a1d7455b7a18bd3d79bdf722dfc65cc50">newtraindata</a> (<a class="el" href="structtraindata__t.html">traindata_t</a> *train_data, <a class="el" href="structnet__s.html">net_s</a> *net)</td></tr>
 <tr class="memdesc:a1d7455b7a18bd3d79bdf722dfc65cc50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates memory for training data arrays.  <br /></td></tr>
 <tr class="separator:a1d7455b7a18bd3d79bdf722dfc65cc50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4450d805d3c69b9a0bf245313adf1414" id="r_a4450d805d3c69b9a0bf245313adf1414"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nttrain_8h.html#a4450d805d3c69b9a0bf245313adf1414">backpropagation</a> (<a class="el" href="structnet__s.html">net_s</a> *net, <a class="el" href="nttrain_8h.html#a9efe515cacdc64eaea20b3cfc0564c77">traindata_t</a> *data)</td></tr>
-<tr class="memdesc:a4450d805d3c69b9a0bf245313adf1414"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trains a network using backpropagation.  <br /></td></tr>
-<tr class="separator:a4450d805d3c69b9a0bf245313adf1414"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a891be5db9db4f4369bca8558d3cd212a" id="r_a891be5db9db4f4369bca8558d3cd212a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="nttrain_8h.html#a2386c30c7735ce500ed3033a84dbd65d">attempts_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nttrain_8h.html#a891be5db9db4f4369bca8558d3cd212a">backpropagation</a> (<a class="el" href="structnet__s.html">net_s</a> *net, <a class="el" href="structtraindata__t.html">traindata_t</a> *data)</td></tr>
+<tr class="memdesc:a891be5db9db4f4369bca8558d3cd212a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trains a network using backpropagation.  <br /></td></tr>
+<tr class="separator:a891be5db9db4f4369bca8558d3cd212a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header for training utilities in NeuroTIC. </p>
-<p>Provides structures and functions to store training data and perform supervised learning on feedforward networks.</p>
+<p><a href="https://tituxdev.github.io/NeuroTIC/src/CPU/nttrain.c">https://tituxdev.github.io/NeuroTIC/src/CPU/nttrain.c</a></p>
+<p>Provides functions to allocate training datasets and train feedforward networks using standard backpropagation.</p>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2024 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026   </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="">nttrain.h</a>.</p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a2386c30c7735ce500ed3033a84dbd65d" name="a2386c30c7735ce500ed3033a84dbd65d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2386c30c7735ce500ed3033a84dbd65d">&#9670;&#160;</a></span>attempts_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef uint64_t <a class="el" href="nttrain_8h.html#a2386c30c7735ce500ed3033a84dbd65d">attempts_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a2cfe1c0a780a80675abb2076680638aa" name="a2cfe1c0a780a80675abb2076680638aa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2cfe1c0a780a80675abb2076680638aa">&#9670;&#160;</a></span>precision_t</h2>
 
@@ -192,14 +209,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a9efe515cacdc64eaea20b3cfc0564c77" name="a9efe515cacdc64eaea20b3cfc0564c77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9efe515cacdc64eaea20b3cfc0564c77">&#9670;&#160;</a></span>traindata_t</h2>
+<a id="a8120b45c1f0d54c6d7b152840ef62972" name="a8120b45c1f0d54c6d7b152840ef62972"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8120b45c1f0d54c6d7b152840ef62972">&#9670;&#160;</a></span>traindata_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef struct <a class="el" href="structnttraindata.html">nttraindata</a> <a class="el" href="nttrain_8h.html#a9efe515cacdc64eaea20b3cfc0564c77">traindata_t</a></td>
+          <td class="memname">typedef struct <a class="el" href="structtraindata__t.html">traindata_t</a> <a class="el" href="structtraindata__t.html">traindata_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -209,14 +226,14 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a4450d805d3c69b9a0bf245313adf1414" name="a4450d805d3c69b9a0bf245313adf1414"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4450d805d3c69b9a0bf245313adf1414">&#9670;&#160;</a></span>backpropagation()</h2>
+<a id="a891be5db9db4f4369bca8558d3cd212a" name="a891be5db9db4f4369bca8558d3cd212a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a891be5db9db4f4369bca8558d3cd212a">&#9670;&#160;</a></span>backpropagation()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int backpropagation </td>
+          <td class="memname"><a class="el" href="nttrain_8h.html#a2386c30c7735ce500ed3033a84dbd65d">attempts_t</a> backpropagation </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structnet__s.html">net_s</a> *&#160;</td>
           <td class="paramname"><em>net</em>, </td>
@@ -224,7 +241,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="nttrain_8h.html#a9efe515cacdc64eaea20b3cfc0564c77">traindata_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structtraindata__t.html">traindata_t</a> *&#160;</td>
           <td class="paramname"><em>train_data</em>&#160;</td>
         </tr>
         <tr>
@@ -236,7 +253,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Trains a network using backpropagation. </p>
-<p>Updates network weights and biases iteratively based on the training data until the error is below <code>tolerance</code> or <code>max_attempts</code> is reached.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">net</td><td>Pointer to the network to train. </td></tr>
@@ -244,24 +260,15 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of iterations performed.</dd></dl>
-<p>Trains a network using backpropagation.</p>
-<ul>
+<dl class="section return"><dt>Returns</dt><dd>attempts_t Number of iterations performed.</dd></dl>
+<p>Implements the backpropagation algorithm to train the network. For each training sample:</p><ul>
 <li>Computes outputs via feedforward.</li>
 <li>Calculates errors for each neuron.</li>
 <li>Propagates deltas backward and updates weights and biases.</li>
-<li>Repeats until error is below <code>tolerance</code> or <code>max_attempts</code> is reached.</li>
+<li>Repeats until error is below <code>tolerance</code> or <code>max_attempts</code> is reached. </li>
 </ul>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">net</td><td>Pointer to the network to train. </td></tr>
-    <tr><td class="paramname">train_data</td><td>Pointer to the training dataset and parameters. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of training iterations performed. </dd></dl>
 
-<p class="reference">References <a class="el" href="#l00046">feedforward()</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00029">nttraindata::max_attempts</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00026">nttraindata::samples</a>, and <a class="el" href="#l00028">nttraindata::tolerance</a>.</p>
+<p class="reference">References <a class="el" href="#l00046">feedforward()</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00026">traindata_t::max_attempts</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00023">traindata_t::samples</a>, and <a class="el" href="#l00025">traindata_t::tolerance</a>.</p>
 
 </div>
 </div>
@@ -274,7 +281,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void newtraindata </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="nttrain_8h.html#a9efe515cacdc64eaea20b3cfc0564c77">traindata_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structtraindata__t.html">traindata_t</a> *&#160;</td>
           <td class="paramname"><em>train_data</em>, </td>
         </tr>
         <tr>
@@ -292,25 +299,17 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Allocates memory for training data arrays. </p>
-<p>Initializes <code>in</code> and <code>results</code> arrays based on the network structure and number of samples.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">train_data</td><td>Pointer to training data structure to initialize. </td></tr>
-    <tr><td class="paramname">net</td><td>Pointer to the network being trained.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtraindata__t.html" title="Structure to hold training dataset and parameters.">traindata_t</a></td><td>Pointer to training data structure to initialize. <br  />
+ </td></tr>
+    <tr><td class="paramname"><a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a></td><td>Pointer to the network being trained.</td></tr>
   </table>
   </dd>
 </dl>
-<p>Allocates memory for training data arrays.</p>
-<p>Each sample gets an array for inputs and an array for expected outputs.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">train_data</td><td>Pointer to training data structure to initialize. </td></tr>
-    <tr><td class="paramname">net</td><td>Pointer to the network being trained. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Allocates memory for training data arrays. Initializes <code>in</code> and <code>results</code> arrays based on the network structure and number of samples. </p>
 
-<p class="reference">References <a class="el" href="#l00102">net_s::layers</a>, and <a class="el" href="#l00026">nttraindata::samples</a>.</p>
+<p class="reference">References <a class="el" href="#l00102">net_s::layers</a>, and <a class="el" href="#l00023">traindata_t::samples</a>.</p>
 
 </div>
 </div>

@@ -6,7 +6,7 @@
  * networks using standard backpropagation.
  * 
  * @author Oscar Sotomayor
- * @date 2024
+ * @date 2026
  */
 
 #include "nttrain.h"
@@ -19,12 +19,10 @@
 #include <math.h>
 
 /**
- * @brief Allocates memory for input and output arrays in training data.
- *
- * Each sample gets an array for inputs and an array for expected outputs.
- *
- * @param train_data Pointer to training data structure to initialize.
- * @param net Pointer to the network being trained.
+ * @details
+ * Allocates memory for training data arrays.
+ * Initializes `in` and `results` arrays based on the network structure
+ * and number of samples.
  */
 void newtraindata( traindata_t *train_data , net_s *net ){
     memtrack( train_data->in= calloc( train_data->samples , sizeof( data_t * ) ) );
@@ -38,19 +36,16 @@ void newtraindata( traindata_t *train_data , net_s *net ){
 
 
 /**
- * @brief Performs backpropagation training on a feedforward network.
- *
+ * @details
+ * Implements the backpropagation algorithm to train the network.
+ * For each training sample:
  * - Computes outputs via feedforward.
  * - Calculates errors for each neuron.
  * - Propagates deltas backward and updates weights and biases.
  * - Repeats until error is below `tolerance` or `max_attempts` is reached.
- *
- * @param net Pointer to the network to train.
- * @param train_data Pointer to the training dataset and parameters.
- * @return Number of training iterations performed.
  */
-int backpropagation( net_s *net , traindata_t *train_data ){
-    uint64_t attempt= train_data->max_attempts;
+attempts_t backpropagation( net_s *net , traindata_t *train_data ){
+    attempts_t attempt= train_data->max_attempts;
     const layer_t prev_layer= net->layers - 1;
     layer_t next_layer;
     size_t max_mem= 0;
@@ -62,7 +57,7 @@ int backpropagation( net_s *net , traindata_t *train_data ){
     for( input_t i= 0 ; i < net->inputs ; i++ ) net->in[i]= &in[i];
     do{
         err_total= 0;
-        for( uint64_t i= 0 ; i < train_data->samples ; i++ ){
+        for( sample_t i= 0 ; i < train_data->samples ; i++ ){
             memcpy( in , train_data->in[i] , inputs_size );
             feedforward( net );
             for( uint16_t j= 0 ; j < net->neurons[prev_layer] ; j++ ){

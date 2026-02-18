@@ -1,7 +1,7 @@
 var searchData=
 [
   ['sample_5ft_0',['sample_t',['../nttrain_8h.html#a98ac8fb7b8f6eb22689481efc504b757',1,'nttrain.h']]],
-  ['samples_1',['samples',['../structnttraindata.html#a017b75fd3ee214cf09468b7a658f00ed',1,'nttraindata']]],
+  ['samples_1',['samples',['../structtraindata__t.html#afa696524af4d45a38c0902ac0d9cc999',1,'traindata_t']]],
   ['savenet_2',['savenet',['../ntfile_8c.html#ac70bcbf3321b6e08b5c9fe134e4b8426',1,'savenet(net_s *net, const char *name):&#160;ntfile.c'],['../ntfile_8h.html#ac70bcbf3321b6e08b5c9fe134e4b8426',1,'savenet(net_s *net, const char *name):&#160;ntfile.c']]],
   ['scope_20and_20stability_3',['Scope and stability',['../group__NTPeripherals.html#scope-and-stability',1,'']]],
   ['selector_20role_4',['Memory Selector Role',['../neuron__s_8dox.html#neuron_bff_idx',1,'']]],
