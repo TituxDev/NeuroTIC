@@ -7,7 +7,7 @@ var searchData=
   ['activation_20functions_4',['Activation Functions',['../group__NTActivation.html',1,'']]],
   ['adopter_20terms_5',['Early Adopter Terms',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#early-adopter-terms',1,'']]],
   ['agreement_6',['agreement',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#contribution-license-agreement',1,'Contribution License Agreement'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html',1,'NeuroTIC Commercial License Agreement']]],
-  ['algorithms_7',['Execution Algorithms',['../group__NTExecution.html',1,'']]],
+  ['algorithms_7',['algorithms',['../group__NTConstruction.html',1,'Construction Algorithms'],['../group__NTExecution.html',1,'Execution Algorithms']]],
   ['and_20conditions_8',['Terms and Conditions',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#terms-and-conditions',1,'']]],
   ['and_20stability_9',['Scope and stability',['../group__NTPeripherals.html#scope-and-stability',1,'']]],
   ['architecture_10',['Core Architecture',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#core-architecture',1,'']]],

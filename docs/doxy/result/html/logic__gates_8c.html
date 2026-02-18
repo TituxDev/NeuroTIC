@@ -178,7 +178,7 @@ $(document).ready(function(){initNavTree('logic__gates_8c.html',''); initResizab
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Train the network using backpropagation</span></div>
-<div class="line">    printf( <span class="stringliteral">&quot;\nAttemps: %i&quot;</span> , <a class="code hl_function" href="nttrain_8c.html#a0f03f18a558e71a45909bef6258c2aec">backpropagation</a>( &amp;network , &amp;data ) );</div>
+<div class="line">    printf( <span class="stringliteral">&quot;\nAttemps: %li&quot;</span> , <a class="code hl_function" href="nttrain_8c.html#a0f03f18a558e71a45909bef6258c2aec">backpropagation</a>( &amp;network , &amp;data ) );</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Evaluate and display results</span></div>
 <div class="line">    printf( <span class="stringliteral">&quot;\n\n=========================================================================================================================&quot;</span> );</div>
@@ -213,7 +213,7 @@ $(document).ready(function(){initNavTree('logic__gates_8c.html',''); initResizab
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="antactivation_8h_html_a371f27f3712ebe40d139d5dd2729237ea4389b6d31de2d327aaa4c65d0f8e9322"><div class="ttname"><a href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea4389b6d31de2d327aaa4c65d0f8e9322">NTACT_SIGMOID</a></div><div class="ttdeci">@ NTACT_SIGMOID</div><div class="ttdoc">Sigmoid activation function.</div><div class="ttdef"><b>Definition</b> ntactivation.h:31</div></div>
-<div class="ttc" id="antbuilder_8h_html_ac4ca47bc0d692b1d915cdc405f21cd85"><div class="ttname"><a href="ntbuilder_8h.html#ac4ca47bc0d692b1d915cdc405f21cd85">CREATE_NET_FEEDFORWARD</a></div><div class="ttdeci">#define CREATE_NET_FEEDFORWARD(network, i, neurons)</div><div class="ttdef"><b>Definition</b> ntbuilder.h:29</div></div>
+<div class="ttc" id="antbuilder_8h_html_ac4ca47bc0d692b1d915cdc405f21cd85"><div class="ttname"><a href="ntbuilder_8h.html#ac4ca47bc0d692b1d915cdc405f21cd85">CREATE_NET_FEEDFORWARD</a></div><div class="ttdeci">#define CREATE_NET_FEEDFORWARD(network, i, neurons)</div><div class="ttdoc">Convenience macro to create and build a feedforward network.</div><div class="ttdef"><b>Definition</b> ntbuilder.h:39</div></div>
 <div class="ttc" id="antcalculate_8c_html_a80593fe4480cce8f4dac43ee48d8a7a2"><div class="ttname"><a href="ntcalculate_8c.html#a80593fe4480cce8f4dac43ee48d8a7a2">feedforward</a></div><div class="ttdeci">data_t * feedforward(net_s *net)</div><div class="ttdoc">Executes full feedforward propagation.</div><div class="ttdef"><b>Definition</b> ntcalculate.c:46</div></div>
 <div class="ttc" id="antfile_8c_html_a8cdafc9f89ad9736acf6258f2b366101"><div class="ttname"><a href="ntfile_8c.html#a8cdafc9f89ad9736acf6258f2b366101">loadnet</a></div><div class="ttdeci">struct net_s loadnet(char *name)</div><div class="ttdoc">Loads a network from a binary file.</div><div class="ttdef"><b>Definition</b> ntfile.c:161</div></div>
 <div class="ttc" id="antfile_8c_html_ac70bcbf3321b6e08b5c9fe134e4b8426"><div class="ttname"><a href="ntfile_8c.html#ac70bcbf3321b6e08b5c9fe134e4b8426">savenet</a></div><div class="ttdeci">unsigned char savenet(net_s *net, const char *name)</div><div class="ttdoc">Saves a network to disk in binary format.</div><div class="ttdef"><b>Definition</b> ntfile.c:100</div></div>

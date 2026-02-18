@@ -6,7 +6,7 @@
  * references, and inter-layer buffers. Uses memtrack() to manage memory safely.
  * 
  * @author Oscar Sotomayor
- * @date 2024
+ * @date 2026
  */
 
 #include "ntbuilder.h"
@@ -17,18 +17,12 @@
 #include <stdio.h>
 
 /**
- * @brief Initializes a new neural network structure.
- *
- * Validates input pointers and layer sizes. Allocates memory for:
- * - The `neurons` array defining layer sizes.
- * - The neuron matrix `nn`.
- *
- * @param net Pointer to the network structure to initialize.
- * @param neurons_per_layer Array of neuron counts per layer.
- * @param layers_size Number of layers.
- * @return Pointer to the initialized network on success, NULL on invalid input.
+ * @details
+ * Initializes a new neural network structure by allocating memory for neurons
+ * and layers, and setting initial pointers to NULL. Validates input parameters
+ * and uses `memtrack` to register allocations for automatic cleanup.
  */
-struct net_s *newnet( net_s *net , uint16_t *neurons_per_layer , size_t layers_size ){
+struct net_s *newnet( net_s *net , uint16_t *neurons_per_layer , layer_t layers_size ){
     if( !net || !neurons_per_layer || net->layers < 1 || layers_size != net->layers ) return NULL;
     for( layer_t i = 0 ; i < net->layers ; i++ ) if( neurons_per_layer[i] < 1 ) return NULL;
     net->in= NULL;
@@ -44,11 +38,10 @@ struct net_s *newnet( net_s *net , uint16_t *neurons_per_layer , size_t layers_s
 
 
 /**
- * @brief Builds the internal buffers and connections of a neural network.
- *
+ * @details
  * Allocates memory for inputs, outputs, and inter-layer buffers according to
  * the `bff_wiring` configuration. Sets neuron input pointers and weight arrays.
- *
+ * 
  * Buffer type explanations:
  * - 'M': Mixed buffer; each pointer is set based on `src_type`.
  *   - 'N': Points to another buffer in the network.
@@ -57,9 +50,9 @@ struct net_s *newnet( net_s *net , uint16_t *neurons_per_layer , size_t layers_s
  * - 'N': Shared network buffer.
  * - 'I': Network input array.
  * - 'O': Network output array.
- *
- * @param net Pointer to the network to build.
- * @return Pointer to the fully constructed network.
+ * 
+ * Validates wiring configurations and ensures all pointers are correctly set up
+ * for feedforward computation. Uses `memtrack` for all allocations.
  */
 struct net_s *buildnet( net_s *net ){
     memtrack( net->in= malloc( net->inputs * sizeof( data_t *) ) );
