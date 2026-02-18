@@ -1,15 +1,13 @@
 /**
  * @file ntfeedforward.c
- * @brief Implementation of predefined network topologies.
- *
- * Provides functions to generate common wiring configurations for NeuroTIC
- * networks, initializing `bff_wiring` and neuron `bff_idx` values.
- *
- * This module is intended for convenience; users may also define their own
- * custom `bff_wiring` structures in the main code.
+ * @brief Implementation of predefined feedforward topologies for NeuroTIC networks.
+ * 
+ * Provides convenient functions to initialize common neural network wiring
+ * configurations. These functions allocate and configure the network's
+ * `bff_wiring` structure according to a specific topology.
  * 
  * @author Oscar Sotomayor
- * @date 2024
+ * @date 2026
  */
 
 #include "ntfeedforward.h"
@@ -17,15 +15,10 @@
 #include <stdlib.h>
 
 /**
- * @brief Initializes a simple feedforward topology.
- *
- * - Allocates memory for `bff_wiring`.
- * - Sets one buffer per neuron connecting it to the corresponding neuron
- *   in the previous layer.
- * - Initializes neuron `bff_idx` to 0.
- *
- * @param net Pointer to the network to configure.
- * @return Pointer to the configured network, or NULL on invalid input.
+ * @details
+ * Sets up one buffer per neuron connecting each neuron to the corresponding
+ * neuron in the previous layer. Validates input and uses `memtrack` for all
+ * allocations.
  */
 struct net_s *newfeedforward( net_s *net ){
     if( !net ) return NULL;
@@ -56,14 +49,10 @@ struct net_s *newfeedforward( net_s *net ){
 }
 
 /**
- * @brief Initializes a dense feedforward topology.
- *
- * - Allocates memory for `bff_wiring`.
- * - Connects each neuron in a layer to all neurons in previous layers.
- * - Sets neuron `bff_idx` to 0.
- *
- * @param net Pointer to the network to configure.
- * @return Pointer to the configured network, or NULL on invalid input.
+ * @details
+ * Connects each neuron in a layer to all neurons in previous layers, creating
+ * a fully connected inter-layer mapping. Validates input and uses `memtrack`
+ * for all allocations.
  */
 struct net_s *newdense( net_s *net ){
     if( !net ) return NULL;

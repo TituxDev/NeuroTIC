@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Predefined feedforward topologies for NeuroTIC networks." alt="" coords="259,5,535,45"/>
 <area shape="rect" id="Node000002" href="$examples_2ntcomplete_8h.html" title=" " alt="" coords="5,93,249,133"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="325,52,187,96,185,91,324,47"/>
-<area shape="rect" id="Node000003" href="$ntfeedforward_8c.html" title="Implementation of predefined network topologies." alt="" coords="273,93,520,133"/>
+<area shape="rect" id="Node000003" href="$ntfeedforward_8c.html" title="Implementation of predefined feedforward topologies for NeuroTIC networks." alt="" coords="273,93,520,133"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="399,59,399,93,394,93,394,59"/>
 <area shape="rect" id="Node000004" href="$variants_2ntcomplete_8h.html" title=" " alt="" coords="544,93,777,133"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="468,47,604,91,602,96,467,52"/>

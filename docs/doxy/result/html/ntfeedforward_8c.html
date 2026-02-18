@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('ntfeedforward_8c.html',''); initResiza
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of predefined network topologies.  
+<p>Implementation of predefined feedforward topologies for NeuroTIC networks.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="">ntfeedforward.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="">ntmemory.h</a>&quot;</code><br />
@@ -105,7 +105,7 @@ Include dependency graph for ntfeedforward.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="ntfeedforward_8c__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntfeedforward_8c" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntfeedforward_8c" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntfeedforward_8c">
-<area shape="rect" title="Implementation of predefined network topologies." alt="" coords="83,5,329,45"/>
+<area shape="rect" title="Implementation of predefined feedforward topologies for NeuroTIC networks." alt="" coords="83,5,329,45"/>
 <area shape="rect" href="ntfeedforward_8h.html" title="Predefined feedforward topologies for NeuroTIC networks." alt="" coords="5,93,132,119"/>
 <area shape="poly" title=" " alt="" coords="174,48,102,89,100,84,172,43"/>
 <area shape="rect" href="ntmemory_8h.html" title="Auxiliary memory tracking utilities." alt="" coords="156,93,256,119"/>
@@ -131,11 +131,10 @@ Functions</h2></td></tr>
 <tr class="separator:a54ba7592f94e76dd8dc25536cb06eac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of predefined network topologies. </p>
-<p>Provides functions to generate common wiring configurations for NeuroTIC networks, initializing <code>bff_wiring</code> and neuron <code>bff_idx</code> values.</p>
-<p>This module is intended for convenience; users may also define their own custom <code>bff_wiring</code> structures in the main code.</p>
+<div class="textblock"><p>Implementation of predefined feedforward topologies for NeuroTIC networks. </p>
+<p>Provides convenient functions to initialize common neural network wiring configurations. These functions allocate and configure the network's <code>bff_wiring</code> structure according to a specific topology.</p>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2024 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="">ntfeedforward.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -156,18 +155,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes a dense feedforward topology. </p>
-<ul>
-<li>Allocates memory for <code>bff_wiring</code>.</li>
-<li>Connects each neuron in a layer to all neurons in previous layers.</li>
-<li>Sets neuron <code>bff_idx</code> to 0.</li>
-</ul>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">net</td><td>Pointer to the network to configure. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the configured network, or NULL on invalid input. </dd></dl>
+<p>Connects each neuron in a layer to all neurons in previous layers, creating a fully connected inter-layer mapping. Validates input and uses <code>memtrack</code> for all allocations. </p>
 
 <p class="reference">References <a class="el" href="#l00079">wiring_s::array_type</a>, <a class="el" href="#l00078">wiring_s::arrays</a>, <a class="el" href="#l00058">neuron_s::bff_idx</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00080">wiring_s::size</a>, <a class="el" href="#l00083">wiring_s::src_index</a>, <a class="el" href="#l00082">wiring_s::src_layer</a>, <a class="el" href="#l00081">wiring_s::src_type</a>, and <a class="el" href="#l00106">net_s::wiring</a>.</p>
 
@@ -190,18 +178,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes a simple feedforward topology. </p>
-<ul>
-<li>Allocates memory for <code>bff_wiring</code>.</li>
-<li>Sets one buffer per neuron connecting it to the corresponding neuron in the previous layer.</li>
-<li>Initializes neuron <code>bff_idx</code> to 0.</li>
-</ul>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">net</td><td>Pointer to the network to configure. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the configured network, or NULL on invalid input. </dd></dl>
+<p>Sets up one buffer per neuron connecting each neuron to the corresponding neuron in the previous layer. Validates input and uses <code>memtrack</code> for all allocations. </p>
 
 <p class="reference">References <a class="el" href="#l00079">wiring_s::array_type</a>, <a class="el" href="#l00078">wiring_s::arrays</a>, <a class="el" href="#l00058">neuron_s::bff_idx</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00080">wiring_s::size</a>, <a class="el" href="#l00083">wiring_s::src_index</a>, <a class="el" href="#l00082">wiring_s::src_layer</a>, <a class="el" href="#l00081">wiring_s::src_type</a>, and <a class="el" href="#l00106">net_s::wiring</a>.</p>
 
