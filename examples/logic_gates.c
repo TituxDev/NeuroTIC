@@ -53,7 +53,7 @@ int main( void ){
 // Network structure: 2 inputs, 2 layers (one hidden layer with 3 neurons and output layer with 16 neurons)
     CREATE_NET_FEEDFORWARD( network , 2 , ((uint16_t []){3,16}) );
 
-// Set activation functions to sigmoid for all neurons: Following activation functions distribution (BOOLEAN for output layer and one in hidden layer) had shown the most eficient training attemps, convergenece and computational work int the testing BOOLEAN vs SIGMOID.
+// Set activation functions to sigmoid for all neurons: Following activation functions distribution (BOOLEAN for output layer and one in hidden layer) had shown the best efficiency equilibrium between training attemps, convergenece and computational work, in BOOLEAN vs SIGMOID tests.
     network.nn[0][0].fn= NTACT_BOOLEAN;
     for( uint16_t j= 1 ; j < network.neurons[0] ; j++ ) network.nn[0][j].fn= NTACT_SIGMOID;
     for( uint16_t j= 0 ; j < network.neurons[1] ; j++ ) network.nn[1][j].fn= NTACT_BOOLEAN;
