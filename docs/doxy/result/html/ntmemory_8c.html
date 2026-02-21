@@ -123,9 +123,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a5fe9dfe999ba7e84a43b1dabd37fafb8" id="r_a5fe9dfe999ba7e84a43b1dabd37fafb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html#a5fe9dfe999ba7e84a43b1dabd37fafb8">memfree</a> (void)</td></tr>
 <tr class="memdesc:a5fe9dfe999ba7e84a43b1dabd37fafb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees all memory blocks registered in the internal tracking registry.  <br /></td></tr>
 <tr class="separator:a5fe9dfe999ba7e84a43b1dabd37fafb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad582239e0fb2ae41572d3f0582922bc2" id="r_ad582239e0fb2ae41572d3f0582922bc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html#ad582239e0fb2ae41572d3f0582922bc2">memtrack</a> (void *mem)</td></tr>
-<tr class="memdesc:ad582239e0fb2ae41572d3f0582922bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a memory block for tracking and automatic cleanup.  <br /></td></tr>
-<tr class="separator:ad582239e0fb2ae41572d3f0582922bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d7ce4bde9361c4e0778b55dce53e884" id="r_a7d7ce4bde9361c4e0778b55dce53e884"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html#a7d7ce4bde9361c4e0778b55dce53e884">memtrack</a> (void *mem)</td></tr>
+<tr class="memdesc:a7d7ce4bde9361c4e0778b55dce53e884"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a memory block for tracking and automatic cleanup.  <br /></td></tr>
+<tr class="separator:a7d7ce4bde9361c4e0778b55dce53e884"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -173,14 +173,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ad582239e0fb2ae41572d3f0582922bc2" name="ad582239e0fb2ae41572d3f0582922bc2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad582239e0fb2ae41572d3f0582922bc2">&#9670;&#160;</a></span>memtrack()</h2>
+<a id="a7d7ce4bde9361c4e0778b55dce53e884" name="a7d7ce4bde9361c4e0778b55dce53e884"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d7ce4bde9361c4e0778b55dce53e884">&#9670;&#160;</a></span>memtrack()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void memtrack </td>
+          <td class="memname">void * memtrack </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>mem</em></td><td>)</td>
@@ -222,7 +222,7 @@ Variables</h2></td></tr>
 
 <p>Counter for the number of tracked memory blocks. </p>
 <p>This counter keeps track of how many pointers have been registered in the <code>mem_register</code> array. <br  />
- It is incremented each time <a class="el" href="ntmemory_8c.html#ad582239e0fb2ae41572d3f0582922bc2" title="Registers a memory block for tracking and automatic cleanup.">memtrack()</a> is called and decremented as memory blocks are freed in <a class="el" href="ntmemory_8c.html#a5fe9dfe999ba7e84a43b1dabd37fafb8" title="Frees all memory blocks registered in the internal tracking registry.">memfree()</a>. <br  />
+ It is incremented each time <a class="el" href="ntmemory_8c.html#a7d7ce4bde9361c4e0778b55dce53e884" title="Registers a memory block for tracking and automatic cleanup.">memtrack()</a> is called and decremented as memory blocks are freed in <a class="el" href="ntmemory_8c.html#a5fe9dfe999ba7e84a43b1dabd37fafb8" title="Frees all memory blocks registered in the internal tracking registry.">memfree()</a>. <br  />
  The counter is used to manage the size of the registry and to ensure that all tracked memory is properly released when <a class="el" href="ntmemory_8c.html#a5fe9dfe999ba7e84a43b1dabd37fafb8" title="Frees all memory blocks registered in the internal tracking registry.">memfree()</a> is invoked.</p>
 <dl class="section warning"><dt>Warning</dt><dd>This counter must accurately reflect the number of valid pointers in the <code>mem_register</code>. <br  />
  Any discrepancies (e.g., due to manual freeing of tracked memory) can lead to undefined behavior when <a class="el" href="ntmemory_8c.html#a5fe9dfe999ba7e84a43b1dabd37fafb8" title="Frees all memory blocks registered in the internal tracking registry.">memfree()</a> is called, as it may attempt to free invalid pointers or miss freeing valid ones. </dd></dl>
@@ -252,7 +252,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Internal registry for tracking allocated memory blocks. </p>
-<p>This dynamic array stores pointers to all memory blocks that have been registered via <a class="el" href="ntmemory_8c.html#ad582239e0fb2ae41572d3f0582922bc2" title="Registers a memory block for tracking and automatic cleanup.">memtrack()</a>. <br  />
+<p>This dynamic array stores pointers to all memory blocks that have been registered via <a class="el" href="ntmemory_8c.html#a7d7ce4bde9361c4e0778b55dce53e884" title="Registers a memory block for tracking and automatic cleanup.">memtrack()</a>. <br  />
  The registry allows for collective management of memory, enabling the <a class="el" href="ntmemory_8c.html#a5fe9dfe999ba7e84a43b1dabd37fafb8" title="Frees all memory blocks registered in the internal tracking registry.">memfree()</a> function to iterate through all tracked pointers and free them at once. <br  />
  The registry is dynamically resized as new pointers are added, and is freed itself when <a class="el" href="ntmemory_8c.html#a5fe9dfe999ba7e84a43b1dabd37fafb8" title="Frees all memory blocks registered in the internal tracking registry.">memfree()</a> is called. <br  />
  This approach simplifies memory management by centralizing the tracking and cleanup of dynamically allocated memory within the NeuroTIC system. <br  />

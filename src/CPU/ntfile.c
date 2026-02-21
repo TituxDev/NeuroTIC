@@ -199,24 +199,24 @@ struct net_s loadnet( char *name ){
         fread( &net.nn[i][j].bff_idx , sizeof( index_t ) , 1 , fp );
     }
     if( net.layers > 1 ){
-        memtrack( net.wiring= malloc( ( net.layers - 1 ) * sizeof( wiring_s ) ) );
+        net.wiring= memtrack( malloc( ( net.layers - 1 ) * sizeof( wiring_s ) ) );
         for( uint16_t i= 0 ; i < net.layers - 1 ; i++ ){
             fread( &net.wiring[i].arrays , sizeof( index_t ) , 1 , fp );
             if( little_endian ) net.wiring[i].arrays= bswap16( net.wiring[i].arrays );
-            memtrack( net.wiring[i].array_type= malloc( net.wiring[i].arrays * sizeof( uint8_t ) ) );
-            memtrack( net.wiring[i].size= malloc( net.wiring[i].arrays * sizeof( uint32_t ) ) );
-            memtrack( net.wiring[i].src_type= malloc( net.wiring[i].arrays * sizeof( uint8_t * ) ) );
-            memtrack( net.wiring[i].src_layer= malloc( net.wiring[i].arrays * sizeof( uint16_t * ) ) );
-            memtrack( net.wiring[i].src_index= malloc( net.wiring[i].arrays * sizeof( uint16_t * ) ) );
+            net.wiring[i].array_type= memtrack( malloc( net.wiring[i].arrays * sizeof( uint8_t ) ) );
+            net.wiring[i].size= memtrack( malloc( net.wiring[i].arrays * sizeof( uint32_t ) ) );
+            net.wiring[i].src_type= memtrack( malloc( net.wiring[i].arrays * sizeof( uint8_t * ) ) );
+            net.wiring[i].src_layer= memtrack( malloc( net.wiring[i].arrays * sizeof( uint16_t * ) ) );
+            net.wiring[i].src_index= memtrack( malloc( net.wiring[i].arrays * sizeof( uint16_t * ) ) );
             for( uint16_t j= 0 ; j < net.wiring[i].arrays ; j++ ){
                 fread( &net.wiring[i].array_type[j] , sizeof( uint8_t ) , 1 , fp );
                 switch( net.wiring[i].array_type[j] ){
                     case 'M':
                         fread( &net.wiring[i].size[j] , sizeof( uint32_t ) , 1 , fp );
                         if( little_endian ) net.wiring[i].size[j]= bswap32( net.wiring[i].size[j] );
-                        memtrack( net.wiring[i].src_type[j]= malloc( net.wiring[i].size[j] * sizeof( uint8_t ) ) );
-                        memtrack( net.wiring[i].src_layer[j]= malloc( net.wiring[i].size[j] * sizeof( uint16_t ) ) );
-                        memtrack( net.wiring[i].src_index[j]= malloc( net.wiring[i].size[j] * sizeof( uint16_t ) ) );
+                        net.wiring[i].src_type[j]= memtrack( malloc( net.wiring[i].size[j] * sizeof( uint8_t ) ) );
+                        net.wiring[i].src_layer[j]= memtrack( malloc( net.wiring[i].size[j] * sizeof( uint16_t ) ) );
+                        net.wiring[i].src_index[j]= memtrack( malloc( net.wiring[i].size[j] * sizeof( uint16_t ) ) );
                         for( uint32_t k= 0 ; k < net.wiring[i].size[j] ; k++ ){
                             fread( &net.wiring[i].src_type[j][k] , sizeof( uint8_t ) , 1 , fp );
                             switch( net.wiring[i].src_type[j][k] ){
@@ -234,9 +234,9 @@ struct net_s loadnet( char *name ){
                         }
                         break;
                     case 'N':
-                        memtrack( net.wiring[i].src_type[j]= malloc( sizeof( uint8_t ) ) );
-                        memtrack( net.wiring[i].src_layer[j]= malloc( sizeof( uint16_t ) ) );
-                        memtrack( net.wiring[i].src_index[j]= malloc( sizeof( uint16_t ) ) );
+                        net.wiring[i].src_type[j]= memtrack( malloc( sizeof( uint8_t ) ) );
+                        net.wiring[i].src_layer[j]= memtrack( malloc( sizeof( uint16_t ) ) );
+                        net.wiring[i].src_index[j]= memtrack( malloc( sizeof( uint16_t ) ) );
                         fread( &net.wiring[i].src_layer[j][0] , sizeof( uint16_t ) , 1 , fp );
                         if( little_endian ) net.wiring[i].src_layer[j][0]= bswap16( net.wiring[i].src_layer[j][0] );
                         fread( &net.wiring[i].src_index[j][0] , sizeof( uint16_t ) , 1 , fp );

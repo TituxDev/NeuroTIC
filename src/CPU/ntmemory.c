@@ -66,7 +66,7 @@ void memfree( void ){
  * This function is intended to be called immediately after successful dynamic allocation (e.g. `malloc`, `calloc`, `realloc`).  
  * On the first invocation, ::memfree() is automatically registered to execute at program termination via `atexit()`.
  */
-void memtrack( void *mem ){
+void *memtrack( void *mem ){
     if( !mem ){
         fprintf( stderr , "Failed to allocate memory for tracked object.\n" );
         exit( EXIT_FAILURE );
@@ -76,11 +76,12 @@ void memtrack( void *mem ){
         fprintf( stderr, "Failed to allocate memory for free tracking.\n" );
         exit( EXIT_FAILURE );
     }
-    mem_register= temp;
-    mem_register[mem_count - 1]= mem;
     static char called= 1;
     if( called ){
         atexit( memfree );
         called= 0;
     }
+    mem_register= temp;
+    mem_register[mem_count - 1]= mem;
+    return mem;
 }

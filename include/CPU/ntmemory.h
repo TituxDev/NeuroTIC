@@ -21,6 +21,6 @@ void memfree( void );
  * 
  * @param mem Pointer to the memory block to track.
  */
-void memtrack( void *mem );
+void *memtrack( void *mem );
 
 #endif // NTMEMORY_H

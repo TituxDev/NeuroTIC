@@ -10,7 +10,7 @@ var searchData=
   ['memfree_7',['memfree',['../ntmemory_8h.html#a5fe9dfe999ba7e84a43b1dabd37fafb8',1,'memfree(void):&#160;ntmemory.c'],['../ntmemory_8c.html#a5fe9dfe999ba7e84a43b1dabd37fafb8',1,'memfree(void):&#160;ntmemory.c']]],
   ['memory_20management_8',['Memory Management',['../group__NTMemory.html',1,'']]],
   ['memory_20selector_20role_9',['Memory Selector Role',['../neuron__s_8dox.html#neuron_bff_idx',1,'']]],
-  ['memtrack_10',['memtrack',['../ntmemory_8h.html#ad582239e0fb2ae41572d3f0582922bc2',1,'memtrack(void *mem):&#160;ntmemory.c'],['../ntmemory_8c.html#ad582239e0fb2ae41572d3f0582922bc2',1,'memtrack(void *mem):&#160;ntmemory.c']]],
+  ['memtrack_10',['memtrack',['../ntmemory_8h.html#a7d7ce4bde9361c4e0778b55dce53e884',1,'memtrack(void *mem):&#160;ntmemory.c'],['../ntmemory_8c.html#a7d7ce4bde9361c4e0778b55dce53e884',1,'memtrack(void *mem):&#160;ntmemory.c']]],
   ['mid_20market_20license_11',['Mid-Market License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#mid-market-license',1,'']]],
   ['modules_12',['Peripheral modules',['../group__NTPeripherals.html',1,'']]]
 ];

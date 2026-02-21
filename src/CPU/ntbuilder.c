@@ -28,10 +28,10 @@ struct net_s *newnet( net_s *net , uint16_t *neurons_per_layer , layer_t layers_
     net->nn= NULL;
     net->bff= NULL;
     net->out= NULL;
-    memtrack( net->neurons= calloc( net->layers , sizeof( uint16_t ) ) );
+    net->neurons= memtrack( calloc( net->layers , sizeof( uint16_t ) ) );
     memcpy( net->neurons , neurons_per_layer, net->layers * sizeof( uint16_t ) );
-    memtrack( net->nn= calloc( net->layers , sizeof( neuron_s * ) ) );
-    for( uint16_t i = 0 ; i < net->layers ; i++ ) memtrack( net->nn[i]= calloc( net->neurons[i] , sizeof( neuron_s ) ) );
+    net->nn= memtrack( calloc( net->layers , sizeof( neuron_s * ) ) );
+    for( uint16_t i = 0 ; i < net->layers ; i++ ) net->nn[i]= memtrack( calloc( net->neurons[i] , sizeof( neuron_s ) ) );
     return net;
 }
 
@@ -53,21 +53,21 @@ struct net_s *newnet( net_s *net , uint16_t *neurons_per_layer , layer_t layers_
  * for feedforward computation. Uses `memtrack` for all allocations.
  */
 struct net_s *buildnet( net_s *net ){
-    memtrack( net->in= malloc( net->inputs * sizeof( data_t *) ) );
+    net->in= memtrack( malloc( net->inputs * sizeof( data_t *) ) );
     for( uint16_t i= 0 ; i < net->neurons[0] ; i++ ){
         net->nn[0][i].inputs= net->inputs;
         net->nn[0][i].in= net->in;
-        memtrack( net->nn[0][i].w= malloc( net->inputs * sizeof( weight_t ) ) );
+        net->nn[0][i].w= memtrack( malloc( net->inputs * sizeof( weight_t ) ) );
     }
-    memtrack( net->out= malloc( net->neurons[net->layers - 1] * sizeof( data_t * ) ) );
+    net->out= memtrack( malloc( net->neurons[net->layers - 1] * sizeof( data_t * ) ) );
     for( uint16_t i= 0 ; i < net->neurons[net->layers - 1] ; i++ ) net->out[i]= &net->nn[net->layers - 1][i].out;
     if( net->layers > 1 ){
-        memtrack( net->bff= malloc( ( net->layers - 1 ) * sizeof( data_t **** ) ) );
+        net->bff= memtrack( malloc( ( net->layers - 1 ) * sizeof( data_t **** ) ) );
         for( layer_t i= 0 ; i < net->layers - 1 ; i++ ){
-            memtrack( net->bff[i]= malloc( net->wiring[i].arrays * sizeof( data_t *** ) ) );
+            net->bff[i]= memtrack( malloc( net->wiring[i].arrays * sizeof( data_t *** ) ) );
             for( uint16_t j= 0 ; j < net->wiring[i].arrays ; j++ ){
                 if( net->wiring[i].array_type[j] == 'M' ){
-                    memtrack( net->bff[i][j]= malloc( net->wiring[i].size[j] * sizeof( data_t ** ) ) );
+                    net->bff[i][j]= memtrack( malloc( net->wiring[i].size[j] * sizeof( data_t ** ) ) );
                     for( uint32_t k= 0 ; k < net->wiring[i].size[j] ; k++ ){
                         switch( net->wiring[i].src_type[j][k] ){
                             case 'N':
@@ -111,7 +111,7 @@ struct net_s *buildnet( net_s *net ){
     for( layer_t i= 1 ; i < net->layers ; i++ ) for( uint16_t j= 0 ; j < net->neurons[i] ; j++){
             net->nn[i][j].in= net->bff[i - 1][net->nn[i][j].bff_idx];
             net->nn[i][j].inputs= net->wiring[i - 1].size[net->nn[i][j].bff_idx];
-            memtrack(net->nn[i][j].w= malloc(net->nn[i][j].inputs * sizeof(float)));
+            net->nn[i][j].w= memtrack( malloc( net->nn[i][j].inputs * sizeof( weight_t ) ) );
     }
     return net;
 }
