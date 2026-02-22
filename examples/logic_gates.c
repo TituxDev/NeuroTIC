@@ -15,8 +15,8 @@
  * Project name: logic_gates
  * Platform: CPU
  *
- * Attemps: 234
- *
+ * Attemps: 474
+ * 
  * =========================================================================================================================
  * | A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |
  * |---|---|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
@@ -34,11 +34,12 @@
  * | 0 | 1 |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |
  * | 1 | 1 |   0  |   0  |   0  |   0  |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |   1  |   1  |   1  |   1  |
  * =========================================================================================================================
- *
- *
- * real	0m0.606s
- * user	0m0.437s
- * sys	0m0.173s
+ * 
+ * 
+ * real	0m0.599s
+ * user	0m0.448s
+ * sys	0m0.155s
+ * 
  * 
  * ```
  * 
@@ -53,8 +54,8 @@ int main( void ){
 // Network structure: 2 inputs, 2 layers (one hidden layer with 3 neurons and output layer with 16 neurons)
     CREATE_NET_FEEDFORWARD( network , 2 , ((uint16_t []){3,16}) );
 
-// Set activation functions to sigmoid for all neurons: Following activation functions distribution (BOOLEAN for output layer and one in hidden layer) had shown the best efficiency equilibrium between training attemps, convergenece and computational work, in BOOLEAN vs SIGMOID tests.
-    network.nn[0][0].fn= NTACT_BOOLEAN;
+// Set activation functions to sigmoid for all neurons: Following activation functions distribution had shown the best efficiency equilibrium between training attemps, convergenece and computational work, in BOOLEAN vs SIGMOID tests.
+    network.nn[0][0].fn= NTACT_BOOLEAN; //<- First hiiden neuron.
     for( uint16_t j= 1 ; j < network.neurons[0] ; j++ ) network.nn[0][j].fn= NTACT_SIGMOID;
     for( uint16_t j= 0 ; j < network.neurons[1] ; j++ ) network.nn[1][j].fn= NTACT_BOOLEAN;
 
@@ -63,8 +64,8 @@ int main( void ){
 
 // Prepare training data for all 16 two-input logic functions
     traindata_t data={
-        .learning_rate= (precision_t)(0.1),
-        .tolerance= (precision_t)(0.49),
+        .learning_rate= 0.1,
+        .tolerance= 0.0,
         .max_attempts= 10000000,
         .samples= 4
     };
