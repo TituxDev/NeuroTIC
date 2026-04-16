@@ -1,15 +1,30 @@
 # NeuroTIC
 
-[GitHub](https://github.com/TituxDev/NeuroTIC)  
-[USER GUIDE](https://tituxdev.github.io/NeuroTIC/docs/doxy/result/html/index.html)  
-C-based Data-Oriented Artificial Neural Network SDK
+A lightweight C library for building, training, saving and loading neural networks from scratch — no dependencies, no frameworks, just clean C11.
 
-**NeuroTIC** helps you design, build, train, save, and load networks with complete creative control over their topology—without dragging you through the usual low-level chores.
+Built for developers who want full control over their network topology without managing low-level memory chores manually.
 
-## Develop Enviroment
+**What you can do with it:**
+- Design networks with any topology: layers, neurons, activation functions and learning rules are fully accessible
+- Train, save and reload models using a minimal API
+- Embed neural network logic in any C project with no external dependencies
 
-**NeuroTIC** offers a modular environment where every part of a neural network—layers, neurons, activation flows, learning rules, serialization—is open and accessible.
+## Quick example
 
-The design is intentionally minimal: you get a clean API for common tasks, but nothing is hidden.
+```c
+// Full working example: logic gate network
+```
+[See complete example](./examples/logic_gates.c)
 
-[API EXAMPLE](./examples/logic_gates.c)
+## Documentation
+
+[User Guide](https://tituxdev.github.io/NeuroTIC/docs/doxy/result/html/index.html)
+
+## Learn how it works from scratch
+
+NeuroTIC was built as part of a hands-on learning project. If you want to understand how a neural network works by building one in C step by step, visit [NeuroticLab](https://neuroticlab.com).
+
+## License
+
+NeuroTIC is free for personal, educational and open source use under [GPL-3.0](./LICENSE).  
+For commercial use, see [commercial license](./COMERCIAL_LICESE.md).
