@@ -14,9 +14,23 @@
  * Compiling project in location: examples
  * Project name: logic_gates
  * Platform: CPU
+ * ==26058== Memcheck, a memory error detector
+ * ==26058== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+ * ==26058== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+ * ==26058== Command: ./examples/logic_gates
+ * ==26058== 
+ * 
+ * Attemps: 294
+ * 
+ * =========================================================================================================================
+ * | A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |
+ * |---|---|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
+ * | 0 | 0 |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |
+ * | 1 | 0 |   0  |   0  |   1  |   1  |   0  |   0  |   1  |   1  |   0  |   0  |   1  |   1  |   0  |   0  |   1  |   1  |
+ * | 0 | 1 |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |
+ * | 1 | 1 |   0  |   0  |   0  |   0  |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |   1  |   1  |   1  |   1  |
+ * =========================================================================================================================
  *
- * Attemps: 474
- * 
  * =========================================================================================================================
  * | A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |
  * |---|---|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
@@ -25,35 +39,40 @@
  * | 0 | 1 |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |
  * | 1 | 1 |   0  |   0  |   0  |   0  |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |   1  |   1  |   1  |   1  |
  * =========================================================================================================================
+ *
+ * ==26058== 
+ * ==26058== HEAP SUMMARY:
+ * ==26058==     in use at exit: 0 bytes in 0 blocks
+ * ==26058==   total heap usage: 179 allocs, 179 frees, 35,908 bytes allocated
+ * ==26058== 
+ * ==26058== All heap blocks were freed -- no leaks are possible
+ * ==26058== 
+ * ==26058== For lists of detected and suppressed errors, rerun with: -s
+ * ==26058== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
  * 
- * =========================================================================================================================
- * | A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |
- * |---|---|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
- * | 0 | 0 |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |
- * | 1 | 0 |   0  |   0  |   1  |   1  |   0  |   0  |   1  |   1  |   0  |   0  |   1  |   1  |   0  |   0  |   1  |   1  |
- * | 0 | 1 |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |
- * | 1 | 1 |   0  |   0  |   0  |   0  |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |   1  |   1  |   1  |   1  |
- * =========================================================================================================================
- * 
- * 
- * real	0m0.599s
- * user	0m0.448s
- * sys	0m0.155s
- * 
- * 
+ * real    0m1.239s
+ * user    0m0.965s
+ * sys     0m0.276s
  * ```
  * 
  * @code{.c}
  */
 
 #include <stdio.h>
+#include <string.h>
 #include "ntcomplete.h"
 
 int main( void ){
 
 // Network structure: 2 inputs, 2 layers (one hidden layer with 3 neurons and output layer with 16 neurons)
-    CREATE_NET_FEEDFORWARD( network , 2 , ((uint16_t []){3,16}) );
-
+    //CREATE_NET_FEEDFORWARD( network , 2 , ((uint16_t []){3,16}) );
+    net_s network={
+        .inputs= 2,
+        .layers= 2,
+    };
+    newnet( &network , (uint16_t []){3,16} , network.layers );
+    newfeedforward( &network );
+    buildnet( &network );
 // Set activation functions to sigmoid for all neurons: Following activation functions distribution had shown the best efficiency equilibrium between training attemps, convergenece and computational work, in BOOLEAN vs SIGMOID tests.
     network.nn[0][0].fn= NTACT_BOOLEAN; //<- First hiiden neuron.
     for( uint16_t j= 1 ; j < network.neurons[0] ; j++ ) network.nn[0][j].fn= NTACT_SIGMOID;
@@ -109,17 +128,18 @@ int main( void ){
 
 // Save and reload the trained network
     savenet( &network , "logic_gates" );
-    net_s network_copy= loadnet( "logic_gates" );
+    memset( &network , 0 , sizeof( net_s ) );
+    loadnet( &network , "logic_gates" );
 
 // Display results from the loaded network to verify persistence
     printf( "\n\n=========================================================================================================================" );
     printf( "\n| A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |" );
     printf( "\n|---|---|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|" );
     for( sample_t i= 0 ; i < data.samples ; i++ ){
-        for( input_t j= 0 ; j < network_copy.inputs ; j++ ) network_copy.in[j]= &data.in[i][j];
-        feedforward( &network_copy );
+        for( input_t j= 0 ; j < network.inputs ; j++ ) network.in[j]= &data.in[i][j];
+        feedforward( &network );
         printf( "\n| %.0f | %.0f |" , data.in[i][0] , data.in[i][1] );
-        for( uint16_t j= 0 ; j < network_copy.neurons[network_copy.layers - 1] ; j++ ) printf( "   %.0f  |" , *network_copy.out[j] );
+        for( uint16_t j= 0 ; j < network.neurons[network.layers - 1] ; j++ ) printf( "   %.0f  |" , *network.out[j] );
     }
     printf( "\n=========================================================================================================================\n\n");
 

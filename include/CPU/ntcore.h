@@ -16,6 +16,25 @@
 
 #include <stdint.h>
 
+enum {
+    DEFINE_NETWORK                          ,
+    BUILD_NETWORK_ON_MEMORY                 ,
+    DEFINE_FEEDFORWARD_TOPOLOGY             ,
+    BUILD_CONECTIONS                        ,
+    DEFINE_ACTIVATIONS_FUNCTIONS_PER_NEURON ,
+    INITIALIZE_WEIGTHS                      ,
+    DEFINE_TRAINING_PARAMETERS              ,
+    BUILD_TRAINING_TABLES_SPACE             ,
+    SET_TRAINING_DATA                       ,
+    TRAIN_NETWORK                           ,
+    SAVE_NETWORK_TO_NTIC_FILE               ,
+    DELETE_NETWORK_FROM_MEMORY              ,
+    LOAD_NETWORK_FROM_NTIC_FILE_TO_MEMORY   ,
+    FREE_RESOURCES_ATEXIT                   ,
+
+    TOTAL_NETWORK_LIFE_CYCLE_STEPS
+};
+
 /**
  * @name Type Aliases
  *

@@ -32,8 +32,8 @@
 static float boolean( float x ){
     return x >= 0.0f ? 1.0f : 0.0f;
 }
-// [!!] This derivative is not mathematically correct.
-// It intentionally returns a constant value to avoid zero-gradient behavior.
+// [!]  This derivative is not mathematically correct.
+//      It intentionally returns a constant value to avoid zero-gradient behavior.
 static float boolean_d( float x ){
     return x= 1.0f;
 }

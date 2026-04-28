@@ -36,7 +36,7 @@
  * @return net_s Pointer to the fully constructed feedforward network.
  */
 #define CREATE_NET_FEEDFORWARD( network , i , neurons ) \
-    net_s network={ \
+    net_s *network={ \
         .inputs= i, \
         .layers= sizeof( neurons )/sizeof( uint16_t ), \
     }; \

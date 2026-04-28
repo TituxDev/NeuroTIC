@@ -24,12 +24,12 @@
  * Initializes `in` and `results` arrays based on the network structure and number of samples.
  */
 void newtraindata( traindata_t *train_data , net_s *net ){
-    train_data->in= memtrack( calloc( train_data->samples , sizeof( data_t * ) ) );
-    train_data->results= memtrack( calloc( train_data->samples , sizeof( data_t * ) ) );
+    train_data->in= createregister( train_data , calloc( train_data->samples , sizeof( data_t * ) ) );
+    train_data->results= createregister( train_data , calloc( train_data->samples , sizeof( data_t * ) ) );
     layer_t last_layer= net->layers - 1;
     for( sample_t i= 0 ; i < train_data->samples ; i++ ){
-        train_data->in[i]= memtrack( calloc( net->inputs , sizeof( data_t ) ) );
-        train_data->results[i]= memtrack( calloc( net->neurons[last_layer] , sizeof( data_t ) ) );
+        train_data->in[i]= createregister( train_data , calloc( net->inputs , sizeof( data_t ) ) );
+        train_data->results[i]= createregister( train_data , calloc( net->neurons[last_layer] , sizeof( data_t ) ) );
     }
 }
 

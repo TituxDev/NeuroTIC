@@ -19,8 +19,8 @@
 #include "ntmemory.h"
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
 #include <stdlib.h>
+#include <math.h>
 #include <float.h>
 
 #define NAME_LENGTH 30
@@ -112,12 +112,13 @@ float floatsys( int32_t x , uint8_t ieee754 ){
  * @todo Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks.  
  * @todo Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks.  
  */
-unsigned char savenet( net_s * net , const char *name ){
+size_t savenet( net_s * net , const char *name ){
     uint8_t little_endian= checkendian( ) , ieee754= isieee754( );
     char NAME[ NAME_LENGTH ];
-    if( snprintf( NAME , sizeof( NAME ) , "%s%s" , name , ".ntic" ) >= ( int )sizeof( NAME ) ) return 1;
+    size_t file_size= 0;
+    if( snprintf( NAME , sizeof( NAME ) , "%s%s" , name , ".ntic" ) >= ( int )sizeof( NAME ) ) return file_size;
     FILE *fp= fopen( NAME , "wb" );
-    if( fp == NULL ) return 2;
+    if( fp == NULL ) return file_size;
     fprintf( fp , "%s%c" , MAGIC , VERSION );
     fwrite( STRICT_LE32( net->inputs ) , sizeof( input_t ) , 1 , fp );
     fwrite( STRICT_LE32( net->layers ) , sizeof( layer_t ) , 1 , fp );
@@ -158,8 +159,10 @@ unsigned char savenet( net_s * net , const char *name ){
         fwrite( STRICT_LE32( float32( net->nn[i][j].b , ieee754 ) ) , sizeof( data_t ) , 1 , fp );
         for( input_t k= 0 ; k < net->nn[i][j].inputs ; k++ ) fwrite( STRICT_LE32( float32( net->nn[i][j].w[k] , ieee754 ) ) , sizeof( data_t ) , 1 , fp );
     }
+    fseek( fp , 0 , SEEK_END );
+    file_size= ftell( fp );
     fclose( fp );
-    return 0;
+    return file_size;
 }
 
 #pragma GCC diagnostic push
@@ -173,93 +176,93 @@ unsigned char savenet( net_s * net , const char *name ){
  * @todo Consider adding support for versioning in the file format to allow for future extensions and backward compatibility.
  * @todo Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks.
  */
-struct net_s loadnet( char *name ){
-    net_s net= {0};
+struct net_s loadnet( net_s *net , const char *name ){
+    net_s bkup= *net;
     uint8_t little_endian= !checkendian( ) , ieee754= isieee754( );
     char NAME[ NAME_LENGTH ];
-    if( snprintf( NAME , sizeof( NAME ) , "%s%s" , name , ".ntic" ) >= ( int )sizeof( NAME ) ) return net;
+    if( snprintf( NAME , sizeof( NAME ) , "%s%s" , name , ".ntic" ) >= ( int )sizeof( NAME ) ) return bkup;
     FILE *fp= fopen( NAME , "rb" );
-    if( fp == NULL ) return net;
+    if( fp == NULL ) return bkup;
     char magic[sizeof( MAGIC )];
     fread( magic , sizeof( char ) , sizeof( magic ) , fp );
-    if( strncmp( magic , MAGIC , sizeof( MAGIC ) - 1 ) || magic[sizeof( magic ) - 1] != VERSION ) return net;
-    fread( &net.inputs , sizeof( uint32_t ) , 1 , fp );
-    if( little_endian ) net.inputs= bswap32( net.inputs );
-    fread( &net.layers , sizeof( uint16_t ) , 1 , fp );
-    if( little_endian ) net.layers= bswap16( net.layers );
+    if( strncmp( magic , MAGIC , sizeof( MAGIC ) - 1 ) || magic[sizeof( magic ) - 1] != VERSION ) return bkup;
+    fread( &net->inputs , sizeof( uint32_t ) , 1 , fp );
+    if( little_endian ) net->inputs= bswap32( net->inputs );
+    fread( &net->layers , sizeof( uint16_t ) , 1 , fp );
+    if( little_endian ) net->layers= bswap16( net->layers );
     uint16_t *neurons;
-    neurons= malloc( net.layers * sizeof( uint16_t ) );
-    fread( neurons , sizeof( uint16_t ) , net.layers , fp );
-    if( little_endian ) for( uint16_t i= 0 ; i < net.layers ; i++ ) neurons[i]= bswap16( neurons[i] );
-    newnet( &net , neurons , net.layers );
+    neurons= malloc( net->layers * sizeof( uint16_t ) );
+    fread( neurons , sizeof( uint16_t ) , net->layers , fp );
+    if( little_endian ) for( uint16_t i= 0 ; i < net->layers ; i++ ) neurons[i]= bswap16( neurons[i] );
+    newnet( net , neurons , net->layers );
     free( neurons );
-    for( uint16_t i= 0 ; i < net.layers ; i ++ ) for( uint16_t j= 0 ; j < net.neurons[i] ; j++ ){
-        fread( &net.nn[i][j].inputs , sizeof( uint32_t ) , 1 , fp );
-        if( little_endian ) net.nn[i][j].inputs= bswap32( net.nn[i][j].inputs );
-        fread( &net.nn[i][j].bff_idx , sizeof( index_t ) , 1 , fp );
+    for( uint16_t i= 0 ; i < net->layers ; i ++ ) for( uint16_t j= 0 ; j < net->neurons[i] ; j++ ){
+        fread( &net->nn[i][j].inputs , sizeof( uint32_t ) , 1 , fp );
+        if( little_endian ) net->nn[i][j].inputs= bswap32( net->nn[i][j].inputs );
+        fread( &net->nn[i][j].bff_idx , sizeof( index_t ) , 1 , fp );
     }
-    if( net.layers > 1 ){
-        net.wiring= memtrack( malloc( ( net.layers - 1 ) * sizeof( wiring_s ) ) );
-        for( uint16_t i= 0 ; i < net.layers - 1 ; i++ ){
-            fread( &net.wiring[i].arrays , sizeof( index_t ) , 1 , fp );
-            if( little_endian ) net.wiring[i].arrays= bswap16( net.wiring[i].arrays );
-            net.wiring[i].array_type= memtrack( malloc( net.wiring[i].arrays * sizeof( uint8_t ) ) );
-            net.wiring[i].size= memtrack( malloc( net.wiring[i].arrays * sizeof( uint32_t ) ) );
-            net.wiring[i].src_type= memtrack( malloc( net.wiring[i].arrays * sizeof( uint8_t * ) ) );
-            net.wiring[i].src_layer= memtrack( malloc( net.wiring[i].arrays * sizeof( uint16_t * ) ) );
-            net.wiring[i].src_index= memtrack( malloc( net.wiring[i].arrays * sizeof( uint16_t * ) ) );
-            for( uint16_t j= 0 ; j < net.wiring[i].arrays ; j++ ){
-                fread( &net.wiring[i].array_type[j] , sizeof( uint8_t ) , 1 , fp );
-                switch( net.wiring[i].array_type[j] ){
+    if( net->layers > 1 ){
+        net->wiring= createregister( net , malloc( ( net->layers - 1 ) * sizeof( wiring_s ) ) );
+        for( uint16_t i= 0 ; i < net->layers - 1 ; i++ ){
+            fread( &net->wiring[i].arrays , sizeof( index_t ) , 1 , fp );
+            if( little_endian ) net->wiring[i].arrays= bswap16( net->wiring[i].arrays );
+            net->wiring[i].array_type= createregister( net , malloc( net->wiring[i].arrays * sizeof( uint8_t ) ) );
+            net->wiring[i].size= createregister( net , malloc( net->wiring[i].arrays * sizeof( uint32_t ) ) );
+            net->wiring[i].src_type= createregister( net , malloc( net->wiring[i].arrays * sizeof( uint8_t * ) ) );
+            net->wiring[i].src_layer= createregister( net , malloc( net->wiring[i].arrays * sizeof( uint16_t * ) ) );
+            net->wiring[i].src_index= createregister( net , malloc( net->wiring[i].arrays * sizeof( uint16_t * ) ) );
+            for( uint16_t j= 0 ; j < net->wiring[i].arrays ; j++ ){
+                fread( &net->wiring[i].array_type[j] , sizeof( uint8_t ) , 1 , fp );
+                switch( net->wiring[i].array_type[j] ){
                     case 'M':
-                        fread( &net.wiring[i].size[j] , sizeof( uint32_t ) , 1 , fp );
-                        if( little_endian ) net.wiring[i].size[j]= bswap32( net.wiring[i].size[j] );
-                        net.wiring[i].src_type[j]= memtrack( malloc( net.wiring[i].size[j] * sizeof( uint8_t ) ) );
-                        net.wiring[i].src_layer[j]= memtrack( malloc( net.wiring[i].size[j] * sizeof( uint16_t ) ) );
-                        net.wiring[i].src_index[j]= memtrack( malloc( net.wiring[i].size[j] * sizeof( uint16_t ) ) );
-                        for( uint32_t k= 0 ; k < net.wiring[i].size[j] ; k++ ){
-                            fread( &net.wiring[i].src_type[j][k] , sizeof( uint8_t ) , 1 , fp );
-                            switch( net.wiring[i].src_type[j][k] ){
+                        fread( &net->wiring[i].size[j] , sizeof( uint32_t ) , 1 , fp );
+                        if( little_endian ) net->wiring[i].size[j]= bswap32( net->wiring[i].size[j] );
+                        net->wiring[i].src_type[j]= createregister( net , malloc( net->wiring[i].size[j] * sizeof( uint8_t ) ) );
+                        net->wiring[i].src_layer[j]= createregister( net , malloc( net->wiring[i].size[j] * sizeof( uint16_t ) ) );
+                        net->wiring[i].src_index[j]= createregister( net , malloc( net->wiring[i].size[j] * sizeof( uint16_t ) ) );
+                        for( uint32_t k= 0 ; k < net->wiring[i].size[j] ; k++ ){
+                            fread( &net->wiring[i].src_type[j][k] , sizeof( uint8_t ) , 1 , fp );
+                            switch( net->wiring[i].src_type[j][k] ){
                                 case 'N':
-                                    fread( &net.wiring[i].src_layer[j][k] , sizeof( uint16_t ) , 1 , fp );
-                                    if( little_endian ) net.wiring[i].src_layer[j][k]= bswap16( net.wiring[i].src_layer[j][k] );
-                                    fread( &net.wiring[i].src_index[j][k] , sizeof( uint16_t ) , 1 , fp );
-                                    if( little_endian ) net.wiring[i].src_index[j][k]= bswap16( net.wiring[i].src_index[j][k] );
+                                    fread( &net->wiring[i].src_layer[j][k] , sizeof( uint16_t ) , 1 , fp );
+                                    if( little_endian ) net->wiring[i].src_layer[j][k]= bswap16( net->wiring[i].src_layer[j][k] );
+                                    fread( &net->wiring[i].src_index[j][k] , sizeof( uint16_t ) , 1 , fp );
+                                    if( little_endian ) net->wiring[i].src_index[j][k]= bswap16( net->wiring[i].src_index[j][k] );
                                     break;
                                 case 'O':
                                 case 'I':
-                                    fread( &net.wiring[i].src_index[j][k] , sizeof( uint16_t ) , 1 , fp );
-                                    if( little_endian ) net.wiring[i].src_index[j][k]= bswap16( net.wiring[i].src_index[j][k] );
+                                    fread( &net->wiring[i].src_index[j][k] , sizeof( uint16_t ) , 1 , fp );
+                                    if( little_endian ) net->wiring[i].src_index[j][k]= bswap16( net->wiring[i].src_index[j][k] );
                             }
                         }
                         break;
                     case 'N':
-                        net.wiring[i].src_type[j]= memtrack( malloc( sizeof( uint8_t ) ) );
-                        net.wiring[i].src_layer[j]= memtrack( malloc( sizeof( uint16_t ) ) );
-                        net.wiring[i].src_index[j]= memtrack( malloc( sizeof( uint16_t ) ) );
-                        fread( &net.wiring[i].src_layer[j][0] , sizeof( uint16_t ) , 1 , fp );
-                        if( little_endian ) net.wiring[i].src_layer[j][0]= bswap16( net.wiring[i].src_layer[j][0] );
-                        fread( &net.wiring[i].src_index[j][0] , sizeof( uint16_t ) , 1 , fp );
-                        if( little_endian ) net.wiring[i].src_index[j][0]= bswap16( net.wiring[i].src_index[j][0] );
+                        net->wiring[i].src_type[j]= createregister( net , malloc( sizeof( uint8_t ) ) );
+                        net->wiring[i].src_layer[j]= createregister( net , malloc( sizeof( uint16_t ) ) );
+                        net->wiring[i].src_index[j]= createregister( net , malloc( sizeof( uint16_t ) ) );
+                        fread( &net->wiring[i].src_layer[j][0] , sizeof( uint16_t ) , 1 , fp );
+                        if( little_endian ) net->wiring[i].src_layer[j][0]= bswap16( net->wiring[i].src_layer[j][0] );
+                        fread( &net->wiring[i].src_index[j][0] , sizeof( uint16_t ) , 1 , fp );
+                        if( little_endian ) net->wiring[i].src_index[j][0]= bswap16( net->wiring[i].src_index[j][0] );
                         break;
                 }
             }
         }
     }
-    buildnet( &net );
-    for( uint16_t i= 0 ; i < net.layers ; i ++ ) for( uint16_t j= 0 ; j < net.neurons[i] ; j++ ){
-        fread( &net.nn[i][j].fn , sizeof( uint8_t ) , 1 , fp );
+    buildnet( net );
+    for( uint16_t i= 0 ; i < net->layers ; i ++ ) for( uint16_t j= 0 ; j < net->neurons[i] ; j++ ){
+        fread( &net->nn[i][j].fn , sizeof( uint8_t ) , 1 , fp );
         uint32_t aux;
         fread( &aux , sizeof( uint32_t ) , 1 , fp );
         if( little_endian ) aux= bswap32( aux );
-        net.nn[i][j].b= floatsys( aux , ieee754 );
-        for( uint32_t k= 0 ; k < net.nn[i][j].inputs ; k++ ){
+        net->nn[i][j].b= floatsys( aux , ieee754 );
+        for( uint32_t k= 0 ; k < net->nn[i][j].inputs ; k++ ){
             fread( &aux , sizeof( uint32_t ) , 1 , fp );
             if( little_endian ) aux= bswap32( aux );
-            net.nn[i][j].w[k]= floatsys( aux , ieee754 );
+            net->nn[i][j].w[k]= floatsys( aux , ieee754 );
         }
     }
     fclose( fp );
-    return net;
+    return *net;
 }
 #pragma GCC diagnostic pop
