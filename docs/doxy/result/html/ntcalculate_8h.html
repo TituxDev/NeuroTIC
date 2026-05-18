@@ -181,7 +181,7 @@ Functions</h2></td></tr>
 <p>Activation functions are resolved from the global <code>ntact_activation</code> lookup table using the neuron's configured activation identifier. <br  />
  Result is stored in the neuron's <code>out</code> field. </p>
 
-<p class="reference">References <a class="el" href="#l00062">neuron_s::fn</a>, <a class="el" href="#l00061">ntact_activation</a>, <a class="el" href="#l00063">neuron_s::out</a>, and <a class="el" href="#l00023">weighing()</a>.</p>
+<p class="reference">References <a class="el" href="#l00081">neuron_s::fn</a>, <a class="el" href="#l00061">ntact_activation</a>, <a class="el" href="#l00082">neuron_s::out</a>, and <a class="el" href="#l00023">weighing()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#l00044">feedforward()</a>.</p>
 
@@ -214,7 +214,7 @@ Functions</h2></td></tr>
 <p>Iterates layer-by-layer to maintain deterministic ordering. <br  />
  No buffering is required since outputs of previous layers are already wired via pointer connections. </p>
 
-<p class="reference">References <a class="el" href="#l00034">activate()</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, and <a class="el" href="#l00108">net_s::out</a>.</p>
+<p class="reference">References <a class="el" href="#l00034">activate()</a>, <a class="el" href="#l00121">net_s::layers</a>, <a class="el" href="#l00122">net_s::neurons</a>, <a class="el" href="#l00124">net_s::nn</a>, and <a class="el" href="#l00127">net_s::out</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#l00046">backpropagation()</a>.</p>
 
@@ -249,7 +249,7 @@ Functions</h2></td></tr>
  The bias term is accumulated first to reduce one addition inside the loop. <br  />
  Inputs are assumed to be valid pointers. </p>
 
-<p class="reference">References <a class="el" href="#l00061">neuron_s::b</a>, <a class="el" href="#l00059">neuron_s::in</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, and <a class="el" href="#l00060">neuron_s::w</a>.</p>
+<p class="reference">References <a class="el" href="#l00080">neuron_s::b</a>, <a class="el" href="#l00078">neuron_s::in</a>, <a class="el" href="#l00076">neuron_s::inputs</a>, and <a class="el" href="#l00079">neuron_s::w</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#l00034">activate()</a>.</p>
 

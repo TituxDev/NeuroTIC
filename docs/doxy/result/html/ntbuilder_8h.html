@@ -158,7 +158,7 @@ Functions</h2></td></tr>
 <div class="textblock"><p>Construction Functions. <br  />
  <a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c</a>. </p>
 <p>Provides memory allocation and pointer setup for neurons, input/output references, and inter-layer buffers. <br  />
- Uses <a class="el" href="ntmemory_8h.html#a7d7ce4bde9361c4e0778b55dce53e884" title="Registers a memory block for tracking and automatic cleanup.">memtrack()</a> to manage memory safely.</p>
+ Uses memtrack() to manage memory safely.</p>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2026   </dd></dl>
 
@@ -195,15 +195,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <a class="code hl_struct" href="structnet__s.html">net_s</a> network={ \</div>
+<b>Value:</b><div class="fragment"><div class="line">    <a class="code hl_struct" href="structnet__s.html">net_s</a> *network={ \</div>
 <div class="line">        .<a class="code hl_variable" href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">inputs</a>= i, \</div>
 <div class="line">        .layers= <span class="keyword">sizeof</span>( neurons )/<span class="keyword">sizeof</span>( uint16_t ), \</div>
 <div class="line">    }; \</div>
 <div class="line">    buildnet( <a class="code hl_function" href="ntfeedforward_8c.html#ad4572edfe44001ed5b40ffc7e29026b9">newfeedforward</a>( <a class="code hl_define" href="ntbuilder_8h.html#a6c4abea58db7193ec0663d0347bdeb96">NEWNET</a>( network , neurons ) ) );</div>
 <div class="ttc" id="antbuilder_8h_html_a6c4abea58db7193ec0663d0347bdeb96"><div class="ttname"><a href="ntbuilder_8h.html#a6c4abea58db7193ec0663d0347bdeb96">NEWNET</a></div><div class="ttdeci">#define NEWNET(network, neurons)</div><div class="ttdoc">Convenience macro to create a new network.</div><div class="ttdef"><b>Definition</b> ntbuilder.h:25</div></div>
 <div class="ttc" id="antfeedforward_8c_html_ad4572edfe44001ed5b40ffc7e29026b9"><div class="ttname"><a href="ntfeedforward_8c.html#ad4572edfe44001ed5b40ffc7e29026b9">newfeedforward</a></div><div class="ttdeci">struct net_s * newfeedforward(net_s *net)</div><div class="ttdoc">Initializes a simple feedforward topology.</div><div class="ttdef"><b>Definition</b> ntfeedforward.c:21</div></div>
-<div class="ttc" id="astructnet__s_html"><div class="ttname"><a href="structnet__s.html">net_s</a></div><div class="ttdoc">Root structural container of a NeuroTIC network.</div><div class="ttdef"><b>Definition</b> ntcore.h:100</div></div>
-<div class="ttc" id="astructnet__s_html_a252eb5f95334455a30914a1d3706a4d0"><div class="ttname"><a href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">net_s::inputs</a></div><div class="ttdeci">input_t inputs</div><div class="ttdef"><b>Definition</b> ntcore.h:101</div></div>
+<div class="ttc" id="astructnet__s_html"><div class="ttname"><a href="structnet__s.html">net_s</a></div><div class="ttdoc">Root structural container of a NeuroTIC network.</div><div class="ttdef"><b>Definition</b> ntcore.h:119</div></div>
+<div class="ttc" id="astructnet__s_html_a252eb5f95334455a30914a1d3706a4d0"><div class="ttname"><a href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">net_s::inputs</a></div><div class="ttdeci">input_t inputs</div><div class="ttdef"><b>Definition</b> ntcore.h:120</div></div>
 </div><!-- fragment -->
 <p>Convenience macro to create and build a feedforward network. </p>
 <p>Combines <code><a class="el" href="ntbuilder_8h.html#a0828749590e88600e1ef5329509f6fc7" title="Initializes a new neural network structure.">newnet()</a></code> and <code><a class="el" href="ntbuilder_8h.html#aaaecf1ef6fe5d9fb9b603d7479b22f7e" title="Builds the internal buffers and connections of a neural network.">buildnet()</a></code> into a single step for creating a feedforward network with the specified input size and layer configuration.</p>
@@ -298,9 +298,9 @@ Functions</h2></td></tr>
 </ul>
 <p>Validates wiring configurations and ensures all pointers are correctly set up for feedforward computation. Uses <code>memtrack</code> for all allocations. </p>
 
-<p class="reference">References <a class="el" href="#l00079">wiring_s::array_type</a>, <a class="el" href="#l00078">wiring_s::arrays</a>, <a class="el" href="#l00107">net_s::bff</a>, <a class="el" href="#l00058">neuron_s::bff_idx</a>, <a class="el" href="#l00059">neuron_s::in</a>, <a class="el" href="#l00104">net_s::in</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, <a class="el" href="#l00101">net_s::inputs</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00063">neuron_s::out</a>, <a class="el" href="#l00108">net_s::out</a>, <a class="el" href="#l00080">wiring_s::size</a>, <a class="el" href="#l00083">wiring_s::src_index</a>, <a class="el" href="#l00082">wiring_s::src_layer</a>, <a class="el" href="#l00081">wiring_s::src_type</a>, and <a class="el" href="#l00106">net_s::wiring</a>.</p>
+<p class="reference">References <a class="el" href="#l00098">wiring_s::array_type</a>, <a class="el" href="#l00097">wiring_s::arrays</a>, <a class="el" href="#l00126">net_s::bff</a>, <a class="el" href="#l00077">neuron_s::bff_idx</a>, <a class="el" href="#l00078">neuron_s::in</a>, <a class="el" href="#l00123">net_s::in</a>, <a class="el" href="#l00076">neuron_s::inputs</a>, <a class="el" href="#l00120">net_s::inputs</a>, <a class="el" href="#l00121">net_s::layers</a>, <a class="el" href="#l00122">net_s::neurons</a>, <a class="el" href="#l00124">net_s::nn</a>, <a class="el" href="#l00082">neuron_s::out</a>, <a class="el" href="#l00127">net_s::out</a>, <a class="el" href="#l00099">wiring_s::size</a>, <a class="el" href="#l00102">wiring_s::src_index</a>, <a class="el" href="#l00101">wiring_s::src_layer</a>, <a class="el" href="#l00100">wiring_s::src_type</a>, and <a class="el" href="#l00125">net_s::wiring</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#l00176">loadnet()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00179">loadnet()</a>.</p>
 
 </div>
 </div>
@@ -349,9 +349,9 @@ Functions</h2></td></tr>
 <p>Initializes a new neural network structure by allocating memory for neurons and layers, and setting initial pointers to NULL. <br  />
  Validates input parameters and uses <code>memtrack</code> to register allocations for automatic cleanup. </p>
 
-<p class="reference">References <a class="el" href="#l00102">net_s::layers</a>, and <a class="el" href="#l00103">net_s::neurons</a>.</p>
+<p class="reference">References <a class="el" href="#l00121">net_s::layers</a>, and <a class="el" href="#l00122">net_s::neurons</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#l00176">loadnet()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00179">loadnet()</a>.</p>
 
 </div>
 </div>

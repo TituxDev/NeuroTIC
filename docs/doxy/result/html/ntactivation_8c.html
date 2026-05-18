@@ -137,8 +137,8 @@ Variables</h2></td></tr>
 <div class="line"><span class="keyword">static</span> <span class="keywordtype">float</span> boolean( <span class="keywordtype">float</span> x ){</div>
 <div class="line">    <span class="keywordflow">return</span> x &gt;= 0.0f ? 1.0f : 0.0f;</div>
 <div class="line">}</div>
-<div class="line"><span class="comment">// [!!] This derivative is not mathematically correct.</span></div>
-<div class="line"><span class="comment">// It intentionally returns a constant value to avoid zero-gradient behavior.</span></div>
+<div class="line"><span class="comment">// [!]  This derivative is not mathematically correct.</span></div>
+<div class="line"><span class="comment">//      It intentionally returns a constant value to avoid zero-gradient behavior.</span></div>
 <div class="line"><span class="keyword">static</span> <span class="keywordtype">float</span> boolean_d( <span class="keywordtype">float</span> x ){</div>
 <div class="line">    <span class="keywordflow">return</span> x= 1.0f;</div>
 <div class="line">}</div>

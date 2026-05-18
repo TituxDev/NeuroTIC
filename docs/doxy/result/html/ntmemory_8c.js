@@ -1,7 +1,12 @@
 var ntmemory_8c =
 [
-    [ "memfree", "ntmemory_8c.html#a5fe9dfe999ba7e84a43b1dabd37fafb8", null ],
-    [ "memtrack", "ntmemory_8c.html#a7d7ce4bde9361c4e0778b55dce53e884", null ],
-    [ "mem_count", "ntmemory_8c.html#ab55d7dbf779fedec2f77a0489e4d1628", null ],
-    [ "mem_register", "ntmemory_8c.html#af97ded66f2e02708ac8728bf0490a9be", null ]
+    [ "mem_format", "structmem__format.html", "structmem__format" ],
+    [ "cleanmemory", "ntmemory_8c.html#af02eae587caffc982fcf2a433b35a873", null ],
+    [ "createowner", "ntmemory_8c.html#a97df97b8ef19f4026d2e0a41e60864a7", null ],
+    [ "createregister", "ntmemory_8c.html#a274c39fca63b8d779b7b813535188be2", null ],
+    [ "deleteowner", "ntmemory_8c.html#a4bd10184daeb50d2eea585376d8ac7ac", null ],
+    [ "match_owner", "ntmemory_8c.html#a4b06b059b20b2d074ab04490e85a79e9", null ],
+    [ "match_register", "ntmemory_8c.html#a127c4c2c3e30466538e41c0cce40cb98", null ],
+    [ "mem_track", "ntmemory_8c.html#a734768b1a43b4ab62bfdc9fc5d91ed73", null ],
+    [ "mem_tracker", "ntmemory_8c.html#a3aa777391f5bb520b79bf22e240d0294", null ]
 ];

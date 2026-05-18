@@ -90,6 +90,7 @@ $(document).ready(function(){initNavTree('ntmemory_8c.html',''); initResizable()
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">ntmemory.c File Reference</div></div>
@@ -101,40 +102,59 @@ $(document).ready(function(){initNavTree('ntmemory_8c.html',''); initResizable()
 <div class="textblock"><code>#include &quot;<a class="el" href="">ntmemory.h</a>&quot;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;search.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ntmemory.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="ntmemory_8c__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntmemory_8c" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntmemory_8c" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntmemory_8c">
-<area shape="rect" title="Implementation of memory management functions." alt="" coords="53,5,274,45"/>
+<area shape="rect" title="Implementation of memory management functions." alt="" coords="146,5,367,45"/>
 <area shape="rect" href="ntmemory_8h.html" title="Memory Management Functions &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntmemory...." alt="" coords="5,93,105,119"/>
-<area shape="poly" title=" " alt="" coords="139,48,84,87,81,83,136,43"/>
+<area shape="poly" title=" " alt="" coords="209,48,99,91,97,86,207,43"/>
 <area shape="rect" title=" " alt="" coords="130,93,197,119"/>
-<area shape="poly" title=" " alt="" coords="166,46,166,79,161,79,161,46"/>
+<area shape="poly" title=" " alt="" coords="236,48,190,86,186,82,232,44"/>
 <area shape="rect" title=" " alt="" coords="221,93,292,119"/>
-<area shape="poly" title=" " alt="" coords="188,44,234,82,230,86,184,48"/>
+<area shape="poly" title=" " alt="" coords="259,46,259,79,254,79,254,46"/>
+<area shape="rect" title=" " alt="" coords="316,93,387,119"/>
+<area shape="poly" title=" " alt="" coords="281,43,328,82,325,86,278,48"/>
+<area shape="rect" title=" " alt="" coords="411,93,489,119"/>
+<area shape="poly" title=" " alt="" coords="304,43,410,86,408,91,302,48"/>
 </map>
 </div>
 </div>
 <p><a href="">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmem__format.html">mem_format</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5fe9dfe999ba7e84a43b1dabd37fafb8" id="r_a5fe9dfe999ba7e84a43b1dabd37fafb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html#a5fe9dfe999ba7e84a43b1dabd37fafb8">memfree</a> (void)</td></tr>
-<tr class="memdesc:a5fe9dfe999ba7e84a43b1dabd37fafb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees all memory blocks registered in the internal tracking registry.  <br /></td></tr>
-<tr class="separator:a5fe9dfe999ba7e84a43b1dabd37fafb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d7ce4bde9361c4e0778b55dce53e884" id="r_a7d7ce4bde9361c4e0778b55dce53e884"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html#a7d7ce4bde9361c4e0778b55dce53e884">memtrack</a> (void *mem)</td></tr>
-<tr class="memdesc:a7d7ce4bde9361c4e0778b55dce53e884"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a memory block for tracking and automatic cleanup.  <br /></td></tr>
-<tr class="separator:a7d7ce4bde9361c4e0778b55dce53e884"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b06b059b20b2d074ab04490e85a79e9" id="r_a4b06b059b20b2d074ab04490e85a79e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html#a4b06b059b20b2d074ab04490e85a79e9">match_owner</a> (const void *key, const void *element)</td></tr>
+<tr class="separator:a4b06b059b20b2d074ab04490e85a79e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a127c4c2c3e30466538e41c0cce40cb98" id="r_a127c4c2c3e30466538e41c0cce40cb98"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html#a127c4c2c3e30466538e41c0cce40cb98">match_register</a> (const void *key, const void *element)</td></tr>
+<tr class="separator:a127c4c2c3e30466538e41c0cce40cb98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af02eae587caffc982fcf2a433b35a873" id="r_af02eae587caffc982fcf2a433b35a873"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html#af02eae587caffc982fcf2a433b35a873">cleanmemory</a> (void)</td></tr>
+<tr class="memdesc:af02eae587caffc982fcf2a433b35a873"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a memory block from the tracking registry and frees it.  <br /></td></tr>
+<tr class="separator:af02eae587caffc982fcf2a433b35a873"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bd10184daeb50d2eea585376d8ac7ac" id="r_a4bd10184daeb50d2eea585376d8ac7ac"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html#a4bd10184daeb50d2eea585376d8ac7ac">deleteowner</a> (void *owner)</td></tr>
+<tr class="memdesc:a4bd10184daeb50d2eea585376d8ac7ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a memory owner and all associated memory blocks.  <br /></td></tr>
+<tr class="separator:a4bd10184daeb50d2eea585376d8ac7ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97df97b8ef19f4026d2e0a41e60864a7" id="r_a97df97b8ef19f4026d2e0a41e60864a7"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html#a97df97b8ef19f4026d2e0a41e60864a7">createowner</a> (void *owner)</td></tr>
+<tr class="memdesc:a97df97b8ef19f4026d2e0a41e60864a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a memory owner and registers it in the tracking system.  <br /></td></tr>
+<tr class="separator:a97df97b8ef19f4026d2e0a41e60864a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a274c39fca63b8d779b7b813535188be2" id="r_a274c39fca63b8d779b7b813535188be2"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html#a274c39fca63b8d779b7b813535188be2">createregister</a> (void *owner, void *mem)</td></tr>
+<tr class="memdesc:a274c39fca63b8d779b7b813535188be2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a memory register entry for a specific memory owner.  <br /></td></tr>
+<tr class="separator:a274c39fca63b8d779b7b813535188be2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:af97ded66f2e02708ac8728bf0490a9be" id="r_af97ded66f2e02708ac8728bf0490a9be"><td class="memItemLeft" align="right" valign="top">static void **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html#af97ded66f2e02708ac8728bf0490a9be">mem_register</a> = NULL</td></tr>
-<tr class="memdesc:af97ded66f2e02708ac8728bf0490a9be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal registry for tracking allocated memory blocks.  <br /></td></tr>
-<tr class="separator:af97ded66f2e02708ac8728bf0490a9be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab55d7dbf779fedec2f77a0489e4d1628" id="r_ab55d7dbf779fedec2f77a0489e4d1628"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html#ab55d7dbf779fedec2f77a0489e4d1628">mem_count</a> = 0</td></tr>
-<tr class="memdesc:ab55d7dbf779fedec2f77a0489e4d1628"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counter for the number of tracked memory blocks.  <br /></td></tr>
-<tr class="separator:ab55d7dbf779fedec2f77a0489e4d1628"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3aa777391f5bb520b79bf22e240d0294" id="r_a3aa777391f5bb520b79bf22e240d0294"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structmem__format.html">mem_format</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html#a3aa777391f5bb520b79bf22e240d0294">mem_tracker</a> = NULL</td></tr>
+<tr class="separator:a3aa777391f5bb520b79bf22e240d0294"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a734768b1a43b4ab62bfdc9fc5d91ed73" id="r_a734768b1a43b4ab62bfdc9fc5d91ed73"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8c.html#a734768b1a43b4ab62bfdc9fc5d91ed73">mem_track</a> = 0</td></tr>
+<tr class="separator:a734768b1a43b4ab62bfdc9fc5d91ed73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of memory management functions. </p>
@@ -145,14 +165,14 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="">ntmemory.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a5fe9dfe999ba7e84a43b1dabd37fafb8" name="a5fe9dfe999ba7e84a43b1dabd37fafb8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5fe9dfe999ba7e84a43b1dabd37fafb8">&#9670;&#160;</a></span>memfree()</h2>
+<a id="af02eae587caffc982fcf2a433b35a873" name="af02eae587caffc982fcf2a433b35a873"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af02eae587caffc982fcf2a433b35a873">&#9670;&#160;</a></span>cleanmemory()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void memfree </td>
+          <td class="memname">void cleanmemory </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -161,106 +181,255 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Frees all memory blocks registered in the internal tracking registry. </p>
-<p>Frees all memory blocks registered in the internal tracking registry. <br  />
- Iterates through the <code>mem_register</code> array, freeing each pointer and setting it to NULL to prevent dangling references. <br  />
- After all tracked memory has been freed, the registry itself is freed and set to NULL. <br  />
- This function is registered with <code>atexit()</code> to ensure that it is called automatically when the program terminates, providing a safety net for memory management and preventing leaks. </p>
+<p>Deletes a memory block from the tracking registry and frees it. </p>
+<p>Iterates through the <code>mem_tracker</code> array and frees all memory blocks registered under each memory owner. <br  />
+ After freeing the memory blocks, it also frees the memory register and resets the tracking information for each owner. <br  />
+ Finally, it frees the entire <code>mem_tracker</code> array and resets the tracking counter. <br  />
+ This function is registered with <code>atexit()</code> to ensure that all tracked memory is automatically freed when the program exits, preventing memory leaks and ensuring proper cleanup of resources. <br  />
+ It is important to note that this function should not be called manually, as it is designed to be invoked automatically. </p><dl class="section warning"><dt>Warning</dt><dd>This function should not be called manually, as it is designed to be invoked automatically at program termination. Calling it manually may lead to unintended consequences, such as double freeing memory or leaving dangling pointers if the tracking system is still in use. </dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>This function assumes that all memory blocks registered in the tracking system were allocated using <code>malloc()</code> or similar functions and can be safely freed. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="ntmemory_8c.html#a4bd10184daeb50d2eea585376d8ac7ac" title="Deletes a memory owner and all associated memory blocks.">deleteowner()</a> for deleting a specific memory owner and its associated memory blocks. </dd></dl>
 
-<p class="reference">References <a class="el" href="#l00042">mem_count</a>, and <a class="el" href="#l00029">mem_register</a>.</p>
+<p class="reference">References <a class="el" href="#l00040">mem_track</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#l00069">memtrack()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00157">createowner()</a>, and <a class="el" href="#l00116">deleteowner()</a>.</p>
 
 </div>
 </div>
-<a id="a7d7ce4bde9361c4e0778b55dce53e884" name="a7d7ce4bde9361c4e0778b55dce53e884"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d7ce4bde9361c4e0778b55dce53e884">&#9670;&#160;</a></span>memtrack()</h2>
+<a id="a97df97b8ef19f4026d2e0a41e60864a7" name="a97df97b8ef19f4026d2e0a41e60864a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97df97b8ef19f4026d2e0a41e60864a7">&#9670;&#160;</a></span>createowner()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void * memtrack </td>
+          <td class="memname">void * createowner </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>mem</em></td><td>)</td>
+          <td class="paramname"><em>owner</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Registers a memory block for tracking and automatic cleanup. </p>
-<p>Registers a dynamically allocated memory block for deferred release. <br  />
- Adds a pointer to the internal memory registry. The registry grows dynamically as new allocations are tracked. <br  />
- This function is intended to be called immediately after successful dynamic allocation (e.g. <code>malloc</code>, <code>calloc</code>, <code>realloc</code>). <br  />
- On the first invocation, <a class="el" href="ntmemory_8c.html#a5fe9dfe999ba7e84a43b1dabd37fafb8" title="Frees all memory blocks registered in the internal tracking registry.">memfree()</a> is automatically registered to execute at program termination via <code>atexit()</code>. </p>
+<p>Creates a memory owner and registers it in the tracking system. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">owner</td><td>Pointer to the memory owner to create. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void* Pointer to the created memory owner, or NULL if creation fails. </dd>
+<dd>
+owner Pointer to the existing memory owner if it already exists. </dd>
+<dd>
+NULL if the provided owner pointer is NULL.</dd></dl>
+<p>This function creates a new memory owner and registers it in the tracking system. <br  />
+ If the owner already exists, it returns a pointer to the existing owner. <br  />
+ The function ensures that each memory owner is uniquely tracked within the system. If the provided owner pointer is NULL, the function returns NULL without creating a new owner. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="ntmemory_8c.html#a274c39fca63b8d779b7b813535188be2" title="Creates a memory register entry for a specific memory owner.">createregister()</a> for creating a memory register entry for a specific memory owner and memory block. </dd></dl>
 
-<p class="reference">References <a class="el" href="#l00042">mem_count</a>, <a class="el" href="#l00029">mem_register</a>, and <a class="el" href="#l00051">memfree()</a>.</p>
+<p class="reference">References <a class="el" href="#l00083">cleanmemory()</a>, and <a class="el" href="#l00025">mem_format::mem_owner</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="#l00196">createregister()</a>.</p>
+
+</div>
+</div>
+<a id="a274c39fca63b8d779b7b813535188be2" name="a274c39fca63b8d779b7b813535188be2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a274c39fca63b8d779b7b813535188be2">&#9670;&#160;</a></span>createregister()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * createregister </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>owner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>mem</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a memory register entry for a specific memory owner. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">owner</td><td>Pointer to the memory owner. </td></tr>
+    <tr><td class="paramname">mem</td><td>Pointer to the memory block to register. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void* Pointer to the registered memory block. </dd>
+<dd>
+NULL if the provided owner or memory block pointer is NULL.</dd></dl>
+<p>Search for te existence of the provided memory owner in the tracking system. If the owner does not exists:</p><ul>
+<li>Increases the size of regisgter table.</li>
+<li>Creates a new memory owner and registers it i</li>
+</ul>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="ntmemory_8c.html#a97df97b8ef19f4026d2e0a41e60864a7" title="Creates a memory owner and registers it in the tracking system.">createowner()</a> for creating a memory owner and registering it in the tracking system. <a class="el" href="ntmemory_8c.html#a4bd10184daeb50d2eea585376d8ac7ac" title="Deletes a memory owner and all associated memory blocks.">deleteowner()</a> for deleting a specific memory owner and its associated memory blocks. <a class="el" href="ntmemory_8c.html#af02eae587caffc982fcf2a433b35a873" title="Deletes a memory block from the tracking registry and frees it.">cleanmemory()</a> for freeing all memory blocks registered in the tracking system at program termination. </dd></dl>
+
+<p class="reference">References <a class="el" href="#l00157">createowner()</a>, and <a class="el" href="#l00026">mem_format::mem_register</a>.</p>
+
+</div>
+</div>
+<a id="a4bd10184daeb50d2eea585376d8ac7ac" name="a4bd10184daeb50d2eea585376d8ac7ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bd10184daeb50d2eea585376d8ac7ac">&#9670;&#160;</a></span>deleteowner()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char deleteowner </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>owner</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deletes a memory owner and all associated memory blocks. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">owner</td><td>Pointer to the memory owner to delete. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>Sucess, owner not found. </td></tr>
+    <tr><td class="paramname">1</td><td>owner is NULL. </td></tr>
+    <tr><td class="paramname">2</td><td>register allocation failed</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function deletes a specific memory owner and all associated memory blocks from the tracking system. <br  />
+ It first checks if the provided owner pointer is valid, then searches for the owner in the <code>mem_tracker</code> array. If the owner is found, it frees all memory blocks registered under that owner, frees the memory register, and removes the owner from the tracking system. <br  />
+ The function returns 0 if the deletion is successful, 1 if the owner is not found, and 2 if memory allocation fails during the process. </p><dl class="section see"><dt>See also</dt><dd>If is the last register in <a class="el" href="ntmemory_8c.html#a3aa777391f5bb520b79bf22e240d0294">mem_tracker</a>, <a class="el" href="ntmemory_8c.html#af02eae587caffc982fcf2a433b35a873" title="Deletes a memory block from the tracking registry and frees it.">cleanmemory()</a> is called. </dd></dl>
+
+<p class="reference">References <a class="el" href="#l00083">cleanmemory()</a>, <a class="el" href="#l00026">mem_format::mem_register</a>, and <a class="el" href="#l00040">mem_track</a>.</p>
+
+</div>
+</div>
+<a id="a4b06b059b20b2d074ab04490e85a79e9" name="a4b06b059b20b2d074ab04490e85a79e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b06b059b20b2d074ab04490e85a79e9">&#9670;&#160;</a></span>match_owner()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int match_owner </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>element</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>Pointer to the memory owner to match. </td></tr>
+    <tr><td class="paramname">element</td><td>Pointer to the memory format element being compared. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>if the owner matches the element's memory owner, non-zero otherwise. </td></tr>
+    <tr><td class="paramname">1</td><td>if the provided key is NULL, or if the element's memory owner is NULL.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function is used as a comparison function for searching the <code>mem_tracker</code> array to find the index of a specific memory owner. <br  />
+ It compares the provided key (memory owner) with the <code>mem_owner</code> field of the memory format element. <br  />
+ A return value of 0 indicates a match (i.e., the owner is found), while a non-zero return value indicates that the owner does not match the element being compared. <br  />
+ This function is essential for managing memory ownership and ensuring that memory blocks are correctly associated with their respective owners in the tracking system. </p>
+
+<p class="reference">References <a class="el" href="#l00025">mem_format::mem_owner</a>.</p>
+
+</div>
+</div>
+<a id="a127c4c2c3e30466538e41c0cce40cb98" name="a127c4c2c3e30466538e41c0cce40cb98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a127c4c2c3e30466538e41c0cce40cb98">&#9670;&#160;</a></span>match_register()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int match_register </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>element</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function is used as a comparison function for searching the <code>mem_tracker</code> array to find the index of a specific memory register entry. <br  />
+ It compares the provided key (memory register entry) with the <code>mem_register</code> field of the memory format element. <br  />
+ A return value of 0 indicates a match (i.e., the register entry is found), while a non-zero return value indicates that the register entry does not match the element being compared. <br  />
+ This function is essential for managing memory ownership and ensuring that memory blocks are correctly associated with their respective owners in the tracking system. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="ab55d7dbf779fedec2f77a0489e4d1628" name="ab55d7dbf779fedec2f77a0489e4d1628"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab55d7dbf779fedec2f77a0489e4d1628">&#9670;&#160;</a></span>mem_count</h2>
+<a id="a734768b1a43b4ab62bfdc9fc5d91ed73" name="a734768b1a43b4ab62bfdc9fc5d91ed73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a734768b1a43b4ab62bfdc9fc5d91ed73">&#9670;&#160;</a></span>mem_track</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int mem_count = 0</td>
+          <td class="memname">size_t mem_track = 0</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+<p>Increases as new memory owners are created and memory blocks are registered under those owners. Decreases as memory owners are deleted and their associated memory blocks are freed. This counter is essential for managing the dynamic array of <code><a class="el" href="structmem__format.html">mem_format</a></code> structures, ensuring that memory ownership and tracking are accurately maintained throughout the lifecycle of the program.</p>
+<dl class="section warning"><dt>Warning</dt><dd>This counter must be carefully managed to prevent memory leaks or dangling pointers. </dd></dl>
 
-<p>Counter for the number of tracked memory blocks. </p>
-<p>This counter keeps track of how many pointers have been registered in the <code>mem_register</code> array. <br  />
- It is incremented each time <a class="el" href="ntmemory_8c.html#a7d7ce4bde9361c4e0778b55dce53e884" title="Registers a memory block for tracking and automatic cleanup.">memtrack()</a> is called and decremented as memory blocks are freed in <a class="el" href="ntmemory_8c.html#a5fe9dfe999ba7e84a43b1dabd37fafb8" title="Frees all memory blocks registered in the internal tracking registry.">memfree()</a>. <br  />
- The counter is used to manage the size of the registry and to ensure that all tracked memory is properly released when <a class="el" href="ntmemory_8c.html#a5fe9dfe999ba7e84a43b1dabd37fafb8" title="Frees all memory blocks registered in the internal tracking registry.">memfree()</a> is invoked.</p>
-<dl class="section warning"><dt>Warning</dt><dd>This counter must accurately reflect the number of valid pointers in the <code>mem_register</code>. <br  />
- Any discrepancies (e.g., due to manual freeing of tracked memory) can lead to undefined behavior when <a class="el" href="ntmemory_8c.html#a5fe9dfe999ba7e84a43b1dabd37fafb8" title="Frees all memory blocks registered in the internal tracking registry.">memfree()</a> is called, as it may attempt to free invalid pointers or miss freeing valid ones. </dd></dl>
-
-<p class="reference">Referenced by <a class="el" href="#l00051">memfree()</a>, and <a class="el" href="#l00069">memtrack()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00083">cleanmemory()</a>, and <a class="el" href="#l00116">deleteowner()</a>.</p>
 
 </div>
 </div>
-<a id="af97ded66f2e02708ac8728bf0490a9be" name="af97ded66f2e02708ac8728bf0490a9be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af97ded66f2e02708ac8728bf0490a9be">&#9670;&#160;</a></span>mem_register</h2>
+<a id="a3aa777391f5bb520b79bf22e240d0294" name="a3aa777391f5bb520b79bf22e240d0294"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3aa777391f5bb520b79bf22e240d0294">&#9670;&#160;</a></span>mem_tracker</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void** mem_register = NULL</td>
+          <td class="memname">struct <a class="el" href="structmem__format.html">mem_format</a> * mem_tracker = NULL</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-
-<p>Internal registry for tracking allocated memory blocks. </p>
-<p>This dynamic array stores pointers to all memory blocks that have been registered via <a class="el" href="ntmemory_8c.html#a7d7ce4bde9361c4e0778b55dce53e884" title="Registers a memory block for tracking and automatic cleanup.">memtrack()</a>. <br  />
- The registry allows for collective management of memory, enabling the <a class="el" href="ntmemory_8c.html#a5fe9dfe999ba7e84a43b1dabd37fafb8" title="Frees all memory blocks registered in the internal tracking registry.">memfree()</a> function to iterate through all tracked pointers and free them at once. <br  />
- The registry is dynamically resized as new pointers are added, and is freed itself when <a class="el" href="ntmemory_8c.html#a5fe9dfe999ba7e84a43b1dabd37fafb8" title="Frees all memory blocks registered in the internal tracking registry.">memfree()</a> is called. <br  />
- This approach simplifies memory management by centralizing the tracking and cleanup of dynamically allocated memory within the NeuroTIC system. <br  />
-</p>
-<dl class="section warning"><dt>Warning</dt><dd>This registry assumes exclusive ownership of all tracked pointers. <br  />
- Manually freeing any pointer that has been registered will lead to undefined behavior when <a class="el" href="ntmemory_8c.html#a5fe9dfe999ba7e84a43b1dabd37fafb8" title="Frees all memory blocks registered in the internal tracking registry.">memfree()</a> is called, as it will attempt to free already freed memory. </dd></dl>
-
-<p class="reference">Referenced by <a class="el" href="#l00051">memfree()</a>, and <a class="el" href="#l00069">memtrack()</a>.</p>
 
 </div>
 </div>

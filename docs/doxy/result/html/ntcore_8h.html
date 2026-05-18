@@ -90,7 +90,8 @@ $(document).ready(function(){initNavTree('ntcore_8h.html',''); initResizable(); 
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a>  </div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle"><div class="title">ntcore.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -209,6 +210,31 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a37f944f8a9994fe2b28801a60610f500" id="r_a37f944f8a9994fe2b28801a60610f500"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structnet__s.html">net_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntcore_8h.html#a37f944f8a9994fe2b28801a60610f500">net_s</a></td></tr>
 <tr class="memdesc:a37f944f8a9994fe2b28801a60610f500"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root structural container of a NeuroTIC network.  <br /></td></tr>
 <tr class="separator:a37f944f8a9994fe2b28801a60610f500"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a06fc87d81c62e9abb8790b6e5713c55b" id="r_a06fc87d81c62e9abb8790b6e5713c55b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <br />
+&#160;&#160;<a class="el" href="ntcore_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba1cef389f520f2f605d026eab44f8ea1d">DEFINE_NETWORK</a>
+, <a class="el" href="ntcore_8h.html#a06fc87d81c62e9abb8790b6e5713c55baa9dd1964e000ca33c5b77b9c209a44bc">BUILD_NETWORK_ON_MEMORY</a>
+, <a class="el" href="ntcore_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba23106c93fbf52803aa9270e58f978e4b">DEFINE_FEEDFORWARD_TOPOLOGY</a>
+, <a class="el" href="ntcore_8h.html#a06fc87d81c62e9abb8790b6e5713c55baef1fadf67abbfab4f09254000ff0e12d">BUILD_CONECTIONS</a>
+, <br />
+&#160;&#160;<a class="el" href="ntcore_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba2f717b5fafdbad4680315c9d027167f0">DEFINE_ACTIVATIONS_FUNCTIONS_PER_NEURON</a>
+, <a class="el" href="ntcore_8h.html#a06fc87d81c62e9abb8790b6e5713c55bae4f04a0455a4e34365d8dccb2839be1c">INITIALIZE_WEIGTHS</a>
+, <a class="el" href="ntcore_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba04ea797eca169a682bf0c8bea55236d1">DEFINE_TRAINING_PARAMETERS</a>
+, <a class="el" href="ntcore_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba503cd7e03fae476e7df35ea269143aa3">BUILD_TRAINING_TABLES_SPACE</a>
+, <br />
+&#160;&#160;<a class="el" href="ntcore_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba69a415c1ad49ad63c8264e0c7010cee7">SET_TRAINING_DATA</a>
+, <a class="el" href="ntcore_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba33bdb39535e163a882a6e4cc941cbbb6">TRAIN_NETWORK</a>
+, <a class="el" href="ntcore_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba4a4da477b6c547016b1d2d98ad83c370">SAVE_NETWORK_TO_NTIC_FILE</a>
+, <a class="el" href="ntcore_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba26380e545e91eea04ccb8bda897d8514">DELETE_NETWORK_FROM_MEMORY</a>
+, <br />
+&#160;&#160;<a class="el" href="ntcore_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba29b26edc293d675be3d4bb66fdcb2e8f">LOAD_NETWORK_FROM_NTIC_FILE_TO_MEMORY</a>
+, <a class="el" href="ntcore_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba506c7afd377dc95f9485bd409b96cfff">FREE_RESOURCES_ATEXIT</a>
+, <a class="el" href="ntcore_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad1b3ca5e9001eb22e45053e563868cc7">TOTAL_NETWORK_LIFE_CYCLE_STEPS</a>
+<br />
+ }</td></tr>
+<tr class="separator:a06fc87d81c62e9abb8790b6e5713c55b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Fundamental structural definitions of the NeuroTIC runtime model. </p>
@@ -267,6 +293,38 @@ Typedefs</h2></td></tr>
 
 <p>Declarative descriptor of inter-layer input resolution. </p>
 <p>Wiring defines how logical input sets are constructed for a layer. Field interpretation is type-dependent and resolved externally. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a06fc87d81c62e9abb8790b6e5713c55b" name="a06fc87d81c62e9abb8790b6e5713c55b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06fc87d81c62e9abb8790b6e5713c55b">&#9670;&#160;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba1cef389f520f2f605d026eab44f8ea1d" name="a06fc87d81c62e9abb8790b6e5713c55ba1cef389f520f2f605d026eab44f8ea1d"></a>DEFINE_NETWORK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baa9dd1964e000ca33c5b77b9c209a44bc" name="a06fc87d81c62e9abb8790b6e5713c55baa9dd1964e000ca33c5b77b9c209a44bc"></a>BUILD_NETWORK_ON_MEMORY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba23106c93fbf52803aa9270e58f978e4b" name="a06fc87d81c62e9abb8790b6e5713c55ba23106c93fbf52803aa9270e58f978e4b"></a>DEFINE_FEEDFORWARD_TOPOLOGY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55baef1fadf67abbfab4f09254000ff0e12d" name="a06fc87d81c62e9abb8790b6e5713c55baef1fadf67abbfab4f09254000ff0e12d"></a>BUILD_CONECTIONS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba2f717b5fafdbad4680315c9d027167f0" name="a06fc87d81c62e9abb8790b6e5713c55ba2f717b5fafdbad4680315c9d027167f0"></a>DEFINE_ACTIVATIONS_FUNCTIONS_PER_NEURON&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bae4f04a0455a4e34365d8dccb2839be1c" name="a06fc87d81c62e9abb8790b6e5713c55bae4f04a0455a4e34365d8dccb2839be1c"></a>INITIALIZE_WEIGTHS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba04ea797eca169a682bf0c8bea55236d1" name="a06fc87d81c62e9abb8790b6e5713c55ba04ea797eca169a682bf0c8bea55236d1"></a>DEFINE_TRAINING_PARAMETERS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba503cd7e03fae476e7df35ea269143aa3" name="a06fc87d81c62e9abb8790b6e5713c55ba503cd7e03fae476e7df35ea269143aa3"></a>BUILD_TRAINING_TABLES_SPACE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba69a415c1ad49ad63c8264e0c7010cee7" name="a06fc87d81c62e9abb8790b6e5713c55ba69a415c1ad49ad63c8264e0c7010cee7"></a>SET_TRAINING_DATA&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba33bdb39535e163a882a6e4cc941cbbb6" name="a06fc87d81c62e9abb8790b6e5713c55ba33bdb39535e163a882a6e4cc941cbbb6"></a>TRAIN_NETWORK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba4a4da477b6c547016b1d2d98ad83c370" name="a06fc87d81c62e9abb8790b6e5713c55ba4a4da477b6c547016b1d2d98ad83c370"></a>SAVE_NETWORK_TO_NTIC_FILE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba26380e545e91eea04ccb8bda897d8514" name="a06fc87d81c62e9abb8790b6e5713c55ba26380e545e91eea04ccb8bda897d8514"></a>DELETE_NETWORK_FROM_MEMORY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba29b26edc293d675be3d4bb66fdcb2e8f" name="a06fc87d81c62e9abb8790b6e5713c55ba29b26edc293d675be3d4bb66fdcb2e8f"></a>LOAD_NETWORK_FROM_NTIC_FILE_TO_MEMORY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55ba506c7afd377dc95f9485bd409b96cfff" name="a06fc87d81c62e9abb8790b6e5713c55ba506c7afd377dc95f9485bd409b96cfff"></a>FREE_RESOURCES_ATEXIT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a06fc87d81c62e9abb8790b6e5713c55bad1b3ca5e9001eb22e45053e563868cc7" name="a06fc87d81c62e9abb8790b6e5713c55bad1b3ca5e9001eb22e45053e563868cc7"></a>TOTAL_NETWORK_LIFE_CYCLE_STEPS&#160;</td><td class="fielddoc"></td></tr>
+</table>
 
 </div>
 </div>

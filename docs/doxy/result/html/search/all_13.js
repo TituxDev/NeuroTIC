@@ -13,5 +13,7 @@ var searchData=
   ['todo_20list_10',['Todo List',['../todo.html',1,'']]],
   ['tolerance_11',['tolerance',['../structtraindata__t.html#a89fbed392de6de66502e11f828043f59',1,'traindata_t']]],
   ['topology_12',['Example topology',['../neurons_8c.html#neuron_example',1,'']]],
-  ['traindata_5ft_13',['traindata_t',['../structtraindata__t.html',1,'traindata_t'],['../nttrain_8h.html#a8120b45c1f0d54c6d7b152840ef62972',1,'traindata_t:&#160;nttrain.h']]]
+  ['total_5fnetwork_5flife_5fcycle_5fsteps_13',['TOTAL_NETWORK_LIFE_CYCLE_STEPS',['../ntcore_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad1b3ca5e9001eb22e45053e563868cc7',1,'ntcore.h']]],
+  ['train_5fnetwork_14',['TRAIN_NETWORK',['../ntcore_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba33bdb39535e163a882a6e4cc941cbbb6',1,'ntcore.h']]],
+  ['traindata_5ft_15',['traindata_t',['../structtraindata__t.html',1,'traindata_t'],['../nttrain_8h.html#a8120b45c1f0d54c6d7b152840ef62972',1,'traindata_t:&#160;nttrain.h']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['randnet_0',['randnet',['../ntinitialize_8c.html#a0c2e77d2e0217cf512c8adb47097b485',1,'randnet(net_s *net):&#160;ntinitialize.c'],['../ntinitialize_8h.html#a0c2e77d2e0217cf512c8adb47097b485',1,'randnet(net_s *net):&#160;ntinitialize.c']]]
+  ['match_5fowner_0',['match_owner',['../ntmemory_8c.html#a4b06b059b20b2d074ab04490e85a79e9',1,'ntmemory.c']]],
+  ['match_5fregister_1',['match_register',['../ntmemory_8c.html#a127c4c2c3e30466538e41c0cce40cb98',1,'ntmemory.c']]]
 ];

@@ -98,17 +98,20 @@ $(document).ready(function(){initNavTree('ntfile_8h.html',''); initResizable(); 
 <p>Save and Load Files. <br  />
  <a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c</a>.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="">ntcore.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="">ntcore.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ntfile.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="ntfile_8h__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntfile_8h" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntfile_8h" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntfile_8h">
 <area shape="rect" title="Save and Load Files. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c." alt="" coords="5,5,223,45"/>
-<area shape="rect" href="ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="77,93,151,119"/>
-<area shape="poly" title=" " alt="" coords="117,46,117,79,111,79,111,46"/>
-<area shape="rect" title=" " alt="" coords="79,167,149,192"/>
-<area shape="poly" title=" " alt="" coords="117,119,117,153,111,153,111,119"/>
+<area shape="rect" title=" " alt="" coords="27,93,102,119"/>
+<area shape="poly" title=" " alt="" coords="104,47,81,83,77,80,100,44"/>
+<area shape="rect" href="ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="126,93,201,119"/>
+<area shape="poly" title=" " alt="" coords="128,44,151,80,147,83,124,47"/>
+<area shape="rect" title=" " alt="" coords="128,167,199,192"/>
+<area shape="poly" title=" " alt="" coords="166,119,166,153,161,153,161,119"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -130,12 +133,12 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac70bcbf3321b6e08b5c9fe134e4b8426" id="r_ac70bcbf3321b6e08b5c9fe134e4b8426"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntfile_8h.html#ac70bcbf3321b6e08b5c9fe134e4b8426">savenet</a> (<a class="el" href="structnet__s.html">net_s</a> *net, const char *name)</td></tr>
-<tr class="memdesc:ac70bcbf3321b6e08b5c9fe134e4b8426"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves a network to a binary file with extension .ntic.  <br /></td></tr>
-<tr class="separator:ac70bcbf3321b6e08b5c9fe134e4b8426"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cdafc9f89ad9736acf6258f2b366101" id="r_a8cdafc9f89ad9736acf6258f2b366101"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structnet__s.html">net_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntfile_8h.html#a8cdafc9f89ad9736acf6258f2b366101">loadnet</a> (char *name)</td></tr>
-<tr class="memdesc:a8cdafc9f89ad9736acf6258f2b366101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a network from a binary file with extension .ntic.  <br /></td></tr>
-<tr class="separator:a8cdafc9f89ad9736acf6258f2b366101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea3803fafee337b67641edb79ee4b4f9" id="r_aea3803fafee337b67641edb79ee4b4f9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntfile_8h.html#aea3803fafee337b67641edb79ee4b4f9">savenet</a> (<a class="el" href="structnet__s.html">net_s</a> *net, const char *name)</td></tr>
+<tr class="memdesc:aea3803fafee337b67641edb79ee4b4f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves a network to a binary file with extension .ntic.  <br /></td></tr>
+<tr class="separator:aea3803fafee337b67641edb79ee4b4f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa89d0f5f1b022298adb4ea11013ed8e2" id="r_aa89d0f5f1b022298adb4ea11013ed8e2"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structnet__s.html">net_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntfile_8h.html#aa89d0f5f1b022298adb4ea11013ed8e2">loadnet</a> (<a class="el" href="structnet__s.html">net_s</a> *net, const char *name)</td></tr>
+<tr class="memdesc:aa89d0f5f1b022298adb4ea11013ed8e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a network from a binary file with extension .ntic.  <br /></td></tr>
+<tr class="separator:aa89d0f5f1b022298adb4ea11013ed8e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Save and Load Files. <br  />
@@ -152,8 +155,8 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition in file <a class="el" href="">ntfile.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a8cdafc9f89ad9736acf6258f2b366101" name="a8cdafc9f89ad9736acf6258f2b366101"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cdafc9f89ad9736acf6258f2b366101">&#9670;&#160;</a></span>loadnet()</h2>
+<a id="aa89d0f5f1b022298adb4ea11013ed8e2" name="aa89d0f5f1b022298adb4ea11013ed8e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa89d0f5f1b022298adb4ea11013ed8e2">&#9670;&#160;</a></span>loadnet()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,9 +164,19 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">struct <a class="el" href="structnet__s.html">net_s</a> loadnet </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structnet__s.html">net_s</a> *&#160;</td>
+          <td class="paramname"><em>net</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -183,18 +196,18 @@ Functions</h2></td></tr>
 <p class="enddd">Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks. </p>
 </dd></dl>
 
-<p class="reference">References <a class="el" href="#l00079">wiring_s::array_type</a>, <a class="el" href="#l00078">wiring_s::arrays</a>, <a class="el" href="#l00061">neuron_s::b</a>, <a class="el" href="#l00058">neuron_s::bff_idx</a>, <a class="el" href="#l00055">buildnet()</a>, <a class="el" href="#l00062">neuron_s::fn</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, <a class="el" href="#l00101">net_s::inputs</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00024">newnet()</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00080">wiring_s::size</a>, <a class="el" href="#l00083">wiring_s::src_index</a>, <a class="el" href="#l00082">wiring_s::src_layer</a>, <a class="el" href="#l00081">wiring_s::src_type</a>, <a class="el" href="#l00060">neuron_s::w</a>, and <a class="el" href="#l00106">net_s::wiring</a>.</p>
+<p class="reference">References <a class="el" href="#l00098">wiring_s::array_type</a>, <a class="el" href="#l00097">wiring_s::arrays</a>, <a class="el" href="#l00080">neuron_s::b</a>, <a class="el" href="#l00077">neuron_s::bff_idx</a>, <a class="el" href="#l00055">buildnet()</a>, <a class="el" href="#l00081">neuron_s::fn</a>, <a class="el" href="#l00076">neuron_s::inputs</a>, <a class="el" href="#l00120">net_s::inputs</a>, <a class="el" href="#l00121">net_s::layers</a>, <a class="el" href="#l00122">net_s::neurons</a>, <a class="el" href="#l00024">newnet()</a>, <a class="el" href="#l00124">net_s::nn</a>, <a class="el" href="#l00099">wiring_s::size</a>, <a class="el" href="#l00102">wiring_s::src_index</a>, <a class="el" href="#l00101">wiring_s::src_layer</a>, <a class="el" href="#l00100">wiring_s::src_type</a>, <a class="el" href="#l00079">neuron_s::w</a>, and <a class="el" href="#l00125">net_s::wiring</a>.</p>
 
 </div>
 </div>
-<a id="ac70bcbf3321b6e08b5c9fe134e4b8426" name="ac70bcbf3321b6e08b5c9fe134e4b8426"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac70bcbf3321b6e08b5c9fe134e4b8426">&#9670;&#160;</a></span>savenet()</h2>
+<a id="aea3803fafee337b67641edb79ee4b4f9" name="aea3803fafee337b67641edb79ee4b4f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea3803fafee337b67641edb79ee4b4f9">&#9670;&#160;</a></span>savenet()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned char savenet </td>
+          <td class="memname">size_t savenet </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structnet__s.html">net_s</a> *&#160;</td>
           <td class="paramname"><em>net</em>, </td>
@@ -238,7 +251,7 @@ Functions</h2></td></tr>
  </p>
 </dd></dl>
 
-<p class="reference">References <a class="el" href="#l00079">wiring_s::array_type</a>, <a class="el" href="#l00078">wiring_s::arrays</a>, <a class="el" href="#l00058">neuron_s::bff_idx</a>, <a class="el" href="#l00062">neuron_s::fn</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00080">wiring_s::size</a>, <a class="el" href="#l00081">wiring_s::src_type</a>, and <a class="el" href="#l00106">net_s::wiring</a>.</p>
+<p class="reference">References <a class="el" href="#l00098">wiring_s::array_type</a>, <a class="el" href="#l00097">wiring_s::arrays</a>, <a class="el" href="#l00077">neuron_s::bff_idx</a>, <a class="el" href="#l00081">neuron_s::fn</a>, <a class="el" href="#l00076">neuron_s::inputs</a>, <a class="el" href="#l00121">net_s::layers</a>, <a class="el" href="#l00122">net_s::neurons</a>, <a class="el" href="#l00124">net_s::nn</a>, <a class="el" href="#l00099">wiring_s::size</a>, <a class="el" href="#l00100">wiring_s::src_type</a>, and <a class="el" href="#l00125">net_s::wiring</a>.</p>
 
 </div>
 </div>
