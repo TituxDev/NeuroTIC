@@ -176,16 +176,15 @@ size_t savenet( net_s * net , const char *name ){
  * @todo Consider adding support for versioning in the file format to allow for future extensions and backward compatibility.
  * @todo Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks.
  */
-struct net_s loadnet( net_s *net , const char *name ){
-    net_s bkup= *net;
+size_t loadnet( net_s *net , const char *name ){
     uint8_t little_endian= !checkendian( ) , ieee754= isieee754( );
     char NAME[ NAME_LENGTH ];
-    if( snprintf( NAME , sizeof( NAME ) , "%s%s" , name , ".ntic" ) >= ( int )sizeof( NAME ) ) return bkup;
+    if( snprintf( NAME , sizeof( NAME ) , "%s%s" , name , ".ntic" ) >= ( int )sizeof( NAME ) ) return 1;
     FILE *fp= fopen( NAME , "rb" );
-    if( fp == NULL ) return bkup;
+    if( fp == NULL ) return 2;
     char magic[sizeof( MAGIC )];
     fread( magic , sizeof( char ) , sizeof( magic ) , fp );
-    if( strncmp( magic , MAGIC , sizeof( MAGIC ) - 1 ) || magic[sizeof( magic ) - 1] != VERSION ) return bkup;
+    if( strncmp( magic , MAGIC , sizeof( MAGIC ) - 1 ) || magic[sizeof( magic ) - 1] != VERSION ) return 3;
     fread( &net->inputs , sizeof( uint32_t ) , 1 , fp );
     if( little_endian ) net->inputs= bswap32( net->inputs );
     fread( &net->layers , sizeof( uint16_t ) , 1 , fp );
@@ -263,6 +262,6 @@ struct net_s loadnet( net_s *net , const char *name ){
         }
     }
     fclose( fp );
-    return *net;
+    return 0;
 }
 #pragma GCC diagnostic pop

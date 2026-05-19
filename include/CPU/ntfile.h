@@ -28,6 +28,6 @@ size_t savenet( net_s * net , const char *name );
  * @param name Base filename (without extension) to load the network from.
  * @return The loaded network structure. If loading fails, returns an empty network.
  */
-struct net_s loadnet( net_s *net , const char *name );
+size_t loadnet( net_s *net , const char *name );
 
 #endif // NTFILE_H
