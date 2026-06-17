@@ -1,13 +1,19 @@
 # NeuroTIC
 
-A lightweight C library for building, training, saving and loading neural networks from scratch — no dependencies, no frameworks, just clean C11.
+A lightweight C library for building, training, saving and loading
+neural networks from scratch — no dependencies, no frameworks, just
+clean C11.
 
-Built for developers who want full control over their network topology without managing low-level memory chores manually.
+Built for developers who want to understand and control every layer
+of their network, without fighting a framework to do it.
 
 **What you can do with it:**
-- Design networks with any topology: layers, neurons, activation functions and learning rules are fully accessible
-- Train, save and reload models using a minimal API
-- Embed neural network logic in any C project with no external dependencies
+- Define any topology: layers, neurons, activation functions and
+  connections are fully yours to configure
+- Train networks and serialize trained models to portable `.ntic`
+  binary files
+- Load and run models in any C project — from servers to
+  microcontrollers — with zero external dependencies
 
 ## Quick example
 
@@ -22,9 +28,14 @@ Built for developers who want full control over their network topology without m
 
 ## Learn how it works from scratch
 
-NeuroTIC was built as part of a hands-on learning project. If you want to understand how a neural network works by building one in C step by step, visit [NeuroticLab](https://neuroticlab.com).
+NeuroTIC was built as part of a hands-on learning project.
+
+- [NeuroticLab](https://neuroticlab.com) — step-by-step guide in C
+- [Book on Amazon](https://a.co/d/0dphqSgm) — the same journey in book format
+- [NeuroSys](https://neurosys.onrender.com) — design and export `.ntic` files in your browser
 
 ## License
 
-NeuroTIC is free for personal, educational and open source use under [GPL-3.0](./LICENSE).  
-For commercial use, see [commercial license](./COMERCIAL_LICESE.md).
+NeuroTIC is free for personal, educational and open source use under
+[GPL-3.0](./LICENSE).  
+For commercial use, see [commercial license](./COMMERCIAL_LICENSE.md).
