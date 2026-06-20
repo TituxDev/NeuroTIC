@@ -9,7 +9,7 @@ var searchData=
   ['selector_20role_6',['Memory Selector Role',['../neuron__s_8dox.html#neuron_bff_idx',1,'']]],
   ['set_5ftraining_5fdata_7',['SET_TRAINING_DATA',['../ntcore_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba69a415c1ad49ad63c8264e0c7010cee7',1,'ntcore.h']]],
   ['size_8',['size',['../structwiring__s.html#a77151b3a90f51e267593d8fcfca01f7b',1,'wiring_s']]],
-  ['small_20business_20license_9',['Small Business License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#small-business-license',1,'']]],
+  ['small_20business_20license_9',['Small Business License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#small-business-license',1,'']]],
   ['solurions_10',['Workflow Solurions',['../group__NTErgonomics.html',1,'']]],
   ['src_5findex_11',['src_index',['../structwiring__s.html#a482deb05260de5ecb212c01b91c9f2fc',1,'wiring_s']]],
   ['src_5flayer_12',['src_layer',['../structwiring__s.html#a53e490c6e893d6255c4a4896af691ca2',1,'wiring_s']]],
@@ -17,9 +17,9 @@ var searchData=
   ['stability_14',['Scope and stability',['../group__NTPeripherals.html#scope-and-stability',1,'']]],
   ['standards_15',['Code Standards',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#code-standards',1,'']]],
   ['start_16',['Quick Start',['../index.html#quick_start',1,'']]],
-  ['started_17',['Getting Started',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#getting-started',1,'']]],
-  ['startup_20license_18',['Startup License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#startup-license',1,'']]],
+  ['started_17',['Getting Started',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#getting-started',1,'']]],
+  ['startup_20license_18',['Startup License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#startup-license',1,'']]],
   ['structural_20relationships_19',['Structural Relationships',['../net__s_8dox.html#net_relationships',1,'']]],
   ['structural_20view_20',['Structural View',['../neuron__s_8dox.html#neuron_structure',1,'']]],
-  ['support_20terms_21',['Support Terms',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#support-terms',1,'']]]
+  ['support_20terms_21',['Support Terms',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#support-terms',1,'']]]
 ];

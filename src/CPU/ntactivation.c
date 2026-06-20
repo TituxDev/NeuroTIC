@@ -45,6 +45,31 @@ static float sigmoid_d( float x ){
     x = sigmoid( x );
     return x * ( 1.0f - x );
 }
+//TANH
+// [!]  Named 'hyptan' instead of 'tanh' to avoid clashing with the
+//      standard <math.h> tanhf/tanh symbols.
+static float hyptan( float x ){
+    return tanhf( x );
+}
+static float hyptan_d( float x ){
+    x = tanhf( x );
+    return 1.0f - x * x;
+}
+//RELU
+static float relu( float x ){
+    return x > 0.0f ? x : 0.0f;
+}
+static float relu_d( float x ){
+    return x > 0.0f ? 1.0f : 0.0f;
+}
+//LEAKY RELU
+#define NTACT_LRELU_ALPHA 0.01f
+static float lrelu( float x ){
+    return x > 0.0f ? x : NTACT_LRELU_ALPHA * x;
+}
+static float lrelu_d( float x ){
+    return x > 0.0f ? 1.0f : NTACT_LRELU_ALPHA;
+}
 // ...
 /** @endcode */
 
@@ -60,7 +85,10 @@ static float sigmoid_d( float x ){
  */
 float ( *ntact_activation[NTACT_TOTAL_FUNCTIONS][2] )( float )={
     [NTACT_BOOLEAN]= { boolean , boolean_d },
-    [NTACT_SIGMOID]= { sigmoid , sigmoid_d }
+    [NTACT_SIGMOID]= { sigmoid , sigmoid_d },
+    [NTACT_TANH]   = { hyptan  , hyptan_d  },
+    [NTACT_RELU]   = { relu    , relu_d    },
+    [NTACT_LRELU]  = { lrelu   , lrelu_d   }
 //  [NTACT_<NAME>]= { <func> , <func>_d }
 };
 
@@ -77,7 +105,10 @@ float ( *ntact_activation[NTACT_TOTAL_FUNCTIONS][2] )( float )={
  */
 float ntact_rand_range[NTACT_TOTAL_FUNCTIONS][2]={
     [NTACT_BOOLEAN]= { -1.0f , 1.0f },
-    [NTACT_SIGMOID]= { -1.0f , 1.0f }
+    [NTACT_SIGMOID]= { -1.0f , 1.0f },
+    [NTACT_TANH]   = { -1.0f , 1.0f },
+    [NTACT_RELU]   = { -0.5f , 0.5f },
+    [NTACT_LRELU]  = { -0.5f , 0.5f }
 //  [NTACT_<NAME>]= { <min> , <max> }
 };
 /** @endcode */

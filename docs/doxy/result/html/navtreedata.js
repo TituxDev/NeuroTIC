@@ -31,27 +31,27 @@ var NAVTREE =
       [ "Compile", "index.html#compile", null ],
       [ "Run Your Project", "index.html#run-your-project", null ]
     ] ],
-    [ "NeuroTIC Commercial License Agreement", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html", [
-      [ "Overview", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#overview", null ],
-      [ "Commercial Licensing Tiers", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#commercial-licensing-tiers", [
-        [ "Startup License", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#startup-license", null ],
-        [ "Small Business License", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#small-business-license", null ],
-        [ "Mid-Market License", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#mid-market-license", null ],
-        [ "Enterprise License", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#enterprise-license", null ],
-        [ "Academic License", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#academic-license", null ]
+    [ "NeuroTIC Commercial License Agreement", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html", [
+      [ "Overview", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#overview", null ],
+      [ "Commercial Licensing Tiers", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#commercial-licensing-tiers", [
+        [ "Startup License", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#startup-license", null ],
+        [ "Small Business License", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#small-business-license", null ],
+        [ "Mid-Market License", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#mid-market-license", null ],
+        [ "Enterprise License", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#enterprise-license", null ],
+        [ "Academic License", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#academic-license", null ]
       ] ],
-      [ "Early Adopter Terms", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#early-adopter-terms", null ],
-      [ "Technical Capabilities", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#technical-capabilities", [
-        [ "Currently Available", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#currently-available", null ],
-        [ "Development Roadmap", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#development-roadmap", null ]
+      [ "Early Adopter Terms", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#early-adopter-terms", null ],
+      [ "Technical Capabilities", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#technical-capabilities", [
+        [ "Currently Available", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#currently-available", null ],
+        [ "Development Roadmap", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#development-roadmap", null ]
       ] ],
-      [ "License Rights", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#license-rights", [
-        [ "Granted Rights", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#granted-rights", null ],
-        [ "Restrictions", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#restrictions", null ]
+      [ "License Rights", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#license-rights", [
+        [ "Granted Rights", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#granted-rights", null ],
+        [ "Restrictions", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#restrictions", null ]
       ] ],
-      [ "Support Terms", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#support-terms", null ],
-      [ "Getting Started", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#getting-started", null ],
-      [ "Terms and Conditions", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#terms-and-conditions", null ]
+      [ "Support Terms", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#support-terms", null ],
+      [ "Getting Started", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#getting-started", null ],
+      [ "Terms and Conditions", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#terms-and-conditions", null ]
     ] ],
     [ "Contributing to NeuroTIC", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html", [
       [ "Contribution License Agreement", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#contribution-license-agreement", null ],

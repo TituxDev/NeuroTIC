@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['early_20adopter_20terms_0',['Early Adopter Terms',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#early-adopter-terms',1,'']]],
+  ['early_20adopter_20terms_0',['Early Adopter Terms',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#early-adopter-terms',1,'']]],
   ['ecosystem_20development_1',['Ecosystem Development',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#ecosystem-development',1,'']]],
-  ['enterprise_20license_2',['Enterprise License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#enterprise-license',1,'']]],
+  ['enterprise_20license_2',['Enterprise License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#enterprise-license',1,'']]],
   ['example_3',['Quick example',['..//home/titux/DEV/NeuroTIC/NeuroTIC/README.md#quick-example',1,'']]],
   ['example_20topology_4',['Example topology',['../neurons_8c.html#neuron_example',1,'']]],
   ['execution_20algorithms_5',['Execution Algorithms',['../group__NTExecution.html',1,'']]],

@@ -1,16 +1,16 @@
 var searchData=
 [
-  ['capabilities_0',['Technical Capabilities',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#technical-capabilities',1,'']]],
+  ['capabilities_0',['Technical Capabilities',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#technical-capabilities',1,'']]],
   ['cleanmemory_1',['cleanmemory',['../ntmemory_8h.html#af02eae587caffc982fcf2a433b35a873',1,'cleanmemory(void):&#160;ntmemory.c'],['../ntmemory_8c.html#af02eae587caffc982fcf2a433b35a873',1,'cleanmemory(void):&#160;ntmemory.c']]],
   ['code_2',['Write Your Code',['../index.html#write-your-code',1,'']]],
   ['code_20standards_3',['Code Standards',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#code-standards',1,'']]],
-  ['comercial_5flicese_2emd_4',['COMERCIAL_LICESE.md',['../COMERCIAL__LICESE_8md.html',1,'']]],
-  ['commercial_20license_20agreement_5',['NeuroTIC Commercial License Agreement',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html',1,'']]],
-  ['commercial_20licensing_20tiers_6',['Commercial Licensing Tiers',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#commercial-licensing-tiers',1,'']]],
+  ['commercial_20license_20agreement_4',['NeuroTIC Commercial License Agreement',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html',1,'']]],
+  ['commercial_20licensing_20tiers_5',['Commercial Licensing Tiers',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#commercial-licensing-tiers',1,'']]],
+  ['commercial_5flicense_2emd_6',['COMMERCIAL_LICENSE.md',['../COMMERCIAL__LICENSE_8md.html',1,'']]],
   ['compile_7',['Compile',['../index.html#compile',1,'']]],
   ['computational_20backends_8',['Computational Backends',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#computational-backends',1,'']]],
   ['concept_9',['concept',['../neuron__s_8dox.html#neuron_concept',1,'Concept'],['../net__s_8dox.html#net_concept',1,'Concept']]],
-  ['conditions_10',['Terms and Conditions',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#terms-and-conditions',1,'']]],
+  ['conditions_10',['Terms and Conditions',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#terms-and-conditions',1,'']]],
   ['connectivity_11',['Referential Connectivity',['../neuron__s_8dox.html#neuron_connectivity',1,'']]],
   ['construction_20algorithms_12',['Construction Algorithms',['../group__NTConstruction.html',1,'']]],
   ['construction_20contract_13',['Construction Contract',['../net__s_8dox.html#net_construction',1,'']]],
@@ -27,5 +27,5 @@ var searchData=
   ['createregister_24',['createregister',['../ntmemory_8h.html#a274c39fca63b8d779b7b813535188be2',1,'createregister(void *owner, void *mem):&#160;ntmemory.c'],['../ntmemory_8c.html#a274c39fca63b8d779b7b813535188be2',1,'createregister(void *owner, void *mem):&#160;ntmemory.c']]],
   ['current_20peripheral_20groups_25',['Current peripheral groups',['../group__NTPeripherals.html#current-peripheral-groups',1,'']]],
   ['current_20release_20v1_200_26',['Current Release (v1.0)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#current-release-v10',1,'']]],
-  ['currently_20available_27',['Currently Available',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMERCIAL__LICESE.html#currently-available',1,'']]]
+  ['currently_20available_27',['Currently Available',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#currently-available',1,'']]]
 ];

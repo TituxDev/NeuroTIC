@@ -22,6 +22,9 @@
 typedef enum {
     NTACT_BOOLEAN,   ///< Boolean step activation function
     NTACT_SIGMOID,   ///< Sigmoid activation function
+    NTACT_TANH,      ///< Hyperbolic tangent activation function
+    NTACT_RELU,      ///< Rectified Linear Unit activation function
+    NTACT_LRELU,     ///< Leaky Rectified Linear Unit activation function
 
     NTACT_TOTAL_FUNCTIONS ///< Total number of activation functions
 } ntact_function_id_t;
