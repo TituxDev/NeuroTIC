@@ -3,7 +3,7 @@
  * @brief Activation Function List    
  * @ref http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation.c
  * 
- * @copydetauls ntactivation.c
+ * @copydetails ntactivation.c
  */
 
 
