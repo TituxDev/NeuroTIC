@@ -14,22 +14,16 @@
  * Compiling project in location: examples
  * Project name: logic_gates
  * Platform: CPU
- * ==26058== Memcheck, a memory error detector
- * ==26058== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
- * ==26058== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
- * ==26058== Command: ./examples/logic_gates
- * ==26058== 
- * 
- * Attemps: 294
- * 
- * =========================================================================================================================
- * | A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |
- * |---|---|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
- * | 0 | 0 |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |
- * | 1 | 0 |   0  |   0  |   1  |   1  |   0  |   0  |   1  |   1  |   0  |   0  |   1  |   1  |   0  |   0  |   1  |   1  |
- * | 0 | 1 |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |
- * | 1 | 1 |   0  |   0  |   0  |   0  |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |   1  |   1  |   1  |   1  |
- * =========================================================================================================================
+ *
+ * 31320 bytes written to examples/logic_gates
+ *
+ * ==21562== Memcheck, a memory error detector
+ * ==21562== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+ * ==21562== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+ * ==21562== Command: ./examples/logic_gates
+ * ==21562== 
+ *
+ * Attemps: 567
  *
  * =========================================================================================================================
  * | A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |
@@ -40,19 +34,30 @@
  * | 1 | 1 |   0  |   0  |   0  |   0  |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |   1  |   1  |   1  |   1  |
  * =========================================================================================================================
  *
- * ==26058== 
- * ==26058== HEAP SUMMARY:
- * ==26058==     in use at exit: 0 bytes in 0 blocks
- * ==26058==   total heap usage: 179 allocs, 179 frees, 35,908 bytes allocated
- * ==26058== 
- * ==26058== All heap blocks were freed -- no leaks are possible
- * ==26058== 
- * ==26058== For lists of detected and suppressed errors, rerun with: -s
- * ==26058== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
- * 
- * real    0m1.239s
- * user    0m0.965s
- * sys     0m0.276s
+ * Saved network size: 446 bytes
+ *
+ * =========================================================================================================================
+ * | A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |
+ * |---|---|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
+ * | 0 | 0 |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |   0  |   1  |
+ * | 1 | 0 |   0  |   0  |   1  |   1  |   0  |   0  |   1  |   1  |   0  |   0  |   1  |   1  |   0  |   0  |   1  |   1  |
+ * | 0 | 1 |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |
+ * | 1 | 1 |   0  |   0  |   0  |   0  |   0  |   0  |   0  |   0  |   1  |   1  |   1  |   1  |   1  |   1  |   1  |   1  |
+ * =========================================================================================================================
+ *
+ * ==21562== 
+ * ==21562== HEAP SUMMARY:
+ * ==21562==     in use at exit: 0 bytes in 0 blocks
+ * ==21562==   total heap usage: 181 allocs, 181 frees, 40,476 bytes allocated
+ * ==21562== 
+ * ==21562== All heap blocks were freed -- no leaks are possible
+ * ==21562== 
+ * ==21562== For lists of detected and suppressed errors, rerun with: -s
+ * ==21562== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+ *
+ * real    0m1.143s
+ * user    0m0.886s
+ * sys     0m0.262s
  * ```
  * 
  * @code{.c}
@@ -128,6 +133,10 @@ int main( void ){
 
 // Save and reload the trained network
     savenet( &network , "logic_gates" );
+    FILE *file= fopen( "logic_gates.ntic" , "rb" );
+    fseek( file , 0 , SEEK_END );
+    printf( "\n\nSaved network size: %li bytes" , ftell( file ) );
+    fclose( file );
     memset( &network , 0 , sizeof( net_s ) );
     loadnet( &network , "logic_gates" );
 
