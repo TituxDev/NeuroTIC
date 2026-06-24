@@ -115,3 +115,7 @@ LDFLAGS+=("-lm")
 
 ## \brief Link final executable
 $CC $CFLAGS "$PROJECT_LOCATION/$PROJECT_NAME.c" -o "$PROJECT_LOCATION/$PROJECT_NAME" -L"$PROJECT_LOCATION/lib" ${LDFLAGS[@]}
+
+echo
+echo $(wc -c < "$PROJECT_LOCATION/$PROJECT_NAME") "bytes written to $PROJECT_LOCATION/$PROJECT_NAME"
+echo
