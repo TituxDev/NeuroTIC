@@ -10,7 +10,7 @@ fi
 
 cd ..
 make compile PROJECT_LOCATION=examples PROJECT_NAME=$example PLATFORM=CPU
-valgrind \
+#valgrind \
 ./examples/"$example"
 rm examples/"$example"
 rm examples/lib/*

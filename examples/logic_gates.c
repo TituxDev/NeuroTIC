@@ -70,7 +70,6 @@
 int main( void ){
 
 // Network structure: 2 inputs, 2 layers (one hidden layer with 3 neurons and output layer with 16 neurons)
-    //CREATE_NET_FEEDFORWARD( network , 2 , ((uint16_t []){3,16}) );
     net_s network={
         .inputs= 2,
         .layers= 2,
