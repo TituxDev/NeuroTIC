@@ -136,6 +136,7 @@ int main( void ){
     fseek( file , 0 , SEEK_END );
     printf( "\n\nSaved network size: %li bytes" , ftell( file ) );
     fclose( file );
+    deleteowner( &network );
     memset( &network , 0 , sizeof( net_s ) );
     loadnet( &network , "logic_gates" );
 

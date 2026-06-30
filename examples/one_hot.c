@@ -17,11 +17,11 @@
  * Project name: one_hot
  * Platform: CPU
  *
- * 26384 bytes written to examples/one_hot
+ * 31312 bytes written to examples/one_hot
  *
- * Attempts: 56792
+ * Attempts: 56314
  *
- *     0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
+ *     0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15
  * 0   1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
  * 1   0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0
  * 2   0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0
@@ -38,10 +38,12 @@
  * 13  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0
  * 14  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0
  * 15  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1
- *
- * real    0m1.171s
- * user    0m0.990s
- * sys     0m0.185s
+
+File size : 1029
+
+real    0m1.211s
+user    0m1.007s
+sys     0m0.209s
  * ```
  *
  * @code{.c}
@@ -107,6 +109,13 @@ int main( void ){
     feedforward( &NETWORK_NAME );
     for( uint16_t j= 0 ; j < TRAINING_SAMPLES ; j++ ) printf( "  %.0f" , *NETWORK_NAME.out[j] );
   } 
+
+  savenet( &network , "one_hot" );
+  FILE *fp= fopen( "one_hot.ntic" , "rb" );
+  fseek( fp , 0 , SEEK_END );
+  printf( "\n\nFile size : %li" , ftell( fp ) );
+  fclose( fp );
+  remove( "one_hot.ntic" );
 
   printf( "\n" );
   return 0;
