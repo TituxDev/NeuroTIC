@@ -23,7 +23,7 @@
 #include <math.h>
 #include <float.h>
 
-#define NAME_LENGTH 30
+#define NAME_LENGTH 50
 #define MAGIC "NeuroTIC"
 #define VERSION 0x0
 

@@ -103,36 +103,38 @@ $(document).ready(function(){initNavTree('one__hot_8c.html',''); initResizable()
 <dl class="section date"><dt>Date</dt><dd>2026</dd></dl>
 <p>This example builds a 3-layer feedforward neural network (1-4-8-16) and trains it to learn a one-hot encoding mapping. Given an integer input value in the range 0-15, the network must activate exactly one output neuron corresponding to that value while keeping all other outputs inactive.</p>
 <p>Expected output:</p>
-<div class="fragment"><div class="line">~/NeuroTIC/examples$ time bash test.sh one_hot</div>
-<div class="line">Compiling project in location: examples</div>
-<div class="line">Project name: one_hot</div>
-<div class="line">Platform: CPU</div>
+<div class="fragment"><div class="line">   ~/NeuroTIC/examples$ time bash test.sh one_hot</div>
+<div class="line">   Compiling project in location: examples</div>
+<div class="line">   Project name: one_hot</div>
+<div class="line">   Platform: CPU</div>
+<div class="line">  </div>
+<div class="line">   31312 bytes written to examples/one_hot</div>
+<div class="line">  </div>
+<div class="line">   Attempts: 56314</div>
+<div class="line">  </div>
+<div class="line">       0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15</div>
+<div class="line">   0   1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0</div>
+<div class="line">   1   0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0</div>
+<div class="line">   2   0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0</div>
+<div class="line">   3   0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0</div>
+<div class="line">   4   0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0</div>
+<div class="line">   5   0  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0</div>
+<div class="line">   6   0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0</div>
+<div class="line">   7   0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0</div>
+<div class="line">   8   0  0  0  0  0  0  0  0  1  0  0  0  0  0  0  0</div>
+<div class="line">   9   0  0  0  0  0  0  0  0  0  1  0  0  0  0  0  0</div>
+<div class="line">   10  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0  0</div>
+<div class="line">   11  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0</div>
+<div class="line">   12  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0</div>
+<div class="line">   13  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0</div>
+<div class="line">   14  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0</div>
+<div class="line">   15  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1</div>
 <div class="line"> </div>
-<div class="line">26384 bytes written to examples/one_hot</div>
+<div class="line">File size : 1029</div>
 <div class="line"> </div>
-<div class="line">Attempts: 56792</div>
-<div class="line"> </div>
-<div class="line">    0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15</div>
-<div class="line">0   1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0</div>
-<div class="line">1   0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0</div>
-<div class="line">2   0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0</div>
-<div class="line">3   0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0</div>
-<div class="line">4   0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0</div>
-<div class="line">5   0  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0</div>
-<div class="line">6   0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0</div>
-<div class="line">7   0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0</div>
-<div class="line">8   0  0  0  0  0  0  0  0  1  0  0  0  0  0  0  0</div>
-<div class="line">9   0  0  0  0  0  0  0  0  0  1  0  0  0  0  0  0</div>
-<div class="line">10  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0  0</div>
-<div class="line">11  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0</div>
-<div class="line">12  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0</div>
-<div class="line">13  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0</div>
-<div class="line">14  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0</div>
-<div class="line">15  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1</div>
-<div class="line"> </div>
-<div class="line">real    0m1.171s</div>
-<div class="line">user    0m0.990s</div>
-<div class="line">sys     0m0.185s</div>
+<div class="line">real    0m1.211s</div>
+<div class="line">user    0m1.007s</div>
+<div class="line">sys     0m0.209s</div>
 </div><!-- fragment --><div class="fragment"><div class="line">  /</div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor"> #include &quot;ntcomplete.h&quot;</span></div>
@@ -196,6 +198,13 @@ $(document).ready(function(){initNavTree('one__hot_8c.html',''); initResizable()
 <div class="line">    <span class="keywordflow">for</span>( uint16_t j= 0 ; j &lt; TRAINING_SAMPLES ; j++ ) printf( <span class="stringliteral">&quot;  %.0f&quot;</span> , *NETWORK_NAME.<a class="code hl_variable" href="structnet__s.html#ad9272b1de9b126257fc6fef9abd236b9">out</a>[j] );</div>
 <div class="line">  } </div>
 <div class="line"> </div>
+<div class="line">  <a class="code hl_function" href="ntfile_8c.html#aea3803fafee337b67641edb79ee4b4f9">savenet</a>( &amp;network , <span class="stringliteral">&quot;one_hot&quot;</span> );</div>
+<div class="line">  FILE *fp= fopen( <span class="stringliteral">&quot;one_hot.ntic&quot;</span> , <span class="stringliteral">&quot;rb&quot;</span> );</div>
+<div class="line">  fseek( fp , 0 , SEEK_END );</div>
+<div class="line">  printf( <span class="stringliteral">&quot;\n\nFile size : %li&quot;</span> , ftell( fp ) );</div>
+<div class="line">  fclose( fp );</div>
+<div class="line">  remove( <span class="stringliteral">&quot;one_hot.ntic&quot;</span> );</div>
+<div class="line"> </div>
 <div class="line">  printf( <span class="stringliteral">&quot;\n&quot;</span> );</div>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
@@ -206,6 +215,7 @@ $(document).ready(function(){initNavTree('one__hot_8c.html',''); initResizable()
 <div class="ttc" id="antbuilder_8c_html_aaaecf1ef6fe5d9fb9b603d7479b22f7e"><div class="ttname"><a href="ntbuilder_8c.html#aaaecf1ef6fe5d9fb9b603d7479b22f7e">buildnet</a></div><div class="ttdeci">struct net_s * buildnet(net_s *net)</div><div class="ttdoc">Builds the internal buffers and connections of a neural network.</div><div class="ttdef"><b>Definition</b> ntbuilder.c:55</div></div>
 <div class="ttc" id="antcalculate_8c_html_a80593fe4480cce8f4dac43ee48d8a7a2"><div class="ttname"><a href="ntcalculate_8c.html#a80593fe4480cce8f4dac43ee48d8a7a2">feedforward</a></div><div class="ttdeci">data_t * feedforward(net_s *net)</div><div class="ttdoc">Executes full feedforward propagation.</div><div class="ttdef"><b>Definition</b> ntcalculate.c:44</div></div>
 <div class="ttc" id="antfeedforward_8c_html_ad4572edfe44001ed5b40ffc7e29026b9"><div class="ttname"><a href="ntfeedforward_8c.html#ad4572edfe44001ed5b40ffc7e29026b9">newfeedforward</a></div><div class="ttdeci">struct net_s * newfeedforward(net_s *net)</div><div class="ttdoc">Initializes a simple feedforward topology.</div><div class="ttdef"><b>Definition</b> ntfeedforward.c:21</div></div>
+<div class="ttc" id="antfile_8c_html_aea3803fafee337b67641edb79ee4b4f9"><div class="ttname"><a href="ntfile_8c.html#aea3803fafee337b67641edb79ee4b4f9">savenet</a></div><div class="ttdeci">size_t savenet(net_s *net, const char *name)</div><div class="ttdoc">Saves a network to a binary file with extension .ntic.</div><div class="ttdef"><b>Definition</b> ntfile.c:115</div></div>
 <div class="ttc" id="antinitialize_8c_html_a0c2e77d2e0217cf512c8adb47097b485"><div class="ttname"><a href="ntinitialize_8c.html#a0c2e77d2e0217cf512c8adb47097b485">randnet</a></div><div class="ttdeci">void randnet(net_s *net)</div><div class="ttdoc">Randomly initializes network weights.</div><div class="ttdef"><b>Definition</b> ntinitialize.c:25</div></div>
 <div class="ttc" id="anttrain_8c_html_a0f03f18a558e71a45909bef6258c2aec"><div class="ttname"><a href="nttrain_8c.html#a0f03f18a558e71a45909bef6258c2aec">backpropagation</a></div><div class="ttdeci">attempts_t backpropagation(net_s *net, traindata_t *train_data)</div><div class="ttdoc">Trains a network using backpropagation.</div><div class="ttdef"><b>Definition</b> nttrain.c:46</div></div>
 <div class="ttc" id="anttrain_8c_html_a1d7455b7a18bd3d79bdf722dfc65cc50"><div class="ttname"><a href="nttrain_8c.html#a1d7455b7a18bd3d79bdf722dfc65cc50">newtraindata</a></div><div class="ttdeci">void newtraindata(traindata_t *train_data, net_s *net)</div><div class="ttdoc">Allocates memory for training data arrays.</div><div class="ttdef"><b>Definition</b> nttrain.c:26</div></div>
