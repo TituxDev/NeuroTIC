@@ -39,7 +39,7 @@
  * 14  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0
  * 15  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1
 
-File size : 1029
+File size : 1029 bytes
 
 real    0m1.211s
 user    0m1.007s
@@ -113,7 +113,7 @@ int main( void ){
   savenet( &network , "one_hot" );
   FILE *fp= fopen( "one_hot.ntic" , "rb" );
   fseek( fp , 0 , SEEK_END );
-  printf( "\n\nFile size : %li" , ftell( fp ) );
+  printf( "\n\nFile size : %li bytes" , ftell( fp ) );
   fclose( fp );
   remove( "one_hot.ntic" );
 
