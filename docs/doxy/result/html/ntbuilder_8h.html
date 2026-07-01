@@ -138,7 +138,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a6c4abea58db7193ec0663d0347bdeb96" id="r_a6c4abea58db7193ec0663d0347bdeb96"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntbuilder_8h.html#a6c4abea58db7193ec0663d0347bdeb96">NEWNET</a>(network,  neurons)&#160;&#160;&#160;<a class="el" href="ntbuilder_8c.html#a0828749590e88600e1ef5329509f6fc7">newnet</a>( &amp;network, neurons, (layer_t)sizeof( neurons )/sizeof( uint16_t ) )</td></tr>
+<tr class="memitem:a6c4abea58db7193ec0663d0347bdeb96" id="r_a6c4abea58db7193ec0663d0347bdeb96"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntbuilder_8h.html#a6c4abea58db7193ec0663d0347bdeb96">NEWNET</a>(network,  neurons)&#160;&#160;&#160;<a class="el" href="ntbuilder_8c.html#a0828749590e88600e1ef5329509f6fc7">newnet</a>( network, neurons, (layer_t)sizeof( neurons )/sizeof( uint16_t ) )</td></tr>
 <tr class="memdesc:a6c4abea58db7193ec0663d0347bdeb96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience macro to create a new network.  <br /></td></tr>
 <tr class="separator:a6c4abea58db7193ec0663d0347bdeb96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4ca47bc0d692b1d915cdc405f21cd85" id="r_ac4ca47bc0d692b1d915cdc405f21cd85"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntbuilder_8h.html#ac4ca47bc0d692b1d915cdc405f21cd85">CREATE_NET_FEEDFORWARD</a>(network,  i,  neurons)</td></tr>
@@ -195,7 +195,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <a class="code hl_struct" href="structnet__s.html">net_s</a> *network={ \</div>
+<b>Value:</b><div class="fragment"><div class="line">    <a class="code hl_struct" href="structnet__s.html">net_s</a> *network= &amp;(<a class="code hl_struct" href="structnet__s.html">net_s</a>){ \</div>
 <div class="line">        .<a class="code hl_variable" href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">inputs</a>= i, \</div>
 <div class="line">        .layers= <span class="keyword">sizeof</span>( neurons )/<span class="keyword">sizeof</span>( uint16_t ), \</div>
 <div class="line">    }; \</div>
@@ -240,7 +240,7 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="ntbuilder_8c.html#a0828749590e88600e1ef5329509f6fc7">newnet</a>( &amp;network, neurons, (layer_t)sizeof( neurons )/sizeof( uint16_t ) )</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="ntbuilder_8c.html#a0828749590e88600e1ef5329509f6fc7">newnet</a>( network, neurons, (layer_t)sizeof( neurons )/sizeof( uint16_t ) )</td>
         </tr>
       </table>
 </div><div class="memdoc">

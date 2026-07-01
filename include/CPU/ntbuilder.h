@@ -22,7 +22,7 @@
  * @param neurons Array defining the number of neurons per layer.
  * @return net_s Pointer to the initialized network on success, or NULL on failure.
  */
-#define NEWNET( network, neurons) newnet( &network, neurons, (layer_t)sizeof( neurons )/sizeof( uint16_t ) )
+#define NEWNET( network, neurons) newnet( network, neurons, (layer_t)sizeof( neurons )/sizeof( uint16_t ) )
 
 /**
  * @brief Convenience macro to create and build a feedforward network.
@@ -36,7 +36,7 @@
  * @return net_s Pointer to the fully constructed feedforward network.
  */
 #define CREATE_NET_FEEDFORWARD( network , i , neurons ) \
-    net_s *network={ \
+    net_s *network= &(net_s){ \
         .inputs= i, \
         .layers= sizeof( neurons )/sizeof( uint16_t ), \
     }; \
