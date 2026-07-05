@@ -36,12 +36,21 @@ data_t activate( neuron_s *neuron ){
 }
 
 
-/**
+/** 
  * @details
  * Iterates layer-by-layer to maintain deterministic ordering.  
  * No buffering is required since outputs of previous layers are already wired via pointer connections.
  */
 data_t *feedforward( net_s *net ){
-    for( layer_t i= 0, j ; i < net->layers ; i++ ) for( j= 0 ; j < net->neurons[i] ; j++ ) activate( &net->nn[i][j] );
+    for( layer_t i= 0 ; i < net->layers ; i++ ){
+        for( uint16_t j= 0 ; j < net->neurons[i] ; j++ ){
+            if( i && net->wiring[i - 1].array_type[net->nn[i][j].bff_idx] == 'M' ) for( uint16_t k= 0 ; k < net->nn[i][j].inputs ; k++ ) switch( net->wiring[i-1].src_type[net->nn[i][j].bff_idx][k] ){
+                case 'I':
+                    net->bff[i - 1][net->nn[i][j].bff_idx][k]= net->in[net->wiring[i - 1].src_index[net->nn[i][j].bff_idx][k]];
+                    break;
+            }
+            activate( &net->nn[i][j] );
+        }
+    }
     return *net->out;
 }

@@ -1,0 +1,20 @@
+<map id="/home/titux/DEV/NeuroTIC/NeuroTIC/src/CPU/ntdefinition.c" name="/home/titux/DEV/NeuroTIC/NeuroTIC/src/CPU/ntdefinition.c">
+<area shape="rect" id="Node000001" title="Network Definition Functions." alt="" coords="189,5,418,45"/>
+<area shape="rect" id="Node000002" href="$ntbuilder_8h.html" title="Construction Functions. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c." alt="" coords="138,93,229,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="276,48,214,88,211,84,273,43"/>
+<area shape="rect" id="Node000006" href="$ntdefinition_8h.html" title="Network Definition Functions. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntdefinition...." alt="" coords="5,93,113,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="246,48,109,92,107,86,244,43"/>
+<area shape="rect" id="Node000007" href="$ntmemory_8h.html" title="Memory Management Functions &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntmemory...." alt="" coords="253,93,353,119"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="306,46,306,79,301,79,301,46"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="378,93,445,119"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="331,43,385,83,382,87,328,48"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="469,93,540,119"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="353,43,463,86,461,91,351,48"/>
+<area shape="rect" id="Node000003" href="$ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="35,167,110,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="167,121,104,161,101,157,164,116"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="146,167,221,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="186,119,186,153,181,153,181,119"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="37,240,108,265"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="75,192,75,226,70,226,70,192"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="64,119,71,153,65,154,59,119"/>
+</map>

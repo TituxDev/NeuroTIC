@@ -1,15 +1,9 @@
 var searchData=
 [
-  ['randnet_0',['randnet',['../ntinitialize_8c.html#a0c2e77d2e0217cf512c8adb47097b485',1,'randnet(net_s *net):&#160;ntinitialize.c'],['../ntinitialize_8h.html#a0c2e77d2e0217cf512c8adb47097b485',1,'randnet(net_s *net):&#160;ntinitialize.c']]],
-  ['readme_2emd_1',['README.md',['../README_8md.html',1,'']]],
-  ['referential_20connectivity_2',['Referential Connectivity',['../neuron__s_8dox.html#neuron_connectivity',1,'']]],
-  ['relationships_3',['Structural Relationships',['../net__s_8dox.html#net_relationships',1,'']]],
-  ['release_20v1_200_4',['Current Release (v1.0)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#current-release-v10',1,'']]],
-  ['restrictions_5',['Restrictions',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#restrictions',1,'']]],
-  ['results_6',['results',['../structtraindata__t.html#a7070c842214370df351b902c68a54ab0',1,'traindata_t']]],
-  ['rights_7',['rights',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#granted-rights',1,'Granted Rights'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#license-rights',1,'License Rights']]],
-  ['roadmap_8',['roadmap',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#development-roadmap',1,'Development Roadmap'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html',1,'NeuroTIC Technical Roadmap']]],
-  ['roadmap_2emd_9',['ROADMAP.md',['../ROADMAP_8md.html',1,'']]],
-  ['role_10',['Memory Selector Role',['../neuron__s_8dox.html#neuron_bff_idx',1,'']]],
-  ['run_20your_20project_11',['Run Your Project',['../index.html#run-your-project',1,'']]]
+  ['q1_202024_0',['Near-term Development (Q1 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#near-term-development-q1-2024',1,'']]],
+  ['q2_20q4_202024_1',['Medium-term Development (Q2-Q4 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#medium-term-development-q2-q4-2024',1,'']]],
+  ['q4_202024_2',['Medium-term Development (Q2-Q4 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#medium-term-development-q2-q4-2024',1,'']]],
+  ['questions_3',['Questions?',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#questions',1,'']]],
+  ['quick_20example_4',['Quick example',['..//home/titux/DEV/NeuroTIC/NeuroTIC/README.md#quick-example',1,'']]],
+  ['quick_20start_5',['Quick Start',['../index.html#quick_start',1,'']]]
 ];

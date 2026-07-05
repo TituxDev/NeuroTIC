@@ -1,13 +1,9 @@
 /**
+ * @file NTCore.dox
  * @defgroup NTCore NeuroTIC Core Header
- * @brief @ref ./include/CPU/ntcore.h 
+ * @copybrief ntcore.h
  *
- * @details
- * NTCore defines the fundamental data structures that represent
- * the static topology and memory graph of a NeuroTIC network instance.
- *
- * This group describes structure only.
- * No construction, initialization, or execution semantics are defined here.
+ * @copydetails ntcore.h
  *
  * The diagram below summarizes the containment hierarchy
  * and pointer relationships of a network instance.

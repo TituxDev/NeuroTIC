@@ -93,22 +93,24 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
+<dt>Global <a class="el" href="ntdefinition_8c.html#a794d29df0a0d938498626f6dc22dcc0b">definetopology</a>  (<a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> *net)</dt>
+<dd><a class="anchor" id="_todo000001"></a>An invalid top-level array type is sentineled as 'X', but an invalid element-level type inside an 'M' array is left unmarked in src_type. Resolve this inconsistency once input validation is added.  </dd>
 <dt>Global <a class="el" href="ntfile_8c.html#a6d9a2c308a9dade6a48444965925b030">loadnet</a>  (<a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> *net, const char *name)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000003"></a>Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks. </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000004"></a>Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks. </p>
 <p class="interdd"></p>
 <p class="interdd">Consider adding support for versioning in the file format to allow for future extensions and backward compatibility. </p>
 <p class="interdd"></p>
 <p class="enddd">Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks.  </p>
 </dd>
 <dt>File <a class="el" href="ntfile_8c.html">ntfile.c</a>  </dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000001"></a>Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks. </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000002"></a>Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks. </p>
 <p class="interdd"></p>
 <p class="interdd">Consider adding support for versioning in the file format to allow for future extensions and backward compatibility. </p>
 <p class="interdd"></p>
 <p class="enddd">Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks. </p>
 </dd>
 <dt>Global <a class="el" href="ntfile_8c.html#aea3803fafee337b67641edb79ee4b4f9">savenet</a>  (<a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> *net, const char *name)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000002"></a>Add validation checks for the input network structure before attempting to save, ensuring that all necessary data is present and correctly formatted. <br  />
+<dd><p class="startdd"><a class="anchor" id="_todo000003"></a>Add validation checks for the input network structure before attempting to save, ensuring that all necessary data is present and correctly formatted. <br  />
  </p>
 <p class="interdd"></p>
 <p class="interdd">Implement error handling for file operations, such as checking for write permissions and handling disk space issues. <br  />

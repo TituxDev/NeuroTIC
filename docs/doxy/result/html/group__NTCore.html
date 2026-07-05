@@ -95,22 +95,26 @@ $(document).ready(function(){initNavTree('group__NTCore.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="ntcore_8h.html">./include/CPU/ntcore.h</a>  
+<p>Fundamental structural definitions of the NeuroTIC runtime model.    
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
 <tr class="memitem:net__s_8dox" id="r_net__s_8dox"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="net__s_8dox.html">net_s.dox</a></td></tr>
-<tr class="memdesc:net__s_8dox"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root container of a NeuroTIC network instance. <br /></td></tr>
+<tr class="memdesc:net__s_8dox"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root structural container of a NeuroTIC network.   <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:neuron__s_8dox" id="r_neuron__s_8dox"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="neuron__s_8dox.html">neuron_s.dox</a></td></tr>
-<tr class="memdesc:neuron__s_8dox"><td class="mdescLeft">&#160;</td><td class="mdescRight">Technical description of <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> as a standalone execution descriptor. <br /></td></tr>
+<tr class="memdesc:neuron__s_8dox"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structural unit representing a computation node.   <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:wiring__s_8dox" id="r_wiring__s_8dox"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wiring__s_8dox.html">wiring_s.dox</a></td></tr>
+<tr class="memdesc:wiring__s_8dox"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declarative descriptor of inter-layer input resolution.   <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p><a class="el" href="ntcore_8h.html">./include/CPU/ntcore.h</a> </p>
-<p>NTCore defines the fundamental data structures that represent the static topology and memory graph of a NeuroTIC network instance.</p>
-<p>This group describes structure only. No construction, initialization, or execution semantics are defined here.</p>
+<p>Fundamental structural definitions of the NeuroTIC runtime model.   </p>
+<dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor (Titux)</dd></dl>
+<p>Declares the minimal structural components required to represent a network: neurons, wiring descriptors, and the root network container.</p>
+<p>These types define structure only &ndash; no construction or execution semantics are provided.  </p>
 <p>The diagram below summarizes the containment hierarchy and pointer relationships of a network instance.</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structnet__s.html">net_s</a></div>
 <div class="line">├─ inputs   : <a class="code hl_struct" href="structnet__s.html">net_s</a>.<a class="code hl_variable" href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">inputs</a></div>
@@ -153,30 +157,30 @@ Files</h2></td></tr>
 <div class="line">│           └─ [wiring[l].size[a]] *</div>
 <div class="line">└─ out      : <a class="code hl_struct" href="structnet__s.html">net_s</a>.<a class="code hl_variable" href="structnet__s.html#ad9272b1de9b126257fc6fef9abd236b9">out</a></div>
 <div class="line">    └─ [neurons[layers-1]] *</div>
-<div class="ttc" id="astructnet__s_html"><div class="ttname"><a href="structnet__s.html">net_s</a></div><div class="ttdoc">Root structural container of a NeuroTIC network.</div><div class="ttdef"><b>Definition</b> ntcore.h:119</div></div>
-<div class="ttc" id="astructnet__s_html_a1e8bcffb896c7ac5654aa21f7efe76aa"><div class="ttname"><a href="structnet__s.html#a1e8bcffb896c7ac5654aa21f7efe76aa">net_s::neurons</a></div><div class="ttdeci">uint16_t * neurons</div><div class="ttdef"><b>Definition</b> ntcore.h:122</div></div>
-<div class="ttc" id="astructnet__s_html_a252eb5f95334455a30914a1d3706a4d0"><div class="ttname"><a href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">net_s::inputs</a></div><div class="ttdeci">input_t inputs</div><div class="ttdef"><b>Definition</b> ntcore.h:120</div></div>
-<div class="ttc" id="astructnet__s_html_a2e7c3c0f579dc558fe5ccf2f7ead3eb6"><div class="ttname"><a href="structnet__s.html#a2e7c3c0f579dc558fe5ccf2f7ead3eb6">net_s::bff</a></div><div class="ttdeci">data_t **** bff</div><div class="ttdef"><b>Definition</b> ntcore.h:126</div></div>
-<div class="ttc" id="astructnet__s_html_a34d6ef4b2b66cb2fec9f4782ddc771ba"><div class="ttname"><a href="structnet__s.html#a34d6ef4b2b66cb2fec9f4782ddc771ba">net_s::layers</a></div><div class="ttdeci">layer_t layers</div><div class="ttdef"><b>Definition</b> ntcore.h:121</div></div>
-<div class="ttc" id="astructnet__s_html_a44527dfd3f3d56d197da6880c6d21865"><div class="ttname"><a href="structnet__s.html#a44527dfd3f3d56d197da6880c6d21865">net_s::in</a></div><div class="ttdeci">data_t ** in</div><div class="ttdef"><b>Definition</b> ntcore.h:123</div></div>
-<div class="ttc" id="astructnet__s_html_a9d1e6329d693123aea04482318aad267"><div class="ttname"><a href="structnet__s.html#a9d1e6329d693123aea04482318aad267">net_s::wiring</a></div><div class="ttdeci">wiring_s * wiring</div><div class="ttdef"><b>Definition</b> ntcore.h:125</div></div>
-<div class="ttc" id="astructnet__s_html_ad9272b1de9b126257fc6fef9abd236b9"><div class="ttname"><a href="structnet__s.html#ad9272b1de9b126257fc6fef9abd236b9">net_s::out</a></div><div class="ttdeci">data_t ** out</div><div class="ttdef"><b>Definition</b> ntcore.h:127</div></div>
-<div class="ttc" id="astructnet__s_html_af2c67aaf7793fb650836a5fb6d82512c"><div class="ttname"><a href="structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c">net_s::nn</a></div><div class="ttdeci">neuron_s ** nn</div><div class="ttdef"><b>Definition</b> ntcore.h:124</div></div>
-<div class="ttc" id="astructneuron__s_html"><div class="ttname"><a href="structneuron__s.html">neuron_s</a></div><div class="ttdoc">Structural unit representing a computation node.</div><div class="ttdef"><b>Definition</b> ntcore.h:75</div></div>
-<div class="ttc" id="astructneuron__s_html_a059638704c555b4c152a924fcdf0c57f"><div class="ttname"><a href="structneuron__s.html#a059638704c555b4c152a924fcdf0c57f">neuron_s::w</a></div><div class="ttdeci">weight_t * w</div><div class="ttdef"><b>Definition</b> ntcore.h:79</div></div>
-<div class="ttc" id="astructneuron__s_html_a3e6523ab54cd8fbc812a629681bef291"><div class="ttname"><a href="structneuron__s.html#a3e6523ab54cd8fbc812a629681bef291">neuron_s::bff_idx</a></div><div class="ttdeci">index_t bff_idx</div><div class="ttdef"><b>Definition</b> ntcore.h:77</div></div>
-<div class="ttc" id="astructneuron__s_html_a82d6c8f34b3f522e97cef2341eeb7e35"><div class="ttname"><a href="structneuron__s.html#a82d6c8f34b3f522e97cef2341eeb7e35">neuron_s::in</a></div><div class="ttdeci">data_t ** in</div><div class="ttdef"><b>Definition</b> ntcore.h:78</div></div>
-<div class="ttc" id="astructneuron__s_html_ab9ab1fa3dd333f6076963d0918bbec9d"><div class="ttname"><a href="structneuron__s.html#ab9ab1fa3dd333f6076963d0918bbec9d">neuron_s::inputs</a></div><div class="ttdeci">input_t inputs</div><div class="ttdef"><b>Definition</b> ntcore.h:76</div></div>
-<div class="ttc" id="astructneuron__s_html_ad6eb92a05bc2233ff9afb6e1d6323b3a"><div class="ttname"><a href="structneuron__s.html#ad6eb92a05bc2233ff9afb6e1d6323b3a">neuron_s::out</a></div><div class="ttdeci">data_t out</div><div class="ttdef"><b>Definition</b> ntcore.h:82</div></div>
-<div class="ttc" id="astructneuron__s_html_ae239907b17a7ffc03e88e7cca6cccf7e"><div class="ttname"><a href="structneuron__s.html#ae239907b17a7ffc03e88e7cca6cccf7e">neuron_s::b</a></div><div class="ttdeci">bias_t b</div><div class="ttdef"><b>Definition</b> ntcore.h:80</div></div>
-<div class="ttc" id="astructneuron__s_html_aed10404eb5eaa88df5243ebedcb3d872"><div class="ttname"><a href="structneuron__s.html#aed10404eb5eaa88df5243ebedcb3d872">neuron_s::fn</a></div><div class="ttdeci">index_t fn</div><div class="ttdef"><b>Definition</b> ntcore.h:81</div></div>
-<div class="ttc" id="astructwiring__s_html"><div class="ttname"><a href="structwiring__s.html">wiring_s</a></div><div class="ttdoc">Declarative descriptor of inter-layer input resolution.</div><div class="ttdef"><b>Definition</b> ntcore.h:96</div></div>
-<div class="ttc" id="astructwiring__s_html_a482deb05260de5ecb212c01b91c9f2fc"><div class="ttname"><a href="structwiring__s.html#a482deb05260de5ecb212c01b91c9f2fc">wiring_s::src_index</a></div><div class="ttdeci">uint16_t ** src_index</div><div class="ttdef"><b>Definition</b> ntcore.h:102</div></div>
-<div class="ttc" id="astructwiring__s_html_a53e490c6e893d6255c4a4896af691ca2"><div class="ttname"><a href="structwiring__s.html#a53e490c6e893d6255c4a4896af691ca2">wiring_s::src_layer</a></div><div class="ttdeci">layer_t ** src_layer</div><div class="ttdef"><b>Definition</b> ntcore.h:101</div></div>
-<div class="ttc" id="astructwiring__s_html_a54a4436a7981644f7bcda46241df0f62"><div class="ttname"><a href="structwiring__s.html#a54a4436a7981644f7bcda46241df0f62">wiring_s::src_type</a></div><div class="ttdeci">type_t ** src_type</div><div class="ttdef"><b>Definition</b> ntcore.h:100</div></div>
-<div class="ttc" id="astructwiring__s_html_a55998c4dbd80bde56ab7c27e2dbd8be7"><div class="ttname"><a href="structwiring__s.html#a55998c4dbd80bde56ab7c27e2dbd8be7">wiring_s::array_type</a></div><div class="ttdeci">type_t * array_type</div><div class="ttdef"><b>Definition</b> ntcore.h:98</div></div>
-<div class="ttc" id="astructwiring__s_html_a77151b3a90f51e267593d8fcfca01f7b"><div class="ttname"><a href="structwiring__s.html#a77151b3a90f51e267593d8fcfca01f7b">wiring_s::size</a></div><div class="ttdeci">input_t * size</div><div class="ttdef"><b>Definition</b> ntcore.h:99</div></div>
-<div class="ttc" id="astructwiring__s_html_aafd4ea0a9c58820183ea128ef94eb653"><div class="ttname"><a href="structwiring__s.html#aafd4ea0a9c58820183ea128ef94eb653">wiring_s::arrays</a></div><div class="ttdeci">index_t arrays</div><div class="ttdef"><b>Definition</b> ntcore.h:97</div></div>
+<div class="ttc" id="astructnet__s_html"><div class="ttname"><a href="structnet__s.html">net_s</a></div><div class="ttdoc">Root structural container of a NeuroTIC network.</div><div class="ttdef"><b>Definition</b> ntcore.h:99</div></div>
+<div class="ttc" id="astructnet__s_html_a1e8bcffb896c7ac5654aa21f7efe76aa"><div class="ttname"><a href="structnet__s.html#a1e8bcffb896c7ac5654aa21f7efe76aa">net_s::neurons</a></div><div class="ttdeci">uint16_t * neurons</div><div class="ttdef"><b>Definition</b> ntcore.h:102</div></div>
+<div class="ttc" id="astructnet__s_html_a252eb5f95334455a30914a1d3706a4d0"><div class="ttname"><a href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">net_s::inputs</a></div><div class="ttdeci">input_t inputs</div><div class="ttdef"><b>Definition</b> ntcore.h:100</div></div>
+<div class="ttc" id="astructnet__s_html_a2e7c3c0f579dc558fe5ccf2f7ead3eb6"><div class="ttname"><a href="structnet__s.html#a2e7c3c0f579dc558fe5ccf2f7ead3eb6">net_s::bff</a></div><div class="ttdeci">data_t **** bff</div><div class="ttdef"><b>Definition</b> ntcore.h:106</div></div>
+<div class="ttc" id="astructnet__s_html_a34d6ef4b2b66cb2fec9f4782ddc771ba"><div class="ttname"><a href="structnet__s.html#a34d6ef4b2b66cb2fec9f4782ddc771ba">net_s::layers</a></div><div class="ttdeci">layer_t layers</div><div class="ttdef"><b>Definition</b> ntcore.h:101</div></div>
+<div class="ttc" id="astructnet__s_html_a44527dfd3f3d56d197da6880c6d21865"><div class="ttname"><a href="structnet__s.html#a44527dfd3f3d56d197da6880c6d21865">net_s::in</a></div><div class="ttdeci">data_t ** in</div><div class="ttdef"><b>Definition</b> ntcore.h:103</div></div>
+<div class="ttc" id="astructnet__s_html_a9d1e6329d693123aea04482318aad267"><div class="ttname"><a href="structnet__s.html#a9d1e6329d693123aea04482318aad267">net_s::wiring</a></div><div class="ttdeci">wiring_s * wiring</div><div class="ttdef"><b>Definition</b> ntcore.h:105</div></div>
+<div class="ttc" id="astructnet__s_html_ad9272b1de9b126257fc6fef9abd236b9"><div class="ttname"><a href="structnet__s.html#ad9272b1de9b126257fc6fef9abd236b9">net_s::out</a></div><div class="ttdeci">data_t ** out</div><div class="ttdef"><b>Definition</b> ntcore.h:107</div></div>
+<div class="ttc" id="astructnet__s_html_af2c67aaf7793fb650836a5fb6d82512c"><div class="ttname"><a href="structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c">net_s::nn</a></div><div class="ttdeci">neuron_s ** nn</div><div class="ttdef"><b>Definition</b> ntcore.h:104</div></div>
+<div class="ttc" id="astructneuron__s_html"><div class="ttname"><a href="structneuron__s.html">neuron_s</a></div><div class="ttdoc">Structural unit representing a computation node.</div><div class="ttdef"><b>Definition</b> ntcore.h:55</div></div>
+<div class="ttc" id="astructneuron__s_html_a059638704c555b4c152a924fcdf0c57f"><div class="ttname"><a href="structneuron__s.html#a059638704c555b4c152a924fcdf0c57f">neuron_s::w</a></div><div class="ttdeci">weight_t * w</div><div class="ttdef"><b>Definition</b> ntcore.h:59</div></div>
+<div class="ttc" id="astructneuron__s_html_a3e6523ab54cd8fbc812a629681bef291"><div class="ttname"><a href="structneuron__s.html#a3e6523ab54cd8fbc812a629681bef291">neuron_s::bff_idx</a></div><div class="ttdeci">index_t bff_idx</div><div class="ttdef"><b>Definition</b> ntcore.h:57</div></div>
+<div class="ttc" id="astructneuron__s_html_a82d6c8f34b3f522e97cef2341eeb7e35"><div class="ttname"><a href="structneuron__s.html#a82d6c8f34b3f522e97cef2341eeb7e35">neuron_s::in</a></div><div class="ttdeci">data_t ** in</div><div class="ttdef"><b>Definition</b> ntcore.h:58</div></div>
+<div class="ttc" id="astructneuron__s_html_ab9ab1fa3dd333f6076963d0918bbec9d"><div class="ttname"><a href="structneuron__s.html#ab9ab1fa3dd333f6076963d0918bbec9d">neuron_s::inputs</a></div><div class="ttdeci">input_t inputs</div><div class="ttdef"><b>Definition</b> ntcore.h:56</div></div>
+<div class="ttc" id="astructneuron__s_html_ad6eb92a05bc2233ff9afb6e1d6323b3a"><div class="ttname"><a href="structneuron__s.html#ad6eb92a05bc2233ff9afb6e1d6323b3a">neuron_s::out</a></div><div class="ttdeci">data_t out</div><div class="ttdef"><b>Definition</b> ntcore.h:62</div></div>
+<div class="ttc" id="astructneuron__s_html_ae239907b17a7ffc03e88e7cca6cccf7e"><div class="ttname"><a href="structneuron__s.html#ae239907b17a7ffc03e88e7cca6cccf7e">neuron_s::b</a></div><div class="ttdeci">bias_t b</div><div class="ttdef"><b>Definition</b> ntcore.h:60</div></div>
+<div class="ttc" id="astructneuron__s_html_aed10404eb5eaa88df5243ebedcb3d872"><div class="ttname"><a href="structneuron__s.html#aed10404eb5eaa88df5243ebedcb3d872">neuron_s::fn</a></div><div class="ttdeci">index_t fn</div><div class="ttdef"><b>Definition</b> ntcore.h:61</div></div>
+<div class="ttc" id="astructwiring__s_html"><div class="ttname"><a href="structwiring__s.html">wiring_s</a></div><div class="ttdoc">Declarative descriptor of inter-layer input resolution.</div><div class="ttdef"><b>Definition</b> ntcore.h:76</div></div>
+<div class="ttc" id="astructwiring__s_html_a482deb05260de5ecb212c01b91c9f2fc"><div class="ttname"><a href="structwiring__s.html#a482deb05260de5ecb212c01b91c9f2fc">wiring_s::src_index</a></div><div class="ttdeci">uint16_t ** src_index</div><div class="ttdef"><b>Definition</b> ntcore.h:82</div></div>
+<div class="ttc" id="astructwiring__s_html_a53e490c6e893d6255c4a4896af691ca2"><div class="ttname"><a href="structwiring__s.html#a53e490c6e893d6255c4a4896af691ca2">wiring_s::src_layer</a></div><div class="ttdeci">layer_t ** src_layer</div><div class="ttdef"><b>Definition</b> ntcore.h:81</div></div>
+<div class="ttc" id="astructwiring__s_html_a54a4436a7981644f7bcda46241df0f62"><div class="ttname"><a href="structwiring__s.html#a54a4436a7981644f7bcda46241df0f62">wiring_s::src_type</a></div><div class="ttdeci">type_t ** src_type</div><div class="ttdef"><b>Definition</b> ntcore.h:80</div></div>
+<div class="ttc" id="astructwiring__s_html_a55998c4dbd80bde56ab7c27e2dbd8be7"><div class="ttname"><a href="structwiring__s.html#a55998c4dbd80bde56ab7c27e2dbd8be7">wiring_s::array_type</a></div><div class="ttdeci">type_t * array_type</div><div class="ttdef"><b>Definition</b> ntcore.h:78</div></div>
+<div class="ttc" id="astructwiring__s_html_a77151b3a90f51e267593d8fcfca01f7b"><div class="ttname"><a href="structwiring__s.html#a77151b3a90f51e267593d8fcfca01f7b">wiring_s::size</a></div><div class="ttdeci">input_t * size</div><div class="ttdef"><b>Definition</b> ntcore.h:79</div></div>
+<div class="ttc" id="astructwiring__s_html_aafd4ea0a9c58820183ea128ef94eb653"><div class="ttname"><a href="structwiring__s.html#aafd4ea0a9c58820183ea128ef94eb653">wiring_s::arrays</a></div><div class="ttdeci">index_t arrays</div><div class="ttdef"><b>Definition</b> ntcore.h:77</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

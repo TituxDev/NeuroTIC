@@ -1,0 +1,113 @@
+/**
+ * @file wiring_s.dox
+ * @copybrief wiring_s
+ * @author Oscar Sotomayor (Titux)
+ * @ingroup NTCore
+ *
+ * @copydetails wiring_s
+ *
+ * This document describes wiring_s strictly as an isolated structural unit.
+ * The structure contains no execution logic.
+ * It only stores the information required by external code to resolve how
+ * each layer's input buffers are built.
+ *
+ * @section wiring_concept Concept
+ *
+ * wiring_s is a declarative, per-layer descriptor: `net_s.wiring[l]` describes
+ * how the input buffers for layer `l + 1` are built, as a set of `arrays`
+ * logical input sets ("BFFs" -- Buffer Fan-in sets). Each layer's neurons
+ * then pick, via their own `neuron_s.bff_idx`, which one of those sets they
+ * actually read from (`nn[l+1][j].in = bff[l][bff_idx]`).
+ *
+ * wiring_s does not define:
+ * - evaluation order
+ * - which array a given neuron uses (that's `neuron_s.bff_idx`)
+ * - ownership of referenced data
+ *
+ * @section wiring_structure Structural View
+ *
+ * @verbatim
+ * ┌─────────────────────────────────────────────┐
+ * │                 wiring_s                    │
+ * ├─────────────────────────────────────────────┤
+ * │ arrays     : A                              │  ← number of input sets
+ * ├─────────────────────────────────────────────┤
+ * │ array_type → [ t0 | t1 | … | tA-1 ]         │  ← 'N' / 'I' / 'O' / 'M'
+ * │ size       → [ s0 | s1 | … | sA-1 ]         │  ← logical size per set
+ * ├─────────────────────────────────────────────┤
+ * │ src_type   → [ [.]  | [.]  | … | [s_k *] ]  │  ← only meaningful for 'M'
+ * │ src_layer  → [ [.]  | [.]  | … | [s_k *] ]  │  ← meaningful for 'N' (len 1)
+ * │ src_index  → [ [.]  | [.]  | … | [s_k *] ]  │  │  and per-'M'-element
+ * └─────────────────────────────────────────────┘
+ * @endverbatim
+ *
+ * `src_type`, `src_layer`, and `src_index` are arrays-of-arrays: the outer
+ * index selects the input set (`0 .. arrays-1`), the inner index selects an
+ * element within that set. For a top-level `'N'` set the inner array always
+ * has exactly one element (there's only one thing to reference). For an
+ * `'M'` set, the inner array has `size[a]` elements, one per manually
+ * assembled slot.
+ *
+ * `src_layer`/`src_index` are intentionally reused with a different meaning
+ * depending on context: for a top-level `'N'` array they name *which other
+ * wiring array* to alias (layer + array index); for an `'N'`-typed slot
+ * inside an `'M'` array they name *which neuron* to reference (layer +
+ * neuron index). See @ref wiring_types below for both cases.
+ *
+ * @section wiring_fields Field Descriptions
+ *
+ * - @ref wiring_s.arrays "arrays": @copydetails wiring_s.arrays
+ * - @ref wiring_s.array_type "array_type": @copydetails wiring_s.array_type
+ * - @ref wiring_s.size "size": @copydetails wiring_s.size
+ * - @ref wiring_s.src_type "src_type": @copydetails wiring_s.src_type
+ * - @ref wiring_s.src_layer "src_layer": @copydetails wiring_s.src_layer
+ * - @ref wiring_s.src_index "src_index": @copydetails wiring_s.src_index
+ *
+ * @section wiring_types Reference Type Rules
+ *
+ * Every input set (`array_type[a]`) is one of four single-character types.
+ * Three resolve to a stable, aliased buffer as a whole; the fourth (`'M'`)
+ * is assembled element-by-element, and each element carries its *own* type.
+ *
+ * @subsection wiring_types_top Array-level types (`array_type[a]`)
+ *
+ * | Type | Meaning | `size[a]` | Uses `src_layer`/`src_index`? |
+ * |---|---|---|---|
+ * | I | The whole set aliases the network's own external inputs (net->in). | net->inputs | No -- aliases the entire net->in array directly. |
+ * | O | The whole set aliases the network's own final outputs (net->out). | neurons[layers-1] | No -- aliases the entire net->out array directly. |
+ * | N | The whole set aliases *another* single wiring array's buffer, wholesale. | Copied from the referenced array's size. | Yes -- src_layer[a][0] / src_index[a][0] name which layer's which array. |
+ * | M | A manually assembled, mixed set: each of the size[a] slots is resolved independently (see below). | Given directly by the definer. | Per-element -- see @ref wiring_types_nested. |
+ *
+ * @subsection wiring_types_nested Element-level types inside an 'M' array (`src_type[a][k]`)
+ *
+ * For `k` in `0 .. size[a]-1`:
+ *
+ * | Type | Meaning | Uses `src_layer[a][k]`? | Uses `src_index[a][k]`? |
+ * |---|---|---|---|
+ * | N | Slot k references one specific neuron's output: &nn[src_layer[a][k]][src_index[a][k]].out. | Yes | Yes |
+ * | I | Slot k references one specific external input: net->in[src_index[a][k]]. | No | Yes |
+ * | O | Slot k references one specific network output: net->out[src_index[a][k]]. | No | Yes |
+ *
+ * @section wiring_ordering Layer Ordering
+ *
+ * A top-level `'N'` array must alias a wiring array defined for a strictly
+ * earlier layer, never a later one. This is a directional restriction, not
+ * a loss of expressiveness: any connection expressible as "a later bff
+ * aliases an earlier one" can always be built; the reverse direction
+ * ("an earlier bff aliases a later one") is simply not supported, and is
+ * never required to express a given topology.
+ *
+ * @section wiring_construction Construction Contract
+ *
+ * External code (typically a project's own topology-definition step, manual
+ * or generated) is responsible for allocating and populating every field of
+ * `wiring_s` consistently with the rules above. `wiring_s` itself performs
+ * no validation -- e.g. a `'N'` reference to a not-yet-defined layer is a
+ * caller error the structure cannot detect on its own.
+ *
+ * `'N'`, `'I'`, `'O'`, and `'M'` are the base set of array-level types
+ * described in this document; an `array_type` value outside this set is not
+ * inherently invalid, but its meaning is defined entirely by whatever code
+ * resolves it -- an unresolvable custom type is a caller/resolver
+ * responsibility, not something wiring_s enforces or restricts.
+ */

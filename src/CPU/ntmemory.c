@@ -22,9 +22,9 @@
  * The `mem_tracker` is a dynamic array of `mem_format` structures that allows for efficient tracking and management of memory ownership and associated memory blocks throughout the lifecycle of the program.
  */
 struct mem_format{
-    void *mem_owner; /**< Pointer to the owner of the memory block. */
-    void **mem_register; /**< Internal registry for tracking allocated memory blocks. */
-    size_t mem_track; /**< Counter for the number of tracked memory blocks. */
+    void    *mem_owner;     /**< Pointer to the owner of the memory block. */
+    void    **mem_register; /**< Internal registry for tracking allocated memory blocks. */
+    size_t  mem_track;      /**< Counter for the number of tracked memory blocks. */
 } *mem_tracker= NULL;
 
 
@@ -102,8 +102,8 @@ void cleanmemory( void ){
 
 /**
  * @param owner Pointer to the memory owner to delete.
- * @retval 0 Sucess, owner not found.
- * @retval 1 owner is NULL.
+ * @retval 0 Success, owner not found.
+ * @retval 1 owner parameter is NULL.
  * @retval 2 register allocation failed
  * 
  * @details
@@ -141,18 +141,14 @@ unsigned char deleteowner( void *owner ){
 }
 
 /**
- * @param owner Pointer to the memory owner to create.
- * @return void* Pointer to the created memory owner, or NULL if creation fails.
- * @return owner Pointer to the existing memory owner if it already exists.
- * @return NULL if the provided owner pointer is NULL.
+ * @retval NULL if the provided owner pointer is NULL, or if memory allocation fails during the creation of a new memory owner.
+ * @retval Pointer to the created memory owner if successful, or a pointer to the existing owner if it already exists in the tracking system.
  * 
  * @details
  * This function creates a new memory owner and registers it in the tracking system.  
  * If the owner already exists, it returns a pointer to the existing owner.  
  * The function ensures that each memory owner is uniquely tracked within the system.
  * If the provided owner pointer is NULL, the function returns NULL without creating a new owner.
- * @see
- * createregister() for creating a memory register entry for a specific memory owner and memory block.
  */
 void *createowner( void *owner ){
     if( !owner ) return owner;
@@ -177,21 +173,19 @@ void *createowner( void *owner ){
 }
 
 /**
- * @param owner Pointer to the memory owner.
- * @param mem Pointer to the memory block to register.
- * @return void* Pointer to the registered memory block.
- * @return NULL if the provided owner or memory block pointer is NULL.
+ * @retval void* Pointer to the registered memory block.
+ * @retval NULL if the provided owner block pointer is NULL.
+ * @retval owner pointer if mem is NULL
  * 
  * @details
  * Search  for te existence of the provided memory owner in the tracking system.
  * If the owner does not exists:
  * - Increases the size of regisgter table.
- * - Creates a new memory owner and registers it i
- * 
- * @see
- * createowner() for creating a memory owner and registering it in the tracking system.
- * deleteowner() for deleting a specific memory owner and its associated memory blocks.
- * cleanmemory() for freeing all memory blocks registered in the tracking system at program termination.
+ * - Creates a new memory owner and registers it in the tracking system.
+ * If the owner exists:
+ * - Search for the existence of the provided memory block in the owner's register.
+ * - If the memory block does not exist, it is added to the owner's register.
+ * - If the memory block already exists, a pointer to the existing block is returned.
  */
 void *createregister( void *owner, void *mem ){
     if( !( owner && mem ) ) return owner ? mem : owner;

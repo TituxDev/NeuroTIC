@@ -1,30 +1,22 @@
 /**
  * @file neuron_s.dox
- * @author Oscar Sotomayor (Titux)
+ * @copybrief neuron_s
  * @ingroup NTCore
+ * @author Oscar Sotomayor (Titux)
  *
- * @brief Technical description of neuron_s as a standalone execution descriptor.
+ * @copydetails neuron_s
  *
- * @details
- * This document describes neuron_s strictly as an isolated structural unit.
- * The structure contains no execution logic and defines no control flow.
- * It only stores the information required by external code to perform computation.
+ * This document describes neuron_s strictly as an isolated structural unit,
+ * with no execution logic or control flow of its own -- external code is
+ * responsible for all operational semantics.
  *
  * No neural network theory, training semantics, or framework-level behavior
  * are described here.
  *
  * @section neuron_concept Concept
  *
- * neuron_s is a passive data descriptor representing a single computation frame.
- *
- * It does not define:
- * - evaluation order
- * - scheduling
- * - ownership of referenced data
- *
- * All operational semantics are implemented externally.
- *
- * The structure can be used independently for:
+ * neuron_s is a passive data descriptor representing a single computation
+ * frame. It can be used independently of the rest of NeuroTIC for:
  * - rapid prototyping
  * - debugging
  * - low-level experimentation
@@ -54,8 +46,6 @@
  *
  * @section neuron_flow External Execution Flow
  *
- * Execution semantics are defined entirely outside the structure.
- *
  * External code is responsible for:
  * - iterating over inputs
  * - dereferencing values through in
@@ -67,14 +57,14 @@
  *
  * @section neuron_connectivity Referential Connectivity
  *
- * All inputs are accessed through pointers.
- *
- * This enables:
+ * All inputs are accessed through pointers. This enables:
  * - shared data sources
  * - direct neuron-to-neuron linking (out → in)
  * - integration with external variables without copying
  *
- * neuron_s does not own input memory.
+ * A minimal, self-contained demonstration of this pattern -- three
+ * neuron_s instances wired directly via pointers, without net_s or
+ * wiring_s -- is available in neurons.c.
  *
  * @section neuron_bff_idx Memory Selector Role
  *

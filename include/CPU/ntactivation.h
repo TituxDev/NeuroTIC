@@ -31,18 +31,12 @@ typedef enum {
 
 /**
  * @brief Activation function and derivative dispatch tables.
- * 
- * @see ntact_function_id_t for function identifiers.
  */
 extern float (*ntact_activation[NTACT_TOTAL_FUNCTIONS][2])( float );
 
 
 /**
  * @brief Random initialization range table for activation functions.
- * 
- * @return ntact_rand_range
- * A 2D array where each row corresponds to an activation function, with the first column representing the minimum value and the second column representing the maximum value for weight initialization.  
- * These ranges are used in the `randnet` function to ensure that weights are initialized within appropriate bounds for each activation function, which can help improve training performance and convergence.
  */
 extern float ntact_rand_range[NTACT_TOTAL_FUNCTIONS][2];
 

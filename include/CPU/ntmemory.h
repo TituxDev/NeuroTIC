@@ -32,11 +32,10 @@ void *createowner( void *owner );
 
 /**
  * @brief Creates a memory register entry for a specific memory owner.
- * 
- * @param owner Pointer to the memory owner.
+ * @param owner Pointer to the memory owner under which the memory block is registered.
  * @param mem Pointer to the memory block to register.
- * @return void* Pointer to the created register entry, or NULL if creation fails.
+ * @return void* Pointer to the registered memory block.
  */
-void *createregister( void *owner, void *mem );
+void *createregister( void *owner , void *mem );
 
 #endif // NTMEMORY_H

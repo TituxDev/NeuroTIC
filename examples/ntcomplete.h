@@ -7,3 +7,4 @@
 #include "ntmemory.h"
 #include "ntfeedforward.h"
 #include "ntfile.h"
+#include "ntdefinition.h"

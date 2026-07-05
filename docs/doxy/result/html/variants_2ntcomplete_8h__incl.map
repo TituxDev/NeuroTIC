@@ -1,32 +1,35 @@
 <map id="/home/titux/DEV/NeuroTIC/NeuroTIC/variants/ntcomplete.h" name="/home/titux/DEV/NeuroTIC/NeuroTIC/variants/ntcomplete.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="375,5,609,45"/>
-<area shape="rect" id="Node000002" href="$ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="365,167,440,192"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="472,48,450,69,432,95,418,125,410,154,405,153,413,123,427,92,446,66,468,44"/>
-<area shape="rect" id="Node000004" href="$ntactivation_8h.html" title="Activation Function List &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation...." alt="" coords="773,93,885,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="573,43,768,88,766,93,572,48"/>
-<area shape="rect" id="Node000005" href="$ntbuilder_8h.html" title="Construction Functions. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c." alt="" coords="659,93,749,119"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="544,43,661,86,659,91,542,48"/>
-<area shape="rect" id="Node000007" href="$ntinitialize_8h.html" title="Random Initialization. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntinitialize.c." alt="" coords="441,93,543,119"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="495,46,495,79,489,79,489,46"/>
-<area shape="rect" id="Node000008" href="$ntcalculate_8h.html" title="Computation Module. &#160;&#160;https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c." alt="" coords="5,93,112,119"/>
-<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="389,48,126,95,125,90,388,43"/>
-<area shape="rect" id="Node000009" href="$nttrain_8h.html" title="Training Utilities. &#160;&#160;https://tituxdev.github.io/NeuroTIC/src/CPU/nttrain.c." alt="" coords="136,93,213,119"/>
-<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="417,48,227,95,226,89,415,43"/>
-<area shape="rect" id="Node000010" href="$ntmemory_8h.html" title="Memory Management Functions &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntmemory...." alt="" coords="909,93,1009,119"/>
-<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="609,43,896,90,895,96,608,48"/>
-<area shape="rect" id="Node000011" href="$ntfile_8h.html" title="Save and Load Files. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c." alt="" coords="568,93,635,119"/>
-<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="520,43,576,83,573,87,517,48"/>
-<area shape="rect" id="Node000012" href="$ntfeedforward_8h.html" title="Predefined Feedforward Topologies. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntfeedforward...." alt="" coords="238,93,365,119"/>
-<area shape="poly" id="edge17_Node000001_Node000012" title=" " alt="" coords="447,48,343,91,341,86,445,43"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="367,240,438,265"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="405,192,405,226,400,226,400,192"/>
-<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="659,121,454,169,453,164,658,115"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="615,167,689,192"/>
-<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="698,121,671,157,666,154,693,117"/>
-<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="479,121,430,160,426,156,476,117"/>
-<area shape="poly" id="edge10_Node000008_Node000002" title=" " alt="" coords="113,116,352,165,351,170,112,121"/>
-<area shape="poly" id="edge12_Node000009_Node000002" title=" " alt="" coords="212,116,353,160,352,165,211,121"/>
-<area shape="poly" id="edge16_Node000011_Node000002" title=" " alt="" coords="570,121,449,164,447,159,569,116"/>
-<area shape="poly" id="edge15_Node000011_Node000006" title=" " alt="" coords="612,117,638,154,634,157,608,121"/>
-<area shape="poly" id="edge18_Node000012_Node000002" title=" " alt="" coords="319,116,376,156,373,161,316,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="401,5,634,45"/>
+<area shape="rect" id="Node000002" href="$ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="347,167,422,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="400,37,283,46,162,59,63,76,30,85,13,95,8,106,13,117,34,133,66,145,153,163,250,172,333,175,333,180,249,177,152,168,65,150,31,137,9,120,3,106,9,92,28,80,62,71,162,54,283,41,400,31"/>
+<area shape="rect" id="Node000004" href="$ntactivation_8h.html" title="Activation Function List &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation...." alt="" coords="872,93,984,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="616,43,859,89,858,94,615,48"/>
+<area shape="rect" id="Node000005" href="$ntbuilder_8h.html" title="Construction Functions. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c." alt="" coords="667,93,758,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="565,43,672,86,670,91,563,48"/>
+<area shape="rect" id="Node000007" href="$ntinitialize_8h.html" title="Random Initialization. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntinitialize.c." alt="" coords="24,93,126,119"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="411,48,140,96,139,91,411,43"/>
+<area shape="rect" id="Node000008" href="$ntcalculate_8h.html" title="Computation Module. &#160;&#160;https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c." alt="" coords="151,93,258,119"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="443,48,264,93,262,87,442,43"/>
+<area shape="rect" id="Node000009" href="$nttrain_8h.html" title="Training Utilities. &#160;&#160;https://tituxdev.github.io/NeuroTIC/src/CPU/nttrain.c." alt="" coords="282,93,359,119"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="471,48,363,91,361,86,469,43"/>
+<area shape="rect" id="Node000010" href="$ntmemory_8h.html" title="Memory Management Functions &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntmemory...." alt="" coords="1008,93,1108,119"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="635,39,994,90,994,96,634,44"/>
+<area shape="rect" id="Node000011" href="$ntfile_8h.html" title="Save and Load Files. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c." alt="" coords="782,93,848,119"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="589,43,769,90,767,95,588,48"/>
+<area shape="rect" id="Node000012" href="$ntfeedforward_8h.html" title="Implementation of predefined feedforward topologies for NeuroTIC networks. &#160;&#160;http://tituxdev...." alt="" coords="384,93,510,119"/>
+<area shape="poly" id="edge17_Node000001_Node000012" title=" " alt="" coords="502,47,468,85,464,81,498,44"/>
+<area shape="rect" id="Node000013" href="$ntdefinition_8h.html" title="Network Definition Functions. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntdefinition...." alt="" coords="534,93,642,119"/>
+<area shape="poly" id="edge19_Node000001_Node000013" title=" " alt="" coords="537,44,571,81,567,85,533,47"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="349,240,420,265"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="387,192,387,226,382,226,382,192"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="667,120,436,170,434,164,666,115"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="726,167,800,192"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="723,117,749,154,745,157,718,121"/>
+<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="125,116,334,164,333,169,124,121"/>
+<area shape="poly" id="edge10_Node000008_Node000002" title=" " alt="" coords="234,116,343,159,341,164,232,121"/>
+<area shape="poly" id="edge12_Node000009_Node000002" title=" " alt="" coords="333,117,367,155,363,158,329,121"/>
+<area shape="poly" id="edge16_Node000011_Node000002" title=" " alt="" coords="782,119,770,121,586,153,435,174,435,169,585,148,769,116,781,113"/>
+<area shape="poly" id="edge15_Node000011_Node000006" title=" " alt="" coords="808,121,782,157,777,154,804,117"/>
+<area shape="poly" id="edge18_Node000012_Node000002" title=" " alt="" coords="439,121,406,158,402,154,435,117"/>
+<area shape="poly" id="edge20_Node000013_Node000002" title=" " alt="" coords="556,121,431,165,429,160,555,116"/>
 </map>

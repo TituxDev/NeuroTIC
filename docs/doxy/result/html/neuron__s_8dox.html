@@ -93,23 +93,17 @@ $(document).ready(function(){initNavTree('neuron__s_8dox.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 
-<p>Technical description of <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> as a standalone execution descriptor.  
+<p>Structural unit representing a computation node.    
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Technical description of <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> as a standalone execution descriptor. </p>
+<div class="textblock"><p>Structural unit representing a computation node.   </p>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor (Titux)</dd></dl>
-<p>This document describes <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> strictly as an isolated structural unit. The structure contains no execution logic and defines no control flow. It only stores the information required by external code to perform computation.</p>
+<p>A neuron binds input references, weight coefficients, a bias term, and an activation selector. It does not define memory ownership beyond structural integrity requirements.  </p>
+<p>This document describes <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> strictly as an isolated structural unit, with no execution logic or control flow of its own &ndash; external code is responsible for all operational semantics.</p>
 <p>No neural network theory, training semantics, or framework-level behavior are described here.</p>
 <h1><a class="anchor" id="neuron_concept"></a>
 Concept</h1>
-<p><a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> is a passive data descriptor representing a single computation frame.</p>
-<p>It does not define:</p><ul>
-<li>evaluation order</li>
-<li>scheduling</li>
-<li>ownership of referenced data</li>
-</ul>
-<p>All operational semantics are implemented externally.</p>
-<p>The structure can be used independently for:</p><ul>
+<p><a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> is a passive data descriptor representing a single computation frame. It can be used independently of the rest of NeuroTIC for:</p><ul>
 <li>rapid prototyping</li>
 <li>debugging</li>
 <li>low-level experimentation</li>
@@ -133,7 +127,6 @@ Structural View</h1>
 * </pre><p>The diagram represents structural layout only. It does not imply execution order.</p>
 <h1><a class="anchor" id="neuron_flow"></a>
 External Execution Flow</h1>
-<p>Execution semantics are defined entirely outside the structure.</p>
 <p>External code is responsible for:</p><ul>
 <li>iterating over inputs</li>
 <li>dereferencing values through in</li>
@@ -144,13 +137,12 @@ External Execution Flow</h1>
 <p><a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> only provides the data required for this process.</p>
 <h1><a class="anchor" id="neuron_connectivity"></a>
 Referential Connectivity</h1>
-<p>All inputs are accessed through pointers.</p>
-<p>This enables:</p><ul>
+<p>All inputs are accessed through pointers. This enables:</p><ul>
 <li>shared data sources</li>
 <li>direct neuron-to-neuron linking (out → in)</li>
 <li>integration with external variables without copying</li>
 </ul>
-<p><a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> does not own input memory.</p>
+<p>A minimal, self-contained demonstration of this pattern &ndash; three <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> instances wired directly via pointers, without <a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> or <a class="el" href="structwiring__s.html" title="Declarative descriptor of inter-layer input resolution.">wiring_s</a> &ndash; is available in <a class="el" href="neurons_8c.html" title="Standalone neuron_s example with explicit connectivity.">neurons.c</a>.</p>
 <h1><a class="anchor" id="neuron_bff_idx"></a>
 Memory Selector Role</h1>
 <p>Within <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a>, <a class="el" href="structneuron__s.html#a3e6523ab54cd8fbc812a629681bef291">bff_idx</a> acts purely as an execution context selector.</p>

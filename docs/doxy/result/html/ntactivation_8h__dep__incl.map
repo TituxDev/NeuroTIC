@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Activation Function List &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation...." alt="" coords="763,5,1025,45"/>
 <area shape="rect" id="Node000002" href="$examples_2ntcomplete_8h.html" title=" " alt="" coords="5,93,249,133"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="749,43,261,96,250,97,249,92,260,91,749,38"/>
-<area shape="rect" id="Node000003" href="$ntactivation_8c.html" title="Activation Functions List. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation...." alt="" coords="273,93,507,133"/>
+<area shape="rect" id="Node000003" href="$ntactivation_8c.html" title="Activation Functions List. http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation...." alt="" coords="273,93,507,133"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="770,50,501,96,500,91,769,45"/>
 <area shape="rect" id="Node000004" href="$ntcalculate_8c.html" title="Implementation of feedforward network computations." alt="" coords="531,93,758,133"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="827,52,700,96,698,91,825,47"/>

@@ -107,7 +107,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <area shape="rect" title="Activation Function List &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation...." alt="" coords="763,5,1025,45"/>
 <area shape="rect" href="examples_2ntcomplete_8h.html" title=" " alt="" coords="5,93,249,133"/>
 <area shape="poly" title=" " alt="" coords="749,43,261,96,250,97,249,92,260,91,749,38"/>
-<area shape="rect" href="ntactivation_8c.html" title="Activation Functions List. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation...." alt="" coords="273,93,507,133"/>
+<area shape="rect" href="ntactivation_8c.html" title="Activation Functions List. http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation...." alt="" coords="273,93,507,133"/>
 <area shape="poly" title=" " alt="" coords="770,50,501,96,500,91,769,45"/>
 <area shape="rect" href="ntcalculate_8c.html" title="Implementation of feedforward network computations." alt="" coords="531,93,758,133"/>
 <area shape="poly" title=" " alt="" coords="827,52,700,96,698,91,825,47"/>
@@ -151,7 +151,9 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Activation Function List <br  />
  <a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation.c</a>. </p>
-<dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor (Titux)   </dd></dl>
+<p>Implements the activation functions and derivatives referenced by <code>ntact_function_id_t</code> and dispatched through <code>ntact_activation</code>. Each entry also defines a weight-initialization range in <code>ntact_rand_range</code>. New activation functions are added here; see the dispatch tables below for the required pattern.</p>
+<dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor (Titux) </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026   </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="">ntactivation.h</a>.</p>
 </div><h2 class="groupheader">Enumeration Type Documentation</h2>
@@ -215,7 +217,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Activation function and derivative dispatch tables. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237e" title="Enumeration of supported activation functions.">ntact_function_id_t</a> for function identifiers.</dd></dl>
 <p>Defines the mapping between activation identifiers and their associated execution functions. <br  />
  Indexing:</p><ul>
 <li>First index : activation identifier</li>
@@ -248,8 +249,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Random initialization range table for activation functions. </p>
-<dl class="section return"><dt>Returns</dt><dd>ntact_rand_range A 2D array where each row corresponds to an activation function, with the first column representing the minimum value and the second column representing the maximum value for weight initialization. <br  />
- These ranges are used in the <code>randnet</code> function to ensure that weights are initialized within appropriate bounds for each activation function, which can help improve training performance and convergence. </dd></dl>
+<p>Defines the random initialization range for each activation function. Each row corresponds to an activation function (indexed by <code>ntact_function_id_t</code>), with the first column representing the minimum value and the second column representing the maximum value for weight initialization. These ranges are used in <code><a class="el" href="ntinitialize_8c.html#a0c2e77d2e0217cf512c8adb47097b485" title="Randomly initializes network weights.">randnet()</a></code> to keep initial weights within bounds appropriate for each activation function, which can help improve training performance and convergence.</p>
+<p>When a new activation function is added, its corresponding range must be added here as well. </p>
 
 <p class="reference">Referenced by <a class="el" href="#l00025">randnet()</a>.</p>
 

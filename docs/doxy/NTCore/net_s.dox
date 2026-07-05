@@ -1,14 +1,13 @@
 /**
  * @file net_s.dox
+ * @copybrief net_s
  * @author Oscar Sotomayor (Titux)
  * @ingroup NTCore
  *
- * @brief Root container of a NeuroTIC network instance.
+ * @copydetails net_s
  *
- * @details
- * net_s aggregates all structural components required to represent
- * the complete static topology and memory graph of a network instance. It owns its internal structures,
- * while external inputs are referenced via pointers.
+ * The diagram below summarizes the containment hierarchy and pointer
+ * relationships of a network instance.
  *
  * @dot
  * digraph net_s_structure {
@@ -162,7 +161,10 @@
  *
  * @section net_construction Construction Contract
  *
- * External code is responsible for allocating and populating all fields
- * according to the topology. The structure does not define allocation, ownership, or lifecycle semantics.
- * It only stores references.
+ * net_s does not build, allocate, or validate itself -- it has no behavior
+ * of its own. External code (whether user-provided data or an automated
+ * construction step) is entirely responsible for allocating and populating
+ * every field consistently with the intended topology. Once populated,
+ * net_s -- and everything it contains -- belongs to the resulting network
+ * instance.
  */

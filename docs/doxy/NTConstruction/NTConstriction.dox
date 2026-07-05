@@ -6,4 +6,5 @@
  * ntfeedforward.h @copybrief ntfeedforward.h  
  * ntinitialize.h @copybrief ntinitialize.h  
  * ntfile.h @copybrief ntfile.h
+ * ntdefinition.h @copybrief ntdefinition.h
  */

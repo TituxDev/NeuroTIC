@@ -93,12 +93,14 @@ $(document).ready(function(){initNavTree('net__s_8dox.html',''); initResizable()
 </div><!--header-->
 <div class="contents">
 
-<p>Root container of a NeuroTIC network instance.  
+<p>Root structural container of a NeuroTIC network.    
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Root container of a NeuroTIC network instance. </p>
+<div class="textblock"><p>Root structural container of a NeuroTIC network.   </p>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor (Titux)</dd></dl>
-<p><a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> aggregates all structural components required to represent the complete static topology and memory graph of a network instance. It owns its internal structures, while external inputs are referenced via pointers.</p>
+<p>Represents the complete structural topology and memory graph required to execute a network instance.</p>
+<p>The network owns its internal structures. External input sources are considered external references.  </p>
+<p>The diagram below summarizes the containment hierarchy and pointer relationships of a network instance.</p>
 <div class="dotgraph">
 <img src="dot_inline_dotgraph_1.png" alt="dot_inline_dotgraph_1.png" border="0" usemap="#dot_inline_dotgraph_1.map"/>
 </div>
@@ -136,7 +138,7 @@ Structural Relationships</h1>
 </ul>
 <h1><a class="anchor" id="net_construction"></a>
 Construction Contract</h1>
-<p>External code is responsible for allocating and populating all fields according to the topology. The structure does not define allocation, ownership, or lifecycle semantics. It only stores references. </p>
+<p><a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> does not build, allocate, or validate itself &ndash; it has no behavior of its own. External code (whether user-provided data or an automated construction step) is entirely responsible for allocating and populating every field consistently with the intended topology. Once populated, <a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> &ndash; and everything it contains &ndash; belongs to the resulting network instance. </p>
 
 <p class="definition">Definition in file <a class="el" href="">net_s.dox</a>.</p>
 </div></div><!-- contents -->
