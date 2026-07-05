@@ -164,6 +164,16 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Resolves wiring descriptors into buffer references and allocates weight storage. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">NULL</td><td><ul>
+<li><code>net</code> is NULL.</li>
+<li><code>net-&gt;neurons</code> has not been allocated yet.</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>If <a class="el" href="structnet__s.html#a34d6ef4b2b66cb2fec9f4782ddc771ba">net_s::layers</a> &gt; 1, resolves each <a class="el" href="structnet__s.html#a9d1e6329d693123aea04482318aad267">net_s::wiring</a> descriptor into a <a class="el" href="structnet__s.html#a2e7c3c0f579dc558fe5ccf2f7ead3eb6">net_s::bff</a> array for its corresponding layer transition (<code>net-&gt;bff[0..layers-2]</code>), in two passes:</p><ul>
 <li>First pass: for arrays with <a class="el" href="structwiring__s.html#a55998c4dbd80bde56ab7c27e2dbd8be7">wiring_s::array_type</a> &lsquo;'M&rsquo;`, each element is resolved individually according to its own <a class="el" href="structwiring__s.html#a54a4436a7981644f7bcda46241df0f62">wiring_s::src_type</a>.</li>
 <li>Second pass: for all other arrays, the whole array is resolved at once according to its <a class="el" href="structwiring__s.html#a55998c4dbd80bde56ab7c27e2dbd8be7">wiring_s::array_type</a>, and <a class="el" href="structwiring__s.html#a77151b3a90f51e267593d8fcfca01f7b">wiring_s::size</a> is updated to match the resolved size. Layer 0 is not processed by either pass.</li>
@@ -173,7 +183,7 @@ Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd><a class="el" href="structwiring__s.html#a55998c4dbd80bde56ab7c27e2dbd8be7">wiring_s::array_type</a> (second pass):<ul>
 <li>'I': Alias to <a class="el" href="structnet__s.html#a44527dfd3f3d56d197da6880c6d21865">net_s::in</a>.</li>
 <li>'O': Alias to <a class="el" href="structnet__s.html#ad9272b1de9b126257fc6fef9abd236b9">net_s::out</a>.</li>
-<li>'N': Alias to another already-resolved <a class="el" href="structnet__s.html#a2e7c3c0f579dc558fe5ccf2f7ead3eb6">net_s::bff</a> array, taken from</li>
+<li>'N': Alias to another already-resolved <a class="el" href="structnet__s.html#a2e7c3c0f579dc558fe5ccf2f7ead3eb6">net_s::bff</a> array, referenced by this array's own <a class="el" href="structwiring__s.html#a53e490c6e893d6255c4a4896af691ca2">wiring_s::src_layer</a>[0] and <a class="el" href="structwiring__s.html#a482deb05260de5ecb212c01b91c9f2fc">wiring_s::src_index</a>[0].</li>
 <li>any other value: left as <code>NULL</code>, with a placeholder size of <code>1</code>.</li>
 </ul>
 </dd>
@@ -181,10 +191,9 @@ Functions</h2></td></tr>
 <a class="el" href="structwiring__s.html#a54a4436a7981644f7bcda46241df0f62">wiring_s::src_type</a>, for elements inside a &lsquo;'M&rsquo;&lsquo; array (first pass):<ul>
 <li>'N&rsquo;: <code>net-&gt;nn[src_layer][src_index].out</code>.</li>
 <li>'O': A single element of <a class="el" href="structnet__s.html#ad9272b1de9b126257fc6fef9abd236b9">net_s::out</a>.</li>
-<li>any other value: left as <code>NULL</code>.</li>
+<li>any other value: left as <code>NULL</code>. </li>
 </ul>
 </dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd><code>net-&gt;in</code> must already be allocated. </dd></dl>
 
 <p class="reference">References <a class="el" href="#l00078">wiring_s::array_type</a>, <a class="el" href="#l00077">wiring_s::arrays</a>, <a class="el" href="#l00106">net_s::bff</a>, <a class="el" href="#l00057">neuron_s::bff_idx</a>, <a class="el" href="#l00058">neuron_s::in</a>, <a class="el" href="#l00103">net_s::in</a>, <a class="el" href="#l00056">neuron_s::inputs</a>, <a class="el" href="#l00100">net_s::inputs</a>, <a class="el" href="#l00101">net_s::layers</a>, <a class="el" href="#l00102">net_s::neurons</a>, <a class="el" href="#l00104">net_s::nn</a>, <a class="el" href="#l00062">neuron_s::out</a>, <a class="el" href="#l00107">net_s::out</a>, <a class="el" href="#l00079">wiring_s::size</a>, <a class="el" href="#l00082">wiring_s::src_index</a>, <a class="el" href="#l00081">wiring_s::src_layer</a>, <a class="el" href="#l00080">wiring_s::src_type</a>, and <a class="el" href="#l00105">net_s::wiring</a>.</p>
 
@@ -239,7 +248,7 @@ Functions</h2></td></tr>
 </dl>
 <p>Copies <code>neurons_per_layer</code> into <a class="el" href="structnet__s.html#a1e8bcffb896c7ac5654aa21f7efe76aa">net_s::neurons</a> and allocates <a class="el" href="structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c">net_s::nn</a> with one <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> array per layer.</p>
 <p>Allocates <a class="el" href="structnet__s.html#a44527dfd3f3d56d197da6880c6d21865">net_s::in</a> and connects it to the first layer's neurons, and allocates <a class="el" href="structnet__s.html#ad9272b1de9b126257fc6fef9abd236b9">net_s::out</a> pointing to the last layer's neuron outputs.</p>
-<p>Allocates one <a class="el" href="structnet__s.html#a9d1e6329d693123aea04482318aad267">net_s::wiring</a> descriptor and one <a class="el" href="structnet__s.html#a2e7c3c0f579dc558fe5ccf2f7ead3eb6">net_s::bff</a> array per layer transition when <a class="el" href="structnet__s.html#a34d6ef4b2b66cb2fec9f4782ddc771ba">net_s::layers</a> is greater than 1. </p>
+<p>When <a class="el" href="structnet__s.html#a34d6ef4b2b66cb2fec9f4782ddc771ba">net_s::layers</a> is greater than 1, allocates one <a class="el" href="structnet__s.html#a9d1e6329d693123aea04482318aad267">net_s::wiring</a> descriptor per layer transition, and <a class="el" href="structnet__s.html#a2e7c3c0f579dc558fe5ccf2f7ead3eb6">net_s::bff</a>'s outer array (one slot per layer transition, each left as <code>NULL</code>). </p>
 
 <p class="reference">References <a class="el" href="#l00058">neuron_s::in</a>, <a class="el" href="#l00103">net_s::in</a>, <a class="el" href="#l00056">neuron_s::inputs</a>, <a class="el" href="#l00100">net_s::inputs</a>, <a class="el" href="#l00101">net_s::layers</a>, <a class="el" href="#l00102">net_s::neurons</a>, <a class="el" href="#l00104">net_s::nn</a>, <a class="el" href="#l00062">neuron_s::out</a>, and <a class="el" href="#l00107">net_s::out</a>.</p>
 

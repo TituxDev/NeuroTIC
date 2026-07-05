@@ -144,7 +144,7 @@ Macros</h2></td></tr>
 <tr class="memdesc:a6c4abea58db7193ec0663d0347bdeb96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience macro to create a new network.  <br /></td></tr>
 <tr class="separator:a6c4abea58db7193ec0663d0347bdeb96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4ca47bc0d692b1d915cdc405f21cd85" id="r_ac4ca47bc0d692b1d915cdc405f21cd85"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntbuilder_8h.html#ac4ca47bc0d692b1d915cdc405f21cd85">CREATE_NET_FEEDFORWARD</a>(network,  i,  neurons)</td></tr>
-<tr class="memdesc:ac4ca47bc0d692b1d915cdc405f21cd85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience macro to create and build a feedforward network.  <br /></td></tr>
+<tr class="memdesc:ac4ca47bc0d692b1d915cdc405f21cd85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience macro to declare, build, and wire a new feedforward network in a single step.  <br /></td></tr>
 <tr class="separator:ac4ca47bc0d692b1d915cdc405f21cd85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -207,17 +207,16 @@ Functions</h2></td></tr>
 <div class="ttc" id="astructnet__s_html"><div class="ttname"><a href="structnet__s.html">net_s</a></div><div class="ttdoc">Root structural container of a NeuroTIC network.</div><div class="ttdef"><b>Definition</b> ntcore.h:99</div></div>
 <div class="ttc" id="astructnet__s_html_a252eb5f95334455a30914a1d3706a4d0"><div class="ttname"><a href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">net_s::inputs</a></div><div class="ttdeci">input_t inputs</div><div class="ttdef"><b>Definition</b> ntcore.h:100</div></div>
 </div><!-- fragment -->
-<p>Convenience macro to create and build a feedforward network. </p>
-<p>Combines <code><a class="el" href="ntbuilder_8h.html#a0828749590e88600e1ef5329509f6fc7" title="Allocates and initializes net_s internal structures from a per-layer neuron count.">newnet()</a></code> and <code><a class="el" href="ntbuilder_8h.html#aaaecf1ef6fe5d9fb9b603d7479b22f7e" title="Resolves wiring descriptors into buffer references and allocates weight storage.">buildnet()</a></code> into a single step for creating a feedforward network with the specified input size and layer configuration.</p>
+<p>Convenience macro to declare, build, and wire a new feedforward network in a single step. </p>
+<p>Expands to a variable declaration followed by its construction: declares <code>network</code> as a new <code><a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> *</code> in the calling scope, then builds and wires it as a fully-connected feedforward network. Because it expands to a declaration, it can only be used as a standalone statement &ndash; never as part of a larger expression.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">network</td><td>Name of the network variable to create. </td></tr>
+    <tr><td class="paramname">network</td><td>Identifier to declare as the new network variable. </td></tr>
     <tr><td class="paramname">i</td><td>Number of external inputs to the network. </td></tr>
     <tr><td class="paramname">neurons</td><td>Array defining the number of neurons in each layer. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> Pointer to the fully constructed feedforward network. </dd></dl>
 
 </div>
 </div>
@@ -285,7 +284,16 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The same <code>net</code> pointer, for call chaining.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="wiring__s_8dox.html" title="Declarative descriptor of inter-layer input resolution.">wiring_s.dox</a> for details on wiring configurations.</dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">NULL</td><td><ul>
+<li><code>net</code> is NULL.</li>
+<li><code>net-&gt;neurons</code> has not been allocated yet.</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>If <a class="el" href="structnet__s.html#a34d6ef4b2b66cb2fec9f4782ddc771ba">net_s::layers</a> &gt; 1, resolves each <a class="el" href="structnet__s.html#a9d1e6329d693123aea04482318aad267">net_s::wiring</a> descriptor into a <a class="el" href="structnet__s.html#a2e7c3c0f579dc558fe5ccf2f7ead3eb6">net_s::bff</a> array for its corresponding layer transition (<code>net-&gt;bff[0..layers-2]</code>), in two passes:</p><ul>
 <li>First pass: for arrays with <a class="el" href="structwiring__s.html#a55998c4dbd80bde56ab7c27e2dbd8be7">wiring_s::array_type</a> &lsquo;'M&rsquo;`, each element is resolved individually according to its own <a class="el" href="structwiring__s.html#a54a4436a7981644f7bcda46241df0f62">wiring_s::src_type</a>.</li>
 <li>Second pass: for all other arrays, the whole array is resolved at once according to its <a class="el" href="structwiring__s.html#a55998c4dbd80bde56ab7c27e2dbd8be7">wiring_s::array_type</a>, and <a class="el" href="structwiring__s.html#a77151b3a90f51e267593d8fcfca01f7b">wiring_s::size</a> is updated to match the resolved size. Layer 0 is not processed by either pass.</li>
@@ -295,7 +303,7 @@ Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd><a class="el" href="structwiring__s.html#a55998c4dbd80bde56ab7c27e2dbd8be7">wiring_s::array_type</a> (second pass):<ul>
 <li>'I': Alias to <a class="el" href="structnet__s.html#a44527dfd3f3d56d197da6880c6d21865">net_s::in</a>.</li>
 <li>'O': Alias to <a class="el" href="structnet__s.html#ad9272b1de9b126257fc6fef9abd236b9">net_s::out</a>.</li>
-<li>'N': Alias to another already-resolved <a class="el" href="structnet__s.html#a2e7c3c0f579dc558fe5ccf2f7ead3eb6">net_s::bff</a> array, taken from</li>
+<li>'N': Alias to another already-resolved <a class="el" href="structnet__s.html#a2e7c3c0f579dc558fe5ccf2f7ead3eb6">net_s::bff</a> array, referenced by this array's own <a class="el" href="structwiring__s.html#a53e490c6e893d6255c4a4896af691ca2">wiring_s::src_layer</a>[0] and <a class="el" href="structwiring__s.html#a482deb05260de5ecb212c01b91c9f2fc">wiring_s::src_index</a>[0].</li>
 <li>any other value: left as <code>NULL</code>, with a placeholder size of <code>1</code>.</li>
 </ul>
 </dd>
@@ -303,10 +311,9 @@ Functions</h2></td></tr>
 <a class="el" href="structwiring__s.html#a54a4436a7981644f7bcda46241df0f62">wiring_s::src_type</a>, for elements inside a &lsquo;'M&rsquo;&lsquo; array (first pass):<ul>
 <li>'N&rsquo;: <code>net-&gt;nn[src_layer][src_index].out</code>.</li>
 <li>'O': A single element of <a class="el" href="structnet__s.html#ad9272b1de9b126257fc6fef9abd236b9">net_s::out</a>.</li>
-<li>any other value: left as <code>NULL</code>.</li>
+<li>any other value: left as <code>NULL</code>. </li>
 </ul>
 </dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd><code>net-&gt;in</code> must already be allocated. </dd></dl>
 
 <p class="reference">References <a class="el" href="#l00078">wiring_s::array_type</a>, <a class="el" href="#l00077">wiring_s::arrays</a>, <a class="el" href="#l00106">net_s::bff</a>, <a class="el" href="#l00057">neuron_s::bff_idx</a>, <a class="el" href="#l00058">neuron_s::in</a>, <a class="el" href="#l00103">net_s::in</a>, <a class="el" href="#l00056">neuron_s::inputs</a>, <a class="el" href="#l00100">net_s::inputs</a>, <a class="el" href="#l00101">net_s::layers</a>, <a class="el" href="#l00102">net_s::neurons</a>, <a class="el" href="#l00104">net_s::nn</a>, <a class="el" href="#l00062">neuron_s::out</a>, <a class="el" href="#l00107">net_s::out</a>, <a class="el" href="#l00079">wiring_s::size</a>, <a class="el" href="#l00082">wiring_s::src_index</a>, <a class="el" href="#l00081">wiring_s::src_layer</a>, <a class="el" href="#l00080">wiring_s::src_type</a>, and <a class="el" href="#l00105">net_s::wiring</a>.</p>
 
@@ -355,7 +362,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>struct net_s* Pointer to the same <code>net</code> structure, or NULL if initialization fails.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The same net pointer received, with its internal structures allocated and initialized.</dd></dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">NULL</td><td><ul>
@@ -370,7 +377,7 @@ Functions</h2></td></tr>
 </dl>
 <p>Copies <code>neurons_per_layer</code> into <a class="el" href="structnet__s.html#a1e8bcffb896c7ac5654aa21f7efe76aa">net_s::neurons</a> and allocates <a class="el" href="structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c">net_s::nn</a> with one <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> array per layer.</p>
 <p>Allocates <a class="el" href="structnet__s.html#a44527dfd3f3d56d197da6880c6d21865">net_s::in</a> and connects it to the first layer's neurons, and allocates <a class="el" href="structnet__s.html#ad9272b1de9b126257fc6fef9abd236b9">net_s::out</a> pointing to the last layer's neuron outputs.</p>
-<p>Allocates one <a class="el" href="structnet__s.html#a9d1e6329d693123aea04482318aad267">net_s::wiring</a> descriptor and one <a class="el" href="structnet__s.html#a2e7c3c0f579dc558fe5ccf2f7ead3eb6">net_s::bff</a> array per layer transition when <a class="el" href="structnet__s.html#a34d6ef4b2b66cb2fec9f4782ddc771ba">net_s::layers</a> is greater than 1. </p>
+<p>When <a class="el" href="structnet__s.html#a34d6ef4b2b66cb2fec9f4782ddc771ba">net_s::layers</a> is greater than 1, allocates one <a class="el" href="structnet__s.html#a9d1e6329d693123aea04482318aad267">net_s::wiring</a> descriptor per layer transition, and <a class="el" href="structnet__s.html#a2e7c3c0f579dc558fe5ccf2f7ead3eb6">net_s::bff</a>'s outer array (one slot per layer transition, each left as <code>NULL</code>). </p>
 
 <p class="reference">References <a class="el" href="#l00058">neuron_s::in</a>, <a class="el" href="#l00103">net_s::in</a>, <a class="el" href="#l00056">neuron_s::inputs</a>, <a class="el" href="#l00100">net_s::inputs</a>, <a class="el" href="#l00101">net_s::layers</a>, <a class="el" href="#l00102">net_s::neurons</a>, <a class="el" href="#l00104">net_s::nn</a>, <a class="el" href="#l00062">neuron_s::out</a>, and <a class="el" href="#l00107">net_s::out</a>.</p>
 
