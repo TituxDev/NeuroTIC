@@ -93,8 +93,231 @@ $(document).ready(function(){initNavTree('cli_8c.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 
+<p>Example: Interactively build a custom (non-feedforward) wiring descriptor via CLI.  
+<a href="#details">More...</a></p>
+
 <p><a href="">Go to the source code of this file.</a></p>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Example: Interactively build a custom (non-feedforward) wiring descriptor via CLI. </p>
+<dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor (titux) </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026</dd></dl>
+<p>This example demonstrates how to construct a <code><a class="el" href="structwiring__s.html" title="Declarative descriptor of inter-layer input resolution.">wiring_s</a></code> descriptor by hand, through an interactive command-line prompt, instead of relying on <code><a class="el" href="ntfeedforward_8c.html#ad4572edfe44001ed5b40ffc7e29026b9" title="Wires each layer as fully connected to only its immediately preceding layer.">newfeedforward()</a></code> to auto-generate a standard dense feedforward topology.</p>
+<p>For each layer (except the input layer) the user defines, per neuron input set:</p><ul>
+<li>how many logical input arrays feed that set,</li>
+<li>the type of each array:<ul>
+<li>'I' : the network's own inputs,</li>
+<li>'O' : the size of the output layer,</li>
+<li>'N' : a single reference to another layer/index's output,</li>
+<li>'M' : a manually built fan-in ("BFF") mixing individual N/I/O elements.</li>
+</ul>
+</li>
+</ul>
+<p>This lets you describe arbitrary connectivity (skip connections, multiple input buffers, mixed sources, etc.) that a plain feedforward generator can't express.</p>
+<p>Expected output:</p>
+<div class="fragment"><div class="line">~/NeuroTIC/examples$ bash test.sh cli</div>
+<div class="line">Compiling project in location: examples</div>
+<div class="line">Project name: cli</div>
+<div class="line">Platform: CPU</div>
+<div class="line"> </div>
+<div class="line">31296 bytes written to examples/cli</div>
+<div class="line"> </div>
+<div class="line">Network structure</div>
+<div class="line">  Inputs: 1</div>
+<div class="line">  Layers: 3</div>
+<div class="line">  Neurons per layer: </div>
+<div class="line">  [0]: 1</div>
+<div class="line">  [1]: 1</div>
+<div class="line">  [2]: 4</div>
+<div class="line">Network topology</div>
+<div class="line">Layer 1</div>
+<div class="line">  Input sets: 1</div>
+<div class="line">  [0] Type (N/I/O/M): M</div>
+<div class="line">      BFF size: 1</div>
+<div class="line">      [0] Source type (N/I/O): N</div>
+<div class="line">          Source layer: 0</div>
+<div class="line">          Source index: 0</div>
+<div class="line"> </div>
+<div class="line">  Neuron: </div>
+<div class="line">  [0]: 0</div>
+<div class="line">Layer 2</div>
+<div class="line">  Input sets: 4</div>
+<div class="line">  [0] Type (N/I/O/M): M</div>
+<div class="line">      BFF size: 3</div>
+<div class="line">      [0] Source type (N/I/O): N</div>
+<div class="line">          Source layer: 1</div>
+<div class="line">          Source index: 0</div>
+<div class="line">      [1] Source type (N/I/O): I</div>
+<div class="line">          Source index: 0</div>
+<div class="line">      [2] Source type (N/I/O): O</div>
+<div class="line">          Source index: 3</div>
+<div class="line">  [1] Type (N/I/O/M): N</div>
+<div class="line">      Source layer: 0</div>
+<div class="line">      Source BFF: 0</div>
+<div class="line">  [2] Type (N/I/O/M): I</div>
+<div class="line">  [3] Type (N/I/O/M): O</div>
+<div class="line"> </div>
+<div class="line">  Neuron: </div>
+<div class="line">  [0]: 0</div>
+<div class="line">  [1]: 1</div>
+<div class="line">  [2]: 2</div>
+<div class="line">  [3]: 3</div>
+<div class="line"> </div>
+<div class="line">=== ACTIVATION FUNCTIONS ===</div>
+<div class="line"> </div>
+<div class="line">Max activation function index: 4</div>
+<div class="line">Layer 0</div>
+<div class="line">  Neuron: </div>
+<div class="line">  [0]: 1</div>
+<div class="line">Layer 1</div>
+<div class="line">  Neuron: </div>
+<div class="line">  [0]: 1</div>
+<div class="line">Layer 2</div>
+<div class="line">  Neuron: </div>
+<div class="line">  [0]: 1</div>
+<div class="line">  [1]: 1</div>
+<div class="line">  [2]: 1</div>
+<div class="line">  [3]: 1</div>
+<div class="line"> </div>
+<div class="line">=== PARAMETERS ===</div>
+<div class="line"> </div>
+<div class="line">Layer 0</div>
+<div class="line">  Neuron:</div>
+<div class="line">  [0]:  bias=0.000000  w[0]=0.221714</div>
+<div class="line">Layer 1</div>
+<div class="line">  Neuron:</div>
+<div class="line">  [0]:  bias=0.000000  w[0]=0.315200</div>
+<div class="line">Layer 2</div>
+<div class="line">  Neuron:</div>
+<div class="line">  [0]:  bias=0.000000  w[0]=0.425050 w[1]=0.043631 w[2]=-0.738705</div>
+<div class="line">  [1]:  bias=0.000000  w[0]=0.447784</div>
+<div class="line">  [2]:  bias=0.000000  w[0]=-0.409675</div>
+<div class="line">  [3]:  bias=0.000000  w[0]=-0.280592 w[1]=0.610635 w[2]=-0.190924 w[3]=-0.107999</div>
+<div class="line"> </div>
+<div class="line">=== I/O CHECK ===</div>
+<div class="line"> </div>
+<div class="line">Inputs connected: 1/1  [OK]</div>
+<div class="line"> </div>
+<div class="line">=== FEEDFORWARD RUNS ===</div>
+<div class="line"> </div>
+<div class="line">Sample 0: in=[ 0 ] -&gt; out=[ 0.557060 0.555740 0.500000 0.521883 ]</div>
+<div class="line">Sample 1: in=[ 1 ] -&gt; out=[ 0.472325 0.561835 0.398990 0.519492 ]</div>
+<div class="line"> </div>
+<div class="line">=== SAVE ===</div>
+<div class="line"> </div>
+<div class="line">Saved to CLI.ntic (160 bytes)</div>
+</div><!-- fragment --><div class="fragment"><div class="line">  /</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &quot;ntcomplete.h&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#define NETWORK_NAME CLI</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Compact, uniform section headers</span></div>
+<div class="line"><span class="preprocessor">#define SECTION(title) printf( &quot;\n=== %s ===&quot; , title )</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main( <span class="keywordtype">void</span> ){</div>
+<div class="line">    </div>
+<div class="line">    </div>
+<div class="line">    <a class="code hl_struct" href="structnet__s.html">net_s</a> *NETWORK_NAME= &amp;(<a class="code hl_struct" href="structnet__s.html">net_s</a>){ 0 };</div>
+<div class="line">    <a class="code hl_function" href="ntdefinition_8c.html#a133840722b2ffac8b272bdd102fa7b0d">definestructure</a>( NETWORK_NAME );</div>
+<div class="line">    <a class="code hl_function" href="ntdefinition_8c.html#a794d29df0a0d938498626f6dc22dcc0b">definetopology</a>( NETWORK_NAME );</div>
+<div class="line">    </div>
+<div class="line"><span class="preprocessor">    #pragma GCC diagnostic push</span></div>
+<div class="line"><span class="preprocessor">    #pragma GCC diagnostic ignored &quot;-Wunused-result&quot;</span></div>
+<div class="line">    <span class="comment">// ---- Activation function selection per neuron ----</span></div>
+<div class="line">    SECTION( <span class="stringliteral">&quot;ACTIVATION FUNCTIONS&quot;</span> );</div>
+<div class="line">    printf( <span class="stringliteral">&quot;\n\nMax activation function index: %i\n&quot;</span> , <a class="code hl_enumvalue" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea859361193d6a6eb43e11e144bef7acf5">NTACT_TOTAL_FUNCTIONS</a> - 1 );</div>
+<div class="line">    <span class="keywordflow">for</span>( layer_t i= 0 ; i &lt; NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#a34d6ef4b2b66cb2fec9f4782ddc771ba">layers</a> ; i++ ){</div>
+<div class="line">        printf( <span class="stringliteral">&quot;Layer %u&quot;</span> , i );</div>
+<div class="line">        printf( <span class="stringliteral">&quot;\n  Neuron: \n&quot;</span> );</div>
+<div class="line">        <span class="keywordflow">for</span>( uint16_t j= 0 ; j &lt; NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#a1e8bcffb896c7ac5654aa21f7efe76aa">neurons</a>[i] ; j++ ){</div>
+<div class="line">            printf( <span class="stringliteral">&quot;  [%u]: &quot;</span> , j  );</div>
+<div class="line">            scanf( <span class="stringliteral">&quot; %hhu&quot;</span> , &amp;NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c">nn</a>[i][j].<a class="code hl_variable" href="structneuron__s.html#aed10404eb5eaa88df5243ebedcb3d872">fn</a> );</div>
+<div class="line">            NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c">nn</a>[i][j].<a class="code hl_variable" href="structneuron__s.html#aed10404eb5eaa88df5243ebedcb3d872">fn</a>= NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c">nn</a>[i][j].<a class="code hl_variable" href="structneuron__s.html#aed10404eb5eaa88df5243ebedcb3d872">fn</a> &lt; <a class="code hl_enumvalue" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea859361193d6a6eb43e11e144bef7acf5">NTACT_TOTAL_FUNCTIONS</a> ? NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c">nn</a>[i][j].<a class="code hl_variable" href="structneuron__s.html#aed10404eb5eaa88df5243ebedcb3d872">fn</a> : 0;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"><span class="preprocessor">    #pragma GCC diagnostic pop</span></div>
+<div class="line"> </div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ---- Initialized parameters (bias + weights), one line per neuron ----</span></div>
+<div class="line">    <a class="code hl_function" href="ntinitialize_8c.html#a0c2e77d2e0217cf512c8adb47097b485">randnet</a>( NETWORK_NAME );</div>
+<div class="line">    SECTION( <span class="stringliteral">&quot;PARAMETERS&quot;</span> );</div>
+<div class="line">    putchar( <span class="charliteral">&#39;\n&#39;</span> );</div>
+<div class="line">    <span class="keywordflow">for</span>( layer_t i= 0 ; i &lt; NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#a34d6ef4b2b66cb2fec9f4782ddc771ba">layers</a> ; i++ ){</div>
+<div class="line">        printf( <span class="stringliteral">&quot;\nLayer %u&quot;</span> , i );</div>
+<div class="line">        printf( <span class="stringliteral">&quot;\n  Neuron:&quot;</span> );</div>
+<div class="line">        <span class="keywordflow">for</span>( uint16_t j= 0 ; j &lt; NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#a1e8bcffb896c7ac5654aa21f7efe76aa">neurons</a>[i] ; j++ ){</div>
+<div class="line">            printf( <span class="stringliteral">&quot;\n  [%u]:  bias=%f &quot;</span> , j , NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c">nn</a>[i][j].<a class="code hl_variable" href="structneuron__s.html#ae239907b17a7ffc03e88e7cca6cccf7e">b</a> );</div>
+<div class="line">            <span class="keywordflow">for</span>( input_t k= 0 ; k &lt; NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c">nn</a>[i][j].<a class="code hl_variable" href="structneuron__s.html#ab9ab1fa3dd333f6076963d0918bbec9d">inputs</a> ; k++ ) printf( <span class="stringliteral">&quot; w[%u]=%f&quot;</span> , k , NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c">nn</a>[i][j].<a class="code hl_variable" href="structneuron__s.html#a059638704c555b4c152a924fcdf0c57f">w</a>[k] );</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// ---- Connect network inputs ----</span></div>
+<div class="line">    data_t inputs[NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">inputs</a>];</div>
+<div class="line">    <span class="keywordflow">for</span>( input_t i= 0 ; i &lt; NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">inputs</a> ; i++ ) NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#a44527dfd3f3d56d197da6880c6d21865">in</a>[i]= &amp;inputs[i];</div>
+<div class="line"> </div>
+<div class="line">    putchar( <span class="charliteral">&#39;\n&#39;</span> );</div>
+<div class="line">    SECTION( <span class="stringliteral">&quot;I/O CHECK&quot;</span> );</div>
+<div class="line">    printf( <span class="stringliteral">&quot;\n\nInputs connected: %u/%u  &quot;</span> , NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">inputs</a> , NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">inputs</a> );</div>
+<div class="line">    <span class="keywordflow">for</span>( input_t i= 0 ; i &lt; NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">inputs</a> ; i++ ) printf( <span class="stringliteral">&quot;%s%s[%s]%s&quot;</span> ,</div>
+<div class="line">        i ? <span class="stringliteral">&quot; &quot;</span> : <span class="stringliteral">&quot;&quot;</span> ,</div>
+<div class="line">        NETWORK_NAME-&gt;in[i] == &amp;inputs[i] ? <span class="stringliteral">&quot;\033[0;32m&quot;</span> : <span class="stringliteral">&quot;\033[0;31m&quot;</span> ,</div>
+<div class="line">        NETWORK_NAME-&gt;in[i] == &amp;inputs[i] ? <span class="stringliteral">&quot;OK&quot;</span> : <span class="stringliteral">&quot;FAIL&quot;</span> ,</div>
+<div class="line">        <span class="stringliteral">&quot;\033[0m&quot;</span></div>
+<div class="line">    );</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// ---- Feedforward runs, one compact line per sample ----</span></div>
+<div class="line">    putchar( <span class="charliteral">&#39;\n&#39;</span> );</div>
+<div class="line">    SECTION( <span class="stringliteral">&quot;FEEDFORWARD RUNS&quot;</span> );</div>
+<div class="line">    putchar( <span class="charliteral">&#39;\n&#39;</span> ); </div>
+<div class="line">    uint16_t sample= 1;</div>
+<div class="line">    <span class="keywordflow">for</span>( uint16_t i= 0 ; i &lt; NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">inputs</a> ; i++ ) sample&lt;&lt;= 1;</div>
+<div class="line">    <span class="keywordflow">for</span>( input_t i= 0 ; i &lt; sample ; i++ ){</div>
+<div class="line">        printf( <span class="stringliteral">&quot;\nSample %u: in=[ &quot;</span> , i );</div>
+<div class="line">        <span class="keywordflow">for</span>( input_t j= 0 ; j &lt; NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">inputs</a> ; j++ ) printf( <span class="stringliteral">&quot;%.0f &quot;</span> , (<span class="keywordtype">float</span>)(inputs[j]= (i &gt;&gt; j) &amp; 1) );</div>
+<div class="line">        <a class="code hl_function" href="ntcalculate_8c.html#a80593fe4480cce8f4dac43ee48d8a7a2">feedforward</a>( NETWORK_NAME );</div>
+<div class="line">        printf( <span class="stringliteral">&quot;] -&gt; out=[ &quot;</span> );</div>
+<div class="line">        <span class="keywordflow">for</span>( uint16_t j= 0 ; j &lt; NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#a1e8bcffb896c7ac5654aa21f7efe76aa">neurons</a>[NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#a34d6ef4b2b66cb2fec9f4782ddc771ba">layers</a>-1] ; j++ ) printf( <span class="stringliteral">&quot;%f &quot;</span> , *NETWORK_NAME-&gt;<a class="code hl_variable" href="structnet__s.html#ad9272b1de9b126257fc6fef9abd236b9">out</a>[j] );</div>
+<div class="line">        printf( <span class="stringliteral">&quot;]&quot;</span> );</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// ---- Save network ----</span></div>
+<div class="line">    <a class="code hl_function" href="ntfile_8c.html#aea3803fafee337b67641edb79ee4b4f9">savenet</a>( NETWORK_NAME , <span class="stringliteral">&quot;CLI&quot;</span> );</div>
+<div class="line">    FILE *fp= fopen( <span class="stringliteral">&quot;CLI.ntic&quot;</span> , <span class="stringliteral">&quot;rb&quot;</span> );</div>
+<div class="line">    fseek( fp , 0 , SEEK_END );</div>
+<div class="line">    putchar( <span class="charliteral">&#39;\n&#39;</span> );</div>
+<div class="line">    SECTION( <span class="stringliteral">&quot;SAVE&quot;</span> );</div>
+<div class="line">    putchar( <span class="charliteral">&#39;\n&#39;</span> );</div>
+<div class="line">    printf( <span class="stringliteral">&quot;\nSaved to CLI.ntic (%ld bytes)\n&quot;</span> , ftell( fp ) );</div>
+<div class="line">    fclose( fp );</div>
+<div class="line">    remove( <span class="stringliteral">&quot;CLI.ntic&quot;</span> );</div>
+<div class="line"> </div>
+<div class="line">    putchar( <span class="charliteral">&#39;\n&#39;</span> );</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="antactivation_8h_html_a371f27f3712ebe40d139d5dd2729237ea859361193d6a6eb43e11e144bef7acf5"><div class="ttname"><a href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea859361193d6a6eb43e11e144bef7acf5">NTACT_TOTAL_FUNCTIONS</a></div><div class="ttdeci">@ NTACT_TOTAL_FUNCTIONS</div><div class="ttdoc">Total number of activation functions.</div><div class="ttdef"><b>Definition</b> ntactivation.h:29</div></div>
+<div class="ttc" id="antcalculate_8c_html_a80593fe4480cce8f4dac43ee48d8a7a2"><div class="ttname"><a href="ntcalculate_8c.html#a80593fe4480cce8f4dac43ee48d8a7a2">feedforward</a></div><div class="ttdeci">data_t * feedforward(net_s *net)</div><div class="ttdoc">Executes full feedforward propagation.</div><div class="ttdef"><b>Definition</b> ntcalculate.c:44</div></div>
+<div class="ttc" id="antdefinition_8c_html_a133840722b2ffac8b272bdd102fa7b0d"><div class="ttname"><a href="ntdefinition_8c.html#a133840722b2ffac8b272bdd102fa7b0d">definestructure</a></div><div class="ttdeci">net_s * definestructure(net_s *net)</div><div class="ttdoc">Interactively collects a network's structural parameters (inputs, layers, neurons per layer) via stdi...</div><div class="ttdef"><b>Definition</b> ntdefinition.c:28</div></div>
+<div class="ttc" id="antdefinition_8c_html_a794d29df0a0d938498626f6dc22dcc0b"><div class="ttname"><a href="ntdefinition_8c.html#a794d29df0a0d938498626f6dc22dcc0b">definetopology</a></div><div class="ttdeci">net_s * definetopology(net_s *net)</div><div class="ttdoc">Interactively collects, layer by layer, the wiring topology and each neuron's buffer selection,...</div><div class="ttdef"><b>Definition</b> ntdefinition.c:65</div></div>
+<div class="ttc" id="antfile_8c_html_aea3803fafee337b67641edb79ee4b4f9"><div class="ttname"><a href="ntfile_8c.html#aea3803fafee337b67641edb79ee4b4f9">savenet</a></div><div class="ttdeci">size_t savenet(net_s *net, const char *name)</div><div class="ttdoc">Saves a network to a binary file with extension .ntic.</div><div class="ttdef"><b>Definition</b> ntfile.c:115</div></div>
+<div class="ttc" id="antinitialize_8c_html_a0c2e77d2e0217cf512c8adb47097b485"><div class="ttname"><a href="ntinitialize_8c.html#a0c2e77d2e0217cf512c8adb47097b485">randnet</a></div><div class="ttdeci">void randnet(net_s *net)</div><div class="ttdoc">Randomly initializes network weights.</div><div class="ttdef"><b>Definition</b> ntinitialize.c:25</div></div>
+<div class="ttc" id="astructnet__s_html"><div class="ttname"><a href="structnet__s.html">net_s</a></div><div class="ttdoc">Root structural container of a NeuroTIC network.</div><div class="ttdef"><b>Definition</b> ntcore.h:99</div></div>
+<div class="ttc" id="astructnet__s_html_a1e8bcffb896c7ac5654aa21f7efe76aa"><div class="ttname"><a href="structnet__s.html#a1e8bcffb896c7ac5654aa21f7efe76aa">net_s::neurons</a></div><div class="ttdeci">uint16_t * neurons</div><div class="ttdef"><b>Definition</b> ntcore.h:102</div></div>
+<div class="ttc" id="astructnet__s_html_a252eb5f95334455a30914a1d3706a4d0"><div class="ttname"><a href="structnet__s.html#a252eb5f95334455a30914a1d3706a4d0">net_s::inputs</a></div><div class="ttdeci">input_t inputs</div><div class="ttdef"><b>Definition</b> ntcore.h:100</div></div>
+<div class="ttc" id="astructnet__s_html_a34d6ef4b2b66cb2fec9f4782ddc771ba"><div class="ttname"><a href="structnet__s.html#a34d6ef4b2b66cb2fec9f4782ddc771ba">net_s::layers</a></div><div class="ttdeci">layer_t layers</div><div class="ttdef"><b>Definition</b> ntcore.h:101</div></div>
+<div class="ttc" id="astructnet__s_html_a44527dfd3f3d56d197da6880c6d21865"><div class="ttname"><a href="structnet__s.html#a44527dfd3f3d56d197da6880c6d21865">net_s::in</a></div><div class="ttdeci">data_t ** in</div><div class="ttdef"><b>Definition</b> ntcore.h:103</div></div>
+<div class="ttc" id="astructnet__s_html_ad9272b1de9b126257fc6fef9abd236b9"><div class="ttname"><a href="structnet__s.html#ad9272b1de9b126257fc6fef9abd236b9">net_s::out</a></div><div class="ttdeci">data_t ** out</div><div class="ttdef"><b>Definition</b> ntcore.h:107</div></div>
+<div class="ttc" id="astructnet__s_html_af2c67aaf7793fb650836a5fb6d82512c"><div class="ttname"><a href="structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c">net_s::nn</a></div><div class="ttdeci">neuron_s ** nn</div><div class="ttdef"><b>Definition</b> ntcore.h:104</div></div>
+<div class="ttc" id="astructneuron__s_html_a059638704c555b4c152a924fcdf0c57f"><div class="ttname"><a href="structneuron__s.html#a059638704c555b4c152a924fcdf0c57f">neuron_s::w</a></div><div class="ttdeci">weight_t * w</div><div class="ttdef"><b>Definition</b> ntcore.h:59</div></div>
+<div class="ttc" id="astructneuron__s_html_ab9ab1fa3dd333f6076963d0918bbec9d"><div class="ttname"><a href="structneuron__s.html#ab9ab1fa3dd333f6076963d0918bbec9d">neuron_s::inputs</a></div><div class="ttdeci">input_t inputs</div><div class="ttdef"><b>Definition</b> ntcore.h:56</div></div>
+<div class="ttc" id="astructneuron__s_html_ae239907b17a7ffc03e88e7cca6cccf7e"><div class="ttname"><a href="structneuron__s.html#ae239907b17a7ffc03e88e7cca6cccf7e">neuron_s::b</a></div><div class="ttdeci">bias_t b</div><div class="ttdef"><b>Definition</b> ntcore.h:60</div></div>
+<div class="ttc" id="astructneuron__s_html_aed10404eb5eaa88df5243ebedcb3d872"><div class="ttname"><a href="structneuron__s.html#aed10404eb5eaa88df5243ebedcb3d872">neuron_s::fn</a></div><div class="ttdeci">index_t fn</div><div class="ttdef"><b>Definition</b> ntcore.h:61</div></div>
+</div><!-- fragment --> 
+<p class="definition">Definition in file <a class="el" href="">cli.c</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

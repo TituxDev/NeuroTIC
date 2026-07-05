@@ -1,5 +1,5 @@
 /**
- * @file CLI.c
+ * @file cli.c
  * @brief Example: Interactively build a custom (non-feedforward) wiring descriptor via CLI.
  * @author Oscar Sotomayor (titux)
  * @date 2026
