@@ -1,5 +1,5 @@
 <map id="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntbuilder.h" name="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntbuilder.h">
-<area shape="rect" id="Node000001" title="Construction Functions. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c." alt="" coords="621,5,863,45"/>
+<area shape="rect" id="Node000001" title="Implementation of network construction functions." alt="" coords="621,5,863,45"/>
 <area shape="rect" id="Node000002" href="$examples_2ntcomplete_8h.html" title=" " alt="" coords="5,93,249,133"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="608,48,261,96,250,98,249,92,260,91,608,43"/>
 <area shape="rect" id="Node000003" href="$ntbuilder_8c.html" title="Implementation of network construction functions." alt="" coords="273,93,485,133"/>

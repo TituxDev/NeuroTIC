@@ -1,6 +1,7 @@
 /**
  * @file ntdefinition.h
  * @copybrief ntdefinition.c
+ * 
  * @ref http://tituxdev.github.io/NeuroTIC/src/CPU/ntdefinition.c
  *
  * @copydetails ntdefinition.c

@@ -105,8 +105,8 @@ Data Fields</h2></td></tr>
 <tr class="separator:a1ab5cc98e6cc9f3c7ac3f4f25356970e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This structure is used to associate memory blocks with their respective owners (e.g., modules or components within the NeuroTIC system). Each <code><a class="el" href="structmem__format.html">mem_format</a></code> instance contains a pointer to the owner, a dynamic array of pointers to registered memory blocks, and a counter for the number of registered blocks. <br  />
- The <code>mem_tracker</code> is a dynamic array of <code><a class="el" href="structmem__format.html">mem_format</a></code> structures that allows for efficient tracking and management of memory ownership and associated memory blocks throughout the lifecycle of the program. </p>
+<div class="textblock"><p>Associates the set of memory blocks tracked under <code>mem_register</code> with the owner that requested them (typically a <a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> instance), so every block belonging to that owner can be located and freed together.</p>
+<p><code>mem_tracker</code> is the array of every currently tracked owner &ndash; <code>NULL</code> exactly when the global <a class="el" href="structmem__format.html#a1ab5cc98e6cc9f3c7ac3f4f25356970e">mem_track</a> count is zero. </p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="afbbf22ad66f2efb2a4b94cc2e3039b05" name="afbbf22ad66f2efb2a4b94cc2e3039b05"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afbbf22ad66f2efb2a4b94cc2e3039b05">&#9670;&#160;</a></span>mem_owner</h2>
@@ -121,7 +121,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Pointer to the owner of the memory block. </p>
 
-<p class="reference">Referenced by <a class="el" href="#l00153">createowner()</a>, and <a class="el" href="#l00054">match_owner()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00170">createowner()</a>, and <a class="el" href="#l00058">match_owner()</a>.</p>
 
 </div>
 </div>
@@ -138,7 +138,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Internal registry for tracking allocated memory blocks. </p>
 
-<p class="reference">Referenced by <a class="el" href="#l00190">createregister()</a>, and <a class="el" href="#l00116">deleteowner()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00210">createregister()</a>, and <a class="el" href="#l00135">deleteowner()</a>.</p>
 
 </div>
 </div>

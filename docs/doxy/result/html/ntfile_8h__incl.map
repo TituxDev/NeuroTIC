@@ -1,5 +1,5 @@
 <map id="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntfile.h" name="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntfile.h">
-<area shape="rect" id="Node000001" title="Save and Load Files. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c." alt="" coords="5,5,223,45"/>
+<area shape="rect" id="Node000001" title="Implementation of network saving and loading for NeuroTIC." alt="" coords="5,5,223,45"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="27,93,102,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,47,81,83,77,80,100,44"/>
 <area shape="rect" id="Node000003" href="$ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="126,93,201,119"/>

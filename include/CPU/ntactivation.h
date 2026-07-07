@@ -1,6 +1,7 @@
 /**
  * @file ntactivation.h
- * @brief Activation Function List    
+ * @copybrief ntactivation.c
+ *   
  * @ref http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation.c
  * 
  * @copydetails ntactivation.c
@@ -16,8 +17,10 @@
  * @details
  * This enumeration defines identifiers for the activation functions implemented in the NeuroTIC framework.  
  * Each identifier corresponds to a specific activation function and its derivative, which are stored in the `ntact_activation` dispatch table.  
- * The `NTACT_TOTAL_FUNCTIONS` entry is used to indicate the total number of activation functions available, which is useful for iterating over the dispatch table and for validating activation function identifiers.  
- * Additional activation functions can be added to this enumeration as needed, along with their corresponding implementations in the `ntact_activation` dispatch table and appropriate entries in the `ntact_rand_range` for weight initialization.
+ * The `NTACT_TOTAL_FUNCTIONS` entry is used to indicate the total number of activation functions available, which is useful for iterating over the dispatch table and for validating activation function identifiers.
+ *
+ * @note This set is not fixed -- additional activation functions can be
+ * added as the framework grows.
  */
 typedef enum {
     NTACT_BOOLEAN,   ///< Boolean step activation function

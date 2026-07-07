@@ -1,6 +1,7 @@
 /**
  * @file ntfeedforward.h
  * @copybrief ntfeedforward.c
+ * 
  * @ref http://tituxdev.github.io/NeuroTIC/src/CPU/ntfeedforward.c
  *
  * @copydetails ntfeedforward.c

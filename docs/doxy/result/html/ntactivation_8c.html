@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('ntactivation_8c.html',''); initResizab
 </div><!--header-->
 <div class="contents">
 
-<p>Activation Functions List. <a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation.c</a>.  
+<p>Activation Functions List.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="">ntactivation.h</a>&quot;</code><br />
 <code>#include &lt;math.h&gt;</code><br />
@@ -102,8 +102,8 @@ Include dependency graph for ntactivation.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="ntactivation_8c__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntactivation_8c" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntactivation_8c" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntactivation_8c">
-<area shape="rect" title="Activation Functions List. http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation...." alt="" coords="5,5,239,45"/>
-<area shape="rect" href="ntactivation_8h.html" title="Activation Function List &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation...." alt="" coords="10,93,122,119"/>
+<area shape="rect" title="Activation Functions List." alt="" coords="5,5,239,45"/>
+<area shape="rect" href="ntactivation_8h.html" title="Activation Functions List." alt="" coords="10,93,122,119"/>
 <area shape="poly" title=" " alt="" coords="111,47,84,84,80,80,106,44"/>
 <area shape="rect" title=" " alt="" coords="145,93,213,119"/>
 <area shape="poly" title=" " alt="" coords="138,44,165,80,161,84,134,47"/>
@@ -117,14 +117,15 @@ Variables</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Activation Functions and Derivatives</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Implementations of supported activation functions and their derivatives.</p>
 <p>Each activation function is implemented as a separate static function, along with its derivative. The functions are designed to be efficient and suitable for use in the forward and backward passes of neural network training. Derivative functions are implemented to return non-zero values to avoid zero-gradient behavior during training.</p>
+<p>Both a function and its derivative expect the same input: the pre-activation value (e.g. the weighted sum before activation), never the already-activated output.</p>
 <p>The set of supported activation functions is defined by <code>ntact_function_id_t</code> and may grow over time. New entries follow the same pattern: implement the function and its derivative here, then register both in the <code>ntact_activation</code> dispatch table and their corresponding range in <code>ntact_rand_range</code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">x</td><td>The pre-activation input value. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>float</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The activation output, or its derivative, evaluated at x.</dd></dl>
 <div class="fragment"><div class="line">  /</div>
 <div class="line"><span class="comment">//BOOLEAN</span></div>
 <div class="line"><span class="keyword">static</span> <span class="keywordtype">float</span> boolean( <span class="keywordtype">float</span> x ){</div>
@@ -180,9 +181,9 @@ Variables</h2></td></tr>
 <tr class="separator:a68975968643d0c6223716ffee442818a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Activation Functions List. <a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation.c</a>. </p>
+<div class="textblock"><p>Activation Functions List. </p>
 <p>Implements the activation functions and derivatives referenced by <code>ntact_function_id_t</code> and dispatched through <code>ntact_activation</code>. Each entry also defines a weight-initialization range in <code>ntact_rand_range</code>. New activation functions are added here; see the dispatch tables below for the required pattern.</p>
-<dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor (Titux) </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2026 </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="">ntactivation.c</a>.</p>
@@ -210,19 +211,18 @@ Variables</h2></td></tr>
 <div class="line">    [<a class="code hl_enumvalue" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea77fdce3e4e42ff6088025c1d0a4a1140">NTACT_LRELU</a>]  = { lrelu   , lrelu_d   }</div>
 <div class="line"> </div>
 <div class="line">}</div>
-<div class="ttc" id="antactivation_8h_html_a371f27f3712ebe40d139d5dd2729237ea4366208224cf338feec50080be3863ca"><div class="ttname"><a href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea4366208224cf338feec50080be3863ca">NTACT_RELU</a></div><div class="ttdeci">@ NTACT_RELU</div><div class="ttdoc">Rectified Linear Unit activation function.</div><div class="ttdef"><b>Definition</b> ntactivation.h:26</div></div>
-<div class="ttc" id="antactivation_8h_html_a371f27f3712ebe40d139d5dd2729237ea4389b6d31de2d327aaa4c65d0f8e9322"><div class="ttname"><a href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea4389b6d31de2d327aaa4c65d0f8e9322">NTACT_SIGMOID</a></div><div class="ttdeci">@ NTACT_SIGMOID</div><div class="ttdoc">Sigmoid activation function.</div><div class="ttdef"><b>Definition</b> ntactivation.h:24</div></div>
-<div class="ttc" id="antactivation_8h_html_a371f27f3712ebe40d139d5dd2729237ea587a29efb246908053458f5ea4347b1d"><div class="ttname"><a href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea587a29efb246908053458f5ea4347b1d">NTACT_BOOLEAN</a></div><div class="ttdeci">@ NTACT_BOOLEAN</div><div class="ttdoc">Boolean step activation function.</div><div class="ttdef"><b>Definition</b> ntactivation.h:23</div></div>
-<div class="ttc" id="antactivation_8h_html_a371f27f3712ebe40d139d5dd2729237ea7592d2bab988a9e5c235460c3c387c6d"><div class="ttname"><a href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea7592d2bab988a9e5c235460c3c387c6d">NTACT_TANH</a></div><div class="ttdeci">@ NTACT_TANH</div><div class="ttdoc">Hyperbolic tangent activation function.</div><div class="ttdef"><b>Definition</b> ntactivation.h:25</div></div>
-<div class="ttc" id="antactivation_8h_html_a371f27f3712ebe40d139d5dd2729237ea77fdce3e4e42ff6088025c1d0a4a1140"><div class="ttname"><a href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea77fdce3e4e42ff6088025c1d0a4a1140">NTACT_LRELU</a></div><div class="ttdeci">@ NTACT_LRELU</div><div class="ttdoc">Leaky Rectified Linear Unit activation function.</div><div class="ttdef"><b>Definition</b> ntactivation.h:27</div></div>
+<div class="ttc" id="antactivation_8h_html_a371f27f3712ebe40d139d5dd2729237ea4366208224cf338feec50080be3863ca"><div class="ttname"><a href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea4366208224cf338feec50080be3863ca">NTACT_RELU</a></div><div class="ttdeci">@ NTACT_RELU</div><div class="ttdoc">Rectified Linear Unit activation function.</div><div class="ttdef"><b>Definition</b> ntactivation.h:29</div></div>
+<div class="ttc" id="antactivation_8h_html_a371f27f3712ebe40d139d5dd2729237ea4389b6d31de2d327aaa4c65d0f8e9322"><div class="ttname"><a href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea4389b6d31de2d327aaa4c65d0f8e9322">NTACT_SIGMOID</a></div><div class="ttdeci">@ NTACT_SIGMOID</div><div class="ttdoc">Sigmoid activation function.</div><div class="ttdef"><b>Definition</b> ntactivation.h:27</div></div>
+<div class="ttc" id="antactivation_8h_html_a371f27f3712ebe40d139d5dd2729237ea587a29efb246908053458f5ea4347b1d"><div class="ttname"><a href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea587a29efb246908053458f5ea4347b1d">NTACT_BOOLEAN</a></div><div class="ttdeci">@ NTACT_BOOLEAN</div><div class="ttdoc">Boolean step activation function.</div><div class="ttdef"><b>Definition</b> ntactivation.h:26</div></div>
+<div class="ttc" id="antactivation_8h_html_a371f27f3712ebe40d139d5dd2729237ea7592d2bab988a9e5c235460c3c387c6d"><div class="ttname"><a href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea7592d2bab988a9e5c235460c3c387c6d">NTACT_TANH</a></div><div class="ttdeci">@ NTACT_TANH</div><div class="ttdoc">Hyperbolic tangent activation function.</div><div class="ttdef"><b>Definition</b> ntactivation.h:28</div></div>
+<div class="ttc" id="antactivation_8h_html_a371f27f3712ebe40d139d5dd2729237ea77fdce3e4e42ff6088025c1d0a4a1140"><div class="ttname"><a href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea77fdce3e4e42ff6088025c1d0a4a1140">NTACT_LRELU</a></div><div class="ttdeci">@ NTACT_LRELU</div><div class="ttdoc">Leaky Rectified Linear Unit activation function.</div><div class="ttdef"><b>Definition</b> ntactivation.h:30</div></div>
 </div><!-- fragment -->
 <p>Activation function and derivative dispatch tables. </p>
 <p>Defines the mapping between activation identifiers and their associated execution functions. <br  />
  Indexing:</p><ul>
 <li>First index : activation identifier</li>
-<li>Second index : [0] activation [1] derivative</li>
+<li>Second index : [0] activation [1] derivative </li>
 </ul>
-<p>The table is initialized with the supported activation functions, and can be extended to include additional functions as needed. </p>
 
 <p class="reference">Referenced by <a class="el" href="#l00034">activate()</a>.</p>
 
@@ -249,10 +249,9 @@ Variables</h2></td></tr>
 <div class="line">}</div>
 </div><!-- fragment -->
 <p>Random initialization range table for activation functions. </p>
-<p>Defines the random initialization range for each activation function. Each row corresponds to an activation function (indexed by <code>ntact_function_id_t</code>), with the first column representing the minimum value and the second column representing the maximum value for weight initialization. These ranges are used in <code><a class="el" href="ntinitialize_8c.html#a0c2e77d2e0217cf512c8adb47097b485" title="Randomly initializes network weights.">randnet()</a></code> to keep initial weights within bounds appropriate for each activation function, which can help improve training performance and convergence.</p>
-<p>When a new activation function is added, its corresponding range must be added here as well. </p>
+<p>Defines the random initialization range for each activation function. Each row corresponds to an activation function (indexed by <code>ntact_function_id_t</code>), with the first column representing the minimum value and the second column representing the maximum value for weight initialization. These ranges are used in <code><a class="el" href="ntinitialize_8c.html#a0c2e77d2e0217cf512c8adb47097b485" title="Randomly initializes network weights and resets biases to zero.">randnet()</a></code> to keep initial weights within bounds appropriate for each activation function, which can help improve training performance and convergence. </p>
 
-<p class="reference">Referenced by <a class="el" href="#l00025">randnet()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00026">randnet()</a>.</p>
 
 </div>
 </div>

@@ -91,12 +91,11 @@ $(document).ready(function(){initNavTree('ntfile_8h.html',''); initResizable(); 
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">ntfile.h File Reference</div></div>
+  <div class="headertitle"><div class="title">ntfile.h File Reference<div class="ingroups"><a class="el" href="group__NTConstruction.html">Construction Algorithms</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Save and Load Files. <br  />
- <a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c</a>.  
+<p>Implementation of network saving and loading for NeuroTIC.    
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="">ntcore.h</a>&quot;</code><br />
@@ -105,7 +104,7 @@ Include dependency graph for ntfile.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="ntfile_8h__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntfile_8h" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntfile_8h" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntfile_8h">
-<area shape="rect" title="Save and Load Files. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c." alt="" coords="5,5,223,45"/>
+<area shape="rect" title="Implementation of network saving and loading for NeuroTIC." alt="" coords="5,5,223,45"/>
 <area shape="rect" title=" " alt="" coords="27,93,102,119"/>
 <area shape="poly" title=" " alt="" coords="104,47,81,83,77,80,100,44"/>
 <area shape="rect" href="ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="126,93,201,119"/>
@@ -119,7 +118,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="ntfile_8h__dep__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntfile_8hdep" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntfile_8hdep" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntfile_8hdep">
-<area shape="rect" title="Save and Load Files. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c." alt="" coords="261,5,479,45"/>
+<area shape="rect" title="Implementation of network saving and loading for NeuroTIC." alt="" coords="261,5,479,45"/>
 <area shape="rect" href="examples_2ntcomplete_8h.html" title=" " alt="" coords="5,93,249,133"/>
 <area shape="poly" title=" " alt="" coords="305,52,181,96,180,91,303,47"/>
 <area shape="rect" href="ntfile_8c.html" title="Implementation of network saving and loading for NeuroTIC." alt="" coords="274,93,466,133"/>
@@ -141,17 +140,16 @@ Functions</h2></td></tr>
 <tr class="separator:a6d9a2c308a9dade6a48444965925b030"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Save and Load Files. <br  />
- <a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c</a>. </p>
+<div class="textblock"><p>Implementation of network saving and loading for NeuroTIC.   </p>
+<p><a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c</a></p>
 <p>Provides functions to persist network structures and weights, allowing training to be stored and reloaded. <br  />
  The file format is binary with a custom structure, including endianness and floating-point representation handling for cross-platform compatibility. <br  />
  Currently, the implementation focuses on core data serialization and deserialization, with future plans for validation and standardization of loaded data.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd><p class="startdd">Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks. </p>
-<p class="interdd">Consider adding support for versioning in the file format to allow for future extensions and backward compatibility. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd><p class="startdd">Consider adding support for versioning in the file format to allow for future extensions and backward compatibility. </p>
 <p class="enddd">Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks.</p>
 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026   </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026  </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="">ntfile.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -184,17 +182,24 @@ Functions</h2></td></tr>
 <p>Loads a network from a binary file with extension .ntic. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">net</td><td>Pointer to a <a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> instance to populate with the loaded network. </td></tr>
     <tr><td class="paramname">name</td><td>Base filename (without extension) to load the network from. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The loaded network structure. If loading fails, returns an empty network.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success.</dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">1</td><td>the resulting filename (<code>name</code> + ".ntic") exceeds the internal buffer size. </td></tr>
+    <tr><td class="paramname">2</td><td>the file could not be opened for reading. </td></tr>
+    <tr><td class="paramname">3</td><td>the file's magic string or version byte does not match what this module writes. </td></tr>
+    <tr><td class="paramname">4</td><td>the network's base structure could not be built from the file's header data.</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Reconstructs the network structure, weights, biases, and buffer wiring from a binary file. <br  />
  The function reads the file header to validate the format and version, then proceeds to read the core network data while handling endianness and floating-point representation.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd><p class="startdd">Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks. </p>
-<p class="interdd">Consider adding support for versioning in the file format to allow for future extensions and backward compatibility. </p>
-<p class="enddd">Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks. </p>
-</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks. </dd></dl>
 
 <p class="reference">References <a class="el" href="#l00078">wiring_s::array_type</a>, <a class="el" href="#l00077">wiring_s::arrays</a>, <a class="el" href="#l00060">neuron_s::b</a>, <a class="el" href="#l00057">neuron_s::bff_idx</a>, <a class="el" href="#l00096">buildnet()</a>, <a class="el" href="#l00061">neuron_s::fn</a>, <a class="el" href="#l00056">neuron_s::inputs</a>, <a class="el" href="#l00100">net_s::inputs</a>, <a class="el" href="#l00101">net_s::layers</a>, <a class="el" href="#l00102">net_s::neurons</a>, <a class="el" href="#l00037">newnet()</a>, <a class="el" href="#l00104">net_s::nn</a>, <a class="el" href="#l00079">wiring_s::size</a>, <a class="el" href="#l00082">wiring_s::src_index</a>, <a class="el" href="#l00081">wiring_s::src_layer</a>, <a class="el" href="#l00080">wiring_s::src_type</a>, <a class="el" href="#l00059">neuron_s::w</a>, and <a class="el" href="#l00105">net_s::wiring</a>.</p>
 
@@ -234,7 +239,17 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>0 on success, non-zero on failure.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The size, in bytes, of the file written.</dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td><ul>
+<li>the resulting filename (<code>name</code> + ".ntic") exceeds the internal buffer size.</li>
+<li>the file could not be opened for writing.</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
 <p>Saves the network's layers, neurons, weights, biases, and buffer wiring to a binary file. <br  />
  The file is structured with a header containing a magic string and version byte, followed by the network's core data. <br  />
  The function handles endianness and floating-point representation to ensure cross-platform compatibility. <br  />
@@ -243,11 +258,7 @@ Functions</h2></td></tr>
  </p>
 <p class="interdd">Implement error handling for file operations, such as checking for write permissions and handling disk space issues. <br  />
  </p>
-<p class="interdd">Consider adding metadata to the file format, such as timestamps or training information, to provide more context when loading networks in the future. <br  />
- </p>
-<p class="interdd">Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks. <br  />
- </p>
-<p class="enddd">Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks. <br  />
+<p class="enddd">Consider adding metadata to the file format, such as timestamps or training information, to provide more context when loading networks in the future. <br  />
  </p>
 </dd></dl>
 

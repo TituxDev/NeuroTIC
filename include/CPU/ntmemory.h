@@ -1,6 +1,7 @@
 /**
  * @file ntmemory.h
- * @brief Memory Management Functions  
+ * @copybrief ntmemory.c
+ * 
  * @ref http://tituxdev.github.io/NeuroTIC/src/CPU/ntmemory.c
  * 
  * @copydetails ntmemory.c
@@ -10,7 +11,8 @@
 #define NTMEMORY_H
 
 /**
- * @brief Deletes a memory block from the tracking registry and frees it.
+ * @brief Frees every tracked memory block, for every owner, and empties
+ *        the tracking registry.
  */
 void cleanmemory( void );
 
@@ -18,7 +20,8 @@ void cleanmemory( void );
  * @brief Deletes a memory owner and all associated memory blocks.
  * 
  * @param owner Pointer to the memory owner to delete.
- * @return unsigned char 0 if successful, 1 if the owner is not found, 2 if memory allocation fails.
+ * @return 0 on success -- the owner was deleted, or was not tracked to
+ *         begin with.
  */
 unsigned char deleteowner( void *owner );
 
@@ -26,7 +29,8 @@ unsigned char deleteowner( void *owner );
  * @brief Creates a memory owner and registers it in the tracking system.
  * 
  * @param owner Pointer to the memory owner to create.
- * @return void* Pointer to the created memory owner, or NULL if creation fails.
+ * @return Pointer to the owner's tracking entry -- newly created, or the
+ *         existing one if `owner` was already tracked.
  */
 void *createowner( void *owner );
 
@@ -34,7 +38,7 @@ void *createowner( void *owner );
  * @brief Creates a memory register entry for a specific memory owner.
  * @param owner Pointer to the memory owner under which the memory block is registered.
  * @param mem Pointer to the memory block to register.
- * @return void* Pointer to the registered memory block.
+ * @return Pointer to the now-registered memory block.
  */
 void *createregister( void *owner , void *mem );
 

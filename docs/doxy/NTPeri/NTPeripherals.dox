@@ -10,10 +10,20 @@
  * A peripheral is characterized by the following properties:
  *
  * - It is functionally self-contained.
- * - It does not define or modify core execution semantics.
- * - It does not participate in network topology or neuron evaluation.
+ * - It has no compile-time dependency on ntcore.h or any of the core
+ *   structural types (net_s, neuron_s, wiring_s) -- it operates on
+ *   primitive data only.
+ * - It does not define or modify core execution semantics -- how and when
+ *   it gets used is decided entirely by the modules that consume it.
  * - It may be accessed publicly, but is typically consumed indirectly.
  * - It is replaceable without impacting the conceptual model of the system.
+ *
+ * Because a peripheral never depends on ntcore.h, it could in principle be
+ * built and linked as an independent unit (e.g. a dynamic library) without
+ * pulling in the rest of the framework. This also makes peripherals a
+ * natural place to swap implementations for constrained targets -- for
+ * example, a reduced activation-function set to shrink a binary built for
+ * storage-limited hardware.
  *
  * Peripheral modules exist to solve practical problems encountered during
  * development and experimentation, such as temporary resource management
@@ -21,9 +31,7 @@
  *
  * They are not considered architectural pillars of the framework.
  *
- * ---------------------------------------------------------------------------
- * Scope and stability
- * ---------------------------------------------------------------------------
+ * @section ntperi_scope Scope and stability
  *
  * Peripheral modules do not guarantee long-term interface stability.
  * Their behavior, implementation, or existence may change as the framework
@@ -31,20 +39,14 @@
  *
  * As such, user code should avoid depending directly on peripheral
  * implementations unless explicitly intended.
- *
- * ---------------------------------------------------------------------------
- * Current peripheral groups
- * ---------------------------------------------------------------------------
- *
- * The following peripheral subsystems are currently defined:
- *
- * - @ref NTMemory
- *   Auxiliary memory tracking utilities used during development.
- *
- * - @ref NTMath  
- *   Low-level mathematical operations supporting internal execution.
- *
- * Additional peripheral groups may be introduced in the future as
- * development needs arise.
- *
+ */
+
+/**
+ * @file ntmemory.h
+ * @ingroup NTPeripherals
+ */
+
+/**
+ * @file ntactivation.h
+ * @ingroup NTPeripherals
  */

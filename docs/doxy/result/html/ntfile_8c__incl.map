@@ -1,10 +1,10 @@
 <map id="/home/titux/DEV/NeuroTIC/NeuroTIC/src/CPU/ntfile.c" name="/home/titux/DEV/NeuroTIC/NeuroTIC/src/CPU/ntfile.c">
 <area shape="rect" id="Node000001" title="Implementation of network saving and loading for NeuroTIC." alt="" coords="323,5,515,45"/>
-<area shape="rect" id="Node000002" href="$ntfile_8h.html" title="Save and Load Files. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntfile.c." alt="" coords="8,93,75,119"/>
+<area shape="rect" id="Node000002" href="$ntfile_8h.html" title="Implementation of network saving and loading for NeuroTIC." alt="" coords="8,93,75,119"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="323,47,89,96,88,90,322,42"/>
-<area shape="rect" id="Node000006" href="$ntbuilder_8h.html" title="Construction Functions. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c." alt="" coords="99,93,189,119"/>
+<area shape="rect" id="Node000006" href="$ntbuilder_8h.html" title="Implementation of network construction functions." alt="" coords="99,93,189,119"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="354,48,198,92,197,87,352,43"/>
-<area shape="rect" id="Node000007" href="$ntmemory_8h.html" title="Memory Management Functions &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntmemory...." alt="" coords="214,93,314,119"/>
+<area shape="rect" id="Node000007" href="$ntmemory_8h.html" title="Implementation of memory management functions." alt="" coords="214,93,314,119"/>
 <area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="383,48,300,89,298,85,380,43"/>
 <area shape="rect" id="Node000008" title=" " alt="" coords="339,93,405,119"/>
 <area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="410,47,388,83,384,80,405,44"/>

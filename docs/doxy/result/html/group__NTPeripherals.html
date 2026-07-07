@@ -90,30 +90,21 @@ $(document).ready(function(){initNavTree('group__NTPeripherals.html',''); initRe
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a>  </div>
+<a href="#files">Files</a>  </div>
   <div class="headertitle"><div class="title">Peripheral modules</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Auxiliary subsystems supporting the NeuroTIC framework.  
 <a href="#details">More...</a></p>
-<div class="dynheader">
-Collaboration diagram for Peripheral modules:</div>
-<div class="dyncontent">
-<div class="center"><img src="group__NTPeripherals.png" border="0" usemap="#agroup____NTPeripherals" alt=""/></div>
-<map name="agroup____NTPeripherals" id="agroup____NTPeripherals">
-<area shape="rect" href="group__NTActivation.html" title="Implementation of various activation functions and their derivatives." alt="" coords="207,5,362,31"/>
-<area shape="rect" href="group__NTMemory.html" title=" " alt="" coords="201,55,368,80"/>
-<area shape="rect" title="Auxiliary subsystems supporting the NeuroTIC framework." alt="" coords="5,31,153,56"/>
-</map>
-</div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
-Modules</h2></td></tr>
-<tr class="memitem:group__NTActivation" id="r_group__NTActivation"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__NTActivation.html">Activation Functions</a></td></tr>
-<tr class="memdesc:group__NTActivation"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of various activation functions and their derivatives. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:ntmemory_8h" id="r_ntmemory_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntmemory_8h.html">ntmemory.h</a></td></tr>
+<tr class="memdesc:ntmemory_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of memory management functions.   <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:group__NTMemory" id="r_group__NTMemory"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__NTMemory.html">Memory Management</a></td></tr>
+<tr class="memitem:ntactivation_8h" id="r_ntactivation_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntactivation_8h.html">ntactivation.h</a></td></tr>
+<tr class="memdesc:ntactivation_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activation Functions List.   <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -122,28 +113,18 @@ Modules</h2></td></tr>
 <p>A peripheral is characterized by the following properties:</p>
 <ul>
 <li>It is functionally self-contained.</li>
-<li>It does not define or modify core execution semantics.</li>
-<li>It does not participate in network topology or neuron evaluation.</li>
+<li>It has no compile-time dependency on <a class="el" href="ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model.">ntcore.h</a> or any of the core structural types (<a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a>, <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a>, <a class="el" href="structwiring__s.html" title="Declarative descriptor of inter-layer input resolution.">wiring_s</a>) &ndash; it operates on primitive data only.</li>
+<li>It does not define or modify core execution semantics &ndash; how and when it gets used is decided entirely by the modules that consume it.</li>
 <li>It may be accessed publicly, but is typically consumed indirectly.</li>
 <li>It is replaceable without impacting the conceptual model of the system.</li>
 </ul>
+<p>Because a peripheral never depends on <a class="el" href="ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model.">ntcore.h</a>, it could in principle be built and linked as an independent unit (e.g. a dynamic library) without pulling in the rest of the framework. This also makes peripherals a natural place to swap implementations for constrained targets &ndash; for example, a reduced activation-function set to shrink a binary built for storage-limited hardware.</p>
 <p>Peripheral modules exist to solve practical problems encountered during development and experimentation, such as temporary resource management or reusable low-level operations.</p>
 <p>They are not considered architectural pillars of the framework.</p>
-<hr  />
- <h2><a class="anchor" id="scope-and-stability"></a>
-Scope and stability</h2>
+<h1><a class="anchor" id="ntperi_scope"></a>
+Scope and stability</h1>
 <p>Peripheral modules do not guarantee long-term interface stability. Their behavior, implementation, or existence may change as the framework evolves or more capable subsystems are introduced.</p>
-<p>As such, user code should avoid depending directly on peripheral implementations unless explicitly intended.</p>
-<hr  />
- <h2><a class="anchor" id="current-peripheral-groups"></a>
-Current peripheral groups</h2>
-<p>The following peripheral subsystems are currently defined:</p>
-<ul>
-<li><a class="el" href="group__NTMemory.html">Memory Management</a> Auxiliary memory tracking utilities used during development.</li>
-<li>NTMath <br  />
- Low-level mathematical operations supporting internal execution.</li>
-</ul>
-<p>Additional peripheral groups may be introduced in the future as development needs arise. </p>
+<p>As such, user code should avoid depending directly on peripheral implementations unless explicitly intended. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

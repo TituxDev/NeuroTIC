@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['peripheral_20modules_0',['Peripheral modules',['../group__NTPeripherals.html',1,'']]]
+  ['solurions_0',['Workflow Solurions',['../group__NTErgonomics.html',1,'']]]
 ];

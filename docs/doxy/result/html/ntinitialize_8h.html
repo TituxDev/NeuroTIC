@@ -91,12 +91,11 @@ $(document).ready(function(){initNavTree('ntinitialize_8h.html',''); initResizab
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">ntinitialize.h File Reference</div></div>
+  <div class="headertitle"><div class="title">ntinitialize.h File Reference<div class="ingroups"><a class="el" href="group__NTConstruction.html">Construction Algorithms</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Random Initialization. <br  />
- <a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntinitialize.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntinitialize.c</a>.  
+<p>Implementation Random Initialization.    
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="">ntcore.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -104,7 +103,7 @@ Include dependency graph for ntinitialize.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="ntinitialize_8h__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntinitialize_8h" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntinitialize_8h" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntinitialize_8h">
-<area shape="rect" title="Random Initialization. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntinitialize.c." alt="" coords="5,5,259,45"/>
+<area shape="rect" title="Implementation Random Initialization." alt="" coords="5,5,259,45"/>
 <area shape="rect" href="ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="95,93,169,119"/>
 <area shape="poly" title=" " alt="" coords="135,46,135,79,129,79,129,46"/>
 <area shape="rect" title=" " alt="" coords="97,167,167,192"/>
@@ -116,7 +115,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="ntinitialize_8h__dep__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntinitialize_8hdep" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntinitialize_8hdep" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2include_2CPU_2ntinitialize_8hdep">
-<area shape="rect" title="Random Initialization. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntinitialize.c." alt="" coords="379,5,633,45"/>
+<area shape="rect" title="Implementation Random Initialization." alt="" coords="379,5,633,45"/>
 <area shape="rect" href="examples_2ntcomplete_8h.html" title=" " alt="" coords="5,93,249,133"/>
 <area shape="poly" title=" " alt="" coords="410,51,211,96,210,91,409,46"/>
 <area shape="rect" href="ntinitialize_8c.html" title="Implementation Random Initialization." alt="" coords="274,93,498,133"/>
@@ -133,16 +132,16 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a0c2e77d2e0217cf512c8adb47097b485" id="r_a0c2e77d2e0217cf512c8adb47097b485"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntinitialize_8h.html#a0c2e77d2e0217cf512c8adb47097b485">randnet</a> (<a class="el" href="structnet__s.html">net_s</a> *net)</td></tr>
-<tr class="memdesc:a0c2e77d2e0217cf512c8adb47097b485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Randomly initializes network weights.  <br /></td></tr>
+<tr class="memdesc:a0c2e77d2e0217cf512c8adb47097b485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Randomly initializes network weights and resets biases to zero.  <br /></td></tr>
 <tr class="separator:a0c2e77d2e0217cf512c8adb47097b485"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Random Initialization. <br  />
- <a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntinitialize.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntinitialize.c</a>. </p>
+<div class="textblock"><p>Implementation Random Initialization.   </p>
+<p><a href="http://tituxdev.github.io/NeuroTIC/src/CPU/ntinitialize.c">http://tituxdev.github.io/NeuroTIC/src/CPU/ntinitialize.c</a></p>
 <p>Initializes all neuron weights within their activation function's specified range and sets biases to zero. <br  />
  Uses <code>rand()</code> seeded with the current time.</p>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026   </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026  </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="">ntinitialize.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -162,18 +161,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Randomly initializes network weights. </p>
+<p>Randomly initializes network weights and resets biases to zero. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">net</td><td>Pointer to the network to initialize.</td></tr>
+    <tr><td class="paramname">net</td><td>Pointer to a <a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> instance whose base structure has already been built.</td></tr>
   </table>
   </dd>
 </dl>
-<p>Iterates through each layer and neuron in the network, assigning random weights based on the activation function's defined range in <code>ntact_rand_range</code>. <br  />
- Biases are set to zero for all neurons. <br  />
- The random values are generated using the standard <code>rand()</code> function, scaled to the appropriate range for each activation function. </p>
+<p>Iterates through every neuron in the network, assigning each of its weights a value drawn from <code>rand()</code> and linearly scaled into the range defined for that neuron's activation function in <code>ntact_rand_range</code>. Biases are set to zero for all neurons. </p>
 
-<p class="reference">References <a class="el" href="#l00060">neuron_s::b</a>, <a class="el" href="#l00061">neuron_s::fn</a>, <a class="el" href="#l00056">neuron_s::inputs</a>, <a class="el" href="#l00101">net_s::layers</a>, <a class="el" href="#l00102">net_s::neurons</a>, <a class="el" href="#l00104">net_s::nn</a>, <a class="el" href="#l00115">ntact_rand_range</a>, and <a class="el" href="#l00059">neuron_s::w</a>.</p>
+<p class="reference">References <a class="el" href="#l00060">neuron_s::b</a>, <a class="el" href="#l00061">neuron_s::fn</a>, <a class="el" href="#l00056">neuron_s::inputs</a>, <a class="el" href="#l00101">net_s::layers</a>, <a class="el" href="#l00102">net_s::neurons</a>, <a class="el" href="#l00104">net_s::nn</a>, <a class="el" href="#l00113">ntact_rand_range</a>, and <a class="el" href="#l00059">neuron_s::w</a>.</p>
 
 </div>
 </div>

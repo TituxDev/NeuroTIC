@@ -5,7 +5,7 @@
  * Provides functions for tracking dynamically allocated memory blocks and ensuring they are freed at program termination.  
  * Uses a dynamic registry to store pointers to allocated memory, and registers a cleanup function with `atexit()` to automatically free all tracked memory when the program exits.
  * 
- * @author Oscar Sotomayor.
+ * @author Oscar Sotomayor
  * @date 2026
  */
 
@@ -17,9 +17,12 @@
 
 /**
  * @details
- * This structure is used to associate memory blocks with their respective owners (e.g., modules or components within the NeuroTIC system).
- * Each `mem_format` instance contains a pointer to the owner, a dynamic array of pointers to registered memory blocks, and a counter for the number of registered blocks.  
- * The `mem_tracker` is a dynamic array of `mem_format` structures that allows for efficient tracking and management of memory ownership and associated memory blocks throughout the lifecycle of the program.
+ * Associates the set of memory blocks tracked under `mem_register` with
+ * the owner that requested them (typically a net_s instance), so every
+ * block belonging to that owner can be located and freed together.
+ *
+ * `mem_tracker` is the array of every currently tracked owner -- `NULL`
+ * exactly when the global @ref mem_track "mem_track" count is zero.
  */
 struct mem_format{
     void    *mem_owner;     /**< Pointer to the owner of the memory block. */
@@ -30,37 +33,43 @@ struct mem_format{
 
 /**
  * @details
- * Increases as new memory owners are created and memory blocks are registered under those owners.
- * Decreases as memory owners are deleted and their associated memory blocks are freed.
- * This counter is essential for managing the dynamic array of `mem_format` structures, ensuring that memory ownership and tracking are accurately maintained throughout the lifecycle of the program.
- * 
- * @warning
- * This counter must be carefully managed to prevent memory leaks or dangling pointers.
+ * The number of currently tracked owners -- not to be confused with the
+ * per-owner `mem_format::mem_track` field, which counts memory blocks
+ * registered under a single owner. Increases by one each time
+ * createowner() tracks a new owner; decreases by one each time
+ * deleteowner() removes one.
  */
 size_t mem_track= 0;
 
+
 /**
  * @param key Pointer to the memory owner to match.
- * @param element Pointer to the memory format element being compared.
- * @retval 0 if the owner matches the element's memory owner, non-zero otherwise.
- * @retval 1 if the provided key is NULL, or if the element's memory owner is NULL.
- * 
+ * @param element Pointer to the mem_format element being compared.
+ * @retval 0 `*key` equals `element`'s `mem_owner` (match found).
+ * @retval 1 `*key` differs from `element`'s `mem_owner` -- this includes
+ *           the case where either (or both) is NULL, since NULL is
+ *           treated as an ordinary pointer value here.
+ *
  * @details
- * This function is used as a comparison function for searching the `mem_tracker` array to find the index of a specific memory owner.  
- * It compares the provided key (memory owner) with the `mem_owner` field of the memory format element.  
- * A return value of 0 indicates a match (i.e., the owner is found), while a non-zero return value indicates that the owner does not match the element being compared.  
- * This function is essential for managing memory ownership and ensuring that memory blocks are correctly associated with their respective owners in the tracking system.
+ * Comparison callback for `lfind()`, used to locate a specific owner
+ * within the `mem_tracker` array. Compares `*key` against the `mem_owner`
+ * field of each element via plain pointer equality.
  */
 int match_owner( const void *key , const void *element){
     return *(void **)key != ((struct mem_format *)element)->mem_owner;
 }
 
 /**
+ * @param key Pointer to the memory block pointer to match.
+ * @param element Pointer to the registered block being compared.
+ * @retval 0 `*key` equals `*element` (match found).
+ * @retval 1 `*key` differs from `*element`.
+ *
  * @details
- * This function is used as a comparison function for searching the `mem_tracker` array to find the index of a specific memory register entry.  
- * It compares the provided key (memory register entry) with the `mem_register` field of the memory format element.  
- * A return value of 0 indicates a match (i.e., the register entry is found), while a non-zero return value indicates that the register entry does not match the element being compared.  
- * This function is essential for managing memory ownership and ensuring that memory blocks are correctly associated with their respective owners in the tracking system.
+ * Comparison callback for `lfind()`, used to locate a specific memory
+ * block within one owner's `mem_register` array. Unlike match_owner(),
+ * both `key` and `element` here are treated as a single registered
+ * `void *` block -- no `mem_format` element is involved.
  */
 int match_register( const void *key , const void *element){
     return *(void **)key != *(void **)element;
@@ -68,17 +77,21 @@ int match_register( const void *key , const void *element){
 
 /**
  * @details
- * Iterates through the `mem_tracker` array and frees all memory blocks registered under each memory owner.  
- * After freeing the memory blocks, it also frees the memory register and resets the tracking information for each owner.  
- * Finally, it frees the entire `mem_tracker` array and resets the tracking counter.  
- * This function is registered with `atexit()` to ensure that all tracked memory is automatically freed when the program exits, preventing memory leaks and ensuring proper cleanup of resources.  
- * It is important to note that this function should not be called manually, as it is designed to be invoked automatically.
+ * Frees every memory block registered under every tracked owner, then
+ * frees each owner's register and the `mem_tracker` array itself,
+ * resetting `mem_track` to zero.
+ *
  * @warning
- * This function should not be called manually, as it is designed to be invoked automatically at program termination. Calling it manually may lead to unintended consequences, such as double freeing memory or leaving dangling pointers if the tracking system is still in use.
+ * Not meant to be called manually -- it is registered with `atexit()` (by
+ * createowner(), the first time it runs) so that all tracked memory is
+ * freed automatically when the program exits. Calling it while the
+ * tracking system is still in use may cause double frees or dangling
+ * pointers.
  * @attention
- * This function assumes that all memory blocks registered in the tracking system were allocated using `malloc()` or similar functions and can be safely freed.
+ * Assumes every registered block was allocated with `malloc()` or a
+ * compatible allocator (e.g. `calloc()`), and can be safely freed.
  * @see
- * deleteowner() for deleting a specific memory owner and its associated memory blocks.
+ * deleteowner() to remove a single owner instead of everything.
  */
 void cleanmemory( void ){
     if( mem_tracker ){
@@ -101,17 +114,23 @@ void cleanmemory( void ){
 }
 
 /**
- * @param owner Pointer to the memory owner to delete.
- * @retval 0 Success, owner not found.
- * @retval 1 owner parameter is NULL.
- * @retval 2 register allocation failed
- * 
+ * @retval 1 `owner` is NULL.
+ * @retval 2 the compacted tracker array could not be allocated (only
+ *           reachable when 2 or more owners are tracked).
+ *
  * @details
- * This function deletes a specific memory owner and all associated memory blocks from the tracking system.  
- * It first checks if the provided owner pointer is valid, then searches for the owner in the `mem_tracker` array. If the owner is found, it frees all memory blocks registered under that owner, frees the memory register, and removes the owner from the tracking system.  
- * The function returns 0 if the deletion is successful, 1 if the owner is not found, and 2 if memory allocation fails during the process.
- * @see
- * If is the last register in mem_tracker, cleanmemory() is called.
+ * Deletes `owner` and every memory block registered under it.
+ *
+ * When two or more owners are tracked, searches for `owner` and, if
+ * found, frees its registered blocks and compacts the remaining owners
+ * into a freshly allocated array.
+ *
+ * When at most one owner is tracked, deleting the sole remaining owner
+ * (if `owner` matches it) is equivalent to clearing the entire tracking
+ * system, so cleanmemory() is called directly instead of shrinking an
+ * array down to zero elements.
+ *
+ * If `owner` is not currently tracked, nothing is deleted.
  */
 unsigned char deleteowner( void *owner ){
     if( !( owner ) ) return 1;
@@ -136,19 +155,17 @@ unsigned char deleteowner( void *owner ){
             mem_tracker= tmp;
             tmp= NULL;
         }
-    } else cleanmemory( );
+    } else if( mem_tracker && lfind( &owner , mem_tracker , &mem_track , sizeof( struct mem_format ) , match_owner ) ) cleanmemory( );
     return 0;
 }
 
 /**
- * @retval NULL if the provided owner pointer is NULL, or if memory allocation fails during the creation of a new memory owner.
- * @retval Pointer to the created memory owner if successful, or a pointer to the existing owner if it already exists in the tracking system.
- * 
+ * @retval NULL `owner` is NULL, or the tracker array could not be grown.
+ *
  * @details
- * This function creates a new memory owner and registers it in the tracking system.  
- * If the owner already exists, it returns a pointer to the existing owner.  
- * The function ensures that each memory owner is uniquely tracked within the system.
- * If the provided owner pointer is NULL, the function returns NULL without creating a new owner.
+ * Finds `owner` in the tracking system, or creates it if not already
+ * present. The first time this function runs, it also registers
+ * cleanmemory() with `atexit()`.
  */
 void *createowner( void *owner ){
     if( !owner ) return owner;
@@ -173,19 +190,22 @@ void *createowner( void *owner ){
 }
 
 /**
- * @retval void* Pointer to the registered memory block.
- * @retval NULL if the provided owner block pointer is NULL.
- * @retval owner pointer if mem is NULL
- * 
+ * @retval NULL
+ *  - `mem` is NULL.
+ *  - `owner` is non-NULL but the internal owner or register table could
+ *    not be grown (allocation failure).
+ *
+ * @note
+ * If `owner` is NULL and `mem` is non-NULL, `mem` itself is returned
+ * unchanged -- but it is neither registered nor freed in that case; the
+ * caller remains responsible for it.
+ *
  * @details
- * Search  for te existence of the provided memory owner in the tracking system.
- * If the owner does not exists:
- * - Increases the size of regisgter table.
- * - Creates a new memory owner and registers it in the tracking system.
- * If the owner exists:
- * - Search for the existence of the provided memory block in the owner's register.
- * - If the memory block does not exist, it is added to the owner's register.
- * - If the memory block already exists, a pointer to the existing block is returned.
+ * Ensures `owner` is tracked (creating it via createowner() if needed),
+ * then registers `mem` under that owner if it is not already present,
+ * growing the owner's block registry by one slot. If `mem` was already
+ * registered under this owner, it is returned unchanged without growing
+ * the registry.
  */
 void *createregister( void *owner, void *mem ){
     if( !( owner && mem ) ) return owner ? mem : owner;

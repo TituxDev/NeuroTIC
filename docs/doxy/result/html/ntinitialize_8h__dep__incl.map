@@ -1,5 +1,5 @@
 <map id="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntinitialize.h" name="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntinitialize.h">
-<area shape="rect" id="Node000001" title="Random Initialization. &#160;&#160;http://tituxdev.github.io/NeuroTIC/src/CPU/ntinitialize.c." alt="" coords="379,5,633,45"/>
+<area shape="rect" id="Node000001" title="Implementation Random Initialization." alt="" coords="379,5,633,45"/>
 <area shape="rect" id="Node000002" href="$examples_2ntcomplete_8h.html" title=" " alt="" coords="5,93,249,133"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="410,51,211,96,210,91,409,46"/>
 <area shape="rect" id="Node000003" href="$ntinitialize_8c.html" title="Implementation Random Initialization." alt="" coords="274,93,498,133"/>

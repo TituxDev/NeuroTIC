@@ -1,6 +1,7 @@
 /**
  * @file ntbuilder.h
- * @brief Construction Functions.  
+ * @copybrief ntbuilder.c
+ * 
  * @ref http://tituxdev.github.io/NeuroTIC/src/CPU/ntbuilder.c
  *
  * @copydetails ntbuilder.c

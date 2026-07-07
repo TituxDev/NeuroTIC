@@ -25,8 +25,7 @@ var searchData=
   ['create_20a_20new_20project_22',['Create a New Project',['../index.html#create-a-new-project',1,'']]],
   ['create_5fnet_5ffeedforward_23',['CREATE_NET_FEEDFORWARD',['../ntbuilder_8h.html#ac4ca47bc0d692b1d915cdc405f21cd85',1,'ntbuilder.h']]],
   ['createowner_24',['createowner',['../ntmemory_8c.html#a97df97b8ef19f4026d2e0a41e60864a7',1,'createowner(void *owner):&#160;ntmemory.c'],['../ntmemory_8h.html#a97df97b8ef19f4026d2e0a41e60864a7',1,'createowner(void *owner):&#160;ntmemory.c']]],
-  ['createregister_25',['createregister',['../ntmemory_8c.html#a274c39fca63b8d779b7b813535188be2',1,'createregister(void *owner, void *mem):&#160;ntmemory.c'],['../ntmemory_8h.html#a274c39fca63b8d779b7b813535188be2',1,'createregister(void *owner, void *mem):&#160;ntmemory.c']]],
-  ['current_20peripheral_20groups_26',['Current peripheral groups',['../group__NTPeripherals.html#current-peripheral-groups',1,'']]],
-  ['current_20release_20v1_200_27',['Current Release (v1.0)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#current-release-v10',1,'']]],
-  ['currently_20available_28',['Currently Available',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#currently-available',1,'']]]
+  ['createregister_25',['createregister',['../ntmemory_8h.html#a274c39fca63b8d779b7b813535188be2',1,'createregister(void *owner, void *mem):&#160;ntmemory.c'],['../ntmemory_8c.html#a274c39fca63b8d779b7b813535188be2',1,'createregister(void *owner, void *mem):&#160;ntmemory.c']]],
+  ['current_20release_20v1_200_26',['Current Release (v1.0)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#current-release-v10',1,'']]],
+  ['currently_20available_27',['Currently Available',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#currently-available',1,'']]]
 ];

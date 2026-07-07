@@ -1,7 +1,6 @@
 /**
  * @file ntactivation.c
  * @brief Activation Functions List.
- * @ref http://tituxdev.github.io/NeuroTIC/src/CPU/ntactivation.c
  *
  * @details
  * Implements the activation functions and derivatives referenced by
@@ -10,7 +9,7 @@
  * New activation functions are added here; see the dispatch tables below
  * for the required pattern.
  *
- * @author Oscar Sotomayor (Titux)
+ * @author Oscar Sotomayor
  * @date 2026
  */
 
@@ -26,12 +25,16 @@
  * The functions are designed to be efficient and suitable for use in the forward and backward passes of neural network training.
  * Derivative functions are implemented to return non-zero values to avoid zero-gradient behavior during training.
  *
+ * Both a function and its derivative expect the same input: the
+ * pre-activation value (e.g. the weighted sum before activation), never
+ * the already-activated output.
+ *
  * The set of supported activation functions is defined by `ntact_function_id_t` and may grow over time.
  * New entries follow the same pattern: implement the function and its derivative here, then register both
  * in the `ntact_activation` dispatch table and their corresponding range in `ntact_rand_range`.
  *
- * @param x
- * @return float
+ * @param x The pre-activation input value.
+ * @return The activation output, or its derivative, evaluated at x.
  *
  * @code{.c}
  */
@@ -89,8 +92,6 @@ static float lrelu_d( float x ){
  * - First index  : activation identifier
  * - Second index : [0] activation
  *                  [1] derivative
- * 
- * The table is initialized with the supported activation functions, and can be extended to include additional functions as needed.
  */
 float ( *ntact_activation[NTACT_TOTAL_FUNCTIONS][2] )( float )={
     [NTACT_BOOLEAN]= { boolean , boolean_d },
@@ -108,9 +109,6 @@ float ( *ntact_activation[NTACT_TOTAL_FUNCTIONS][2] )( float )={
  * column representing the minimum value and the second column representing the maximum value for
  * weight initialization. These ranges are used in `randnet()` to keep initial weights within bounds
  * appropriate for each activation function, which can help improve training performance and convergence.
- *
- * When a new activation function is added, its corresponding range must be added here as well.
- *
  */
 float ntact_rand_range[NTACT_TOTAL_FUNCTIONS][2]={
     [NTACT_BOOLEAN]= { -1.0f , 1.0f },

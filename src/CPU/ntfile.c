@@ -6,7 +6,6 @@
  * The file format is binary with a custom structure, including endianness and floating-point representation handling for cross-platform compatibility.  
  * Currently, the implementation focuses on core data serialization and deserialization, with future plans for validation and standardization of loaded data.
  * 
- * @todo Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks.
  * @todo Consider adding support for versioning in the file format to allow for future extensions and backward compatibility.
  * @todo Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks.
  * 
@@ -101,6 +100,10 @@ float floatsys( int32_t x , uint8_t ieee754 ){
 /** @endcode */
 
 /**
+ * @retval 0
+ *  - the resulting filename (`name` + ".ntic") exceeds the internal buffer size.
+ *  - the file could not be opened for writing.
+ *
  * @details
  * Saves the network's layers, neurons, weights, biases, and buffer wiring to a binary file.  
  * The file is structured with a header containing a magic string and version byte, followed by the network's core data.  
@@ -109,8 +112,6 @@ float floatsys( int32_t x , uint8_t ieee754 ){
  * @todo Add validation checks for the input network structure before attempting to save, ensuring that all necessary data is present and correctly formatted.  
  * @todo Implement error handling for file operations, such as checking for write permissions and handling disk space issues.  
  * @todo Consider adding metadata to the file format, such as timestamps or training information, to provide more context when loading networks in the future.  
- * @todo Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks.  
- * @todo Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks.  
  */
 size_t savenet( net_s * net , const char *name ){
     uint8_t little_endian= checkendian( ) , ieee754= isieee754( );
@@ -167,58 +168,73 @@ size_t savenet( net_s * net , const char *name ){
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-result"
+
 /**
+ * @retval 1 the resulting filename (`name` + ".ntic") exceeds the internal buffer size.
+ * @retval 2 the file could not be opened for reading.
+ * @retval 3 the file's magic string or version byte does not match what this module writes.
+ * @retval 4 the network's base structure could not be built from the file's header data.
+ *
  * @details
  * Reconstructs the network structure, weights, biases, and buffer wiring from a binary file.  
  * The function reads the file header to validate the format and version, then proceeds to read the core network data while handling endianness and floating-point representation.
  * 
  * @todo Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks.
- * @todo Consider adding support for versioning in the file format to allow for future extensions and backward compatibility.
- * @todo Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks.
  */
 size_t loadnet( net_s *net , const char *name ){
+    size_t err_val= 0;
+    FILE *fp= NULL;
+    uint16_t *neurons= NULL;
     uint8_t little_endian= !checkendian( ) , ieee754= isieee754( );
     char NAME[ NAME_LENGTH ];
-    if( snprintf( NAME , sizeof( NAME ) , "%s%s" , name , ".ntic" ) >= ( int )sizeof( NAME ) ) return 1;
-    FILE *fp= fopen( NAME , "rb" );
-    if( fp == NULL ) return 2;
+    if( snprintf( NAME , sizeof( NAME ) , "%s%s" , name , ".ntic" ) >= ( int )sizeof( NAME ) ){
+        err_val= 1;
+        goto EXIT;
+    }
+    fp= fopen( NAME , "rb" );
+    if( fp == NULL ){
+        err_val= 2;
+        goto EXIT;
+    }
     char magic[sizeof( MAGIC )];
     fread( magic , sizeof( char ) , sizeof( magic ) , fp );
-    if( strncmp( magic , MAGIC , sizeof( MAGIC ) - 1 ) || magic[sizeof( magic ) - 1] != VERSION ) return 3;
+    if( strncmp( magic , MAGIC , sizeof( MAGIC ) - 1 ) || magic[sizeof( magic ) - 1] != VERSION ){
+        err_val= 3;
+        goto EXIT;
+    }
     fread( &net->inputs , sizeof( uint32_t ) , 1 , fp );
     if( little_endian ) net->inputs= bswap32( net->inputs );
     fread( &net->layers , sizeof( uint16_t ) , 1 , fp );
     if( little_endian ) net->layers= bswap16( net->layers );
-    uint16_t *neurons;
-    neurons= malloc( net->layers * sizeof( uint16_t ) );
+    neurons= calloc( net->layers , sizeof( uint16_t ) );
     fread( neurons , sizeof( uint16_t ) , net->layers , fp );
     if( little_endian ) for( uint16_t i= 0 ; i < net->layers ; i++ ) neurons[i]= bswap16( neurons[i] );
-    newnet( net , neurons , net->layers );
-    free( neurons );
+    if( !newnet( net , neurons , net->layers ) ){
+        err_val= 4;
+        goto EXIT;
+    }
     for( uint16_t i= 0 ; i < net->layers ; i ++ ) for( uint16_t j= 0 ; j < net->neurons[i] ; j++ ){
         fread( &net->nn[i][j].inputs , sizeof( uint32_t ) , 1 , fp );
         if( little_endian ) net->nn[i][j].inputs= bswap32( net->nn[i][j].inputs );
         fread( &net->nn[i][j].bff_idx , sizeof( index_t ) , 1 , fp );
     }
     if( net->layers > 1 ){
-        net->wiring= createregister( net , malloc( ( net->layers - 1 ) * sizeof( wiring_s ) ) );
         for( uint16_t i= 0 ; i < net->layers - 1 ; i++ ){
             fread( &net->wiring[i].arrays , sizeof( index_t ) , 1 , fp );
-            if( little_endian ) net->wiring[i].arrays= bswap16( net->wiring[i].arrays );
-            net->wiring[i].array_type= createregister( net , malloc( net->wiring[i].arrays * sizeof( uint8_t ) ) );
-            net->wiring[i].size= createregister( net , malloc( net->wiring[i].arrays * sizeof( uint32_t ) ) );
-            net->wiring[i].src_type= createregister( net , malloc( net->wiring[i].arrays * sizeof( uint8_t * ) ) );
-            net->wiring[i].src_layer= createregister( net , malloc( net->wiring[i].arrays * sizeof( uint16_t * ) ) );
-            net->wiring[i].src_index= createregister( net , malloc( net->wiring[i].arrays * sizeof( uint16_t * ) ) );
+            net->wiring[i].array_type= createregister( net , calloc( net->wiring[i].arrays , sizeof( uint8_t ) ) );
+            net->wiring[i].size= createregister( net , calloc( net->wiring[i].arrays , sizeof( uint32_t ) ) );
+            net->wiring[i].src_type= createregister( net , calloc( net->wiring[i].arrays , sizeof( uint8_t * ) ) );
+            net->wiring[i].src_layer= createregister( net , calloc( net->wiring[i].arrays , sizeof( uint16_t * ) ) );
+            net->wiring[i].src_index= createregister( net , calloc( net->wiring[i].arrays , sizeof( uint16_t * ) ) );
             for( uint16_t j= 0 ; j < net->wiring[i].arrays ; j++ ){
                 fread( &net->wiring[i].array_type[j] , sizeof( uint8_t ) , 1 , fp );
                 switch( net->wiring[i].array_type[j] ){
                     case 'M':
                         fread( &net->wiring[i].size[j] , sizeof( uint32_t ) , 1 , fp );
                         if( little_endian ) net->wiring[i].size[j]= bswap32( net->wiring[i].size[j] );
-                        net->wiring[i].src_type[j]= createregister( net , malloc( net->wiring[i].size[j] * sizeof( uint8_t ) ) );
-                        net->wiring[i].src_layer[j]= createregister( net , malloc( net->wiring[i].size[j] * sizeof( uint16_t ) ) );
-                        net->wiring[i].src_index[j]= createregister( net , malloc( net->wiring[i].size[j] * sizeof( uint16_t ) ) );
+                        net->wiring[i].src_type[j]= createregister( net , calloc( net->wiring[i].size[j] , sizeof( uint8_t ) ) );
+                        net->wiring[i].src_layer[j]= createregister( net , calloc( net->wiring[i].size[j] , sizeof( uint16_t ) ) );
+                        net->wiring[i].src_index[j]= createregister( net , calloc( net->wiring[i].size[j] , sizeof( uint16_t ) ) );
                         for( uint32_t k= 0 ; k < net->wiring[i].size[j] ; k++ ){
                             fread( &net->wiring[i].src_type[j][k] , sizeof( uint8_t ) , 1 , fp );
                             switch( net->wiring[i].src_type[j][k] ){
@@ -236,9 +252,9 @@ size_t loadnet( net_s *net , const char *name ){
                         }
                         break;
                     case 'N':
-                        net->wiring[i].src_type[j]= createregister( net , malloc( sizeof( uint8_t ) ) );
-                        net->wiring[i].src_layer[j]= createregister( net , malloc( sizeof( uint16_t ) ) );
-                        net->wiring[i].src_index[j]= createregister( net , malloc( sizeof( uint16_t ) ) );
+                        net->wiring[i].src_type[j]= createregister( net , calloc( sizeof( uint8_t ) , 1 ) );
+                        net->wiring[i].src_layer[j]= createregister( net , calloc( sizeof( uint16_t ) , 1 ) );
+                        net->wiring[i].src_index[j]= createregister( net , calloc( sizeof( uint16_t ) , 1 ) );
                         fread( &net->wiring[i].src_layer[j][0] , sizeof( uint16_t ) , 1 , fp );
                         if( little_endian ) net->wiring[i].src_layer[j][0]= bswap16( net->wiring[i].src_layer[j][0] );
                         fread( &net->wiring[i].src_index[j][0] , sizeof( uint16_t ) , 1 , fp );
@@ -261,7 +277,9 @@ size_t loadnet( net_s *net , const char *name ){
             net->nn[i][j].w[k]= floatsys( aux , ieee754 );
         }
     }
-    fclose( fp );
-    return 0;
+    EXIT:
+    if( neurons ) free( neurons );
+    if( fp ) fclose( fp );
+    return err_val;
 }
 #pragma GCC diagnostic pop

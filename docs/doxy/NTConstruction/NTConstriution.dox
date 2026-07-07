@@ -1,0 +1,38 @@
+/**
+ * @defgroup NTConstruction  Construction Algorithms
+ * @brief Every action required to take a net_s instance from an empty
+ *        declaration to one ready for execution or training.
+ *
+ * @details
+ * NTConstruction spans every path that ends in a fully built network: raw
+ * structural allocation, wiring a topology by hand or from a predefined
+ * pattern, resolving that wiring into usable buffers, assigning starting
+ * weight values, and reconstructing a previously saved network from disk.
+ * None of it overlaps with what happens once a network is actually put to
+ * work -- that begins only after every one of these steps has finished.
+ */
+
+/**
+ * @file ntbuilder.h
+ * @ingroup NTConstruction
+ */
+
+/**
+ * @file ntfeedforward.h
+ * @ingroup NTConstruction
+ */
+
+/**
+ * @file ntinitialize.h
+ * @ingroup NTConstruction
+ */
+
+/**
+ * @file ntfile.h
+ * @ingroup NTConstruction
+ */
+
+/**
+ * @file ntdefinition.h
+ * @ingroup NTConstruction
+ */
