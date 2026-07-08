@@ -1,10 +1,23 @@
 var searchData=
 [
-  ['b_0',['b',['../structneuron__s.html#ae239907b17a7ffc03e88e7cca6cccf7e',1,'neuron_s']]],
-  ['backends_1',['Computational Backends',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#computational-backends',1,'']]],
-  ['backpropagation_2',['backpropagation',['../nttrain_8c.html#a0f03f18a558e71a45909bef6258c2aec',1,'backpropagation(net_s *net, traindata_t *train_data):&#160;nttrain.c'],['../nttrain_8h.html#a891be5db9db4f4369bca8558d3cd212a',1,'backpropagation(net_s *net, traindata_t *data):&#160;nttrain.c']]],
-  ['bff_3',['bff',['../structnet__s.html#a2e7c3c0f579dc558fe5ccf2f7ead3eb6',1,'net_s']]],
-  ['bff_5fidx_4',['bff_idx',['../structneuron__s.html#a3e6523ab54cd8fbc812a629681bef291',1,'neuron_s']]],
-  ['buildnet_5',['buildnet',['../ntbuilder_8c.html#aaaecf1ef6fe5d9fb9b603d7479b22f7e',1,'buildnet(net_s *net):&#160;ntbuilder.c'],['../ntbuilder_8h.html#aaaecf1ef6fe5d9fb9b603d7479b22f7e',1,'buildnet(net_s *net):&#160;ntbuilder.c']]],
-  ['business_20license_6',['Small Business License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#small-business-license',1,'']]]
+  ['a_20k_20tt_0',['Element-level types inside an &apos;M&apos; array (&lt;tt&gt;src_type[a][k]&lt;/tt&gt;)',['../wiring__s_8dox.html#wiring_types_nested',1,'']]],
+  ['a_20new_20project_1',['Create a New Project',['../index.html#create-a-new-project',1,'']]],
+  ['a_20tt_2',['Array-level types (&lt;tt&gt;array_type[a]&lt;/tt&gt;)',['../wiring__s_8dox.html#wiring_types_top',1,'']]],
+  ['academic_20license_3',['Academic License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#academic-license',1,'']]],
+  ['activate_4',['activate',['../ntcalculate_8c.html#aa0ef2a7aa3daf3c5b815284a7b322f05',1,'activate(neuron_s *neuron):&#160;ntcalculate.c'],['../ntcalculate_8h.html#aa0ef2a7aa3daf3c5b815284a7b322f05',1,'activate(neuron_s *neuron):&#160;ntcalculate.c']]],
+  ['adopter_20terms_5',['Early Adopter Terms',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#early-adopter-terms',1,'']]],
+  ['agreement_6',['agreement',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#contribution-license-agreement',1,'Contribution License Agreement'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html',1,'NeuroTIC Commercial License Agreement']]],
+  ['algorithms_7',['Construction Algorithms',['../group__NTConstruction.html',1,'']]],
+  ['an_20m_20array_20tt_20src_5ftype_20a_20k_20tt_8',['Element-level types inside an &apos;M&apos; array (&lt;tt&gt;src_type[a][k]&lt;/tt&gt;)',['../wiring__s_8dox.html#wiring_types_nested',1,'']]],
+  ['and_20conditions_9',['Terms and Conditions',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#terms-and-conditions',1,'']]],
+  ['and_20stability_10',['Scope and stability',['../group__NTPeripherals.html#ntperi_scope',1,'']]],
+  ['and_20training_11',['Execution and Training',['../group__NTExecution.html',1,'']]],
+  ['architecture_12',['Core Architecture',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#core-architecture',1,'']]],
+  ['array_20level_20types_20tt_20array_5ftype_20a_20tt_13',['Array-level types (&lt;tt&gt;array_type[a]&lt;/tt&gt;)',['../wiring__s_8dox.html#wiring_types_top',1,'']]],
+  ['array_20tt_20src_5ftype_20a_20k_20tt_14',['Element-level types inside an &apos;M&apos; array (&lt;tt&gt;src_type[a][k]&lt;/tt&gt;)',['../wiring__s_8dox.html#wiring_types_nested',1,'']]],
+  ['array_5ftype_15',['array_type',['../structwiring__s.html#a55998c4dbd80bde56ab7c27e2dbd8be7',1,'wiring_s']]],
+  ['array_5ftype_20a_20tt_16',['Array-level types (&lt;tt&gt;array_type[a]&lt;/tt&gt;)',['../wiring__s_8dox.html#wiring_types_top',1,'']]],
+  ['arrays_17',['arrays',['../structwiring__s.html#aafd4ea0a9c58820183ea128ef94eb653',1,'wiring_s']]],
+  ['attempts_5ft_18',['attempts_t',['../nttrain_8h.html#a2386c30c7735ce500ed3033a84dbd65d',1,'nttrain.h']]],
+  ['available_19',['Currently Available',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#currently-available',1,'']]]
 ];

@@ -9,7 +9,7 @@ if [ -z "$example" ]; then
 fi
 
 cd ..
-make compile PROJECT_LOCATION=examples PROJECT_NAME=$example PLATFORM=CPU
+make compile PROJECT_LOCATION=examples PROJECT_NAME=$example PLATFORM=CPU || exit 1
 #valgrind \
 ./examples/"$example"
 rm examples/"$example"

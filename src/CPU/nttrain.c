@@ -37,11 +37,29 @@ void newtraindata( traindata_t *train_data , net_s *net ){
 /**
  * @details
  * Implements the backpropagation algorithm to train the network.
- * For each training sample:
+ * Each epoch iterates over every training sample:
  * - Computes outputs via feedforward.
- * - Calculates errors for each neuron.
+ * - Accumulates each output neuron's absolute error into `err_total`,
+ *   which is reset once per epoch, not per sample -- it tracks the
+ *   network's cumulative error across the whole training set, and is
+ *   compared against `traindata_t::tolerance` both mid-epoch (to skip
+ *   backpropagating a sample once the epoch's cumulative error is already
+ *   below tolerance) and as the epoch's own stopping condition.
  * - Propagates deltas backward and updates weights and biases.
- * - Repeats until error is below `tolerance` or `max_attempts` is reached.
+ * - Repeats until a full epoch's cumulative error is below `tolerance`, or
+ *   `max_attempts` epochs have run.
+ *
+ * `net_s::in` is temporarily redirected to an internal buffer for the
+ * duration of training, one sample at a time. Once training ends, every
+ * `net_s::in[i]` is set to `NULL` rather than left pointing at that
+ * (by then freed) buffer.
+ *
+ * @warning
+ * Assumes every neuron's `neuron_s::inputs` count matches the number of
+ * neurons in its immediately preceding layer -- i.e. a topology wired
+ * strictly one-to-one between consecutive layers. A topology whose input
+ * set spans more than one preceding layer will overflow this function's
+ * internal buffers during the backward pass.
  */
 attempts_t backpropagation( net_s *net , traindata_t *train_data ){
     attempts_t attempt= train_data->max_attempts;
@@ -84,5 +102,6 @@ attempts_t backpropagation( net_s *net , traindata_t *train_data ){
     free( delta );
     free( delta_h );
     free( in );
+    for( input_t i= 0 ; i < net->inputs ; i++ ) net->in[i]= NULL;
     return train_data->max_attempts - attempt;
 }

@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['q1_202024_0',['Near-term Development (Q1 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#near-term-development-q1-2024',1,'']]],
-  ['q2_20q4_202024_1',['Medium-term Development (Q2-Q4 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#medium-term-development-q2-q4-2024',1,'']]],
-  ['q4_202024_2',['Medium-term Development (Q2-Q4 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#medium-term-development-q2-q4-2024',1,'']]],
-  ['questions_3',['Questions?',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#questions',1,'']]],
-  ['quick_20example_4',['Quick example',['..//home/titux/DEV/NeuroTIC/NeuroTIC/README.md#quick-example',1,'']]],
-  ['quick_20start_5',['Quick Start',['../index.html#quick_start',1,'']]]
+  ['performance_20optimization_0',['Performance Optimization',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#performance-optimization',1,'']]],
+  ['peripheral_20modules_1',['Peripheral modules',['../group__NTPeripherals.html',1,'']]],
+  ['platform_20expansion_2',['Platform Expansion',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#platform-expansion',1,'']]],
+  ['precision_5ft_3',['precision_t',['../nttrain_8h.html#a2cfe1c0a780a80675abb2076680638aa',1,'nttrain.h']]],
+  ['project_4',['project',['../index.html#create-a-new-project',1,'Create a New Project'],['../index.html#run-your-project',1,'Run Your Project']]]
 ];

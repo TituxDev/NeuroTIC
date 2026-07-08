@@ -230,7 +230,7 @@ Functions</h2></td></tr>
 <p>Provides functions to persist network structures and weights, allowing training to be stored and reloaded. <br  />
  The file format is binary with a custom structure, including endianness and floating-point representation handling for cross-platform compatibility. <br  />
  Currently, the implementation focuses on core data serialization and deserialization, with future plans for validation and standardization of loaded data.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd><p class="startdd">Consider adding support for versioning in the file format to allow for future extensions and backward compatibility. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd><p class="startdd">Consider adding support for versioning in the file format to allow for future extensions and backward compatibility. </p>
 <p class="enddd">Explore options for compressing the saved network files to reduce disk space usage, especially for larger networks.</p>
 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor </dd></dl>
@@ -319,7 +319,7 @@ Functions</h2></td></tr>
 </dl>
 <p>Reconstructs the network structure, weights, biases, and buffer wiring from a binary file. <br  />
  The function reads the file header to validate the format and version, then proceeds to read the core network data while handling endianness and floating-point representation.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Implement file validation and data standardization during loading to ensure compatibility and integrity of loaded networks. </dd></dl>
 
 <p class="reference">References <a class="el" href="#l00078">wiring_s::array_type</a>, <a class="el" href="#l00077">wiring_s::arrays</a>, <a class="el" href="#l00060">neuron_s::b</a>, <a class="el" href="#l00057">neuron_s::bff_idx</a>, <a class="el" href="#l00096">buildnet()</a>, <a class="el" href="#l00061">neuron_s::fn</a>, <a class="el" href="#l00056">neuron_s::inputs</a>, <a class="el" href="#l00100">net_s::inputs</a>, <a class="el" href="#l00101">net_s::layers</a>, <a class="el" href="#l00102">net_s::neurons</a>, <a class="el" href="#l00037">newnet()</a>, <a class="el" href="#l00104">net_s::nn</a>, <a class="el" href="#l00079">wiring_s::size</a>, <a class="el" href="#l00082">wiring_s::src_index</a>, <a class="el" href="#l00081">wiring_s::src_layer</a>, <a class="el" href="#l00080">wiring_s::src_type</a>, <a class="el" href="#l00059">neuron_s::w</a>, and <a class="el" href="#l00105">net_s::wiring</a>.</p>
 
@@ -366,7 +366,7 @@ Functions</h2></td></tr>
  The file is structured with a header containing a magic string and version byte, followed by the network's core data. <br  />
  The function handles endianness and floating-point representation to ensure cross-platform compatibility. <br  />
 </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd><p class="startdd">Add validation checks for the input network structure before attempting to save, ensuring that all necessary data is present and correctly formatted. <br  />
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd><p class="startdd">Add validation checks for the input network structure before attempting to save, ensuring that all necessary data is present and correctly formatted. <br  />
  </p>
 <p class="interdd">Implement error handling for file operations, such as checking for write permissions and handling disk space issues. <br  />
  </p>

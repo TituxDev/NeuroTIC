@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['layers_0',['layers',['../structnet__s.html#a34d6ef4b2b66cb2fec9f4782ddc771ba',1,'net_s']]],
-  ['learning_5frate_1',['learning_rate',['../structtraindata__t.html#a1aaa173a2040281c1dfe92715b7ec106',1,'traindata_t']]]
+  ['error_0',['Error',['../compile_8sh.html#ad988aed1298428fd4b1919b4b6c2ecde',1,'compile.sh']]],
+  ['example_1',['example',['../test_8sh.html#acf8491476c86811bb684554dd19b374a',1,'test.sh']]]
 ];

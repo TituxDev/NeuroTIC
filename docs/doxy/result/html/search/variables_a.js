@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tolerance_0',['tolerance',['../structtraindata__t.html#a89fbed392de6de66502e11f828043f59',1,'traindata_t']]]
+  ['out_0',['out',['../structneuron__s.html#ad6eb92a05bc2233ff9afb6e1d6323b3a',1,'neuron_s::out'],['../structnet__s.html#ad9272b1de9b126257fc6fef9abd236b9',1,'net_s::out']]]
 ];

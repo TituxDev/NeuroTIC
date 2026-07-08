@@ -7,6 +7,8 @@ var files_dup =
     [ "NTErgonomics", "dir_8fc6de1683250b2fa23a111c7255e51c.html", null ],
     [ "NTExecution", "dir_d9006810e6303e1c0e45c3adbb93594f.html", null ],
     [ "NTPeri", "dir_84f05f692641bb9121dbe63466a9f379.html", null ],
+    [ "scripts", "dir_53e6fa9553ac22a5646d2a2b2d7b97a1.html", "dir_53e6fa9553ac22a5646d2a2b2d7b97a1" ],
     [ "src", "dir_68267d1309a1af8e8297ef4c3efbcdba.html", "dir_68267d1309a1af8e8297ef4c3efbcdba" ],
-    [ "variants", "dir_4e4d892e0aa87dad4caf12f5e1b7eb45.html", "dir_4e4d892e0aa87dad4caf12f5e1b7eb45" ]
+    [ "variants", "dir_4e4d892e0aa87dad4caf12f5e1b7eb45.html", "dir_4e4d892e0aa87dad4caf12f5e1b7eb45" ],
+    [ "makefile", "makefile.html", "makefile" ]
 ];

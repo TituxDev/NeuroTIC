@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['samples_0',['samples',['../structtraindata__t.html#afa696524af4d45a38c0902ac0d9cc999',1,'traindata_t']]],
-  ['size_1',['size',['../structwiring__s.html#a77151b3a90f51e267593d8fcfca01f7b',1,'wiring_s']]],
-  ['src_5findex_2',['src_index',['../structwiring__s.html#a482deb05260de5ecb212c01b91c9f2fc',1,'wiring_s']]],
-  ['src_5flayer_3',['src_layer',['../structwiring__s.html#a53e490c6e893d6255c4a4896af691ca2',1,'wiring_s']]],
-  ['src_5ftype_4',['src_type',['../structwiring__s.html#a54a4436a7981644f7bcda46241df0f62',1,'wiring_s']]]
+  ['neurons_0',['neurons',['../structnet__s.html#a1e8bcffb896c7ac5654aa21f7efe76aa',1,'net_s']]],
+  ['nn_1',['nn',['../structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c',1,'net_s']]],
+  ['ntact_5factivation_2',['ntact_activation',['../ntactivation_8c.html#a1190711e4f39ccc396a6bc46a5518f88',1,'ntact_activation:&#160;ntactivation.c'],['../ntactivation_8h.html#a1190711e4f39ccc396a6bc46a5518f88',1,'ntact_activation:&#160;ntactivation.c']]],
+  ['ntact_5frand_5frange_3',['ntact_rand_range',['../ntactivation_8c.html#a68975968643d0c6223716ffee442818a',1,'ntact_rand_range:&#160;ntactivation.c'],['../ntactivation_8h.html#a68975968643d0c6223716ffee442818a',1,'ntact_rand_range:&#160;ntactivation.c']]],
+  ['ntic_5fincludes_4',['NTIC_INCLUDES',['../compile_8sh.html#a381573d2d472918a7a4399ee03c2f3ab',1,'compile.sh']]]
 ];

@@ -1,7 +1,26 @@
 /**
- * @defgroup NTExecution Execution Algorithms
- * @brief NTExecution module documentation
- * 
- * ntcalculate.h @copybrief ntcalculate.h  
- * nttrain.h @copybrief nttrain.h
+ * @defgroup NTExecution  Execution and Training
+ * @brief Running a fully built network -- computing its output, and
+ *        adjusting its weights through training.
+ *
+ * @details
+ * Every module here assumes it is handed a net_s instance that is already
+ * fully built, and neither allocates nor reshapes any of its structural
+ * memory.
+ *
+ * It covers two related but distinct operations: a single forward pass
+ * that computes a network's output from its current inputs and weights,
+ * and a training loop that repeatedly runs forward passes and adjusts
+ * weights and biases to reduce the network's error against a labeled
+ * dataset.
+ */
+
+/**
+ * @file ntcalculate.h
+ * @ingroup NTExecution
+ */
+
+/**
+ * @file nttrain.h
+ * @ingroup NTExecution
  */

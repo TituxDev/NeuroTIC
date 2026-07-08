@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['algorithms_0',['algorithms',['../group__NTConstruction.html',1,'Construction Algorithms'],['../group__NTExecution.html',1,'Execution Algorithms']]]
+  ['algorithms_0',['Construction Algorithms',['../group__NTConstruction.html',1,'']]],
+  ['and_20training_1',['Execution and Training',['../group__NTExecution.html',1,'']]]
 ];

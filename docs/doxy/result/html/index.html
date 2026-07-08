@@ -101,8 +101,8 @@ Quick Start</h1>
 Create a New Project</h2>
 <div class="fragment"><div class="line">~/NeuroTIC$ make create </div>
 <div class="line"> </div>
-<div class="line">Error: The workspace directory is not empty.</div>
-<div class="line">Do you want to remove all files in the workspace directory? (y/n): y</div>
+<div class="line"><a class="code hl_variable" href="compile_8sh.html#ad988aed1298428fd4b1919b4b6c2ecde">Error</a>: The <a class="code hl_variable" href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a> directory is not empty.</div>
+<div class="line">Do you want to remove all files in the <a class="code hl_variable" href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a> directory? (y/n): y</div>
 <div class="line">Workspace cleared.</div>
 <div class="line"> </div>
 <div class="line">Enter the new project name: test</div>
@@ -112,7 +112,9 @@ Create a New Project</h2>
 <div class="line">basic</div>
 <div class="line">complete</div>
 <div class="line">Enter the header pack to use: complete</div>
-<div class="line">Project created successfully at  workspace/test.c</div>
+<div class="line">Project created successfully at  <a class="code hl_variable" href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a>/test.c</div>
+<div class="ttc" id="acompile_8sh_html_ad988aed1298428fd4b1919b4b6c2ecde"><div class="ttname"><a href="compile_8sh.html#ad988aed1298428fd4b1919b4b6c2ecde">Error</a></div><div class="ttdeci">then echo Error</div><div class="ttdef"><b>Definition</b> compile.sh:44</div></div>
+<div class="ttc" id="anew_8sh_html_a6a13b24ded5c57d3b804b5d7ef2772b0"><div class="ttname"><a href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a></div><div class="ttdeci">mkdir p workspace</div><div class="ttdef"><b>Definition</b> new.sh:4</div></div>
 </div><!-- fragment --><hr  />
  <h2><a class="anchor" id="write-your-code"></a>
 Write Your Code</h2>
@@ -189,7 +191,7 @@ Write Your Code</h2>
 <div class="line"> printf( <span class="stringliteral">&quot;\n\nNETWORK INPUTS:  &quot;</span> );</div>
 <div class="line"> <span class="keywordflow">for</span>( input_t i= 0 ; i &lt; NETWORK_NAME.inputs ; i++ ) printf( <span class="stringliteral">&quot;%f &quot;</span> , *NETWORK_NAME.in[i] );</div>
 <div class="line"> <span class="comment">// Evaluate network</span></div>
-<div class="line"> <a class="code hl_function" href="ntcalculate_8c.html#a80593fe4480cce8f4dac43ee48d8a7a2">feedforward</a>( &amp;NETWORK_NAME );</div>
+<div class="line"> <a class="code hl_function" href="ntcalculate_8c.html#a97d8e494dc675cb4662016714f1510ed">feedforward</a>( &amp;NETWORK_NAME );</div>
 <div class="line"> <span class="comment">// Print outputs</span></div>
 <div class="line"> printf( <span class="stringliteral">&quot;\nNETWORK OUTPUTS: &quot;</span> );</div>
 <div class="line"> <span class="keywordflow">for</span>( uint16_t i= 0 ; i &lt; NETWORK_NAME.neurons[NETWORK_NAME.layers-1] ; i++ ) printf( <span class="stringliteral">&quot;%f &quot;</span> , *NETWORK_NAME.out[i] );</div>
@@ -203,32 +205,32 @@ Write Your Code</h2>
 <div class="line"> <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="antbuilder_8h_html_ac4ca47bc0d692b1d915cdc405f21cd85"><div class="ttname"><a href="ntbuilder_8h.html#ac4ca47bc0d692b1d915cdc405f21cd85">CREATE_NET_FEEDFORWARD</a></div><div class="ttdeci">#define CREATE_NET_FEEDFORWARD(network, i, neurons)</div><div class="ttdoc">Convenience macro to declare, build, and wire a new feedforward network in a single step.</div><div class="ttdef"><b>Definition</b> ntbuilder.h:42</div></div>
-<div class="ttc" id="antcalculate_8c_html_a80593fe4480cce8f4dac43ee48d8a7a2"><div class="ttname"><a href="ntcalculate_8c.html#a80593fe4480cce8f4dac43ee48d8a7a2">feedforward</a></div><div class="ttdeci">data_t * feedforward(net_s *net)</div><div class="ttdoc">Executes full feedforward propagation.</div><div class="ttdef"><b>Definition</b> ntcalculate.c:44</div></div>
+<div class="ttc" id="antcalculate_8c_html_a97d8e494dc675cb4662016714f1510ed"><div class="ttname"><a href="ntcalculate_8c.html#a97d8e494dc675cb4662016714f1510ed">feedforward</a></div><div class="ttdeci">data_t ** feedforward(net_s *net)</div><div class="ttdoc">Executes full feedforward propagation.</div><div class="ttdef"><b>Definition</b> ntcalculate.c:56</div></div>
 <div class="ttc" id="antfile_8c_html_aea3803fafee337b67641edb79ee4b4f9"><div class="ttname"><a href="ntfile_8c.html#aea3803fafee337b67641edb79ee4b4f9">savenet</a></div><div class="ttdeci">size_t savenet(net_s *net, const char *name)</div><div class="ttdoc">Saves a network to a binary file with extension .ntic.</div><div class="ttdef"><b>Definition</b> ntfile.c:116</div></div>
 <div class="ttc" id="antinitialize_8c_html_a0c2e77d2e0217cf512c8adb47097b485"><div class="ttname"><a href="ntinitialize_8c.html#a0c2e77d2e0217cf512c8adb47097b485">randnet</a></div><div class="ttdeci">void randnet(net_s *net)</div><div class="ttdoc">Randomly initializes network weights and resets biases to zero.</div><div class="ttdef"><b>Definition</b> ntinitialize.c:26</div></div>
-<div class="ttc" id="anttrain_8c_html_a0f03f18a558e71a45909bef6258c2aec"><div class="ttname"><a href="nttrain_8c.html#a0f03f18a558e71a45909bef6258c2aec">backpropagation</a></div><div class="ttdeci">attempts_t backpropagation(net_s *net, traindata_t *train_data)</div><div class="ttdoc">Trains a network using backpropagation.</div><div class="ttdef"><b>Definition</b> nttrain.c:46</div></div>
+<div class="ttc" id="anttrain_8c_html_a0f03f18a558e71a45909bef6258c2aec"><div class="ttname"><a href="nttrain_8c.html#a0f03f18a558e71a45909bef6258c2aec">backpropagation</a></div><div class="ttdeci">attempts_t backpropagation(net_s *net, traindata_t *train_data)</div><div class="ttdoc">Trains a network using backpropagation.</div><div class="ttdef"><b>Definition</b> nttrain.c:64</div></div>
 <div class="ttc" id="anttrain_8c_html_a1d7455b7a18bd3d79bdf722dfc65cc50"><div class="ttname"><a href="nttrain_8c.html#a1d7455b7a18bd3d79bdf722dfc65cc50">newtraindata</a></div><div class="ttdeci">void newtraindata(traindata_t *train_data, net_s *net)</div><div class="ttdoc">Allocates memory for training data arrays.</div><div class="ttdef"><b>Definition</b> nttrain.c:26</div></div>
-<div class="ttc" id="anttrain_8h_html_a2cfe1c0a780a80675abb2076680638aa"><div class="ttname"><a href="nttrain_8h.html#a2cfe1c0a780a80675abb2076680638aa">precision_t</a></div><div class="ttdeci">data_t precision_t</div><div class="ttdef"><b>Definition</b> nttrain.h:14</div></div>
-<div class="ttc" id="astructtraindata__t_html"><div class="ttname"><a href="structtraindata__t.html">traindata_t</a></div><div class="ttdoc">Structure to hold training dataset and parameters.</div><div class="ttdef"><b>Definition</b> nttrain.h:21</div></div>
-<div class="ttc" id="astructtraindata__t_html_a1aaa173a2040281c1dfe92715b7ec106"><div class="ttname"><a href="structtraindata__t.html#a1aaa173a2040281c1dfe92715b7ec106">traindata_t::learning_rate</a></div><div class="ttdeci">precision_t learning_rate</div><div class="ttdef"><b>Definition</b> nttrain.h:23</div></div>
-<div class="ttc" id="astructtraindata__t_html_a7070c842214370df351b902c68a54ab0"><div class="ttname"><a href="structtraindata__t.html#a7070c842214370df351b902c68a54ab0">traindata_t::results</a></div><div class="ttdeci">data_t ** results</div><div class="ttdef"><b>Definition</b> nttrain.h:27</div></div>
-<div class="ttc" id="astructtraindata__t_html_abd0b6bd93393ece7ca09edb281167e9a"><div class="ttname"><a href="structtraindata__t.html#abd0b6bd93393ece7ca09edb281167e9a">traindata_t::in</a></div><div class="ttdeci">data_t ** in</div><div class="ttdef"><b>Definition</b> nttrain.h:26</div></div>
+<div class="ttc" id="anttrain_8h_html_a2cfe1c0a780a80675abb2076680638aa"><div class="ttname"><a href="nttrain_8h.html#a2cfe1c0a780a80675abb2076680638aa">precision_t</a></div><div class="ttdeci">data_t precision_t</div><div class="ttdef"><b>Definition</b> nttrain.h:15</div></div>
+<div class="ttc" id="astructtraindata__t_html"><div class="ttname"><a href="structtraindata__t.html">traindata_t</a></div><div class="ttdoc">Structure to hold training dataset and parameters.</div><div class="ttdef"><b>Definition</b> nttrain.h:22</div></div>
+<div class="ttc" id="astructtraindata__t_html_a1aaa173a2040281c1dfe92715b7ec106"><div class="ttname"><a href="structtraindata__t.html#a1aaa173a2040281c1dfe92715b7ec106">traindata_t::learning_rate</a></div><div class="ttdeci">precision_t learning_rate</div><div class="ttdef"><b>Definition</b> nttrain.h:24</div></div>
+<div class="ttc" id="astructtraindata__t_html_a7070c842214370df351b902c68a54ab0"><div class="ttname"><a href="structtraindata__t.html#a7070c842214370df351b902c68a54ab0">traindata_t::results</a></div><div class="ttdeci">data_t ** results</div><div class="ttdef"><b>Definition</b> nttrain.h:28</div></div>
+<div class="ttc" id="astructtraindata__t_html_abd0b6bd93393ece7ca09edb281167e9a"><div class="ttname"><a href="structtraindata__t.html#abd0b6bd93393ece7ca09edb281167e9a">traindata_t::in</a></div><div class="ttdeci">data_t ** in</div><div class="ttdef"><b>Definition</b> nttrain.h:27</div></div>
 </div><!-- fragment --><p> <a class="el" href="logic__gates_8c.html">API EXAMPLE</a></p>
 <hr  />
  <h2><a class="anchor" id="compile"></a>
 Compile</h2>
 <div class="fragment"><div class="line">~/NeuroTIC$ make compile</div>
 <div class="line">make compile</div>
-<div class="line">Enter project location (e.g., workspace, examples): workspace</div>
+<div class="line">Enter project location (e.g., <a class="code hl_variable" href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a>, examples): <a class="code hl_variable" href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a></div>
 <div class="line">Enter project name (filename without extension): test</div>
 <div class="line">Enter platform (e.g., CPU): CPU</div>
-<div class="line">Compiling project in location: workspace</div>
+<div class="line">Compiling project in location: <a class="code hl_variable" href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a></div>
 <div class="line">Project name: test</div>
 <div class="line">Platform: CPU</div>
 </div><!-- fragment --><hr  />
  <h2><a class="anchor" id="run-your-project"></a>
 Run Your Project</h2>
-<div class="fragment"><div class="line">~/NeuroTIC$ ./workspace/test</div>
+<div class="fragment"><div class="line">~/NeuroTIC$ ./<a class="code hl_variable" href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a>/test</div>
 <div class="line">Select test: 0</div>
 <div class="line">SAMPLE INPUTS: 0.000000 </div>
 <div class="line">EXPECTED OUTPUTS: 0.000000</div>

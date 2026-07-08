@@ -1,6 +1,7 @@
 /**
  * @file nttrain.h
- * @brief Training Utilities.  
+ * @copybrief nttrain.c
+ * 
  * @ref https://tituxdev.github.io/NeuroTIC/src/CPU/nttrain.c
  *
  * @copydetails nttrain.c
@@ -30,8 +31,9 @@ typedef struct traindata_t {
 /**
  * @brief Allocates memory for training data arrays.
  *
- * @param traindata_t Pointer to training data structure to initialize.  
- * @param net_s Pointer to the network being trained.
+ * @param train_data Pointer to a traindata_t instance with `samples`
+ *                    already set.
+ * @param net Pointer to the network being trained.
  */
 void newtraindata( traindata_t *train_data , net_s *net );
 
@@ -40,8 +42,8 @@ void newtraindata( traindata_t *train_data , net_s *net );
  *
  * @param net Pointer to the network to train.
  * @param train_data Pointer to the training data.
- * @return attempts_t Number of iterations performed.
+ * @return Number of epochs (full passes over the training set) performed.
  */
-attempts_t backpropagation( net_s *net , traindata_t *data );
+attempts_t backpropagation( net_s *net , traindata_t *train_data );
 
 #endif // NTTRAIN_H

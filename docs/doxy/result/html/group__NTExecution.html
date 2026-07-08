@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NeuroTIC: Execution Algorithms</title>
+<title>NeuroTIC: Execution and Training</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,17 +89,28 @@ $(document).ready(function(){initNavTree('group__NTExecution.html',''); initResi
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Execution Algorithms</div></div>
+  <div class="summary">
+<a href="#files">Files</a>  </div>
+  <div class="headertitle"><div class="title">Execution and Training</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>NTExecution module documentation.  
-</p>
-<p>NTExecution module documentation. </p>
-<p><a class="el" href="ntcalculate_8h.html" title="Computation Module.   https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c.">ntcalculate.h</a>  Computation Module. <br  />
- <a href="https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c">https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c</a>.   <br  />
- <a class="el" href="nttrain_8h.html" title="Training Utilities.   https://tituxdev.github.io/NeuroTIC/src/CPU/nttrain.c.">nttrain.h</a>  Training Utilities. <br  />
- <a href="https://tituxdev.github.io/NeuroTIC/src/CPU/nttrain.c">https://tituxdev.github.io/NeuroTIC/src/CPU/nttrain.c</a>.   </p>
+<p>Running a fully built network &ndash; computing its output, and adjusting its weights through training.  
+<a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:ntcalculate_8h" id="r_ntcalculate_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntcalculate_8h.html">ntcalculate.h</a></td></tr>
+<tr class="memdesc:ntcalculate_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of feedforward network computations.   <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:nttrain_8h" id="r_nttrain_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nttrain_8h.html">nttrain.h</a></td></tr>
+<tr class="memdesc:nttrain_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of backpropagation training for NeuroTIC networks.   <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Running a fully built network &ndash; computing its output, and adjusting its weights through training. </p>
+<p>Every module here assumes it is handed a <a class="el" href="structnet__s.html" title="Root structural container of a NeuroTIC network.">net_s</a> instance that is already fully built, and neither allocates nor reshapes any of its structural memory.</p>
+<p>It covers two related but distinct operations: a single forward pass that computes a network's output from its current inputs and weights, and a training loop that repeatedly runs forward passes and adjusts weights and biases to reduce the network's error against a labeled dataset. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

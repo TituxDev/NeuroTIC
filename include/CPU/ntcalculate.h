@@ -1,6 +1,7 @@
 /**
  * @file ntcalculate.h
- * @brief Computation Module.  
+ * @copybrief ntcalculate.c
+ *   
  * @ref https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c
  * 
  * @copydetails ntcalculate.c
@@ -30,9 +31,17 @@ data_t activate( neuron_s *neuron );
 /**
  * @brief Executes full feedforward propagation.
  *
- * @param net Pointer to the network.
- * @return Pointer to the output buffer of the final layer.
+ * @param net Pointer to a net_s instance whose base structure has already
+ *            been built.
+ * @return The network's own output array (net_s::out), with every
+ *         neuron's output freshly computed.
+ * 
+ * @todo `net_s::in` is not validated before use -- if every external input
+ * has been set to `NULL` (e.g. after training releases its own input
+ * buffer), this function will dereference a NULL pointer instead of
+ * failing predictably. Add a check for every `net_s::in[i]` before
+ * computing.
  */
-data_t *feedforward( net_s *net );
+data_t **feedforward( net_s *net );
 
 #endif // NTCALCULATE_H

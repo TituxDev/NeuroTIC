@@ -99,16 +99,19 @@ $(document).ready(function(){initNavTree('ntcalculate_8c.html',''); initResizabl
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="">ntcalculate.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="">ntactivation.h</a>&quot;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ntcalculate.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="ntcalculate_8c__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntcalculate_8c" alt=""/></div>
 <map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntcalculate_8c" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntcalculate_8c">
-<area shape="rect" title="Implementation of feedforward network computations." alt="" coords="12,5,239,45"/>
-<area shape="rect" href="ntcalculate_8h.html" title="Computation Module. &#160;&#160;https://tituxdev.github.io/NeuroTIC/src/CPU/ntcalculate.c." alt="" coords="5,93,112,119"/>
-<area shape="poly" title=" " alt="" coords="111,47,79,84,75,81,107,44"/>
+<area shape="rect" title="Implementation of feedforward network computations." alt="" coords="79,5,305,45"/>
+<area shape="rect" href="ntcalculate_8h.html" title="Implementation of feedforward network computations." alt="" coords="5,93,112,119"/>
+<area shape="poly" title=" " alt="" coords="161,48,91,89,89,84,159,43"/>
 <area shape="rect" href="ntactivation_8h.html" title="Activation Functions List." alt="" coords="136,93,248,119"/>
-<area shape="poly" title=" " alt="" coords="143,44,175,81,171,84,139,47"/>
+<area shape="poly" title=" " alt="" coords="195,46,195,79,189,79,189,46"/>
+<area shape="rect" title=" " alt="" coords="271,93,342,119"/>
+<area shape="poly" title=" " alt="" coords="221,43,280,83,277,88,218,48"/>
 <area shape="rect" href="ntcore_8h.html" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="21,167,96,192"/>
 <area shape="poly" title=" " alt="" coords="61,119,61,153,56,153,56,119"/>
 <area shape="rect" title=" " alt="" coords="23,240,94,265"/>
@@ -126,9 +129,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aa0ef2a7aa3daf3c5b815284a7b322f05" id="r_aa0ef2a7aa3daf3c5b815284a7b322f05"><td class="memItemLeft" align="right" valign="top">data_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntcalculate_8c.html#aa0ef2a7aa3daf3c5b815284a7b322f05">activate</a> (<a class="el" href="structneuron__s.html">neuron_s</a> *neuron)</td></tr>
 <tr class="memdesc:aa0ef2a7aa3daf3c5b815284a7b322f05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the configured activation function.  <br /></td></tr>
 <tr class="separator:aa0ef2a7aa3daf3c5b815284a7b322f05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80593fe4480cce8f4dac43ee48d8a7a2" id="r_a80593fe4480cce8f4dac43ee48d8a7a2"><td class="memItemLeft" align="right" valign="top">data_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntcalculate_8c.html#a80593fe4480cce8f4dac43ee48d8a7a2">feedforward</a> (<a class="el" href="structnet__s.html">net_s</a> *net)</td></tr>
-<tr class="memdesc:a80593fe4480cce8f4dac43ee48d8a7a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes full feedforward propagation.  <br /></td></tr>
-<tr class="separator:a80593fe4480cce8f4dac43ee48d8a7a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97d8e494dc675cb4662016714f1510ed" id="r_a97d8e494dc675cb4662016714f1510ed"><td class="memItemLeft" align="right" valign="top">data_t **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ntcalculate_8c.html#a97d8e494dc675cb4662016714f1510ed">feedforward</a> (<a class="el" href="structnet__s.html">net_s</a> *net)</td></tr>
+<tr class="memdesc:a97d8e494dc675cb4662016714f1510ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes full feedforward propagation.  <br /></td></tr>
+<tr class="separator:a97d8e494dc675cb4662016714f1510ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implementation of feedforward network computations. </p>
@@ -157,22 +160,23 @@ Functions</h2></td></tr>
 
 <p>Applies the configured activation function. </p>
 <p>Activation functions are resolved from the global <code>ntact_activation</code> lookup table using the neuron's configured activation identifier. <br  />
- Result is stored in the neuron's <code>out</code> field. </p>
+ Result is stored in the neuron's <code>out</code> field.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd><code><a class="el" href="structneuron__s.html#aed10404eb5eaa88df5243ebedcb3d872">neuron_s::fn</a></code> is not validated against <code>NTACT_TOTAL_FUNCTIONS</code> before indexing <code>ntact_activation</code> &ndash; behavior for an out-of-range value is undefined until a validation strategy (and how tightly coupled it should be with other modules) is decided. </dd></dl>
 
-<p class="reference">References <a class="el" href="#l00061">neuron_s::fn</a>, <a class="el" href="#l00096">ntact_activation</a>, <a class="el" href="#l00062">neuron_s::out</a>, and <a class="el" href="#l00023">weighing()</a>.</p>
+<p class="reference">References <a class="el" href="#l00061">neuron_s::fn</a>, <a class="el" href="#l00096">ntact_activation</a>, <a class="el" href="#l00062">neuron_s::out</a>, and <a class="el" href="#l00024">weighing()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#l00044">feedforward()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00056">feedforward()</a>.</p>
 
 </div>
 </div>
-<a id="a80593fe4480cce8f4dac43ee48d8a7a2" name="a80593fe4480cce8f4dac43ee48d8a7a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80593fe4480cce8f4dac43ee48d8a7a2">&#9670;&#160;</a></span>feedforward()</h2>
+<a id="a97d8e494dc675cb4662016714f1510ed" name="a97d8e494dc675cb4662016714f1510ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97d8e494dc675cb4662016714f1510ed">&#9670;&#160;</a></span>feedforward()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">data_t * feedforward </td>
+          <td class="memname">data_t ** feedforward </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structnet__s.html">net_s</a> *&#160;</td>
           <td class="paramname"><em>net</em></td><td>)</td>
@@ -182,12 +186,17 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Executes full feedforward propagation. </p>
-<p>Iterates layer-by-layer to maintain deterministic ordering. <br  />
- No buffering is required since outputs of previous layers are already wired via pointer connections. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">NULL</td><td><code>net</code> is NULL.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Iterates layer-by-layer to maintain deterministic ordering. Before evaluating a neuron, re-resolves any &lsquo;'I&rsquo;<code>-typed element nested inside its selected</code>'M'<code>buffer against the network's current</code><a class="el" href="structnet__s.html#a44527dfd3f3d56d197da6880c6d21865">net_s::in</a><code>-- every other wiring reference was already resolved once, permanently, by </code><a class="el" href="ntbuilder_8c.html#aaaecf1ef6fe5d9fb9b603d7479b22f7e" title="Resolves wiring descriptors into buffer references and allocates weight storage.">buildnet()</a>`. All other buffer entries are read as-is via their existing pointer connections. </p>
 
-<p class="reference">References <a class="el" href="#l00034">activate()</a>, <a class="el" href="#l00078">wiring_s::array_type</a>, <a class="el" href="#l00106">net_s::bff</a>, <a class="el" href="#l00057">neuron_s::bff_idx</a>, <a class="el" href="#l00103">net_s::in</a>, <a class="el" href="#l00056">neuron_s::inputs</a>, <a class="el" href="#l00101">net_s::layers</a>, <a class="el" href="#l00102">net_s::neurons</a>, <a class="el" href="#l00104">net_s::nn</a>, <a class="el" href="#l00107">net_s::out</a>, <a class="el" href="#l00082">wiring_s::src_index</a>, <a class="el" href="#l00080">wiring_s::src_type</a>, and <a class="el" href="#l00105">net_s::wiring</a>.</p>
+<p class="reference">References <a class="el" href="#l00040">activate()</a>, <a class="el" href="#l00078">wiring_s::array_type</a>, <a class="el" href="#l00106">net_s::bff</a>, <a class="el" href="#l00057">neuron_s::bff_idx</a>, <a class="el" href="#l00103">net_s::in</a>, <a class="el" href="#l00056">neuron_s::inputs</a>, <a class="el" href="#l00101">net_s::layers</a>, <a class="el" href="#l00102">net_s::neurons</a>, <a class="el" href="#l00104">net_s::nn</a>, <a class="el" href="#l00107">net_s::out</a>, <a class="el" href="#l00082">wiring_s::src_index</a>, <a class="el" href="#l00080">wiring_s::src_type</a>, and <a class="el" href="#l00105">net_s::wiring</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#l00046">backpropagation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00064">backpropagation()</a>.</p>
 
 </div>
 </div>
@@ -215,7 +224,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="#l00060">neuron_s::b</a>, <a class="el" href="#l00058">neuron_s::in</a>, <a class="el" href="#l00056">neuron_s::inputs</a>, and <a class="el" href="#l00059">neuron_s::w</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#l00034">activate()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00040">activate()</a>.</p>
 
 </div>
 </div>

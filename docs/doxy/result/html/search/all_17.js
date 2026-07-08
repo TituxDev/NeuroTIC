@@ -1,11 +1,6 @@
 var searchData=
 [
-  ['w_0',['w',['../structneuron__s.html#a059638704c555b4c152a924fcdf0c57f',1,'neuron_s']]],
-  ['weighing_1',['weighing',['../ntcalculate_8c.html#a63f28fa48fc407e117fe61bf55aa53f6',1,'weighing(neuron_s *neuron):&#160;ntcalculate.c'],['../ntcalculate_8h.html#a63f28fa48fc407e117fe61bf55aa53f6',1,'weighing(neuron_s *neuron):&#160;ntcalculate.c']]],
-  ['wiring_2',['wiring',['../structnet__s.html#a9d1e6329d693123aea04482318aad267',1,'net_s']]],
-  ['wiring_5fs_3',['wiring_s',['../structwiring__s.html',1,'wiring_s'],['../ntcore_8h.html#a67d4a57ca681ab9757f6dd9a04e419fb',1,'wiring_s:&#160;ntcore.h']]],
-  ['wiring_5fs_2edox_4',['wiring_s.dox',['../wiring__s_8dox.html',1,'']]],
-  ['workflow_20solurions_5',['Workflow Solurions',['../group__NTErgonomics.html',1,'']]],
-  ['works_20from_20scratch_6',['Learn how it works from scratch',['..//home/titux/DEV/NeuroTIC/NeuroTIC/README.md#learn-how-it-works-from-scratch',1,'']]],
-  ['write_20your_20code_7',['Write Your Code',['../index.html#write-your-code',1,'']]]
+  ['v1_200_0',['Current Release (v1.0)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#current-release-v10',1,'']]],
+  ['version_1',['VERSION',['../ntfile_8c.html#a1c6d5de492ac61ad29aec7aa9a436bbf',1,'ntfile.c']]],
+  ['view_2',['view',['../neuron__s_8dox.html#neuron_structure',1,'Structural View'],['../wiring__s_8dox.html#wiring_structure',1,'Structural View']]]
 ];

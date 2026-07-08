@@ -1,9 +1,14 @@
 var searchData=
 [
-  ['feature_20expansion_0',['Feature Expansion',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#feature-expansion',1,'']]],
-  ['feedforward_1',['feedforward',['../ntcalculate_8c.html#a80593fe4480cce8f4dac43ee48d8a7a2',1,'feedforward(net_s *net):&#160;ntcalculate.c'],['../ntcalculate_8h.html#a80593fe4480cce8f4dac43ee48d8a7a2',1,'feedforward(net_s *net):&#160;ntcalculate.c']]],
-  ['field_20descriptions_2',['field descriptions',['../net__s_8dox.html#net_fields',1,'Field Descriptions'],['../wiring__s_8dox.html#wiring_fields',1,'Field Descriptions']]],
-  ['flow_3',['External Execution Flow',['../neuron__s_8dox.html#neuron_flow',1,'']]],
-  ['fn_4',['fn',['../structneuron__s.html#aed10404eb5eaa88df5243ebedcb3d872',1,'neuron_s']]],
-  ['from_20scratch_5',['Learn how it works from scratch',['..//home/titux/DEV/NeuroTIC/NeuroTIC/README.md#learn-how-it-works-from-scratch',1,'']]]
+  ['early_20adopter_20terms_0',['Early Adopter Terms',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#early-adopter-terms',1,'']]],
+  ['ecosystem_20development_1',['Ecosystem Development',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#ecosystem-development',1,'']]],
+  ['element_20level_20types_20inside_20an_20m_20array_20tt_20src_5ftype_20a_20k_20tt_2',['Element-level types inside an &apos;M&apos; array (&lt;tt&gt;src_type[a][k]&lt;/tt&gt;)',['../wiring__s_8dox.html#wiring_types_nested',1,'']]],
+  ['enterprise_20license_3',['Enterprise License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#enterprise-license',1,'']]],
+  ['error_4',['Error',['../compile_8sh.html#ad988aed1298428fd4b1919b4b6c2ecde',1,'compile.sh']]],
+  ['example_5',['example',['../test_8sh.html#acf8491476c86811bb684554dd19b374a',1,'example:&#160;test.sh'],['..//home/titux/DEV/NeuroTIC/NeuroTIC/README.md#quick-example',1,'Quick example']]],
+  ['example_20topology_6',['Example topology',['../neurons_8c.html#neuron_example',1,'']]],
+  ['execution_20and_20training_7',['Execution and Training',['../group__NTExecution.html',1,'']]],
+  ['execution_20flow_8',['External Execution Flow',['../neuron__s_8dox.html#neuron_flow',1,'']]],
+  ['expansion_9',['expansion',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#feature-expansion',1,'Feature Expansion'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#platform-expansion',1,'Platform Expansion']]],
+  ['external_20execution_20flow_10',['External Execution Flow',['../neuron__s_8dox.html#neuron_flow',1,'']]]
 ];

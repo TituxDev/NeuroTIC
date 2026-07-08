@@ -1,32 +1,4 @@
 var searchData=
 [
-  ['net_5fs_2edox_0',['net_s.dox',['../net__s_8dox.html',1,'']]],
-  ['neuron_5fs_2edox_1',['neuron_s.dox',['../neuron__s_8dox.html',1,'']]],
-  ['neurons_2ec_2',['neurons.c',['../neurons_8c.html',1,'']]],
-  ['ntactivation_2ec_3',['ntactivation.c',['../ntactivation_8c.html',1,'']]],
-  ['ntactivation_2eh_4',['ntactivation.h',['../ntactivation_8h.html',1,'']]],
-  ['ntbasic_2eh_5',['ntbasic.h',['../ntbasic_8h.html',1,'']]],
-  ['ntbuilder_2ec_6',['ntbuilder.c',['../ntbuilder_8c.html',1,'']]],
-  ['ntbuilder_2eh_7',['ntbuilder.h',['../ntbuilder_8h.html',1,'']]],
-  ['ntcalculate_2ec_8',['ntcalculate.c',['../ntcalculate_8c.html',1,'']]],
-  ['ntcalculate_2eh_9',['ntcalculate.h',['../ntcalculate_8h.html',1,'']]],
-  ['ntcomplete_2eh_10',['ntcomplete.h',['../variants_2ntcomplete_8h.html',1,'(Global Namespace)'],['../examples_2ntcomplete_8h.html',1,'(Global Namespace)']]],
-  ['ntconstriution_2edox_11',['NTConstriution.dox',['../NTConstriution_8dox.html',1,'']]],
-  ['ntcore_2edox_12',['NTCore.dox',['../NTCore_8dox.html',1,'']]],
-  ['ntcore_2eh_13',['ntcore.h',['../ntcore_8h.html',1,'']]],
-  ['ntdefinition_2ec_14',['ntdefinition.c',['../ntdefinition_8c.html',1,'']]],
-  ['ntdefinition_2eh_15',['ntdefinition.h',['../ntdefinition_8h.html',1,'']]],
-  ['ntergonomics_2edox_16',['NTErgonomics.dox',['../NTErgonomics_8dox.html',1,'']]],
-  ['ntexecution_2edox_17',['NTExecution.dox',['../NTExecution_8dox.html',1,'']]],
-  ['ntfeedforward_2ec_18',['ntfeedforward.c',['../ntfeedforward_8c.html',1,'']]],
-  ['ntfeedforward_2eh_19',['ntfeedforward.h',['../ntfeedforward_8h.html',1,'']]],
-  ['ntfile_2ec_20',['ntfile.c',['../ntfile_8c.html',1,'']]],
-  ['ntfile_2eh_21',['ntfile.h',['../ntfile_8h.html',1,'']]],
-  ['ntinitialize_2ec_22',['ntinitialize.c',['../ntinitialize_8c.html',1,'']]],
-  ['ntinitialize_2eh_23',['ntinitialize.h',['../ntinitialize_8h.html',1,'']]],
-  ['ntmemory_2ec_24',['ntmemory.c',['../ntmemory_8c.html',1,'']]],
-  ['ntmemory_2eh_25',['ntmemory.h',['../ntmemory_8h.html',1,'']]],
-  ['ntperipherals_2edox_26',['NTPeripherals.dox',['../NTPeripherals_8dox.html',1,'']]],
-  ['nttrain_2ec_27',['nttrain.c',['../nttrain_8c.html',1,'']]],
-  ['nttrain_2eh_28',['nttrain.h',['../nttrain_8h.html',1,'']]]
+  ['makefile_0',['makefile',['../makefile.html',1,'']]]
 ];
