@@ -4,11 +4,10 @@ var searchData=
   ['ecosystem_20development_1',['Ecosystem Development',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#ecosystem-development',1,'']]],
   ['element_20level_20types_20inside_20an_20m_20array_20tt_20src_5ftype_20a_20k_20tt_2',['Element-level types inside an &apos;M&apos; array (&lt;tt&gt;src_type[a][k]&lt;/tt&gt;)',['../wiring__s_8dox.html#wiring_types_nested',1,'']]],
   ['enterprise_20license_3',['Enterprise License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#enterprise-license',1,'']]],
-  ['error_4',['Error',['../compile_8sh.html#ad988aed1298428fd4b1919b4b6c2ecde',1,'compile.sh']]],
-  ['example_5',['example',['../test_8sh.html#acf8491476c86811bb684554dd19b374a',1,'example:&#160;test.sh'],['..//home/titux/DEV/NeuroTIC/NeuroTIC/README.md#quick-example',1,'Quick example']]],
-  ['example_20topology_6',['Example topology',['../neurons_8c.html#neuron_example',1,'']]],
-  ['execution_20and_20training_7',['Execution and Training',['../group__NTExecution.html',1,'']]],
-  ['execution_20flow_8',['External Execution Flow',['../neuron__s_8dox.html#neuron_flow',1,'']]],
-  ['expansion_9',['expansion',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#feature-expansion',1,'Feature Expansion'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#platform-expansion',1,'Platform Expansion']]],
-  ['external_20execution_20flow_10',['External Execution Flow',['../neuron__s_8dox.html#neuron_flow',1,'']]]
+  ['example_4',['Quick example',['..//home/titux/DEV/NeuroTIC/NeuroTIC/README.md#quick-example',1,'']]],
+  ['example_20topology_5',['Example topology',['../neurons_8c.html#neuron_example',1,'']]],
+  ['execution_20and_20training_6',['Execution and Training',['../group__NTExecution.html',1,'']]],
+  ['execution_20flow_7',['External Execution Flow',['../neuron__s_8dox.html#neuron_flow',1,'']]],
+  ['expansion_8',['expansion',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#feature-expansion',1,'Feature Expansion'],['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#platform-expansion',1,'Platform Expansion']]],
+  ['external_20execution_20flow_9',['External Execution Flow',['../neuron__s_8dox.html#neuron_flow',1,'']]]
 ];

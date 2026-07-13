@@ -1,4 +1,15 @@
 #!/bin/bash
+## @file test.sh
+## @brief Builds and runs one of the bundled examples.
+##
+## Must be run from within `examples/`. Prompts for (or accepts as its
+## one argument) an example's filename without its `.c` extension,
+## compiles it for the CPU platform via the `compile` make target,
+## executes the resulting binary, then removes the compiled binary and
+## the library artifacts it produced.
+##
+## Usage:
+##   ./test.sh [example]
 
 example="$1"
 if [ -z "$example" ]; then

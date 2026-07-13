@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('compile_8sh.html',''); initResizable()
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">compile.sh File Reference</div></div>
+  <div class="headertitle"><div class="title">compile.sh File Reference<div class="ingroups"><a class="el" href="group__NTErgonomics.html">Workflow Solutions</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -97,23 +97,6 @@ $(document).ready(function(){initNavTree('compile_8sh.html',''); initResizable()
 <a href="#details">More...</a></p>
 
 <p><a href="">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr><td colspan="2"><div class="groupHeader">Compiler</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>Compiler and flags </p>
-</div></td></tr>
-<tr class="memitem:ab41c1949bef0cb7c83998d0a5d83bcc2" id="r_ab41c1949bef0cb7c83998d0a5d83bcc2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compile_8sh.html#ab41c1949bef0cb7c83998d0a5d83bcc2">CC</a></td></tr>
-<tr class="separator:ab41c1949bef0cb7c83998d0a5d83bcc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3605307780f1adef4b64af88704d0861" id="r_a3605307780f1adef4b64af88704d0861"><td class="memItemLeft" align="right" valign="top">then echo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compile_8sh.html#a3605307780f1adef4b64af88704d0861">Usage</a></td></tr>
-<tr class="separator:a3605307780f1adef4b64af88704d0861"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad988aed1298428fd4b1919b4b6c2ecde" id="r_ad988aed1298428fd4b1919b4b6c2ecde"><td class="memItemLeft" align="right" valign="top">then echo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compile_8sh.html#ad988aed1298428fd4b1919b4b6c2ecde">Error</a></td></tr>
-<tr class="separator:ad988aed1298428fd4b1919b4b6c2ecde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a823c208f9986a39110b3d05ef8ac8213" id="r_a823c208f9986a39110b3d05ef8ac8213"><td class="memItemLeft" align="right" valign="top">do&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compile_8sh.html#a823c208f9986a39110b3d05ef8ac8213">if</a></td></tr>
-<tr class="separator:a823c208f9986a39110b3d05ef8ac8213"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a381573d2d472918a7a4399ee03c2f3ab" id="r_a381573d2d472918a7a4399ee03c2f3ab"><td class="memItemLeft" align="right" valign="top">then&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compile_8sh.html#a381573d2d472918a7a4399ee03c2f3ab">NTIC_INCLUDES</a></td></tr>
-<tr class="separator:a381573d2d472918a7a4399ee03c2f3ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Compilation helper for NeuroTIC projects. </p>
 <p>This script resolves project dependencies for a given user project, compiles NeuroTIC and user source files, generates static libraries, and links the final executable.</p>
@@ -121,98 +104,7 @@ Variables</h2></td></tr>
 <p>Example: ./compile.sh ./MyProject main x86_64 </p>
 
 <p class="definition">Definition in file <a class="el" href="">compile.sh</a>.</p>
-</div><h2 class="groupheader">Variable Documentation</h2>
-<a id="ab41c1949bef0cb7c83998d0a5d83bcc2" name="ab41c1949bef0cb7c83998d0a5d83bcc2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab41c1949bef0cb7c83998d0a5d83bcc2">&#9670;&#160;</a></span>CC</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">CC</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=gcc</div>
-<div class="line">CFLAGS=<span class="stringliteral">&quot;-Iinclude/$3 -Wall -Wextra -Wno-missing-field-initializers -pedantic -std=c11 -O3 -march=native -fno-exceptions -fstrict-aliasing&quot;</span></div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line">PROJECT_LOCATION=<span class="stringliteral">&quot;$1&quot;</span></div>
-<div class="line">PROJECT_NAME=<span class="stringliteral">&quot;$2&quot;</span></div>
-<div class="line">PLATFORM=<span class="stringliteral">&quot;$3&quot;</span></div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"><span class="keywordflow">if</span> [ -z <span class="stringliteral">&quot;$PROJECT_LOCATION&quot;</span> ] || [ -z <span class="stringliteral">&quot;$PROJECT_NAME&quot;</span> ] || [ -z <span class="stringliteral">&quot;$PLATFORM&quot;</span> ]</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ad988aed1298428fd4b1919b4b6c2ecde" name="ad988aed1298428fd4b1919b4b6c2ecde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad988aed1298428fd4b1919b4b6c2ecde">&#9670;&#160;</a></span>Error</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">then echo Error</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a823c208f9986a39110b3d05ef8ac8213" name="a823c208f9986a39110b3d05ef8ac8213"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a823c208f9986a39110b3d05ef8ac8213">&#9670;&#160;</a></span>if</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">do if</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a381573d2d472918a7a4399ee03c2f3ab" name="a381573d2d472918a7a4399ee03c2f3ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a381573d2d472918a7a4399ee03c2f3ab">&#9670;&#160;</a></span>NTIC_INCLUDES</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">then NTIC_INCLUDES</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=(<span class="stringliteral">&quot;$HEADER&quot;</span>)</div>
-<div class="line">    <span class="keywordflow">else</span></div>
-<div class="line">        USR_INCLUDES+=(<span class="stringliteral">&quot;$HEADER&quot;</span>)</div>
-<div class="line">    fi</div>
-<div class="line">done</div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line">i=0</div>
-<div class="line"><span class="keywordflow">while</span> [ $i -lt ${#<a class="code hl_variable" href="compile_8sh.html#a381573d2d472918a7a4399ee03c2f3ab">NTIC_INCLUDES</a>[@]} ]</div>
-<div class="ttc" id="acompile_8sh_html_a381573d2d472918a7a4399ee03c2f3ab"><div class="ttname"><a href="compile_8sh.html#a381573d2d472918a7a4399ee03c2f3ab">NTIC_INCLUDES</a></div><div class="ttdeci">then NTIC_INCLUDES</div><div class="ttdef"><b>Definition</b> compile.sh:66</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a3605307780f1adef4b64af88704d0861" name="a3605307780f1adef4b64af88704d0861"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3605307780f1adef4b64af88704d0861">&#9670;&#160;</a></span>Usage</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">then echo Usage</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

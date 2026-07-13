@@ -101,8 +101,8 @@ Quick Start</h1>
 Create a New Project</h2>
 <div class="fragment"><div class="line">~/NeuroTIC$ make create </div>
 <div class="line"> </div>
-<div class="line"><a class="code hl_variable" href="compile_8sh.html#ad988aed1298428fd4b1919b4b6c2ecde">Error</a>: The <a class="code hl_variable" href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a> directory is not empty.</div>
-<div class="line">Do you want to remove all files in the <a class="code hl_variable" href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a> directory? (y/n): y</div>
+<div class="line">Error: The workspace directory is not empty.</div>
+<div class="line">Do you want to remove all files in the workspace directory? (y/n): y</div>
 <div class="line">Workspace cleared.</div>
 <div class="line"> </div>
 <div class="line">Enter the new project name: test</div>
@@ -112,9 +112,7 @@ Create a New Project</h2>
 <div class="line">basic</div>
 <div class="line">complete</div>
 <div class="line">Enter the header pack to use: complete</div>
-<div class="line">Project created successfully at  <a class="code hl_variable" href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a>/test.c</div>
-<div class="ttc" id="acompile_8sh_html_ad988aed1298428fd4b1919b4b6c2ecde"><div class="ttname"><a href="compile_8sh.html#ad988aed1298428fd4b1919b4b6c2ecde">Error</a></div><div class="ttdeci">then echo Error</div><div class="ttdef"><b>Definition</b> compile.sh:44</div></div>
-<div class="ttc" id="anew_8sh_html_a6a13b24ded5c57d3b804b5d7ef2772b0"><div class="ttname"><a href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a></div><div class="ttdeci">mkdir p workspace</div><div class="ttdef"><b>Definition</b> new.sh:4</div></div>
+<div class="line">Project created successfully at  workspace/test.c</div>
 </div><!-- fragment --><hr  />
  <h2><a class="anchor" id="write-your-code"></a>
 Write Your Code</h2>
@@ -221,16 +219,16 @@ Write Your Code</h2>
 Compile</h2>
 <div class="fragment"><div class="line">~/NeuroTIC$ make compile</div>
 <div class="line">make compile</div>
-<div class="line">Enter project location (e.g., <a class="code hl_variable" href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a>, examples): <a class="code hl_variable" href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a></div>
+<div class="line">Enter project location (e.g., workspace, examples): workspace</div>
 <div class="line">Enter project name (filename without extension): test</div>
 <div class="line">Enter platform (e.g., CPU): CPU</div>
-<div class="line">Compiling project in location: <a class="code hl_variable" href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a></div>
+<div class="line">Compiling project in location: workspace</div>
 <div class="line">Project name: test</div>
 <div class="line">Platform: CPU</div>
 </div><!-- fragment --><hr  />
  <h2><a class="anchor" id="run-your-project"></a>
 Run Your Project</h2>
-<div class="fragment"><div class="line">~/NeuroTIC$ ./<a class="code hl_variable" href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a>/test</div>
+<div class="fragment"><div class="line">~/NeuroTIC$ ./workspace/test</div>
 <div class="line">Select test: 0</div>
 <div class="line">SAMPLE INPUTS: 0.000000 </div>
 <div class="line">EXPECTED OUTPUTS: 0.000000</div>

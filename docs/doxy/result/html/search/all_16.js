@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['usage_0',['Usage',['../compile_8sh.html#a3605307780f1adef4b64af88704d0861',1,'compile.sh']]],
-  ['user_5fguide_2edox_1',['USER_GUIDE.dox',['../USER__GUIDE_8dox.html',1,'']]]
+  ['user_5fguide_2edox_0',['USER_GUIDE.dox',['../USER__GUIDE_8dox.html',1,'']]]
 ];

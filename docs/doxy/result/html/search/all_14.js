@@ -8,7 +8,7 @@ var searchData=
   ['selector_20role_5',['Memory Selector Role',['../neuron__s_8dox.html#neuron_bff_idx',1,'']]],
   ['size_6',['size',['../structwiring__s.html#a77151b3a90f51e267593d8fcfca01f7b',1,'wiring_s']]],
   ['small_20business_20license_7',['Small Business License',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#small-business-license',1,'']]],
-  ['solurions_8',['Workflow Solurions',['../group__NTErgonomics.html',1,'']]],
+  ['solutions_8',['Workflow Solutions',['../group__NTErgonomics.html',1,'']]],
   ['src_5findex_9',['src_index',['../structwiring__s.html#a482deb05260de5ecb212c01b91c9f2fc',1,'wiring_s']]],
   ['src_5flayer_10',['src_layer',['../structwiring__s.html#a53e490c6e893d6255c4a4896af691ca2',1,'wiring_s']]],
   ['src_5ftype_11',['src_type',['../structwiring__s.html#a54a4436a7981644f7bcda46241df0f62',1,'wiring_s']]],

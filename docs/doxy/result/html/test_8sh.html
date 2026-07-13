@@ -89,37 +89,21 @@ $(document).ready(function(){initNavTree('test_8sh.html',''); initResizable(); }
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">test.sh File Reference</div></div>
+  <div class="headertitle"><div class="title">test.sh File Reference<div class="ingroups"><a class="el" href="group__NTErgonomics.html">Workflow Solutions</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><a href="">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:acf8491476c86811bb684554dd19b374a" id="r_acf8491476c86811bb684554dd19b374a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8sh.html#acf8491476c86811bb684554dd19b374a">example</a></td></tr>
-<tr class="separator:acf8491476c86811bb684554dd19b374a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="acf8491476c86811bb684554dd19b374a" name="acf8491476c86811bb684554dd19b374a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf8491476c86811bb684554dd19b374a">&#9670;&#160;</a></span>example</h2>
+<p>Builds and runs one of the bundled examples.  
+<a href="#details">More...</a></p>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">example</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=<span class="stringliteral">&quot;$1&quot;</span></div>
-<div class="line"><span class="keywordflow">if</span> [ -z <span class="stringliteral">&quot;$example&quot;</span> ]</div>
-</div><!-- fragment -->
-</div>
-</div>
-</div><!-- contents -->
+<p><a href="">Go to the source code of this file.</a></p>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Builds and runs one of the bundled examples. </p>
+<p>Must be run from within <code>examples/</code>. Prompts for (or accepts as its one argument) an example's filename without its <code>.c</code> extension, compiles it for the CPU platform via the <code>compile</code> make target, executes the resulting binary, then removes the compiled binary and the library artifacts it produced.</p>
+<p>Usage: ./test.sh [example] </p>
+
+<p class="definition">Definition in file <a class="el" href="">test.sh</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

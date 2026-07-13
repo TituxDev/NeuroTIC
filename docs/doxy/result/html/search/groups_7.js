@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['solurions_0',['Workflow Solurions',['../group__NTErgonomics.html',1,'']]]
+  ['solutions_0',['Workflow Solutions',['../group__NTErgonomics.html',1,'']]]
 ];

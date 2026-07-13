@@ -89,40 +89,21 @@ $(document).ready(function(){initNavTree('new_8sh.html',''); initResizable(); })
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">new.sh File Reference</div></div>
+  <div class="headertitle"><div class="title">new.sh File Reference<div class="ingroups"><a class="el" href="group__NTErgonomics.html">Workflow Solutions</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><a href="">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a6a13b24ded5c57d3b804b5d7ef2772b0" id="r_a6a13b24ded5c57d3b804b5d7ef2772b0"><td class="memItemLeft" align="right" valign="top">mkdir p&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a></td></tr>
-<tr class="separator:a6a13b24ded5c57d3b804b5d7ef2772b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a6a13b24ded5c57d3b804b5d7ef2772b0" name="a6a13b24ded5c57d3b804b5d7ef2772b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a13b24ded5c57d3b804b5d7ef2772b0">&#9670;&#160;</a></span>workspace</h2>
+<p>Interactively scaffolds a new NeuroTIC project.  
+<a href="#details">More...</a></p>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">mkdir p workspace</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{include,src,obj,lib} &amp;&amp; touch <a class="code hl_variable" href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a>/{include,src,obj,lib}/.gitkeep</div>
-<div class="line">echo <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordflow">if</span> [ -n <span class="stringliteral">&quot;$(find workspace -type f ! -name .gitkeep)&quot;</span> ] || [ -n <span class="stringliteral">&quot;$(find workspace -type d -empty)&quot;</span> ]</div>
-<div class="ttc" id="anew_8sh_html_a6a13b24ded5c57d3b804b5d7ef2772b0"><div class="ttname"><a href="new_8sh.html#a6a13b24ded5c57d3b804b5d7ef2772b0">workspace</a></div><div class="ttdeci">mkdir p workspace</div><div class="ttdef"><b>Definition</b> new.sh:4</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-</div><!-- contents -->
+<p><a href="">Go to the source code of this file.</a></p>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Interactively scaffolds a new NeuroTIC project. </p>
+<p>Ensures the <code>workspace/</code> directory exists and is empty (offering to clear it otherwise), then prompts for a project name, author, and description, and an optional pre-built header pack from <code>variants/</code> to copy in. Generates <code>workspace/PROJECT_NAME.h</code> and <code>workspace/PROJECT_NAME.c</code>, the latter pre-filled with a complete, runnable example: building a feedforward network, initializing and training it via backpropagation, evaluating a chosen sample, and saving the trained network to disk.</p>
+<p>Usage: ./new.sh </p>
+
+<p class="definition">Definition in file <a class="el" href="">new.sh</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

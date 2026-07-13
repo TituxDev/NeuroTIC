@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NeuroTIC: Workflow Solurions</title>
+<title>NeuroTIC: Workflow Solutions</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,12 +89,36 @@ $(document).ready(function(){initNavTree('group__NTErgonomics.html',''); initRes
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Workflow Solurions</div></div>
+  <div class="summary">
+<a href="#files">Files</a>  </div>
+  <div class="headertitle"><div class="title">Workflow Solutions</div></div>
 </div><!--header-->
 <div class="contents">
-<p><a href="https://raw.githubusercontent.com/TituxDev/NeuroTIC/refs/heads/main/scripts/compile.sh">https://raw.githubusercontent.com/TituxDev/NeuroTIC/refs/heads/main/scripts/compile.sh</a> <br  />
- <a href="https://raw.githubusercontent.com/TituxDev/NeuroTIC/refs/heads/main/scripts/new.sh">https://raw.githubusercontent.com/TituxDev/NeuroTIC/refs/heads/main/scripts/new.sh</a> <br  />
- <a href="https://raw.githubusercontent.com/TituxDev/NeuroTIC/refs/heads/main/examples/test.sh">https://raw.githubusercontent.com/TituxDev/NeuroTIC/refs/heads/main/examples/test.sh</a> </p>
+
+<p>Scripts and build orchestration that scaffold, build, and set up a NeuroTIC project &ndash; not part of the library itself.  
+<a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:new_8sh" id="r_new_8sh"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="new_8sh.html">new.sh</a></td></tr>
+<tr class="memdesc:new_8sh"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interactively scaffolds a new NeuroTIC project. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:compile_8sh" id="r_compile_8sh"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compile_8sh.html">compile.sh</a></td></tr>
+<tr class="memdesc:compile_8sh"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compilation helper for NeuroTIC projects. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:test_8sh" id="r_test_8sh"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8sh.html">test.sh</a></td></tr>
+<tr class="memdesc:test_8sh"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds and runs one of the bundled examples. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Scripts and build orchestration that scaffold, build, and set up a NeuroTIC project &ndash; not part of the library itself. </p>
+<p>NTErgonomics covers everything a developer interacts with directly from a terminal to work with the repository, none of which is compiled into, or required by, a NeuroTIC network at runtime.</p>
+<p>The repository's root <code>makefile</code> is the usual entry point, exposing three targets:</p><ul>
+<li><code>create</code> runs <a class="el" href="new_8sh.html" title="Interactively scaffolds a new NeuroTIC project.">scripts/new.sh</a> to interactively scaffold a new project under <code>workspace/</code>.</li>
+<li><code>compile PROJECT_LOCATION=... PROJECT_NAME=... PLATFORM=...</code> runs <a class="el" href="compile_8sh.html" title="Compilation helper for NeuroTIC projects.">scripts/compile.sh</a> to build a project, prompting interactively for any of the three variables left unset.</li>
+<li><code>install</code> clones the NeuroTIC repository itself into a location chosen interactively, checking for git and gcc first and offering to install either if missing.</li>
+</ul>
+<p>scripts/test.sh is used independently of the makefile, to quickly build, run, and clean up after one of the bundled examples. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

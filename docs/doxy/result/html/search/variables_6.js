@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['if_0',['if',['../compile_8sh.html#a823c208f9986a39110b3d05ef8ac8213',1,'compile.sh']]],
-  ['in_1',['in',['../structneuron__s.html#a82d6c8f34b3f522e97cef2341eeb7e35',1,'neuron_s::in'],['../structnet__s.html#a44527dfd3f3d56d197da6880c6d21865',1,'net_s::in'],['../structtraindata__t.html#abd0b6bd93393ece7ca09edb281167e9a',1,'traindata_t::in']]],
-  ['inputs_2',['inputs',['../structneuron__s.html#ab9ab1fa3dd333f6076963d0918bbec9d',1,'neuron_s::inputs'],['../structnet__s.html#a252eb5f95334455a30914a1d3706a4d0',1,'net_s::inputs']]]
+  ['max_5fattempts_0',['max_attempts',['../structtraindata__t.html#a6e29a31d6cbba95bfefc63fb2a72e40a',1,'traindata_t']]],
+  ['mem_5fowner_1',['mem_owner',['../structmem__format.html#afbbf22ad66f2efb2a4b94cc2e3039b05',1,'mem_format']]],
+  ['mem_5fregister_2',['mem_register',['../structmem__format.html#a8e6955d3fa46d1171fdb41d0f73d3ebe',1,'mem_format']]],
+  ['mem_5ftrack_3',['mem_track',['../structmem__format.html#a1ab5cc98e6cc9f3c7ac3f4f25356970e',1,'mem_format::mem_track'],['../ntmemory_8c.html#a734768b1a43b4ab62bfdc9fc5d91ed73',1,'mem_track:&#160;ntmemory.c']]],
+  ['mem_5ftracker_4',['mem_tracker',['../ntmemory_8c.html#a3aa777391f5bb520b79bf22e240d0294',1,'ntmemory.c']]]
 ];

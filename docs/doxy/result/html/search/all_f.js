@@ -47,12 +47,11 @@ var searchData=
   ['ntfeedforward_2eh_44',['ntfeedforward.h',['../ntfeedforward_8h.html',1,'']]],
   ['ntfile_2ec_45',['ntfile.c',['../ntfile_8c.html',1,'']]],
   ['ntfile_2eh_46',['ntfile.h',['../ntfile_8h.html',1,'']]],
-  ['ntic_5fincludes_47',['NTIC_INCLUDES',['../compile_8sh.html#a381573d2d472918a7a4399ee03c2f3ab',1,'compile.sh']]],
-  ['ntinitialize_2ec_48',['ntinitialize.c',['../ntinitialize_8c.html',1,'']]],
-  ['ntinitialize_2eh_49',['ntinitialize.h',['../ntinitialize_8h.html',1,'']]],
-  ['ntmemory_2ec_50',['ntmemory.c',['../ntmemory_8c.html',1,'']]],
-  ['ntmemory_2eh_51',['ntmemory.h',['../ntmemory_8h.html',1,'']]],
-  ['ntperipherals_2edox_52',['NTPeripherals.dox',['../NTPeripherals_8dox.html',1,'']]],
-  ['nttrain_2ec_53',['nttrain.c',['../nttrain_8c.html',1,'']]],
-  ['nttrain_2eh_54',['nttrain.h',['../nttrain_8h.html',1,'']]]
+  ['ntinitialize_2ec_47',['ntinitialize.c',['../ntinitialize_8c.html',1,'']]],
+  ['ntinitialize_2eh_48',['ntinitialize.h',['../ntinitialize_8h.html',1,'']]],
+  ['ntmemory_2ec_49',['ntmemory.c',['../ntmemory_8c.html',1,'']]],
+  ['ntmemory_2eh_50',['ntmemory.h',['../ntmemory_8h.html',1,'']]],
+  ['ntperipherals_2edox_51',['NTPeripherals.dox',['../NTPeripherals_8dox.html',1,'']]],
+  ['nttrain_2ec_52',['nttrain.c',['../nttrain_8c.html',1,'']]],
+  ['nttrain_2eh_53',['nttrain.h',['../nttrain_8h.html',1,'']]]
 ];

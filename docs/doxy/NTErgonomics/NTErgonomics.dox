@@ -1,7 +1,39 @@
 /**
- * @defgroup NTErgonomics Workflow Solurions
+ * @defgroup NTErgonomics Workflow Solutions
+ * @brief Scripts and build orchestration that scaffold, build, and set up
+ *        a NeuroTIC project -- not part of the library itself.
  *
- * @ref https://raw.githubusercontent.com/TituxDev/NeuroTIC/refs/heads/main/scripts/compile.sh  
- * @ref https://raw.githubusercontent.com/TituxDev/NeuroTIC/refs/heads/main/scripts/new.sh  
- * @ref https://raw.githubusercontent.com/TituxDev/NeuroTIC/refs/heads/main/examples/test.sh
-*/
+ * @details
+ * NTErgonomics covers everything a developer interacts with directly from
+ * a terminal to work with the repository, none of which is compiled into,
+ * or required by, a NeuroTIC network at runtime.
+ *
+ * The repository's root `makefile` is the usual entry point, exposing
+ * three targets:
+ * - `create` runs scripts/new.sh to interactively scaffold a new project
+ *   under `workspace/`.
+ * - `compile PROJECT_LOCATION=... PROJECT_NAME=... PLATFORM=...` runs
+ *   scripts/compile.sh to build a project, prompting interactively for
+ *   any of the three variables left unset.
+ * - `install` clones the NeuroTIC repository itself into a location
+ *   chosen interactively, checking for git and gcc first and offering to
+ *   install either if missing.
+ *
+ * scripts/test.sh is used independently of the makefile, to quickly
+ * build, run, and clean up after one of the bundled examples.
+ */
+
+/**
+ * @file new.sh
+ * @ingroup NTErgonomics
+ */
+
+/**
+ * @file compile.sh
+ * @ingroup NTErgonomics
+ */
+
+/**
+ * @file test.sh
+ * @ingroup NTErgonomics
+ */

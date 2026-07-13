@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['layers_0',['layers',['../structnet__s.html#a34d6ef4b2b66cb2fec9f4782ddc771ba',1,'net_s']]],
-  ['learning_5frate_1',['learning_rate',['../structtraindata__t.html#a1aaa173a2040281c1dfe92715b7ec106',1,'traindata_t']]]
+  ['neurons_0',['neurons',['../structnet__s.html#a1e8bcffb896c7ac5654aa21f7efe76aa',1,'net_s']]],
+  ['nn_1',['nn',['../structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c',1,'net_s']]],
+  ['ntact_5factivation_2',['ntact_activation',['../ntactivation_8c.html#a1190711e4f39ccc396a6bc46a5518f88',1,'ntact_activation:&#160;ntactivation.c'],['../ntactivation_8h.html#a1190711e4f39ccc396a6bc46a5518f88',1,'ntact_activation:&#160;ntactivation.c']]],
+  ['ntact_5frand_5frange_3',['ntact_rand_range',['../ntactivation_8c.html#a68975968643d0c6223716ffee442818a',1,'ntact_rand_range:&#160;ntactivation.c'],['../ntactivation_8h.html#a68975968643d0c6223716ffee442818a',1,'ntact_rand_range:&#160;ntactivation.c']]]
 ];

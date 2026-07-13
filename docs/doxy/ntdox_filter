@@ -1,2 +1,19 @@
 #!/bin/bash
-sed -E 's/^([[:space:]]*)##(.*)$/\1\/\/\/\2/' "$1"
+sed -E 's/^([[:space:]]*)##(.*)$/\1\/\/\/\2/' "$1"#!/bin/bash
+# ntdox_filter -- converts the leading '##' header block into '///' so
+# Doxygen can extract @file/@brief/@details straight from the script.
+# Everything after that header is blanked, since exposing real shell
+# syntax to the C parser produces bogus "members" (e.g. from patterns
+# like 'obj/*.o', which contain a literal '/*').
+awk '
+    BEGIN { in_header = 1 }
+    in_header && /^#!/ { print; next }
+    in_header && /^[[:space:]]*##/ {
+        line = $0
+        sub(/##/, "///", line)
+        print line
+        next
+    }
+    in_header { in_header = 0 }
+    { print "" }
+' "$1"

@@ -1,5 +1,18 @@
 #!/bin/bash
-# This script creates a new project in the workspace directory.
+## @file new.sh
+## @brief Interactively scaffolds a new NeuroTIC project.
+##
+## Ensures the `workspace/` directory exists and is empty (offering to
+## clear it otherwise), then prompts for a project name, author, and
+## description, and an optional pre-built header pack from `variants/` to
+## copy in. Generates `workspace/PROJECT_NAME.h` and
+## `workspace/PROJECT_NAME.c`, the latter pre-filled with a complete,
+## runnable example: building a feedforward network, initializing and
+## training it via backpropagation, evaluating a chosen sample, and
+## saving the trained network to disk.
+##
+## Usage:
+##   ./new.sh
 
 mkdir -p workspace/{include,src,obj,lib} && touch workspace/{include,src,obj,lib}/.gitkeep
 echo ""
