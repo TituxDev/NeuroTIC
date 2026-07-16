@@ -99,9 +99,10 @@ $(document).ready(function(){initNavTree('logic__gates_8c.html',''); initResizab
 <p><a href="">Go to the source code of this file.</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Example: Train a neural network to compute all 16 two-input logic functions. </p>
-<dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor (Titux) </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2026</dd></dl>
-<p>This example creates a 3-16 neural network and trains it to learn all 16 possible two-input logic functions. It demonstrates network construction, training, evaluation, and model serialization. Expected output:</p>
+<p>This example creates a 2-3-16 neural network and trains it to learn all 16 possible two-input logic functions. It demonstrates network construction, training, evaluation, and model serialization. Expected output:</p>
+<p>Captured with the <code>#valgrind \</code> line in <a class="el" href="test_8sh.html" title="Builds and runs one of the bundled examples.">test.sh</a> uncommented (commented out by default).</p>
 <div class="fragment"><div class="line">~/NeuroTIC/examples$ time bash test.sh logic_gates</div>
 <div class="line">Compiling project in location: examples</div>
 <div class="line">Project name: logic_gates</div>
@@ -115,7 +116,7 @@ $(document).ready(function(){initNavTree('logic__gates_8c.html',''); initResizab
 <div class="line"><span class="stringliteral">==21562== Command: ./examples/logic_gates</span></div>
 <div class="line"><span class="stringliteral">==21562== </span></div>
 <div class="line"><span class="stringliteral"></span> </div>
-<div class="line"><span class="stringliteral">Attemps: 567</span></div>
+<div class="line"><span class="stringliteral">Attempts: 567</span></div>
 <div class="line"><span class="stringliteral"></span> </div>
 <div class="line"><span class="stringliteral">=========================================================================================================================</span></div>
 <div class="line"><span class="stringliteral">| A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |</span></div>
@@ -166,8 +167,8 @@ $(document).ready(function(){initNavTree('logic__gates_8c.html',''); initResizab
 <div class="line">    <a class="code hl_function" href="ntbuilder_8c.html#a0828749590e88600e1ef5329509f6fc7">newnet</a>( &amp;network , (uint16_t []){3,16} , network.<a class="code hl_variable" href="structnet__s.html#a34d6ef4b2b66cb2fec9f4782ddc771ba">layers</a> );</div>
 <div class="line">    <a class="code hl_function" href="ntfeedforward_8c.html#ad4572edfe44001ed5b40ffc7e29026b9">newfeedforward</a>( &amp;network );</div>
 <div class="line">    <a class="code hl_function" href="ntbuilder_8c.html#aaaecf1ef6fe5d9fb9b603d7479b22f7e">buildnet</a>( &amp;network );</div>
-<div class="line"><span class="comment">// Set activation functions to sigmoid for all neurons: Following activation functions distribution had shown the best efficiency equilibrium between training attemps, convergenece and computational work, in BOOLEAN vs SIGMOID tests.</span></div>
-<div class="line">    network.<a class="code hl_variable" href="structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c">nn</a>[0][0].<a class="code hl_variable" href="structneuron__s.html#aed10404eb5eaa88df5243ebedcb3d872">fn</a>= <a class="code hl_enumvalue" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea587a29efb246908053458f5ea4347b1d">NTACT_BOOLEAN</a>; <span class="comment">//&lt;- First hiiden neuron.</span></div>
+<div class="line"><span class="comment">// Set activation functions to sigmoid for all neurons: Following activation functions distribution had shown the best efficiency equilibrium between training attempts, convergenece and computational work, in BOOLEAN vs SIGMOID tests.</span></div>
+<div class="line">    network.<a class="code hl_variable" href="structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c">nn</a>[0][0].<a class="code hl_variable" href="structneuron__s.html#aed10404eb5eaa88df5243ebedcb3d872">fn</a>= <a class="code hl_enumvalue" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea587a29efb246908053458f5ea4347b1d">NTACT_BOOLEAN</a>; <span class="comment">//&lt;- First hiden neuron.</span></div>
 <div class="line">    <span class="keywordflow">for</span>( uint16_t j= 1 ; j &lt; network.<a class="code hl_variable" href="structnet__s.html#a1e8bcffb896c7ac5654aa21f7efe76aa">neurons</a>[0] ; j++ ) network.<a class="code hl_variable" href="structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c">nn</a>[0][j].<a class="code hl_variable" href="structneuron__s.html#aed10404eb5eaa88df5243ebedcb3d872">fn</a>= <a class="code hl_enumvalue" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea4389b6d31de2d327aaa4c65d0f8e9322">NTACT_SIGMOID</a>;</div>
 <div class="line">    <span class="keywordflow">for</span>( uint16_t j= 0 ; j &lt; network.<a class="code hl_variable" href="structnet__s.html#a1e8bcffb896c7ac5654aa21f7efe76aa">neurons</a>[1] ; j++ ) network.<a class="code hl_variable" href="structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c">nn</a>[1][j].<a class="code hl_variable" href="structneuron__s.html#aed10404eb5eaa88df5243ebedcb3d872">fn</a>= <a class="code hl_enumvalue" href="ntactivation_8h.html#a371f27f3712ebe40d139d5dd2729237ea587a29efb246908053458f5ea4347b1d">NTACT_BOOLEAN</a>;</div>
 <div class="line"> </div>
@@ -205,7 +206,7 @@ $(document).ready(function(){initNavTree('logic__gates_8c.html',''); initResizab
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Train the network using backpropagation</span></div>
-<div class="line">    printf( <span class="stringliteral">&quot;\nAttemps: %li&quot;</span> , <a class="code hl_function" href="nttrain_8c.html#a0f03f18a558e71a45909bef6258c2aec">backpropagation</a>( &amp;network , &amp;data ) );</div>
+<div class="line">    printf( <span class="stringliteral">&quot;\nAttempts: %li&quot;</span> , <a class="code hl_function" href="nttrain_8c.html#a0f03f18a558e71a45909bef6258c2aec">backpropagation</a>( &amp;network , &amp;data ) );</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Evaluate and display results</span></div>
 <div class="line">    printf( <span class="stringliteral">&quot;\n\n=========================================================================================================================&quot;</span> );</div>
@@ -220,11 +221,7 @@ $(document).ready(function(){initNavTree('logic__gates_8c.html',''); initResizab
 <div class="line">    printf( <span class="stringliteral">&quot;\n=========================================================================================================================&quot;</span>);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Save and reload the trained network</span></div>
-<div class="line">    <a class="code hl_function" href="ntfile_8c.html#aea3803fafee337b67641edb79ee4b4f9">savenet</a>( &amp;network , <span class="stringliteral">&quot;logic_gates&quot;</span> );</div>
-<div class="line">    FILE *file= fopen( <span class="stringliteral">&quot;logic_gates.ntic&quot;</span> , <span class="stringliteral">&quot;rb&quot;</span> );</div>
-<div class="line">    fseek( file , 0 , SEEK_END );</div>
-<div class="line">    printf( <span class="stringliteral">&quot;\n\nSaved network size: %li bytes&quot;</span> , ftell( file ) );</div>
-<div class="line">    fclose( file );</div>
+<div class="line">    printf( <span class="stringliteral">&quot;\n\nSaved network size: %li bytes&quot;</span> , <a class="code hl_function" href="ntfile_8c.html#aea3803fafee337b67641edb79ee4b4f9">savenet</a>( &amp;network , <span class="stringliteral">&quot;logic_gates&quot;</span> ) );</div>
 <div class="line">    <a class="code hl_function" href="ntmemory_8h.html#a4bd10184daeb50d2eea585376d8ac7ac">deleteowner</a>( &amp;network );</div>
 <div class="line">    memset( &amp;network , 0 , <span class="keyword">sizeof</span>( <a class="code hl_struct" href="structnet__s.html">net_s</a> ) );</div>
 <div class="line">    <a class="code hl_function" href="ntfile_8c.html#a6d9a2c308a9dade6a48444965925b030">loadnet</a>( &amp;network , <span class="stringliteral">&quot;logic_gates&quot;</span> );</div>

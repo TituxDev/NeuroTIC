@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('one__hot_8c.html',''); initResizable()
 <p><a href="">Go to the source code of this file.</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Example: Train a neural network to learn a one-hot encoding function. </p>
-<dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor (Titux) </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2026</dd></dl>
 <p>This example builds a 3-layer feedforward neural network (1-4-8-16) and trains it to learn a one-hot encoding mapping. Given an integer input value in the range 0-15, the network must activate exactly one output neuron corresponding to that value while keeping all other outputs inactive.</p>
 <p>Expected output:</p>
@@ -198,13 +198,9 @@ $(document).ready(function(){initNavTree('one__hot_8c.html',''); initResizable()
 <div class="line">    <span class="keywordflow">for</span>( uint16_t j= 0 ; j &lt; TRAINING_SAMPLES ; j++ ) printf( <span class="stringliteral">&quot;  %.0f&quot;</span> , *NETWORK_NAME.<a class="code hl_variable" href="structnet__s.html#ad9272b1de9b126257fc6fef9abd236b9">out</a>[j] );</div>
 <div class="line">  } </div>
 <div class="line"> </div>
-<div class="line">  <a class="code hl_function" href="ntfile_8c.html#aea3803fafee337b67641edb79ee4b4f9">savenet</a>( &amp;network , <span class="stringliteral">&quot;one_hot&quot;</span> );</div>
-<div class="line">  FILE *fp= fopen( <span class="stringliteral">&quot;one_hot.ntic&quot;</span> , <span class="stringliteral">&quot;rb&quot;</span> );</div>
-<div class="line">  fseek( fp , 0 , SEEK_END );</div>
-<div class="line">  printf( <span class="stringliteral">&quot;\n\nFile size : %li bytes&quot;</span> , ftell( fp ) );</div>
-<div class="line">  fclose( fp );</div>
+<div class="line">  printf( <span class="stringliteral">&quot;\n\nFile size : %li bytes&quot;</span> , <a class="code hl_function" href="ntfile_8c.html#aea3803fafee337b67641edb79ee4b4f9">savenet</a>( &amp;network , <span class="stringliteral">&quot;one_hot&quot;</span> ) );</div>
+<div class="line">  </div>
 <div class="line">  remove( <span class="stringliteral">&quot;one_hot.ntic&quot;</span> );</div>
-<div class="line"> </div>
 <div class="line">  printf( <span class="stringliteral">&quot;\n&quot;</span> );</div>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>

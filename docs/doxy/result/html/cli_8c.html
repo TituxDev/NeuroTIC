@@ -99,19 +99,19 @@ $(document).ready(function(){initNavTree('cli_8c.html',''); initResizable(); });
 <p><a href="">Go to the source code of this file.</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Example: Interactively build a custom (non-feedforward) wiring descriptor via CLI. </p>
-<dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor (titux) </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Oscar Sotomayor </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2026</dd></dl>
 <p>This example demonstrates how to construct a <code><a class="el" href="structwiring__s.html" title="Declarative descriptor of inter-layer input resolution.">wiring_s</a></code> descriptor by hand, through an interactive command-line prompt, instead of relying on <code><a class="el" href="ntfeedforward_8c.html#ad4572edfe44001ed5b40ffc7e29026b9" title="Wires each layer as fully connected to only its immediately preceding layer.">newfeedforward()</a></code> to auto-generate a standard dense feedforward topology.</p>
-<p>For each layer (except the input layer) the user defines, per neuron input set:</p><ul>
-<li>how many logical input arrays feed that set,</li>
+<ul>
 <li>the type of each array:<ul>
-<li>'I' : the network's own inputs,</li>
-<li>'O' : the size of the output layer,</li>
-<li>'N' : a single reference to another layer/index's output,</li>
-<li>'M' : a manually built fan-in ("BFF") mixing individual N/I/O elements.</li>
+<li>'I' : aliases the network's own external inputs, as a whole.</li>
+<li>'O' : aliases the network's own final outputs, as a whole.</li>
+<li>'N' : aliases another single wiring array's buffer, wholesale.</li>
+<li>'M' : a manually built fan-in ("BFF"), mixing individual N/I/O elements, each resolved on its own.</li>
 </ul>
 </li>
 </ul>
+<p>See <a class="el" href="structwiring__s.html">wiring_s</a> for the full semantics of each type, including how 'N', 'I', and 'O' are resolved differently when nested inside an 'M'.</p>
 <p>This lets you describe arbitrary connectivity (skip connections, multiple input buffers, mixed sources, etc.) that a plain feedforward generator can't express.</p>
 <p>Expected output:</p>
 <div class="fragment"><div class="line">~/NeuroTIC/examples$ bash test.sh cli</div>
@@ -220,7 +220,6 @@ $(document).ready(function(){initNavTree('cli_8c.html',''); initResizable(); });
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main( <span class="keywordtype">void</span> ){</div>
 <div class="line">    </div>
-<div class="line">    </div>
 <div class="line">    <a class="code hl_struct" href="structnet__s.html">net_s</a> *NETWORK_NAME= &amp;(<a class="code hl_struct" href="structnet__s.html">net_s</a>){ 0 };</div>
 <div class="line">    <a class="code hl_function" href="ntdefinition_8c.html#a133840722b2ffac8b272bdd102fa7b0d">definestructure</a>( NETWORK_NAME );</div>
 <div class="line">    <a class="code hl_function" href="ntdefinition_8c.html#a794d29df0a0d938498626f6dc22dcc0b">definetopology</a>( NETWORK_NAME );</div>
@@ -240,7 +239,6 @@ $(document).ready(function(){initNavTree('cli_8c.html',''); initResizable(); });
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line"><span class="preprocessor">    #pragma GCC diagnostic pop</span></div>
-<div class="line"> </div>
 <div class="line">    </div>
 <div class="line">    <span class="comment">// ---- Initialized parameters (bias + weights), one line per neuron ----</span></div>
 <div class="line">    <a class="code hl_function" href="ntinitialize_8c.html#a0c2e77d2e0217cf512c8adb47097b485">randnet</a>( NETWORK_NAME );</div>
@@ -285,16 +283,10 @@ $(document).ready(function(){initNavTree('cli_8c.html',''); initResizable(); });
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// ---- Save network ----</span></div>
-<div class="line">    <a class="code hl_function" href="ntfile_8c.html#aea3803fafee337b67641edb79ee4b4f9">savenet</a>( NETWORK_NAME , <span class="stringliteral">&quot;CLI&quot;</span> );</div>
-<div class="line">    FILE *fp= fopen( <span class="stringliteral">&quot;CLI.ntic&quot;</span> , <span class="stringliteral">&quot;rb&quot;</span> );</div>
-<div class="line">    fseek( fp , 0 , SEEK_END );</div>
-<div class="line">    putchar( <span class="charliteral">&#39;\n&#39;</span> );</div>
 <div class="line">    SECTION( <span class="stringliteral">&quot;SAVE&quot;</span> );</div>
-<div class="line">    putchar( <span class="charliteral">&#39;\n&#39;</span> );</div>
-<div class="line">    printf( <span class="stringliteral">&quot;\nSaved to CLI.ntic (%ld bytes)\n&quot;</span> , ftell( fp ) );</div>
-<div class="line">    fclose( fp );</div>
+<div class="line">    printf( <span class="stringliteral">&quot;\nSaved to CLI.ntic (%ld bytes)\n&quot;</span> , <a class="code hl_function" href="ntfile_8c.html#aea3803fafee337b67641edb79ee4b4f9">savenet</a>( NETWORK_NAME , <span class="stringliteral">&quot;CLI&quot;</span> ) );</div>
+<div class="line">    </div>
 <div class="line">    remove( <span class="stringliteral">&quot;CLI.ntic&quot;</span> );</div>
-<div class="line"> </div>
 <div class="line">    putchar( <span class="charliteral">&#39;\n&#39;</span> );</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
