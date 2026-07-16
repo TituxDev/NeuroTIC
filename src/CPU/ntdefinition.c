@@ -2,7 +2,7 @@
  * @file ntdefinition.c
  * @brief Network Definition Functions.
  *
- * @author Oscar Sotomayor (Titux)
+ * @author Oscar Sotomayor
  *
  * @details
  * This module implements an interactive, console-driven interface that

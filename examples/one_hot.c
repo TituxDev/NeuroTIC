@@ -1,7 +1,7 @@
 /**
  * @file one_hot.c
  * @brief Example: Train a neural network to learn a one-hot encoding function.
- * @author Oscar Sotomayor (Titux)
+ * @author Oscar Sotomayor
  * @date 2026
  *
  * This example builds a 3-layer feedforward neural network (1-4-8-16) and trains it
@@ -110,13 +110,9 @@ int main( void ){
     for( uint16_t j= 0 ; j < TRAINING_SAMPLES ; j++ ) printf( "  %.0f" , *NETWORK_NAME.out[j] );
   } 
 
-  savenet( &network , "one_hot" );
-  FILE *fp= fopen( "one_hot.ntic" , "rb" );
-  fseek( fp , 0 , SEEK_END );
-  printf( "\n\nFile size : %li bytes" , ftell( fp ) );
-  fclose( fp );
+  printf( "\n\nFile size : %li bytes" , savenet( &network , "one_hot" ) );
+  
   remove( "one_hot.ntic" );
-
   printf( "\n" );
   return 0;
 }

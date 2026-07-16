@@ -18,9 +18,28 @@ of their network, without fighting a framework to do it.
 ## Quick example
 
 ```c
-// Full working example: logic gate network
+#include "ntcomplete.h"
+
+int main( void ) {
+    // 2 inputs -> 4 hidden neurons -> 1 output
+    CREATE_NET_FEEDFORWARD( net , 2 , ( (uint16_t []){ 4 , 1 } ) );
+
+    for( layer_t i= 0 ; i < net->layers ; i++ )
+        for( uint16_t j= 0 ; j < net->neurons[i] ; j++ )
+            net->nn[i][j].fn= NTACT_SIGMOID;
+    randnet( net );
+
+    traindata_t data= { .learning_rate= 0.1 , .tolerance= 0.01 , .max_attempts= 100000 , .samples= 4 };
+    newtraindata( &data , net );
+    // ... fill data.in[][] / data.results[][] with your training samples ...
+    backpropagation( net , &data );
+
+    savenet( net , "my_network" );
+    return 0;
+}
 ```
-[See complete example](./examples/logic_gates.c)
+
+[More examples](./examples/)
 
 ## Documentation
 

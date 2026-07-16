@@ -118,8 +118,8 @@ Create a New Project</h2>
 Write Your Code</h2>
 <div class="fragment"><div class="line"><span class="comment">// Filename: test.c</span></div>
 <div class="line"><span class="comment">// Author: whoami</span></div>
-<div class="line"><span class="comment">// Date: 2026-02-17</span></div>
-<div class="line"><span class="comment">// Description: testing.</span></div>
+<div class="line"><span class="comment">// Date: 2026-07-12</span></div>
+<div class="line"><span class="comment">// Description: .</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Pro tip: use test.h to store global constants, macros, variables,</span></div>
 <div class="line"><span class="comment">// or include additional headers. Keep your main clean.</span></div>
@@ -128,79 +128,56 @@ Write Your Code</h2>
 <div class="line"><span class="preprocessor">#include &quot;ntcomplete.h&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#define NETWORK_NAME test</span></div>
-<div class="line"><span class="preprocessor">#define OUTPUT_DIR &quot;./test_net.ntic&quot;</span></div>
+<div class="line"><span class="preprocessor">#define OUTPUT_DIR &quot;./test_net&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#define INPUTS 1</span></div>
-<div class="line"><span class="preprocessor">#define NEURONS_PER_LAYER 1 </span><span class="comment">// , ... , ... , ... </span></div>
-<div class="line"><span class="preprocessor">#define ACTIVATION_FUNCTIONS NTACT_SIGMOID </span><span class="comment">// Watch ntactivation.h for available activation functions</span></div>
+<div class="line"><span class="preprocessor">#define NEURONS_PER_LAYER 1 </span><span class="comment">// Add more comma-separated values for additional layers</span></div>
+<div class="line"><span class="preprocessor">#define ACTIVATION_FUNCTIONS NTACT_SIGMOID </span><span class="comment">// See ntactivation.h for available functions</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#define TRAINING_SAMPLES 1</span></div>
 <div class="line"><span class="preprocessor">#define LEARNING_RATE 0.1</span></div>
 <div class="line"><span class="preprocessor">#define TOLERANCE 0.0</span></div>
 <div class="line"><span class="preprocessor">#define MAX_ATTEMPTS 1</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main( <span class="keywordtype">void</span> ){</div>
+<div class="line"><span class="keywordtype">int</span> main( <span class="keywordtype">void</span> ) {</div>
 <div class="line"> </div>
-<div class="line"> <span class="comment">// Your code here</span></div>
+<div class="line">    <span class="comment">// Your code here</span></div>
 <div class="line"> </div>
-<div class="line"> <a class="code hl_define" href="ntbuilder_8h.html#ac4ca47bc0d692b1d915cdc405f21cd85">CREATE_NET_FEEDFORWARD</a>( NETWORK_NAME , INPUTS , ( (uint16_t []){ NEURONS_PER_LAYER } ) ); </div>
-<div class="line"> <span class="comment">// Select activation functions for each neuron</span></div>
-<div class="line"> <span class="keywordflow">for</span>( layer_t i= 0 ; i &lt; NETWORK_NAME.layers ; i++ ) <span class="keywordflow">for</span>( uint16_t j= 0 ; j &lt; NETWORK_NAME.neurons[i] ; j++ )</div>
-<div class="line">     NETWORK_NAME.nn[i][j].fn= ACTIVATION_FUNCTIONS;</div>
-<div class="line"> <span class="comment">// Initialize weights</span></div>
-<div class="line"> <a class="code hl_function" href="ntinitialize_8c.html#a0c2e77d2e0217cf512c8adb47097b485">randnet</a>( &amp;NETWORK_NAME );</div>
+<div class="line">    <a class="code hl_define" href="ntbuilder_8h.html#ac4ca47bc0d692b1d915cdc405f21cd85">CREATE_NET_FEEDFORWARD</a>( NETWORK_NAME , INPUTS , ( (uint16_t []){ NEURONS_PER_LAYER } ) );</div>
+<div class="line">    <span class="comment">// Select activation functions for each neuron</span></div>
+<div class="line">    <span class="keywordflow">for</span>( layer_t i= 0 ; i &lt; NETWORK_NAME-&gt;layers ; i++ ) <span class="keywordflow">for</span>( uint16_t j= 0 ; j &lt; NETWORK_NAME-&gt;neurons[i] ; j++ )</div>
+<div class="line">        NETWORK_NAME-&gt;nn[i][j].fn= ACTIVATION_FUNCTIONS;</div>
+<div class="line">    <a class="code hl_function" href="ntinitialize_8c.html#a0c2e77d2e0217cf512c8adb47097b485">randnet</a>( NETWORK_NAME );</div>
 <div class="line"> </div>
-<div class="line"> <span class="comment">// Prepare training data</span></div>
-<div class="line"> <a class="code hl_struct" href="structtraindata__t.html">traindata_t</a> data={</div>
-<div class="line">     .<a class="code hl_variable" href="structtraindata__t.html#a1aaa173a2040281c1dfe92715b7ec106">learning_rate</a>= (<a class="code hl_typedef" href="nttrain_8h.html#a2cfe1c0a780a80675abb2076680638aa">precision_t</a>)(LEARNING_RATE),</div>
-<div class="line">     .tolerance= (<a class="code hl_typedef" href="nttrain_8h.html#a2cfe1c0a780a80675abb2076680638aa">precision_t</a>)(TOLERANCE),</div>
-<div class="line">     .max_attempts= MAX_ATTEMPTS,</div>
-<div class="line">     .samples= TRAINING_SAMPLES,</div>
-<div class="line">};</div>
-<div class="line"><span class="comment">// Allocate training data</span></div>
-<div class="line"><a class="code hl_function" href="nttrain_8c.html#a1d7455b7a18bd3d79bdf722dfc65cc50">newtraindata</a>( &amp;data , &amp;NETWORK_NAME );</div>
-<div class="line"><span class="comment">// Fill training data with your samples and expected outputs</span></div>
-<div class="line"><span class="comment">// for( sample_t i= 0 ; i &lt; TRAINING_SAMPLES ; i++ ){</span></div>
-<div class="line"><span class="comment">//     for( input_t j= 0 ; j &lt; NETWORK_NAME.inputs ; j++ ) data.in[i][j]= ...; // Set input values</span></div>
-<div class="line"><span class="comment">//     for( uint16_t j= 0 ; j &lt; NETWORK_NAME.neurons[NETWORK_NAME.layers-1] ; j++ ) data.results[i][j]= ...; // Set expected output values</span></div>
-<div class="line"><span class="comment">// }</span></div>
+<div class="line">    <span class="comment">// Prepare training data</span></div>
+<div class="line">    <a class="code hl_struct" href="structtraindata__t.html">traindata_t</a> data= {</div>
+<div class="line">        .<a class="code hl_variable" href="structtraindata__t.html#a1aaa173a2040281c1dfe92715b7ec106">learning_rate</a>= (<a class="code hl_typedef" href="nttrain_8h.html#a2cfe1c0a780a80675abb2076680638aa">precision_t</a>)(LEARNING_RATE),</div>
+<div class="line">        .tolerance= (<a class="code hl_typedef" href="nttrain_8h.html#a2cfe1c0a780a80675abb2076680638aa">precision_t</a>)(TOLERANCE),</div>
+<div class="line">        .max_attempts= MAX_ATTEMPTS,</div>
+<div class="line">        .samples= TRAINING_SAMPLES,</div>
+<div class="line">    };</div>
+<div class="line">    <a class="code hl_function" href="nttrain_8c.html#a1d7455b7a18bd3d79bdf722dfc65cc50">newtraindata</a>( &amp;data , NETWORK_NAME );</div>
+<div class="line">    <span class="comment">// Fill training data with your samples and expected outputs</span></div>
+<div class="line">    <span class="comment">// for( sample_t i= 0 ; i &lt; TRAINING_SAMPLES ; i++ ){</span></div>
+<div class="line">    <span class="comment">//     for( input_t j= 0 ; j &lt; NETWORK_NAME-&gt;inputs ; j++ ) data.in[i][j]= ...; // Set input values</span></div>
+<div class="line">    <span class="comment">//     for( uint16_t j= 0 ; j &lt; NETWORK_NAME-&gt;neurons[NETWORK_NAME-&gt;layers-1] ; j++ ) data.results[i][j]= ...; // Set expected output values</span></div>
+<div class="line">    <span class="comment">// }</span></div>
 <div class="line"> </div>
-<div class="line"> <span class="comment">// Train the network</span></div>
-<div class="line"> <a class="code hl_function" href="nttrain_8c.html#a0f03f18a558e71a45909bef6258c2aec">backpropagation</a>( &amp;NETWORK_NAME , &amp;data );</div>
+<div class="line">    <a class="code hl_function" href="nttrain_8c.html#a0f03f18a558e71a45909bef6258c2aec">backpropagation</a>( NETWORK_NAME , &amp;data );</div>
 <div class="line"> </div>
-<div class="line"> <span class="comment">// Select a test sample to evaluate the trained network</span></div>
-<div class="line"> <span class="keywordtype">size_t</span> sample;</div>
-<div class="line"> printf( <span class="stringliteral">&quot;Select test: &quot;</span> );</div>
-<div class="line"><span class="preprocessor"> #pragma GCC diagnostic push</span></div>
-<div class="line"><span class="preprocessor"> #pragma GCC diagnostic ignored &quot;-Wunused-result&quot;</span></div>
-<div class="line"> scanf( <span class="stringliteral">&quot;%zu&quot;</span> , &amp;sample );</div>
-<div class="line"><span class="preprocessor"> #pragma GCC diagnostic pop</span></div>
-<div class="line"> <span class="comment">// Print test</span></div>
-<div class="line"> printf( <span class="stringliteral">&quot;SAMPLE INPUTS: &quot;</span> );</div>
-<div class="line"> <span class="keywordflow">for</span>( input_t i= 0 ; i &lt; NETWORK_NAME.inputs ; i++ ) printf( <span class="stringliteral">&quot;%f &quot;</span> , data.<a class="code hl_variable" href="structtraindata__t.html#abd0b6bd93393ece7ca09edb281167e9a">in</a>[sample][i] );</div>
-<div class="line"> printf( <span class="stringliteral">&quot;\nEXPECTED OUTPUTS: &quot;</span> );</div>
-<div class="line"> <span class="keywordflow">for</span>( uint16_t i= 0 ; i &lt; NETWORK_NAME.neurons[NETWORK_NAME.layers-1] ; i++ ) printf( <span class="stringliteral">&quot;%f &quot;</span> , data.<a class="code hl_variable" href="structtraindata__t.html#a7070c842214370df351b902c68a54ab0">results</a>[sample][i] );</div>
+<div class="line">    <a class="code hl_function" href="ntfile_8c.html#aea3803fafee337b67641edb79ee4b4f9">savenet</a>( NETWORK_NAME , OUTPUT_DIR );</div>
 <div class="line"> </div>
-<div class="line"> <span class="comment">//Connect network</span></div>
-<div class="line"> data_t inputs[NETWORK_NAME.inputs];</div>
-<div class="line"> <span class="keywordflow">for</span>( input_t i= 0 ; i &lt; NETWORK_NAME.inputs ; i++ ) NETWORK_NAME.in[i]= &amp;inputs[i];</div>
-<div class="line"> <span class="comment">// Set input values</span></div>
-<div class="line"> memcpy( inputs , data.<a class="code hl_variable" href="structtraindata__t.html#abd0b6bd93393ece7ca09edb281167e9a">in</a>[sample] , NETWORK_NAME.inputs * <span class="keyword">sizeof</span>( data_t ) );</div>
-<div class="line"> printf( <span class="stringliteral">&quot;\n\nNETWORK INPUTS:  &quot;</span> );</div>
-<div class="line"> <span class="keywordflow">for</span>( input_t i= 0 ; i &lt; NETWORK_NAME.inputs ; i++ ) printf( <span class="stringliteral">&quot;%f &quot;</span> , *NETWORK_NAME.in[i] );</div>
-<div class="line"> <span class="comment">// Evaluate network</span></div>
-<div class="line"> <a class="code hl_function" href="ntcalculate_8c.html#a97d8e494dc675cb4662016714f1510ed">feedforward</a>( &amp;NETWORK_NAME );</div>
-<div class="line"> <span class="comment">// Print outputs</span></div>
-<div class="line"> printf( <span class="stringliteral">&quot;\nNETWORK OUTPUTS: &quot;</span> );</div>
-<div class="line"> <span class="keywordflow">for</span>( uint16_t i= 0 ; i &lt; NETWORK_NAME.neurons[NETWORK_NAME.layers-1] ; i++ ) printf( <span class="stringliteral">&quot;%f &quot;</span> , *NETWORK_NAME.out[i] );</div>
+<div class="line">    <span class="comment">// Reconnect network inputs -- backpropagation() releases its own</span></div>
+<div class="line">    <span class="comment">// internal input buffer when it finishes</span></div>
+<div class="line">    data_t inputs[NETWORK_NAME-&gt;inputs];</div>
+<div class="line">    <span class="keywordflow">for</span>( input_t i= 0 ; i &lt; NETWORK_NAME-&gt;inputs ; i++ ) NETWORK_NAME-&gt;in[i]= &amp;inputs[i];</div>
+<div class="line">    <span class="comment">// Fill inputs[] with the values you want to evaluate</span></div>
+<div class="line">    <a class="code hl_function" href="ntcalculate_8c.html#a97d8e494dc675cb4662016714f1510ed">feedforward</a>( NETWORK_NAME );</div>
 <div class="line"> </div>
-<div class="line"> <span class="comment">// Save the trained network to a file</span></div>
-<div class="line"> <a class="code hl_function" href="ntfile_8c.html#aea3803fafee337b67641edb79ee4b4f9">savenet</a>( &amp;NETWORK_NAME , OUTPUT_DIR );</div>
 <div class="line"> </div>
-<div class="line"> <span class="comment">// Your code here</span></div>
+<div class="line">    <span class="comment">// Your code here</span></div>
 <div class="line"> </div>
-<div class="line"> putchar( <span class="charliteral">&#39;\n&#39;</span> );</div>
-<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="antbuilder_8h_html_ac4ca47bc0d692b1d915cdc405f21cd85"><div class="ttname"><a href="ntbuilder_8h.html#ac4ca47bc0d692b1d915cdc405f21cd85">CREATE_NET_FEEDFORWARD</a></div><div class="ttdeci">#define CREATE_NET_FEEDFORWARD(network, i, neurons)</div><div class="ttdoc">Convenience macro to declare, build, and wire a new feedforward network in a single step.</div><div class="ttdef"><b>Definition</b> ntbuilder.h:42</div></div>
 <div class="ttc" id="antcalculate_8c_html_a97d8e494dc675cb4662016714f1510ed"><div class="ttname"><a href="ntcalculate_8c.html#a97d8e494dc675cb4662016714f1510ed">feedforward</a></div><div class="ttdeci">data_t ** feedforward(net_s *net)</div><div class="ttdoc">Executes full feedforward propagation.</div><div class="ttdef"><b>Definition</b> ntcalculate.c:56</div></div>
@@ -211,8 +188,6 @@ Write Your Code</h2>
 <div class="ttc" id="anttrain_8h_html_a2cfe1c0a780a80675abb2076680638aa"><div class="ttname"><a href="nttrain_8h.html#a2cfe1c0a780a80675abb2076680638aa">precision_t</a></div><div class="ttdeci">data_t precision_t</div><div class="ttdef"><b>Definition</b> nttrain.h:15</div></div>
 <div class="ttc" id="astructtraindata__t_html"><div class="ttname"><a href="structtraindata__t.html">traindata_t</a></div><div class="ttdoc">Structure to hold training dataset and parameters.</div><div class="ttdef"><b>Definition</b> nttrain.h:22</div></div>
 <div class="ttc" id="astructtraindata__t_html_a1aaa173a2040281c1dfe92715b7ec106"><div class="ttname"><a href="structtraindata__t.html#a1aaa173a2040281c1dfe92715b7ec106">traindata_t::learning_rate</a></div><div class="ttdeci">precision_t learning_rate</div><div class="ttdef"><b>Definition</b> nttrain.h:24</div></div>
-<div class="ttc" id="astructtraindata__t_html_a7070c842214370df351b902c68a54ab0"><div class="ttname"><a href="structtraindata__t.html#a7070c842214370df351b902c68a54ab0">traindata_t::results</a></div><div class="ttdeci">data_t ** results</div><div class="ttdef"><b>Definition</b> nttrain.h:28</div></div>
-<div class="ttc" id="astructtraindata__t_html_abd0b6bd93393ece7ca09edb281167e9a"><div class="ttname"><a href="structtraindata__t.html#abd0b6bd93393ece7ca09edb281167e9a">traindata_t::in</a></div><div class="ttdeci">data_t ** in</div><div class="ttdef"><b>Definition</b> nttrain.h:27</div></div>
 </div><!-- fragment --><p> <a class="el" href="logic__gates_8c.html">API EXAMPLE</a></p>
 <hr  />
  <h2><a class="anchor" id="compile"></a>

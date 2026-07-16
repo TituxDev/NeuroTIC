@@ -1,13 +1,16 @@
 /**
  * @file logic_gates.c
  * @brief Example: Train a neural network to compute all 16 two-input logic functions.
- * @author Oscar Sotomayor (Titux)
+ * @author Oscar Sotomayor
  * @date 2026
  *
- * This example creates a 3-16 neural network and trains it to learn all 16 possible
+ * This example creates a 2-3-16 neural network and trains it to learn all 16 possible
  * two-input logic functions. It demonstrates network construction, training, evaluation,
  * and model serialization.
  * Expected output:
+ *
+ * Captured with the `#valgrind \` line in test.sh uncommented
+ * (commented out by default).
  *
  * ```sh
  * ~/NeuroTIC/examples$ time bash test.sh logic_gates
@@ -23,7 +26,7 @@
  * ==21562== Command: ./examples/logic_gates
  * ==21562== 
  *
- * Attemps: 567
+ * Attempts: 567
  *
  * =========================================================================================================================
  * | A | B | NULL |  NOR |  EXA | NOTB |  EXB | NOTA |  XOR | NAND |  AND | XNOR |   A  | IMPA |   B  | IMPB |  OR  |  ALL |
@@ -77,8 +80,8 @@ int main( void ){
     newnet( &network , (uint16_t []){3,16} , network.layers );
     newfeedforward( &network );
     buildnet( &network );
-// Set activation functions to sigmoid for all neurons: Following activation functions distribution had shown the best efficiency equilibrium between training attemps, convergenece and computational work, in BOOLEAN vs SIGMOID tests.
-    network.nn[0][0].fn= NTACT_BOOLEAN; //<- First hiiden neuron.
+// Set activation functions to sigmoid for all neurons: Following activation functions distribution had shown the best efficiency equilibrium between training attempts, convergenece and computational work, in BOOLEAN vs SIGMOID tests.
+    network.nn[0][0].fn= NTACT_BOOLEAN; //<- First hiden neuron.
     for( uint16_t j= 1 ; j < network.neurons[0] ; j++ ) network.nn[0][j].fn= NTACT_SIGMOID;
     for( uint16_t j= 0 ; j < network.neurons[1] ; j++ ) network.nn[1][j].fn= NTACT_BOOLEAN;
 
@@ -116,7 +119,7 @@ int main( void ){
     }
 
 // Train the network using backpropagation
-    printf( "\nAttemps: %li" , backpropagation( &network , &data ) );
+    printf( "\nAttempts: %li" , backpropagation( &network , &data ) );
 
 // Evaluate and display results
     printf( "\n\n=========================================================================================================================" );
@@ -131,11 +134,7 @@ int main( void ){
     printf( "\n=========================================================================================================================");
 
 // Save and reload the trained network
-    savenet( &network , "logic_gates" );
-    FILE *file= fopen( "logic_gates.ntic" , "rb" );
-    fseek( file , 0 , SEEK_END );
-    printf( "\n\nSaved network size: %li bytes" , ftell( file ) );
-    fclose( file );
+    printf( "\n\nSaved network size: %li bytes" , savenet( &network , "logic_gates" ) );
     deleteowner( &network );
     memset( &network , 0 , sizeof( net_s ) );
     loadnet( &network , "logic_gates" );

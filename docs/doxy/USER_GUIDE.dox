@@ -33,10 +33,11 @@
  * Write Your Code
  * ---
  * @code{.c}
+ *
  * // Filename: test.c
  * // Author: whoami
- * // Date: 2026-02-17
- * // Description: testing.
+ * // Date: 2026-07-12
+ * // Description: .
  *
  * // Pro tip: use test.h to store global constants, macros, variables,
  * // or include additional headers. Keep your main clean.
@@ -45,79 +46,56 @@
  * #include "ntcomplete.h"
  *
  * #define NETWORK_NAME test
- * #define OUTPUT_DIR "./test_net.ntic"
- * 
+ * #define OUTPUT_DIR "./test_net"
+ *
  * #define INPUTS 1
- * #define NEURONS_PER_LAYER 1 // , ... , ... , ... 
- * #define ACTIVATION_FUNCTIONS NTACT_SIGMOID // Watch ntactivation.h for available activation functions
- * 
+ * #define NEURONS_PER_LAYER 1 // Add more comma-separated values for additional layers
+ * #define ACTIVATION_FUNCTIONS NTACT_SIGMOID // See ntactivation.h for available functions
+ *
  * #define TRAINING_SAMPLES 1
  * #define LEARNING_RATE 0.1
  * #define TOLERANCE 0.0
  * #define MAX_ATTEMPTS 1
- * 
- * int main( void ){
- * 
- *  // Your code here
  *
- *  CREATE_NET_FEEDFORWARD( NETWORK_NAME , INPUTS , ( (uint16_t []){ NEURONS_PER_LAYER } ) ); 
- *  // Select activation functions for each neuron
- *  for( layer_t i= 0 ; i < NETWORK_NAME.layers ; i++ ) for( uint16_t j= 0 ; j < NETWORK_NAME.neurons[i] ; j++ )
- *      NETWORK_NAME.nn[i][j].fn= ACTIVATION_FUNCTIONS;
- *  // Initialize weights
- *  randnet( &NETWORK_NAME );
- * 
- *  // Prepare training data
- *  traindata_t data={
- *      .learning_rate= (precision_t)(LEARNING_RATE),
- *      .tolerance= (precision_t)(TOLERANCE),
- *      .max_attempts= MAX_ATTEMPTS,
- *      .samples= TRAINING_SAMPLES,
- * };
- * // Allocate training data
- * newtraindata( &data , &NETWORK_NAME );
- * // Fill training data with your samples and expected outputs
- * // for( sample_t i= 0 ; i < TRAINING_SAMPLES ; i++ ){
- * //     for( input_t j= 0 ; j < NETWORK_NAME.inputs ; j++ ) data.in[i][j]= ...; // Set input values
- * //     for( uint16_t j= 0 ; j < NETWORK_NAME.neurons[NETWORK_NAME.layers-1] ; j++ ) data.results[i][j]= ...; // Set expected output values
- * // }
- * 
- *  // Train the network
- *  backpropagation( &NETWORK_NAME , &data );
+ * int main( void ) {
  *
- *  // Select a test sample to evaluate the trained network
- *  size_t sample;
- *  printf( "Select test: " );
- *  #pragma GCC diagnostic push
- *  #pragma GCC diagnostic ignored "-Wunused-result"
- *  scanf( "%zu" , &sample );
- *  #pragma GCC diagnostic pop
- *  // Print test
- *  printf( "SAMPLE INPUTS: " );
- *  for( input_t i= 0 ; i < NETWORK_NAME.inputs ; i++ ) printf( "%f " , data.in[sample][i] );
- *  printf( "\nEXPECTED OUTPUTS: " );
- *  for( uint16_t i= 0 ; i < NETWORK_NAME.neurons[NETWORK_NAME.layers-1] ; i++ ) printf( "%f " , data.results[sample][i] );
- * 
- *  //Connect network
- *  data_t inputs[NETWORK_NAME.inputs];
- *  for( input_t i= 0 ; i < NETWORK_NAME.inputs ; i++ ) NETWORK_NAME.in[i]= &inputs[i];
- *  // Set input values
- *  memcpy( inputs , data.in[sample] , NETWORK_NAME.inputs * sizeof( data_t ) );
- *  printf( "\n\nNETWORK INPUTS:  " );
- *  for( input_t i= 0 ; i < NETWORK_NAME.inputs ; i++ ) printf( "%f " , *NETWORK_NAME.in[i] );
- *  // Evaluate network
- *  feedforward( &NETWORK_NAME );
- *  // Print outputs
- *  printf( "\nNETWORK OUTPUTS: " );
- *  for( uint16_t i= 0 ; i < NETWORK_NAME.neurons[NETWORK_NAME.layers-1] ; i++ ) printf( "%f " , *NETWORK_NAME.out[i] );
- * 
- *  // Save the trained network to a file
- *  savenet( &NETWORK_NAME , OUTPUT_DIR );
+ *     // Your code here
  *
- *  // Your code here
- * 
- *  putchar( '\n' );
- *  return 0;
+ *     CREATE_NET_FEEDFORWARD( NETWORK_NAME , INPUTS , ( (uint16_t []){ NEURONS_PER_LAYER } ) );
+ *     // Select activation functions for each neuron
+ *     for( layer_t i= 0 ; i < NETWORK_NAME->layers ; i++ ) for( uint16_t j= 0 ; j < NETWORK_NAME->neurons[i] ; j++ )
+ *         NETWORK_NAME->nn[i][j].fn= ACTIVATION_FUNCTIONS;
+ *     randnet( NETWORK_NAME );
+ *
+ *     // Prepare training data
+ *     traindata_t data= {
+ *         .learning_rate= (precision_t)(LEARNING_RATE),
+ *         .tolerance= (precision_t)(TOLERANCE),
+ *         .max_attempts= MAX_ATTEMPTS,
+ *         .samples= TRAINING_SAMPLES,
+ *     };
+ *     newtraindata( &data , NETWORK_NAME );
+ *     // Fill training data with your samples and expected outputs
+ *     // for( sample_t i= 0 ; i < TRAINING_SAMPLES ; i++ ){
+ *     //     for( input_t j= 0 ; j < NETWORK_NAME->inputs ; j++ ) data.in[i][j]= ...; // Set input values
+ *     //     for( uint16_t j= 0 ; j < NETWORK_NAME->neurons[NETWORK_NAME->layers-1] ; j++ ) data.results[i][j]= ...; // Set expected output values
+ *     // }
+ *
+ *     backpropagation( NETWORK_NAME , &data );
+ *
+ *     savenet( NETWORK_NAME , OUTPUT_DIR );
+ *
+ *     // Reconnect network inputs -- backpropagation() releases its own
+ *     // internal input buffer when it finishes
+ *     data_t inputs[NETWORK_NAME->inputs];
+ *     for( input_t i= 0 ; i < NETWORK_NAME->inputs ; i++ ) NETWORK_NAME->in[i]= &inputs[i];
+ *     // Fill inputs[] with the values you want to evaluate
+ *     feedforward( NETWORK_NAME );
+ *
+ *
+ *     // Your code here
+ *
+ *     return 0;
  * }
  * 
  * @endcode
@@ -135,6 +113,8 @@
  * Compiling project in location: workspace
  * Project name: test
  * Platform: CPU
+ *
+ * 31216 bytes written to workspace/test
  * @endcode
  *
  * ---
@@ -142,11 +122,5 @@
  * ---
  * @code{.sh}
  * ~/NeuroTIC$ ./workspace/test
- * Select test: 0
- * SAMPLE INPUTS: 0.000000 
- * EXPECTED OUTPUTS: 0.000000
- *
- * NETWORK INPUTS:  0.000000
- * NETWORK OUTPUTS: 0.496875 
  * @endcode
  */

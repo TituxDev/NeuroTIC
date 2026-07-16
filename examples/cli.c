@@ -1,20 +1,22 @@
 /**
  * @file cli.c
  * @brief Example: Interactively build a custom (non-feedforward) wiring descriptor via CLI.
- * @author Oscar Sotomayor (titux)
+ * @author Oscar Sotomayor
  * @date 2026
  *
  * This example demonstrates how to construct a `wiring_s` descriptor by hand, through
  * an interactive command-line prompt, instead of relying on `newfeedforward()` to
  * auto-generate a standard dense feedforward topology.
  *
- * For each layer (except the input layer) the user defines, per neuron input set:
- * - how many logical input arrays feed that set,
  * - the type of each array:
- *     - 'I' : the network's own inputs,
- *     - 'O' : the size of the output layer,
- *     - 'N' : a single reference to another layer/index's output,
- *     - 'M' : a manually built fan-in ("BFF") mixing individual N/I/O elements.
+ *     - 'I' : aliases the network's own external inputs, as a whole.
+ *     - 'O' : aliases the network's own final outputs, as a whole.
+ *     - 'N' : aliases another single wiring array's buffer, wholesale.
+ *     - 'M' : a manually built fan-in ("BFF"), mixing individual N/I/O
+ *             elements, each resolved on its own.
+ *
+ * See @ref wiring_s for the full semantics of each type, including how
+ * 'N', 'I', and 'O' are resolved differently when nested inside an 'M'.
  *
  * This lets you describe arbitrary connectivity (skip connections, multiple input
  * buffers, mixed sources, etc.) that a plain feedforward generator can't express.
@@ -131,7 +133,6 @@
 
 int main( void ){
     
-    
     net_s *NETWORK_NAME= &(net_s){ 0 };
     definestructure( NETWORK_NAME );
     definetopology( NETWORK_NAME );
@@ -151,7 +152,6 @@ int main( void ){
         }
     }
     #pragma GCC diagnostic pop
-
     
     // ---- Initialized parameters (bias + weights), one line per neuron ----
     randnet( NETWORK_NAME );
@@ -196,16 +196,10 @@ int main( void ){
     }
 
     // ---- Save network ----
-    savenet( NETWORK_NAME , "CLI" );
-    FILE *fp= fopen( "CLI.ntic" , "rb" );
-    fseek( fp , 0 , SEEK_END );
-    putchar( '\n' );
     SECTION( "SAVE" );
-    putchar( '\n' );
-    printf( "\nSaved to CLI.ntic (%ld bytes)\n" , ftell( fp ) );
-    fclose( fp );
+    printf( "\nSaved to CLI.ntic (%ld bytes)\n" , savenet( NETWORK_NAME , "CLI" ) );
+    
     remove( "CLI.ntic" );
-
     putchar( '\n' );
     return 0;
 }
