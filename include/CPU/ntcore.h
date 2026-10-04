@@ -14,6 +14,7 @@
 #define NTCORE_H
 
 #include <stdint.h>
+#include <stddef.h>
 
 /**
  * @name Type Aliases
@@ -106,5 +107,9 @@ typedef struct net_s {
     data_t      ****bff;    /**< Buffer reference sets. */
     data_t      **out;      /**< Output references. */
 } net_s;
+
+size_t sizeof_neuron_s(void);
+size_t sizeof_wiring_s(void);
+size_t sizeof_net_s(void);
 
 #endif // NTCORE_H
