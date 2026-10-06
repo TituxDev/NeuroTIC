@@ -27,7 +27,7 @@
  * Copies `neurons_per_layer` into net_s::neurons and allocates net_s::nn with one
  * neuron_s array per layer.
  *
- * Initializes net_s::in, net::wiring, net_s::bff and net_s::out to `NULL`. These structures
+ * Initializes net_s::in, net_s::wiring, net_s::bff and net_s::out to `NULL`. These structures
  * are allocated and resolved later by buildnet().
  */
 struct net_s *newnet( net_s *net , uint16_t *neurons_per_layer , layer_t layers_size ){
