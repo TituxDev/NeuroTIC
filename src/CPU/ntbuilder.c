@@ -27,10 +27,7 @@
  * Copies `neurons_per_layer` into net_s::neurons and allocates net_s::nn with one
  * neuron_s array per layer.
  *
- * When net_s::layers is greater than 1, allocates one net_s::wiring descriptor
- * per layer transition.
- *
- * Initializes net_s::in, net_s::bff and net_s::out to `NULL`. These structures
+ * Initializes net_s::in, net::wiring, net_s::bff and net_s::out to `NULL`. These structures
  * are allocated and resolved later by buildnet().
  */
 struct net_s *newnet( net_s *net , uint16_t *neurons_per_layer , layer_t layers_size ){
@@ -40,8 +37,8 @@ struct net_s *newnet( net_s *net , uint16_t *neurons_per_layer , layer_t layers_
     memcpy( net->neurons , neurons_per_layer, net->layers * sizeof( uint16_t ) );
     net->nn= createregister( (void *)net , calloc( net->layers , sizeof( neuron_s * ) ) );
     for( uint16_t i = 0 ; i < net->layers ; i++ ) net->nn[i]= createregister( (void *)net , calloc( net->neurons[i] , sizeof( neuron_s ) ) );
-    net->wiring= net->layers > 1 ? createregister( (void *)net , calloc( net->layers - 1 , sizeof( wiring_s ) ) ) : NULL;
     net->in= NULL;
+    net->wiring= NULL;
     net->bff= NULL;
     net->out= NULL;
     return net;

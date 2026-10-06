@@ -219,6 +219,7 @@ size_t loadnet( net_s *net , const char *name ){
         fread( &net->nn[i][j].bff_idx , sizeof( index_t ) , 1 , fp );
     }
     if( net->layers > 1 ){
+        net->wiring= createregister( (void* )net , calloc( net->layers - 1 , sizeof( wiring_s ) ) );
         for( uint16_t i= 0 ; i < net->layers - 1 ; i++ ){
             fread( &net->wiring[i].arrays , sizeof( index_t ) , 1 , fp );
             net->wiring[i].array_type= createregister( net , calloc( net->wiring[i].arrays , sizeof( uint8_t ) ) );

@@ -203,7 +203,7 @@ Functions</h2></td></tr>
 </ul>
 </dd></dl>
 
-<p class="reference">References <a class="el" href="#l00079">wiring_s::array_type</a>, <a class="el" href="#l00078">wiring_s::arrays</a>, <a class="el" href="#l00107">net_s::bff</a>, <a class="el" href="#l00058">neuron_s::bff_idx</a>, <a class="el" href="#l00081">buildneurons()</a>, <a class="el" href="#l00210">createregister()</a>, <a class="el" href="#l00064">defineneurons()</a>, <a class="el" href="#l00059">neuron_s::in</a>, <a class="el" href="#l00104">net_s::in</a>, <a class="el" href="#l00101">net_s::inputs</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00063">neuron_s::out</a>, <a class="el" href="#l00108">net_s::out</a>, <a class="el" href="#l00080">wiring_s::size</a>, <a class="el" href="#l00083">wiring_s::src_index</a>, <a class="el" href="#l00082">wiring_s::src_layer</a>, <a class="el" href="#l00081">wiring_s::src_type</a>, and <a class="el" href="#l00106">net_s::wiring</a>.</p>
+<p class="reference">References <a class="el" href="#l00079">wiring_s::array_type</a>, <a class="el" href="#l00078">wiring_s::arrays</a>, <a class="el" href="#l00107">net_s::bff</a>, <a class="el" href="#l00058">neuron_s::bff_idx</a>, <a class="el" href="#l00078">buildneurons()</a>, <a class="el" href="#l00210">createregister()</a>, <a class="el" href="#l00061">defineneurons()</a>, <a class="el" href="#l00059">neuron_s::in</a>, <a class="el" href="#l00104">net_s::in</a>, <a class="el" href="#l00101">net_s::inputs</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00063">neuron_s::out</a>, <a class="el" href="#l00108">net_s::out</a>, <a class="el" href="#l00080">wiring_s::size</a>, <a class="el" href="#l00083">wiring_s::src_index</a>, <a class="el" href="#l00082">wiring_s::src_layer</a>, <a class="el" href="#l00081">wiring_s::src_type</a>, and <a class="el" href="#l00106">net_s::wiring</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#l00065">definetopology()</a>, and <a class="el" href="#l00184">loadnet()</a>.</p>
 
@@ -238,7 +238,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="#l00210">createregister()</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, and <a class="el" href="#l00060">neuron_s::w</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#l00125">buildnet()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00122">buildnet()</a>.</p>
 
 </div>
 </div>
@@ -272,7 +272,7 @@ Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="#l00058">neuron_s::bff_idx</a>, <a class="el" href="#l00057">neuron_s::inputs</a>, <a class="el" href="#l00101">net_s::inputs</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00080">wiring_s::size</a>, and <a class="el" href="#l00106">net_s::wiring</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="#l00125">buildnet()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00122">buildnet()</a>.</p>
 
 </div>
 </div>
@@ -322,8 +322,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <p>Copies <code>neurons_per_layer</code> into <a class="el" href="structnet__s.html#a1e8bcffb896c7ac5654aa21f7efe76aa">net_s::neurons</a> and allocates <a class="el" href="structnet__s.html#af2c67aaf7793fb650836a5fb6d82512c">net_s::nn</a> with one <a class="el" href="structneuron__s.html" title="Structural unit representing a computation node.">neuron_s</a> array per layer.</p>
-<p>When <a class="el" href="structnet__s.html#a34d6ef4b2b66cb2fec9f4782ddc771ba">net_s::layers</a> is greater than 1, allocates one <a class="el" href="structnet__s.html#a9d1e6329d693123aea04482318aad267">net_s::wiring</a> descriptor per layer transition.</p>
-<p>Initializes <a class="el" href="structnet__s.html#a44527dfd3f3d56d197da6880c6d21865">net_s::in</a>, <a class="el" href="structnet__s.html#a2e7c3c0f579dc558fe5ccf2f7ead3eb6">net_s::bff</a> and <a class="el" href="structnet__s.html#ad9272b1de9b126257fc6fef9abd236b9">net_s::out</a> to <code>NULL</code>. These structures are allocated and resolved later by <a class="el" href="ntbuilder_8c.html#aaaecf1ef6fe5d9fb9b603d7479b22f7e" title="Resolves wiring descriptors and builds the network&#39;s internal references.">buildnet()</a>. </p>
+<p>Initializes <a class="el" href="structnet__s.html#a44527dfd3f3d56d197da6880c6d21865">net_s::in</a>, net::wiring, <a class="el" href="structnet__s.html#a2e7c3c0f579dc558fe5ccf2f7ead3eb6">net_s::bff</a> and <a class="el" href="structnet__s.html#ad9272b1de9b126257fc6fef9abd236b9">net_s::out</a> to <code>NULL</code>. These structures are allocated and resolved later by <a class="el" href="ntbuilder_8c.html#aaaecf1ef6fe5d9fb9b603d7479b22f7e" title="Resolves wiring descriptors and builds the network&#39;s internal references.">buildnet()</a>. </p>
 
 <p class="reference">References <a class="el" href="#l00107">net_s::bff</a>, <a class="el" href="#l00210">createregister()</a>, <a class="el" href="#l00104">net_s::in</a>, <a class="el" href="#l00102">net_s::layers</a>, <a class="el" href="#l00103">net_s::neurons</a>, <a class="el" href="#l00105">net_s::nn</a>, <a class="el" href="#l00108">net_s::out</a>, and <a class="el" href="#l00106">net_s::wiring</a>.</p>
 

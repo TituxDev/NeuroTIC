@@ -30,6 +30,7 @@ struct net_s *newfeedforward( net_s *net ){
     if( !net ) return NULL;
     if( !net->neurons ) return NULL;
     layer_t L= net->layers - 1;
+    net->wiring= createregister( (void* )net , calloc( L , sizeof( wiring_s ) ) );
     for( layer_t i= 0 ; i < L ; i++ ){
         uint16_t count= net->neurons[i];
         net->wiring[i].arrays= 1;
@@ -70,6 +71,7 @@ struct net_s *newdense( net_s *net ){
     if( !net ) return NULL;
     if( !net->neurons ) return NULL;
     layer_t L= net->layers - 1;
+    net->wiring= createregister( (void* )net , malloc( L * sizeof( wiring_s ) ) );
     input_t count= 0;
     for( uint16_t i= 0 ; i < L ; i++ ){
         count+= net->neurons[i];
