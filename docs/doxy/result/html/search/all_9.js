@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['getting_20started_0',['Getting Started',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#getting-started',1,'']]],
-  ['granted_20rights_1',['Granted Rights',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#granted-rights',1,'']]]
+  ['getting_20started_0',['Getting Started',['../md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#getting-started',1,'']]],
+  ['granted_20rights_1',['Granted Rights',['../md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#granted-rights',1,'']]]
 ];

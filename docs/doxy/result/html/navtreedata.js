@@ -31,48 +31,48 @@ var NAVTREE =
       [ "Compile", "index.html#compile", null ],
       [ "Run Your Project", "index.html#run-your-project", null ]
     ] ],
-    [ "NeuroTIC Commercial License Agreement", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html", [
-      [ "Overview", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#overview", null ],
-      [ "Commercial Licensing Tiers", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#commercial-licensing-tiers", [
-        [ "Startup License", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#startup-license", null ],
-        [ "Small Business License", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#small-business-license", null ],
-        [ "Mid-Market License", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#mid-market-license", null ],
-        [ "Enterprise License", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#enterprise-license", null ],
-        [ "Academic License", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#academic-license", null ]
+    [ "NeuroTIC Commercial License Agreement", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html", [
+      [ "Overview", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#overview", null ],
+      [ "Commercial Licensing Tiers", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#commercial-licensing-tiers", [
+        [ "Startup License", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#startup-license", null ],
+        [ "Small Business License", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#small-business-license", null ],
+        [ "Mid-Market License", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#mid-market-license", null ],
+        [ "Enterprise License", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#enterprise-license", null ],
+        [ "Academic License", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#academic-license", null ]
       ] ],
-      [ "Early Adopter Terms", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#early-adopter-terms", null ],
-      [ "Technical Capabilities", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#technical-capabilities", [
-        [ "Currently Available", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#currently-available", null ],
-        [ "Development Roadmap", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#development-roadmap", null ]
+      [ "Early Adopter Terms", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#early-adopter-terms", null ],
+      [ "Technical Capabilities", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#technical-capabilities", [
+        [ "Currently Available", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#currently-available", null ],
+        [ "Development Roadmap", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#development-roadmap", null ]
       ] ],
-      [ "License Rights", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#license-rights", [
-        [ "Granted Rights", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#granted-rights", null ],
-        [ "Restrictions", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#restrictions", null ]
+      [ "License Rights", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#license-rights", [
+        [ "Granted Rights", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#granted-rights", null ],
+        [ "Restrictions", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#restrictions", null ]
       ] ],
-      [ "Support Terms", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#support-terms", null ],
-      [ "Getting Started", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#getting-started", null ],
-      [ "Terms and Conditions", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html#terms-and-conditions", null ]
+      [ "Support Terms", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#support-terms", null ],
+      [ "Getting Started", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#getting-started", null ],
+      [ "Terms and Conditions", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html#terms-and-conditions", null ]
     ] ],
-    [ "Contributing to NeuroTIC", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html", [
-      [ "Contribution License Agreement", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#contribution-license-agreement", null ],
-      [ "How to Contribute", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#how-to-contribute", null ],
-      [ "Code Standards", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#code-standards", null ],
-      [ "Questions?", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#questions", null ]
+    [ "Contributing to NeuroTIC", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2CONTRIBUTING.html", [
+      [ "Contribution License Agreement", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2CONTRIBUTING.html#contribution-license-agreement", null ],
+      [ "How to Contribute", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2CONTRIBUTING.html#how-to-contribute", null ],
+      [ "Code Standards", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2CONTRIBUTING.html#code-standards", null ],
+      [ "Questions?", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2CONTRIBUTING.html#questions", null ]
     ] ],
-    [ "NeuroTIC Technical Roadmap", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html", [
-      [ "Current Release (v1.0)", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#current-release-v10", [
-        [ "Core Architecture", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#core-architecture", null ]
+    [ "NeuroTIC Technical Roadmap", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2ROADMAP.html", [
+      [ "Current Release (v1.0)", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2ROADMAP.html#current-release-v10", [
+        [ "Core Architecture", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2ROADMAP.html#core-architecture", null ]
       ] ],
-      [ "Near-term Development (Q1 2024)", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#near-term-development-q1-2024", [
-        [ "Performance Optimization", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#performance-optimization", null ],
-        [ "Feature Expansion", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#feature-expansion", null ]
+      [ "Near-term Development (Q1 2024)", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2ROADMAP.html#near-term-development-q1-2024", [
+        [ "Performance Optimization", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2ROADMAP.html#performance-optimization", null ],
+        [ "Feature Expansion", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2ROADMAP.html#feature-expansion", null ]
       ] ],
-      [ "Medium-term Development (Q2-Q4 2024)", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#medium-term-development-q2-q4-2024", [
-        [ "Computational Backends", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#computational-backends", null ]
+      [ "Medium-term Development (Q2-Q4 2024)", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2ROADMAP.html#medium-term-development-q2-q4-2024", [
+        [ "Computational Backends", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2ROADMAP.html#computational-backends", null ]
       ] ],
-      [ "Long-term Development (2025+)", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#long-term-development-2025", [
-        [ "Platform Expansion", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#platform-expansion", null ],
-        [ "Ecosystem Development", "md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#ecosystem-development", null ]
+      [ "Long-term Development (2025+)", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2ROADMAP.html#long-term-development-2025", [
+        [ "Platform Expansion", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2ROADMAP.html#platform-expansion", null ],
+        [ "Ecosystem Development", "md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2ROADMAP.html#ecosystem-development", null ]
       ] ]
     ] ],
     [ "Todo List", "todo.html", null ],

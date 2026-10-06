@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NeuroTIC: /home/titux/DEV/NeuroTIC/NeuroTIC/src/CPU/ntmemory.c File Reference</title>
+<title>NeuroTIC: /home/titux/DEV/AssistantX/user/projects/UXCONTROL/UXCONTROL/neurotic_api/NeuroTIC/src/CPU/ntmemory.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -107,19 +107,19 @@ $(document).ready(function(){initNavTree('ntmemory_8c.html',''); initResizable()
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ntmemory.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="ntmemory_8c__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntmemory_8c" alt=""/></div>
-<map name="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntmemory_8c" id="a_2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2src_2CPU_2ntmemory_8c">
-<area shape="rect" title="Implementation of memory management functions." alt="" coords="146,5,367,45"/>
-<area shape="rect" href="ntmemory_8h.html" title="Implementation of memory management functions." alt="" coords="5,93,105,119"/>
-<area shape="poly" title=" " alt="" coords="209,48,99,91,97,86,207,43"/>
-<area shape="rect" title=" " alt="" coords="130,93,197,119"/>
-<area shape="poly" title=" " alt="" coords="236,48,190,86,186,82,232,44"/>
-<area shape="rect" title=" " alt="" coords="221,93,292,119"/>
-<area shape="poly" title=" " alt="" coords="259,46,259,79,254,79,254,46"/>
-<area shape="rect" title=" " alt="" coords="316,93,387,119"/>
-<area shape="poly" title=" " alt="" coords="281,43,328,82,325,86,278,48"/>
-<area shape="rect" title=" " alt="" coords="411,93,489,119"/>
-<area shape="poly" title=" " alt="" coords="304,43,410,86,408,91,302,48"/>
+<div class="center"><img src="ntmemory_8c__incl.png" border="0" usemap="#a_2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2src_2CPU_2ntmemory_8c" alt=""/></div>
+<map name="a_2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2src_2CPU_2ntmemory_8c" id="a_2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2src_2CPU_2ntmemory_8c">
+<area shape="rect" title="Implementation of memory management functions." alt="" coords="129,5,384,75"/>
+<area shape="rect" href="ntmemory_8h.html" title="Implementation of memory management functions." alt="" coords="5,123,105,148"/>
+<area shape="poly" title=" " alt="" coords="185,77,94,119,91,114,183,72"/>
+<area shape="rect" title=" " alt="" coords="130,123,197,148"/>
+<area shape="poly" title=" " alt="" coords="225,77,187,115,183,111,221,73"/>
+<area shape="rect" title=" " alt="" coords="221,123,292,148"/>
+<area shape="poly" title=" " alt="" coords="259,75,259,109,254,109,254,75"/>
+<area shape="rect" title=" " alt="" coords="316,123,387,148"/>
+<area shape="poly" title=" " alt="" coords="293,73,332,111,328,115,289,77"/>
+<area shape="rect" title=" " alt="" coords="411,123,489,148"/>
+<area shape="poly" title=" " alt="" coords="328,72,415,114,413,119,325,77"/>
 </map>
 </div>
 </div>
@@ -187,7 +187,7 @@ Variables</h2></td></tr>
 <dl class="section attention"><dt>Attention</dt><dd>Assumes every registered block was allocated with <code>malloc()</code> or a compatible allocator (e.g. <code>calloc()</code>), and can be safely freed. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="ntmemory_8c.html#a4bd10184daeb50d2eea585376d8ac7ac" title="Deletes a memory owner and all associated memory blocks.">deleteowner()</a> to remove a single owner instead of everything. </dd></dl>
 
-<p class="reference">References <a class="el" href="#l00042">mem_track</a>.</p>
+<p class="reference">References <a class="el" href="#l00028">mem_format::mem_owner</a>, <a class="el" href="#l00029">mem_format::mem_register</a>, <a class="el" href="#l00030">mem_format::mem_track</a>, and <a class="el" href="#l00042">mem_track</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#l00170">createowner()</a>, and <a class="el" href="#l00135">deleteowner()</a>.</p>
 
@@ -218,7 +218,7 @@ Variables</h2></td></tr>
 </dl>
 <p>Finds <code>owner</code> in the tracking system, or creates it if not already present. The first time this function runs, it also registers <a class="el" href="ntmemory_8c.html#af02eae587caffc982fcf2a433b35a873" title="Frees every tracked memory block, for every owner, and empties the tracking registry.">cleanmemory()</a> with <code>atexit()</code>. </p>
 
-<p class="reference">References <a class="el" href="#l00096">cleanmemory()</a>, and <a class="el" href="#l00028">mem_format::mem_owner</a>.</p>
+<p class="reference">References <a class="el" href="#l00096">cleanmemory()</a>, <a class="el" href="#l00058">match_owner()</a>, <a class="el" href="#l00028">mem_format::mem_owner</a>, and <a class="el" href="#l00042">mem_track</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="#l00210">createregister()</a>.</p>
 
@@ -264,7 +264,9 @@ Variables</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>If <code>owner</code> is NULL and <code>mem</code> is non-NULL, <code>mem</code> itself is returned unchanged &ndash; but it is neither registered nor freed in that case; the caller remains responsible for it.</dd></dl>
 <p>Ensures <code>owner</code> is tracked (creating it via <a class="el" href="ntmemory_8c.html#a97df97b8ef19f4026d2e0a41e60864a7" title="Creates a memory owner and registers it in the tracking system.">createowner()</a> if needed), then registers <code>mem</code> under that owner if it is not already present, growing the owner's block registry by one slot. If <code>mem</code> was already registered under this owner, it is returned unchanged without growing the registry. </p>
 
-<p class="reference">References <a class="el" href="#l00170">createowner()</a>, and <a class="el" href="#l00029">mem_format::mem_register</a>.</p>
+<p class="reference">References <a class="el" href="#l00170">createowner()</a>, <a class="el" href="#l00074">match_register()</a>, <a class="el" href="#l00029">mem_format::mem_register</a>, and <a class="el" href="#l00030">mem_format::mem_track</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="#l00125">buildnet()</a>, <a class="el" href="#l00081">buildneurons()</a>, <a class="el" href="#l00065">definetopology()</a>, <a class="el" href="#l00184">loadnet()</a>, <a class="el" href="#l00069">newdense()</a>, <a class="el" href="#l00029">newfeedforward()</a>, <a class="el" href="#l00036">newnet()</a>, and <a class="el" href="#l00026">newtraindata()</a>.</p>
 
 </div>
 </div>
@@ -297,7 +299,7 @@ Variables</h2></td></tr>
 <p>When at most one owner is tracked, deleting the sole remaining owner (if <code>owner</code> matches it) is equivalent to clearing the entire tracking system, so <a class="el" href="ntmemory_8c.html#af02eae587caffc982fcf2a433b35a873" title="Frees every tracked memory block, for every owner, and empties the tracking registry.">cleanmemory()</a> is called directly instead of shrinking an array down to zero elements.</p>
 <p>If <code>owner</code> is not currently tracked, nothing is deleted. </p>
 
-<p class="reference">References <a class="el" href="#l00096">cleanmemory()</a>, <a class="el" href="#l00029">mem_format::mem_register</a>, and <a class="el" href="#l00042">mem_track</a>.</p>
+<p class="reference">References <a class="el" href="#l00096">cleanmemory()</a>, <a class="el" href="#l00058">match_owner()</a>, <a class="el" href="#l00029">mem_format::mem_register</a>, <a class="el" href="#l00030">mem_format::mem_track</a>, and <a class="el" href="#l00042">mem_track</a>.</p>
 
 </div>
 </div>
@@ -344,6 +346,8 @@ Variables</h2></td></tr>
 
 <p class="reference">References <a class="el" href="#l00028">mem_format::mem_owner</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="#l00170">createowner()</a>, and <a class="el" href="#l00135">deleteowner()</a>.</p>
+
 </div>
 </div>
 <a id="a127c4c2c3e30466538e41c0cce40cb98" name="a127c4c2c3e30466538e41c0cce40cb98"></a>
@@ -387,6 +391,8 @@ Variables</h2></td></tr>
 </dl>
 <p>Comparison callback for <code>lfind()</code>, used to locate a specific memory block within one owner's <code>mem_register</code> array. Unlike <a class="el" href="ntmemory_8c.html#a4b06b059b20b2d074ab04490e85a79e9">match_owner()</a>, both <code>key</code> and <code>element</code> here are treated as a single registered <code>void *</code> block &ndash; no <code><a class="el" href="structmem__format.html">mem_format</a></code> element is involved. </p>
 
+<p class="reference">Referenced by <a class="el" href="#l00210">createregister()</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -403,7 +409,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The number of currently tracked owners &ndash; not to be confused with the per-owner <code><a class="el" href="structmem__format.html#a1ab5cc98e6cc9f3c7ac3f4f25356970e">mem_format::mem_track</a></code> field, which counts memory blocks registered under a single owner. Increases by one each time <a class="el" href="ntmemory_8c.html#a97df97b8ef19f4026d2e0a41e60864a7" title="Creates a memory owner and registers it in the tracking system.">createowner()</a> tracks a new owner; decreases by one each time <a class="el" href="ntmemory_8c.html#a4bd10184daeb50d2eea585376d8ac7ac" title="Deletes a memory owner and all associated memory blocks.">deleteowner()</a> removes one. </p>
 
-<p class="reference">Referenced by <a class="el" href="#l00096">cleanmemory()</a>, and <a class="el" href="#l00135">deleteowner()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#l00096">cleanmemory()</a>, <a class="el" href="#l00170">createowner()</a>, and <a class="el" href="#l00135">deleteowner()</a>.</p>
 
 </div>
 </div>

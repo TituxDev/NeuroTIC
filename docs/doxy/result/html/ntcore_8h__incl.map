@@ -1,5 +1,7 @@
-<map id="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntcore.h" name="/home/titux/DEV/NeuroTIC/NeuroTIC/include/CPU/ntcore.h">
-<area shape="rect" id="Node000001" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="5,5,231,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="83,93,153,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,46,121,79,115,79,115,46"/>
+<map id="/home/titux/DEV/AssistantX/user/projects/UXCONTROL/UXCONTROL/neurotic_api/NeuroTIC/include/CPU/ntcore.h" name="/home/titux/DEV/AssistantX/user/projects/UXCONTROL/UXCONTROL/neurotic_api/NeuroTIC/include/CPU/ntcore.h">
+<area shape="rect" id="Node000001" title="Fundamental structural definitions of the NeuroTIC runtime model." alt="" coords="5,5,260,75"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="49,123,120,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,76,99,112,95,109,113,74"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="145,123,219,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,74,172,109,167,112,148,76"/>
 </map>

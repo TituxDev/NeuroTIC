@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['q1_202024_0',['Near-term Development (Q1 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#near-term-development-q1-2024',1,'']]],
-  ['q2_20q4_202024_1',['Medium-term Development (Q2-Q4 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#medium-term-development-q2-q4-2024',1,'']]],
-  ['q4_202024_2',['Medium-term Development (Q2-Q4 2024)',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2ROADMAP.html#medium-term-development-q2-q4-2024',1,'']]],
-  ['questions_3',['Questions?',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html#questions',1,'']]],
-  ['quick_20example_4',['Quick example',['..//home/titux/DEV/NeuroTIC/NeuroTIC/README.md#quick-example',1,'']]],
+  ['q1_202024_0',['Near-term Development (Q1 2024)',['../md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2ROADMAP.html#near-term-development-q1-2024',1,'']]],
+  ['q2_20q4_202024_1',['Medium-term Development (Q2-Q4 2024)',['../md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2ROADMAP.html#medium-term-development-q2-q4-2024',1,'']]],
+  ['q4_202024_2',['Medium-term Development (Q2-Q4 2024)',['../md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2ROADMAP.html#medium-term-development-q2-q4-2024',1,'']]],
+  ['questions_3',['Questions?',['../md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2CONTRIBUTING.html#questions',1,'']]],
+  ['quick_20example_4',['Quick example',['..//home/titux/DEV/AssistantX/user/projects/UXCONTROL/UXCONTROL/neurotic_api/NeuroTIC/README.md#quick-example',1,'']]],
   ['quick_20start_5',['Quick Start',['../index.html#quick_start',1,'']]]
 ];

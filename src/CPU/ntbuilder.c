@@ -27,37 +27,62 @@
  * Copies `neurons_per_layer` into net_s::neurons and allocates net_s::nn with one
  * neuron_s array per layer.
  *
- * Allocates net_s::in and connects it to the first layer's neurons, and allocates
- * net_s::out pointing to the last layer's neuron outputs.
- *
  * When net_s::layers is greater than 1, allocates one net_s::wiring descriptor
- * per layer transition, and net_s::bff's outer array (one slot per layer
- * transition, each left as `NULL`).
+ * per layer transition.
+ *
+ * Initializes net_s::in, net_s::bff and net_s::out to `NULL`. These structures
+ * are allocated and resolved later by buildnet().
  */
 struct net_s *newnet( net_s *net , uint16_t *neurons_per_layer , layer_t layers_size ){
     if( !net || !neurons_per_layer || net->layers < 1 || layers_size != net->layers ) return NULL;
     for( layer_t i = 0 ; i < net->layers ; i++ ) if( neurons_per_layer[i] < 1 ) return NULL;
-    net->in= NULL;
-    net->nn= NULL;
-    net->bff= NULL;
-    net->out= NULL;
     net->neurons= createregister( (void *)net , calloc( net->layers , sizeof( uint16_t ) ) );
     memcpy( net->neurons , neurons_per_layer, net->layers * sizeof( uint16_t ) );
     net->nn= createregister( (void *)net , calloc( net->layers , sizeof( neuron_s * ) ) );
     for( uint16_t i = 0 ; i < net->layers ; i++ ) net->nn[i]= createregister( (void *)net , calloc( net->neurons[i] , sizeof( neuron_s ) ) );
-    net->in= createregister( (void *)net , calloc( net->inputs , sizeof( data_t * ) ) );
-    for( uint16_t i = 0 ; i < net->neurons[0] ; i++ ){
-        net->nn[0][i].in= net->in;
-        net->nn[0][i].inputs= net->inputs;
-    }
-    net->out= createregister( (void *)net , calloc( net->neurons[net->layers - 1] , sizeof( data_t * ) ) );
-    for( uint16_t i = 0 ; i < net->neurons[net->layers - 1] ; i++ ) net->out[i]= &net->nn[net->layers - 1][i].out;
     net->wiring= net->layers > 1 ? createregister( (void *)net , calloc( net->layers - 1 , sizeof( wiring_s ) ) ) : NULL;
-    net->bff= net->layers > 1 ? createregister( (void *)net , calloc( net->layers - 1 , sizeof( data_t *** ) ) ) : NULL;
-    for( layer_t i= 0 ; i < net->layers - 1 ; i++ ) net->bff[i]= NULL;
+    net->in= NULL;
+    net->bff= NULL;
+    net->out= NULL;
     return net;
 }
 
+/**
+ * @retval 1 Argument is NULL.
+ * @retval 0 SUCESS
+ *
+ * @details
+ * Defines neuron_s::inputs for every neuron according to its position in the
+ * network.
+ *
+ * Neurons on the first layer use net_s::inputs as their input count.
+ *
+ * Neurons from the second layer onward use the resolved net_s::wiring descriptor
+ * selected by neuron_s::bff_idx. The corresponding wiring_s::size value defines
+ * the number of inputs for each neuron.
+ */
+uint8_t defineneurons( net_s *net ){
+    if( !net ) return 1;
+    for( uint16_t i= 0 ; i < net->neurons[0] ; i++ ) net->nn[0][i].inputs= net->inputs;
+    for( layer_t i= 1, f= net->layers; i < f ; i++ ) for(uint16_t j= 0 ; j < net->neurons[i] ; j++) net->nn[i][j].inputs= net->wiring[i-1].size[net->nn[i][j].bff_idx];
+    return 0;
+}
+
+/**
+ * @retval 1 Argument is NULL.
+ * @retval 0 SUCESS
+ *
+ * @details
+ * Allocates the weight array for every neuron in the network.
+ *
+ * The number of weights allocated for each neuron is determined by
+ * neuron_s::inputs, which must have been defined previously by defineneurons().
+ */
+uint8_t buildneurons( net_s *net ){
+    if( !net ) return 1;
+    for( layer_t i= 0 ; i < net->layers ; i ++ ) for( uint16_t j= 0 ; j < net->neurons[i] ; j++ ) net->nn[i][j].w= createregister( (void *)net , calloc( net->nn[i][j].inputs , sizeof( weight_t ) ) );
+    return 0;
+}
 
 /**
  * @retval NULL
@@ -73,11 +98,15 @@ struct net_s *newnet( net_s *net , uint16_t *neurons_per_layer , layer_t layers_
  *   its wiring_s::array_type, and wiring_s::size is updated to match the resolved size.
  * Layer 0 is not processed by either pass.
  *
- * Then, for every neuron from layer 1 onward, sets neuron_s::in and neuron_s::inputs
- * from the net_s::bff / wiring_s::size entry selected by its neuron_s::bff_idx.
+ * Then, calls defineneurons() to define neuron_s::inputs for every neuron
+ * according to its layer and selected wiring_s::size entry.
  *
- * Finally, allocates neuron_s::w for every neuron in the network according to its
- * (resolved or pre-existing) neuron_s::inputs.
+ * Calls buildneurons() to allocate neuron_s::w according to the resolved
+ * neuron_s::inputs values.
+ *
+ * Finally, sets neuron_s::in for every neuron from layer 1 onward using the
+ * net_s::bff entry selected by neuron_s::bff_idx, while neurons on layer 0
+ * receive net_s::in.
  *
  * @note
  * wiring_s::array_type (second pass):
@@ -96,7 +125,11 @@ struct net_s *newnet( net_s *net , uint16_t *neurons_per_layer , layer_t layers_
 struct net_s *buildnet( net_s *net ){ 
     if( !net ) return net;
     if( !net->neurons ) NULL;
-    if( net->layers > 1 ){
+    net->in= createregister( (void *)net , calloc( net->inputs , sizeof( data_t * ) ) );
+    net->out= createregister( (void *)net , calloc( net->neurons[net->layers - 1] , sizeof( data_t * ) ) );
+    for( uint16_t i = 0 ; i < net->neurons[net->layers - 1] ; i++ ) net->out[i]= &net->nn[net->layers - 1][i].out;
+    if( net->wiring ){
+        net->bff= createregister( (void *)net , calloc( net->layers - 1 , sizeof( data_t *** ) ) );
         for( layer_t i= 0 ; i < net->layers - 1 ; i++ ){
             net->bff[i]= createregister( (void *)net , calloc( net->wiring[i].arrays , sizeof( data_t ** ) ) );
             for( input_t j= 0 ; j < net->wiring[i].arrays ; j++ ){
@@ -139,12 +172,8 @@ struct net_s *buildnet( net_s *net ){
                 break;
         }
     }
-    for( layer_t i= 0 ; i < net->layers ; i++ ) for( uint16_t j= 0 ; j < net->neurons[i] ; j++){
-        if( i ){
-            net->nn[i][j].inputs= net->wiring[i - 1].size[net->nn[i][j].bff_idx];
-            net->nn[i][j].in= net->bff[i - 1][net->nn[i][j].bff_idx];
-        }
-        net->nn[i][j].w= createregister( (void *)net , calloc( net->nn[i][j].inputs , sizeof( weight_t ) ) );
-    }
+    defineneurons( net );
+    buildneurons( net );
+    for( layer_t i= 0 ; i < net->layers ; i++ ) for( uint16_t j= 0 ; j < net->neurons[i] ; j++) net->nn[i][j].in= i ? net->bff[i - 1][net->nn[i][j].bff_idx] : net->in;
     return net;
 }

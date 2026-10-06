@@ -6,6 +6,6 @@ var searchData=
   ['wiring_5fs_3',['wiring_s',['../structwiring__s.html',1,'wiring_s'],['../ntcore_8h.html#a67d4a57ca681ab9757f6dd9a04e419fb',1,'wiring_s:&#160;ntcore.h']]],
   ['wiring_5fs_2edox_4',['wiring_s.dox',['../wiring__s_8dox.html',1,'']]],
   ['workflow_20solutions_5',['Workflow Solutions',['../group__NTErgonomics.html',1,'']]],
-  ['works_20from_20scratch_6',['Learn how it works from scratch',['..//home/titux/DEV/NeuroTIC/NeuroTIC/README.md#learn-how-it-works-from-scratch',1,'']]],
+  ['works_20from_20scratch_6',['Learn how it works from scratch',['..//home/titux/DEV/AssistantX/user/projects/UXCONTROL/UXCONTROL/neurotic_api/NeuroTIC/README.md#learn-how-it-works-from-scratch',1,'']]],
   ['write_20your_20code_7',['Write Your Code',['../index.html#write-your-code',1,'']]]
 ];

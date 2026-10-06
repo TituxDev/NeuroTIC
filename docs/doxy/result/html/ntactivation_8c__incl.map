@@ -1,7 +1,7 @@
-<map id="/home/titux/DEV/NeuroTIC/NeuroTIC/src/CPU/ntactivation.c" name="/home/titux/DEV/NeuroTIC/NeuroTIC/src/CPU/ntactivation.c">
-<area shape="rect" id="Node000001" title="Activation Functions List." alt="" coords="5,5,239,45"/>
-<area shape="rect" id="Node000002" href="$ntactivation_8h.html" title="Activation Functions List." alt="" coords="10,93,122,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,47,84,84,80,80,106,44"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="145,93,213,119"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="138,44,165,80,161,84,134,47"/>
+<map id="/home/titux/DEV/AssistantX/user/projects/UXCONTROL/UXCONTROL/neurotic_api/NeuroTIC/src/CPU/ntactivation.c" name="/home/titux/DEV/AssistantX/user/projects/UXCONTROL/UXCONTROL/neurotic_api/NeuroTIC/src/CPU/ntactivation.c">
+<area shape="rect" id="Node000001" title="Activation Functions List." alt="" coords="5,5,260,75"/>
+<area shape="rect" id="Node000002" href="$ntactivation_8h.html" title="Activation Functions List." alt="" coords="21,123,133,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,76,93,112,88,109,110,73"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="156,123,224,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="156,73,178,109,173,112,151,76"/>
 </map>

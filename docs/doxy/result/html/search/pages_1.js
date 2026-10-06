@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['commercial_20license_20agreement_0',['NeuroTIC Commercial License Agreement',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2COMMERCIAL__LICENSE.html',1,'']]],
-  ['contributing_20to_20neurotic_1',['Contributing to NeuroTIC',['../md__2home_2titux_2DEV_2NeuroTIC_2NeuroTIC_2CONTRIBUTING.html',1,'']]]
+  ['commercial_20license_20agreement_0',['NeuroTIC Commercial License Agreement',['../md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2COMMERCIAL__LICENSE.html',1,'']]],
+  ['contributing_20to_20neurotic_1',['Contributing to NeuroTIC',['../md__2home_2titux_2DEV_2AssistantX_2user_2projects_2UXCONTROL_2UXCONTROL_2neurotic__api_2NeuroTIC_2CONTRIBUTING.html',1,'']]]
 ];
