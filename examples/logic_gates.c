@@ -127,7 +127,7 @@ int main( void ){
     printf( "\n|---|---|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|" );
     for( sample_t i= 0 ; i < data.samples ; i++ ){
         for( input_t j= 0 ; j < network.inputs ; j++ ) network.in[j]= &data.in[i][j];
-        feedforward( &network );
+        feedforward( &network, NULL );
         printf( "\n| %.0f | %.0f |" , data.in[i][0] , data.in[i][1] );
         for( uint16_t j= 0 ; j < network.neurons[network.layers - 1] ; j++ ) printf( "   %.0f  |" , *network.out[j] );
     }
@@ -145,7 +145,7 @@ int main( void ){
     printf( "\n|---|---|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|------|" );
     for( sample_t i= 0 ; i < data.samples ; i++ ){
         for( input_t j= 0 ; j < network.inputs ; j++ ) network.in[j]= &data.in[i][j];
-        feedforward( &network );
+        feedforward( &network, NULL );
         printf( "\n| %.0f | %.0f |" , data.in[i][0] , data.in[i][1] );
         for( uint16_t j= 0 ; j < network.neurons[network.layers - 1] ; j++ ) printf( "   %.0f  |" , *network.out[j] );
     }

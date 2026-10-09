@@ -70,7 +70,7 @@ int main( void ){
       .layers= sizeof( (uint16_t []){ NEURONS_PER_LAYER } ) / sizeof( uint16_t )
   };
   newnet( &NETWORK_NAME , (uint16_t []){NEURONS_PER_LAYER} , NETWORK_NAME.layers );
-  newfeedforward( &NETWORK_NAME );
+  newfeedforward( &NETWORK_NAME , NULL );
   buildnet( &NETWORK_NAME );
 
   // Select activation functions for each neuron
@@ -106,7 +106,7 @@ int main( void ){
   for( uint8_t i= 0 ; i < TRAINING_SAMPLES ; i++ ){
     if( printf( "\n%i" , i ) < 3 ) printf( " " );
     NETWORK_NAME.in[0][0]= i;
-    feedforward( &NETWORK_NAME );
+    feedforward( &NETWORK_NAME , NULL );
     for( uint16_t j= 0 ; j < TRAINING_SAMPLES ; j++ ) printf( "  %.0f" , *NETWORK_NAME.out[j] );
   } 
 
