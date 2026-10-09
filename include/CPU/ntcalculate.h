@@ -42,6 +42,6 @@ data_t activate( neuron_s *neuron );
  * failing predictably. Add a check for every `net_s::in[i]` before
  * computing.
  */
-data_t **feedforward( net_s *net );
+data_t **feedforward( net_s *net , void (*input)( net_s * , layer_t , uint16_t) );
 
 #endif // NTCALCULATE_H

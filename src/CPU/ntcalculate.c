@@ -53,7 +53,7 @@ data_t activate( neuron_s *neuron ){
  * `buildnet()`. All other buffer entries are read as-is via their existing
  * pointer connections.
  */
-data_t **feedforward( net_s *net ){
+data_t **feedforward( net_s *net , void (*input)( net_s * , layer_t , uint16_t )){
     if( !net ) return NULL;
     for( layer_t i= 0 ; i < net->layers ; i++ ){
         for( uint16_t j= 0 ; j < net->neurons[i] ; j++ ){
@@ -62,6 +62,7 @@ data_t **feedforward( net_s *net ){
                     net->bff[i - 1][net->nn[i][j].bff_idx][k]= net->in[net->wiring[i - 1].src_index[net->nn[i][j].bff_idx][k]];
                     break;
             }
+            if( input ) input( net , i , j );
             activate( &net->nn[i][j] );
         }
     }

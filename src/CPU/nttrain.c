@@ -76,7 +76,7 @@ attempts_t backpropagation( net_s *net , traindata_t *train_data ){
         err_total= 0;
         for( sample_t i= 0 ; i < train_data->samples ; i++ ){
             memcpy( in , train_data->in[i] , inputs_size );
-            feedforward( net );
+            feedforward( net , NULL);
             for( uint16_t j= 0 ; j < net->neurons[prev_layer] ; j++ ){
                 err_total+= fabsf( delta[j]= train_data->results[i][j] - *net->out[j] );
                 delta[j]*= ntact_activation[net->nn[prev_layer][j].fn][1]( weighing( &net->nn[prev_layer][j]));
